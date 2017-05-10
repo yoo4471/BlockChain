@@ -1,0 +1,197 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+{% include 'header.html' %}
+
+<!-- progress -->
+<div>
+	<div class="progress-bar__container">
+		<div>
+			<span>
+			<div class="progress-section progress__bar-section progress-section--first progress-section--completed" style="width: 16.666666666666668%; left: 0%; max-width: 100%;">
+			</div>
+			<div class="progress-section progress__bar-section progress-section--completed progress-section--last-completed" style="width: 16.666666666666668%; left: 16.666666666666668%; max-width: 83.33333333333333%;">
+			</div>
+			<div class="progress-section progress__bar-section" style="width: 16.666666666666668%; left: 33.333333333333336%; max-width: 66.66666666666666%;">
+			</div>
+			<div class="progress-section progress__bar-section" style="width: 16.666666666666668%; left: 50%; max-width: 50%;">
+			</div>
+			<div class="progress-section progress__bar-section" style="width: 16.666666666666668%; left: 66.66666666666667%; max-width: 33.33333333333333%;">
+			</div>
+			<div class="progress-section progress__bar-section" style="width: 16.666666666666668%; left: 83.33333333333334%; max-width: 16.666666666666657%;">
+			</div>
+			</span>
+		</div>
+	</div>
+</div>
+<!-- progress -->
+
+<div class="left-backdrop"></div>
+<div class="right-backdrop hide-sm bg-white right-backdrop--with-bg"></div>
+<div class="list-your-space__content">
+	<div class="centered-content clearfix">
+    <form accept-charset="UTF-8" action="/enrollment_home/room" class="room" data-action="Room" method="post">
+		<div class="main-panel-container no-padding-h bg-white main-panel-outer-half clearfix" tabindex="-1">
+			<!-- react-empty: 97 -->
+			<div class="main-panel main-panel-padding main-panel-progress pull-right main-panel-inner-half space-sm-8">
+				<div class="panel--no-border panel-title">
+					<h3 class="no-margin-padding">등록하실 숙소 종류는 무엇인가요?</h3>
+				</div>
+				<!-- react-empty: 101 -->
+        <div>
+					<div class="space-4">
+						<div>
+							<label for="house-type" class="h4 text-gray text-normal"><span>숙소의 건물 유형을 알려주세요.</span></label>
+							<div class="select select-block select-jumbo">
+								<!-- react-empty: 108 -->
+								<select id="house-type" name="house_type" class="">
+									<option value="" disabled=""></option>
+									<option value="2">단독주택</option>
+									<option value="1">아파트</option>
+									<option value="-1" disabled="">──────────────</option>
+									<option value="3">B&amp;B</option>
+									<option value="43">부티크 호텔</option>
+									<option value="44">산장</option>
+									<option value="45">호스텔</option>
+									<option value="46">리조트 이용권</option>
+									<option value="47">레지던스</option>
+									<option value="48">민수(타이완)</option>
+									<option value="49">료칸(일본)</option>
+									<option value="50">펜션(한국)</option>
+									<option value="51">헤리티지 호텔(인도)</option>
+									<option value="-2" disabled="">──────────────</option>
+									<option value="8">배</option>
+									<option value="38">방갈로</option>
+									<option value="4">통나무집</option>
+									<option value="5">성</option>
+									<option value="18">동굴</option>
+									<option value="22">샬레(Chalet)</option>
+									<option value="37">아파트(콘도미니엄)</option>
+									<option value="9">기숙사</option>
+									<option value="23">흙집</option>
+									<option value="40">게스트하우스</option>
+									<option value="24">오두막</option>
+									<option value="12">이글루</option>
+									<option value="19">섬</option>
+									<option value="10">등대</option>
+									<option value="35">로프트</option>
+									<option value="28">비행기</option>
+									<option value="32">캠핑카</option>
+									<option value="34">텐트</option>
+									<option value="16">티피(Tipi)</option>
+									<option value="36">타운하우스</option>
+									<option value="25">기차</option>
+									<option value="6">트리하우스</option>
+									<option value="11">별장/타운하우스</option>
+									<option value="15">유르트(Yurt)</option>
+									<option value="33">기타</option>
+								</select>
+							</div>
+						</div>
+					</div>
+
+					<!-- 방 개수 -->
+					<div class="row space-4 no-margin-h">
+	            <div>
+	                <!-- react-empty: 5782 -->
+									<label for="house-type" class="h4 text-gray text-normal"><span>방은 몇 개인가요?</span></label>
+	                <div class="increment-btn no-padding">
+	                    <div class="increment-btn btn-group no-padding">
+	                        <div class="text-gray btn increment-btn__label increment-jumbo increment-btn__label--with-increment-btns" tabindex="0" role="textbox">
+	                            <div class="increment-btn__border-container-label text-truncated">
+																<span class="text-muted">
+																	<span id="span_number_of_room">방 1개</span>
+																	<input id="input_number_of_room" type="hidden" name="number_of_room" value="1">
+																</span>
+	                            </div>
+	                        </div>
+													<button onclick="onClicked_Minus(this)" type="button" class="btn btn-jumbo increment-btn__decrementer" aria-label="minus 1">
+														<div class="increment-btn__border-container-decrementer"></div>
+													</button>
+													<button onclick="onClicked_Plus(this)" type="button" class="btn btn-jumbo increment-btn__incrementer increment-btn__incrementer" aria-label="plus 1">
+													</button>
+												</div>
+	                </div>
+	            </div>
+	        </div>
+					<!-- 방 개수 -->
+
+
+				</div>
+			</div>
+      <div class="main-panel__actions-wrapper">
+        <div class="centered-content clearfix">
+          <div class="bg-white main-panel-outer-half clearfix">
+            <div class="no-margin-padding__sm main-panel-padding main-panel-progress pull-right main-panel-inner-half space-sm-8">
+              <div class="divider hide-sm">
+              </div>
+              <div class="row no-margin-padding__sm">
+                <div class="main-panel__actions col-sm-12 no-margin-padding__sm">
+                  <div>
+                    <a class="btn-progress-back link-icon va-container va-container-v pull-left text-gray link--accessibility-outline" href="/enrollment_home/address">
+                      <span class="icon hide-sm"></span>
+                      <span class="va-middle"><h5 class="text-normal"><span>뒤로</span></h5></span>
+                    </a>
+                    <button type="submit" class="btn btn-large btn-progress-next btn-large__next-btn pull-right-md btn-primary" id="user-login-btn">
+                      <div class="btn-progress-next__text">
+                        <span>다음</span>
+                      </div> </button>
+                    <!-- <a class="btn btn-large btn-progress-next btn-large__next-btn pull-right-md btn-primary" href="/test">
+                      <div class="btn-progress-next__text">
+                        <span>다음</span>
+                      </div>
+                    </a> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+			<div class="waypoint-container">
+				<span style="font-size: 0px;"></span>
+			</div>
+		</div>
+  </form>
+
+    <!-- Help (Right side) -->
+		<div class="help-panel-container">
+			<div class="hide-sm help-panel panel">
+				<div class="panel-body">
+					<div class="help-panel__bulb-img space-2">
+					</div>
+					<div class="help-panel__text">
+						<div>
+							<p>
+								<span class="help-panel__title"><span>집 전체</span><br>
+								</span><span>게스트에게 별채를 포함한 집 전체를 빌려줍니다.</span>
+							</p>
+							<p>
+								<span class="help-panel__title"><span>개인실</span><br>
+								</span><span>호스트와 공유하는 공간이 있긴 하지만 게스트에게 잠을 잘 수 있는 개인실이 제공됩니다.</span>
+							</p>
+							<p>
+								<span class="help-panel__title"><span>다인실</span><br>
+								</span><span>게스트가 단독으로 쓸 수 있는 방이 제공되지 않습니다.</span>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="show-sm help-panel__floating-container">
+				<!-- react-empty: 200 -->
+				<span class="tooltip-popup__transition-container">
+				<div class="help-panel--collapsed help-panel__bulb-img-bubble">
+					<div class="help-panel__bulb-img img-center">
+					</div>
+				</div>
+				<!-- react-empty: 204 -->
+				</span>
+			</div>
+		</div>
+    <!-- Help (Right side) -->
+	</div>
+</div>
+
+{% endblock %}

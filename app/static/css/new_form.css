@@ -1,0 +1,10 @@
+.col-md-6-s, .col-sm-12-s{
+  position:relative;
+	min-height:1px;
+	padding-left:93px;
+	padding-right:93px
+}
+.col-md-6-s{
+  width:50%;
+  float:left
+}

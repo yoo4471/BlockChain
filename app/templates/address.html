@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+{% include 'header.html' %}
+
+<!-- Progress 1/3 -->
+<div>
+	<div class="progress-bar__container">
+		<div>
+			<span>
+			<div class="progress-section progress__bar-section" style="width: 16.666666666666668%; left: 0%; max-width: 100%;">
+			</div>
+			<div class="progress-section progress__bar-section" style="width: 16.666666666666668%; left: 16.666666666666668%; max-width: 83.33333333333333%;">
+			</div>
+			<div class="progress-section progress__bar-section" style="width: 16.666666666666668%; left: 33.333333333333336%; max-width: 66.66666666666666%;">
+			</div>
+			<div class="progress-section progress__bar-section" style="width: 16.666666666666668%; left: 50%; max-width: 50%;">
+			</div>
+			<div class="progress-section progress__bar-section" style="width: 16.666666666666668%; left: 66.66666666666667%; max-width: 33.33333333333333%;">
+			</div>
+			<div class="progress-section progress__bar-section" style="width: 16.666666666666668%; left: 83.33333333333334%; max-width: 16.666666666666657%;">
+			</div>
+			</span>
+		</div>
+	</div>
+</div>
+<!-- Progress 1/3 -->
+
+<div class="left-backdrop"></div>
+<div class="right-backdrop hide-sm bg-white right-backdrop--with-bg"></div>
+<div class="list-your-space__content">
+    <div class="centered-content clearfix">
+        <div>
+					<form accept-charset="UTF-8" action="/enrollment_home/address" class="room" data-action="Room" method="post">
+            <div class="main-panel-container no-padding-h bg-white main-panel-outer-half clearfix" tabindex="-1">
+                <!-- react-empty: 1167 -->
+                <div class="main-panel main-panel-padding main-panel-progress pull-right main-panel-inner-half space-sm-8">
+                    <div class="panel--no-border panel-title">
+                        <h3 class="no-margin-padding">숙소의 위치를 알려주세요.</h3>
+                    </div>
+                    <div>
+                        <!-- react-empty: 1172 -->
+                        <form>
+                            <div><label for="address-form-field-country_code"><span>국가</span></label>
+                                <div class="select select-block select-jumbo whole-width"><select class="" name="country_code" id="address-form-field-country_code"><option value="">국가 선택</option><option value="CG" data-prefix="242">콩고</option><option value="CD" data-prefix="243">콩고 민주 공화국</option><option value="XK" data-prefix="383">코소보</option><option value="MK" data-prefix="389">마케도니아</option><option value="GH" data-prefix="233">가나</option><option value="GA" data-prefix="241">가봉</option><option value="GY" data-prefix="592">가이아나</option><option value="GM" data-prefix="220">감비아</option><option value="GG" data-prefix="44">건지</option><option value="GP" data-prefix="590">과들루프</option><option value="GT" data-prefix="502">과테말라</option><option value="GU" data-prefix="1">괌</option><option value="GD" data-prefix="1">그레나다</option><option value="GE" data-prefix="995">그루지야</option><option value="GR" data-prefix="30">그리스</option><option value="GL" data-prefix="299">그린란드</option><option value="GW" data-prefix="245">기네비쏘</option><option value="GN" data-prefix="224">기니</option><option value="CV" data-prefix="238">까뽀베르데</option><option value="NA" data-prefix="264">나미비아</option><option value="NR" data-prefix="674">나우루</option><option value="NG" data-prefix="234">나이지리아</option><option value="SS" data-prefix="211">남수단</option><option value="ZA" data-prefix="27">남아프리카</option><option value="NL" data-prefix="31">네덜란드</option><option value="BQ" data-prefix="599">네덜란드령 카리브</option><option value="NP" data-prefix="977">네팔</option><option value="NO" data-prefix="47">노르웨이</option><option value="NF" data-prefix="672">노퍽섬</option><option value="NC" data-prefix="687">뉴 칼레도니아</option><option value="NZ" data-prefix="64">뉴질랜드</option><option value="NU" data-prefix="683">니우에</option><option value="NE" data-prefix="227">니제르</option><option value="NI" data-prefix="505">니카라과</option><option value="TW" data-prefix="886">대만</option><option value="DK" data-prefix="45">덴마크</option><option value="DM" data-prefix="1">도미니카</option><option value="DO" data-prefix="1">도미니카 공화국</option><option value="DE" data-prefix="49">독일</option><option value="TL" data-prefix="670">동티모르</option><option value="LA" data-prefix="856">라오스</option><option value="LR" data-prefix="231">라이베리아</option><option value="LV" data-prefix="371">라트비아</option><option value="RU" data-prefix="7">러시아</option><option value="LB" data-prefix="961">레바논</option><option value="LS" data-prefix="266">레소토</option><option value="RO" data-prefix="40">루마니아</option><option value="LU" data-prefix="352">룩셈부르크</option><option value="RW" data-prefix="250">르완다</option><option value="LY" data-prefix="218">리비아</option><option value="RE" data-prefix="262">리유니온</option><option value="LT" data-prefix="370">리투아니아</option><option value="LI" data-prefix="423">리히텐슈타인</option><option value="MG" data-prefix="261">마다가스카르</option><option value="MH" data-prefix="692">마샬 군도</option><option value="YT" data-prefix="262">마요티</option><option value="MO" data-prefix="853">마카오</option><option value="MW" data-prefix="265">말라위</option><option value="MY" data-prefix="60">말레이시아</option><option value="ML" data-prefix="223">말리</option><option value="MQ" data-prefix="596">말티니크</option><option value="IM" data-prefix="44">맨 섬</option><option value="MX" data-prefix="52">멕시코</option><option value="MC" data-prefix="377">모나코</option><option value="MA" data-prefix="212">모로코</option><option value="MU" data-prefix="230">모리셔스</option><option value="MR" data-prefix="222">모리타니</option><option value="MZ" data-prefix="258">모잠비크</option><option value="ME" data-prefix="382">몬테네그로</option><option value="MS" data-prefix="1">몬트세라트</option><option value="MD" data-prefix="373">몰도바</option><option value="MV" data-prefix="960">몰디브</option><option value="MT" data-prefix="356">몰타</option><option value="MN" data-prefix="976">몽골</option><option value="US" data-prefix="1">미국</option><option value="VI" data-prefix="1">미국령 버진 아일랜드</option><option value="MM" data-prefix="95">미얀마</option><option value="FM" data-prefix="691">미크로네시아</option><option value="VU" data-prefix="678">바누아투</option><option value="BH" data-prefix="973">바레인</option><option value="BB" data-prefix="1">바베이도스</option><option value="VA" data-prefix="379">바티칸</option><option value="BS" data-prefix="1">바하마</option><option value="BD" data-prefix="880">방글라데시</option><option value="BM" data-prefix="1">버뮤다</option><option value="BJ" data-prefix="229">베냉</option><option value="VE" data-prefix="58">베네수엘라</option><option value="VN" data-prefix="84">베트남</option><option value="BE" data-prefix="32">벨기에</option><option value="BY" data-prefix="375">벨라루스</option><option value="BZ" data-prefix="501">벨리즈</option><option value="BA" data-prefix="387">보스니아 헤르체고비나</option><option value="BW" data-prefix="267">보츠와나</option><option value="BO" data-prefix="591">볼리비아</option><option value="BI" data-prefix="257">부룬디</option><option value="BF" data-prefix="226">부르키나파소</option><option value="BT" data-prefix="975">부탄</option><option value="MP" data-prefix="1">북마리아나제도</option><option value="BG" data-prefix="359">불가리아</option><option value="BR" data-prefix="55">브라질</option><option value="BN" data-prefix="673">브루나이</option><option value="WS" data-prefix="685">사모아</option><option value="SA" data-prefix="966">사우디아라비아</option><option value="GS" data-prefix="500">사우스조지아 사우스샌드위치 제도</option><option value="CY" data-prefix="357">사이프러스</option><option value="SM" data-prefix="378">산마리노</option><option value="ST" data-prefix="239">상투메 프린시페</option><option value="MF" data-prefix="590">생 마르탱</option><option value="BL" data-prefix="590">생 바르텔르미</option><option value="EH" data-prefix="212">서사하라</option><option value="SN" data-prefix="221">세네갈</option><option value="RS" data-prefix="381">세르비아</option><option value="LC" data-prefix="1">세인트루시아</option><option value="VC" data-prefix="1">세인트빈센트그레나딘</option><option value="KN" data-prefix="1">세인트크리스토퍼 네비스</option><option value="PM" data-prefix="508">세인트피에르-미케롱</option><option value="SH" data-prefix="290">세인트헬레나</option><option value="SO" data-prefix="252">소말리아</option><option value="SB" data-prefix="677">솔로몬 제도</option><option value="SR" data-prefix="597">수리남</option><option value="SC" data-prefix="248">쉐이쉘</option><option value="LK" data-prefix="94">스리랑카</option><option value="SJ" data-prefix="47">스발바르제도-얀마웬섬</option><option value="SZ" data-prefix="268">스와질랜드</option><option value="SE" data-prefix="46">스웨덴</option><option value="CH" data-prefix="41">스위스</option><option value="ES" data-prefix="34">스페인</option><option value="SK" data-prefix="421">슬로바키아</option><option value="SI" data-prefix="386">슬로베니아</option><option value="SL" data-prefix="232">시에라리온</option><option value="SX" data-prefix="1">신트마르턴</option><option value="SG" data-prefix="65">싱가포르</option><option value="AE" data-prefix="971">아랍에미리트 연합</option><option value="AW" data-prefix="297">아루바</option><option value="AM" data-prefix="374">아르메니아</option><option value="AR" data-prefix="54">아르헨티나</option><option value="AS" data-prefix="1">아메리칸 사모아</option><option value="IS" data-prefix="354">아이슬란드</option><option value="HT" data-prefix="509">아이티</option><option value="IE" data-prefix="353">아일랜드</option><option value="AZ" data-prefix="994">아제르바이잔</option><option value="AF" data-prefix="93">아프가니스탄</option><option value="AI" data-prefix="1">안길라</option><option value="AD" data-prefix="376">안도라</option><option value="AL" data-prefix="355">알바니아</option><option value="DZ" data-prefix="213">알제리</option><option value="AO" data-prefix="244">앙골라</option><option value="AG" data-prefix="1">앤티가 바부다</option><option value="ER" data-prefix="291">에리트리아</option><option value="EE" data-prefix="372">에스토니아</option><option value="EC" data-prefix="593">에콰도르</option><option value="SV" data-prefix="503">엘살바도르</option><option value="GB" data-prefix="44">영국</option><option value="VG" data-prefix="1">영국령 버진 아일랜드</option><option value="IO" data-prefix="246">영국령인도양식민지</option><option value="YE" data-prefix="967">예멘</option><option value="OM" data-prefix="968">오만</option><option value="AU" data-prefix="61">오스트레일리아</option><option value="AT" data-prefix="43">오스트리아</option><option value="HN" data-prefix="504">온두라스</option><option value="AX" data-prefix="358">올란드 제도</option><option value="WF" data-prefix="681">왈리스-푸투나 제도</option><option value="JO" data-prefix="962">요르단</option><option value="UG" data-prefix="256">우간다</option><option value="UY" data-prefix="598">우루과이</option><option value="UZ" data-prefix="998">우즈베키스탄</option><option value="UA" data-prefix="380">우크라이나</option><option value="ET" data-prefix="251">이디오피아</option><option value="IQ" data-prefix="964">이라크</option><option value="IL" data-prefix="972">이스라엘</option><option value="EG" data-prefix="20">이집트</option><option value="IT" data-prefix="39">이탈리아</option><option value="IN" data-prefix="91">인도</option><option value="ID" data-prefix="62">인도네시아</option><option value="JP" data-prefix="81">일본</option><option value="JM" data-prefix="1">자메이카</option><option value="ZM" data-prefix="260">잠비아</option><option value="JE" data-prefix="44">저지</option><option value="GQ" data-prefix="240">적도 기니</option><option value="CN" data-prefix="86">중국</option><option value="CF" data-prefix="236">중앙 아프리카 공화국</option><option value="DJ" data-prefix="253">지부티</option><option value="GI" data-prefix="350">지브롤터</option><option value="ZW" data-prefix="263">짐바브웨</option><option value="TD" data-prefix="235">차드</option><option value="CZ" data-prefix="420">체코</option><option value="CL" data-prefix="56">칠레</option><option value="CM" data-prefix="237">카메룬</option><option value="KZ" data-prefix="7">카자흐스탄</option><option value="QA" data-prefix="974">카타르</option><option value="KH" data-prefix="855">캄보디아</option><option value="CA" data-prefix="1">캐나다</option><option value="KE" data-prefix="254">케냐</option><option value="KY" data-prefix="1">케이맨제도</option><option value="KM" data-prefix="269">코모로스</option><option value="CR" data-prefix="506">코스타리카</option><option value="CC" data-prefix="61">코코스제도</option><option value="CI" data-prefix="225">코트디부아르</option><option value="CO" data-prefix="57">콜롬비아</option><option value="CU" data-prefix="53">쿠바</option><option value="KW" data-prefix="965">쿠웨이트</option><option value="CK" data-prefix="682">쿡제도</option><option value="CW" data-prefix="599">퀴라소</option><option value="HR" data-prefix="385">크로아티아</option><option value="CX" data-prefix="61">크리스마스섬</option><option value="KG" data-prefix="996">키르기스스탄</option><option value="KI" data-prefix="686">키리바시</option><option value="TJ" data-prefix="992">타지키스탄</option><option value="TZ" data-prefix="255">탄자니아</option><option value="TH" data-prefix="66">태국</option><option value="TC" data-prefix="1">터크스케이커스제도</option><option value="TR" data-prefix="90">터키</option><option value="TG" data-prefix="228">토고</option><option value="TK" data-prefix="690">토켈라우</option><option value="TO" data-prefix="676">통가</option><option value="TM" data-prefix="993">투르크메니스탄</option><option value="TV" data-prefix="688">투발루</option><option value="TN" data-prefix="216">튀니지</option><option value="TT" data-prefix="1">트리니다드 토바고</option><option value="PA" data-prefix="507">파나마</option><option value="PY" data-prefix="595">파라과이</option><option value="PK" data-prefix="92">파키스탄</option><option value="PG" data-prefix="675">파푸아뉴기니</option><option value="PW" data-prefix="680">팔라우</option><option value="PS" data-prefix="970">팔레스타인 지구</option><option value="FO" data-prefix="298">페로제도</option><option value="PE" data-prefix="51">페루</option><option value="PT" data-prefix="351">포르투갈</option><option value="FK" data-prefix="500">포클랜드 제도[말비나스 군도]</option><option value="PL" data-prefix="48">폴란드</option><option value="PR" data-prefix="1">푸에르토리코</option><option value="FR" data-prefix="33">프랑스</option><option value="GF" data-prefix="594">프랑스령 기아나</option><option value="PF" data-prefix="689">프랑스령 폴리네시아</option><option value="FJ" data-prefix="679">피지</option><option value="FI" data-prefix="358">핀란드</option><option value="PH" data-prefix="63">필리핀</option><option value="PN" data-prefix="64">핏케언섬</option><option value="KR" data-prefix="82">한국</option><option value="HU" data-prefix="36">헝가리</option><option value="HK" data-prefix="852">홍콩</option></select></div>
+                            </div>
+                            <div class="row">
+                                <div class="space-top-2 col-sm-12 col-md-6"><label for="address-form-field-state"><span>도/시</span></label><input type="text" class="input input-block input-jumbo lys-address-form__input lys-invalid" id="address-form-field-state" name="state" autocomplete="off" placeholder="예) 서울특별시"></div>
+                                <div class="space-top-2 col-sm-12 col-md-6"><label for="address-form-field-city"><span>시/군</span></label><input type="text" class="input input-block input-jumbo lys-address-form__input lys-invalid" id="address-form-field-city" name="city" autocomplete="off" placeholder="예) 강남구" value={{ city }}></div>
+                                <div class="space-top-2 col-sm-12"><label for="address-form-field-street"><span>도로명 / 건물번호 / 아파트 이름 / 건물 이름</span></label><input type="text" class="input input-block input-jumbo lys-address-form__input lys-invalid" id="address-form-field-street" name="street" autocomplete="off" placeholder="예) 언주로 406"></div>
+                                <div class="space-top-2 col-sm-12"><label for="address-form-field-apt"><span>빌딩 번호, 빌딩/아파트 이름(및 호실)</span></label><input type="text" class="input input-block input-jumbo lys-address-form__input" id="address-form-field-apt" name="apt" autocomplete="off" placeholder="예) 35동 4층 407호"></div>
+                                <div class="space-top-2 col-sm-12 col-md-6"><label for="address-form-field-zipcode"><span>우편번호</span></label><input type="text" class="input input-block input-jumbo lys-address-form__input lys-invalid" id="address-form-field-zipcode" name="zipcode" autocomplete="off" placeholder="예) 13591"></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="main-panel__actions-wrapper">
+                    <div class="centered-content clearfix">
+                        <div class="bg-white main-panel-outer-half clearfix shadowed">
+                            <div class="no-margin-padding__sm main-panel-padding main-panel-progress pull-right main-panel-inner-half space-sm-8">
+                                <div class="divider hide-sm"></div>
+                                <div class="row no-margin-padding__sm">
+                                    <div class="main-panel__actions col-sm-12 no-margin-padding__sm">
+                                        <div><a class="btn-progress-back link-icon va-container va-container-v pull-left text-gray link--accessibility-outline" href="/"><span class="icon hide-sm"></span><span class="va-middle"><h5 class="text-normal"><span>뒤로</span></h5></span></a>
+                                            <button type="submit" class="btn btn-large btn-progress-next btn-large__next-btn pull-right-md btn-primary" id="user-login-btn">
+                                                <div class="btn-progress-next__text"><span>다음</span></div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="waypoint-container"><span style="font-size: 0px;"></span></div>
+            </div>
+					</form>
+						<!-- Help (Right side) -->
+            <div class="help-panel-container">
+                <div class="hide-sm help-panel panel">
+                    <div class="panel-body">
+                        <div class="help-panel__bulb-img space-2"></div>
+                        <div class="help-panel__text">
+                            <div>
+                                <p><span>정확한 주소는 예약이 확정된 게스트에게만 공개됩니다.</span></p>
+                                <div class="tip-address-img"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="show-sm help-panel__floating-container">
+                    <!-- react-empty: 1470 --><span class="tooltip-popup__transition-container"><div class="help-panel--collapsed help-panel__bulb-img-bubble"><div class="help-panel__bulb-img img-center"></div></div><!-- react-empty: 1474 --></span></div>
+            </div>
+						<!-- Help (Right side) -->
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,1061 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+
+{% include 'header.html' %}
+
+
+
+<!-- 숙소검색 -->
+  <main id="site-content" role="main">
+    <style data-aphrodite>
+    .page_13hv8io{position:relative !important;}.adaptableContainer_1bv2xpm{min-height:400px !important;}@media (min-width: 1128px){.textHeaderContainer_7g4ol{width:80% !important;}}.textHeader_1yif89n{font-family:inherit !important;font-size:48px !important;line-height:56px !important;letter-spacing:-0.8px !important;padding-top:8px !important;padding-bottom:8px !important;color:#484848 !important;margin:0px !important;font-weight:200 !important;}@media (max-width: 743px){.textHeader_1yif89n{font-family:inherit !important;font-size:28px !important;line-height:36px !important;letter-spacing:-0.6px !important;padding-top:2px !important;padding-bottom:2px !important;color:#484848 !important;margin:0px !important;font-weight:300 !important;}@media (max-width: 743px){.textHeader_1yif89n{font-size:25px !important;line-height:30px !important;letter-spacing:-0.6px !important;}}}.textHeader_rausch_14b1e4e{font-weight:700 !important;color:#FF5A5F !important;}.pageContainer_85zg64-o_O-pageContainer_verticalSpacingTop_1f5xw8o{max-width:1080px !important;margin:0 auto !important;position:relative !important;padding-left:0px !important;padding-right:0px !important;padding-top:24px !important;}@media (max-width: 1127px){.pageContainer_85zg64-o_O-pageContainer_verticalSpacingTop_1f5xw8o{padding-left:24px !important;padding-right:24px !important;}}@media (min-width: 744px){.pageContainer_85zg64-o_O-pageContainer_verticalSpacingTop_1f5xw8o{padding-top:48px !important;}}.container_avg348-o_O-mediumAndAbove_1fqrq3n{display:none !important;}@media (min-width: 744px){.container_avg348-o_O-mediumAndAbove_1fqrq3n{display:block !important;}}.container_2jlos-o_O-mediumAndAbove_dzkbme{display:block !important;}@media (min-width: 744px){.container_2jlos-o_O-mediumAndAbove_dzkbme{display:none !important;}}.container_157txhx{display:block !important;position:relative !important;width:100% !important;padding:16px !important;border:1px solid #dce0e0 !important;border-radius:4px !important;box-shadow:0 1px 3px 0 #dce0e0 !important;background:#ffffff !important;}.inputContainer_2ci0p{display:block !important;width:100% !important;vertical-align:middle !important;}.fakeInput_wlvusc{font-family:Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;font-size:19px !important;line-height:24px !important;letter-spacing:-0.5px !important;padding-top:0px !important;padding-bottom:0px !important;color:#767676 !important;margin:0px !important;display:block !important;overflow:hidden !important;white-space:nowrap !important;text-overflow:ellipsis !important;padding-right:38px !important;}.button_1hueyqh{border:none !important;background:#ffffff !important;height:26px !important;padding:0px !important;vertical-align:middle !important;position:absolute !important;right:16px !important;top:15px !important;}.container_1qdkg78{background-color:#ffffff !important;}.container_1dkwj7e{margin-top:0px !important;margin-bottom:0px !important;margin-left:auto !important;margin-right:auto !important;text-align:center !important;position:absolute !important;display:block !important;top:50% !important;left:50% !important;transform:translateX(-50%) translateY(-50%) !important;-webkit-transform:translateX(-50%) translateY(-50%) !important;-ms-transform:translateX(-50%) translateY(-50%) !important;}@keyframes keyframe_1fr1yn6{0%, 80%, 100%{opacity:0;}30%, 50%{opacity:1;}}.dot_1yhnfch-o_O-dotDefault_wivayp-o_O-dot1_129bpzm{width:6px !important;height:6px !important;margin-right:4px !important;border-radius:100% !important;display:inline-block !important;animation-name:keyframe_1fr1yn6 !important;animation-duration:0.8s !important;animation-iteration-count:infinite !important;animation-timing-function:linear !important;animation-fill-mode:both !important;vertical-align:middle !important;background-color:#00A699 !important;animation-delay:-0.3s !important;-webkit-animation-name:keyframe_1fr1yn6 !important;-webkit-animation-duration:0.8s !important;-webkit-animation-iteration-count:infinite !important;-webkit-animation-timing-function:linear !important;-webkit-animation-fill-mode:both !important;-webkit-animation-delay:-0.3s !important;}.dot_1yhnfch-o_O-dotDefault_wivayp-o_O-dot2_1si4tia{width:6px !important;height:6px !important;margin-right:4px !important;border-radius:100% !important;display:inline-block !important;animation-name:keyframe_1fr1yn6 !important;animation-duration:0.8s !important;animation-iteration-count:infinite !important;animation-timing-function:linear !important;animation-fill-mode:both !important;vertical-align:middle !important;background-color:#00A699 !important;animation-delay:-0.15s !important;-webkit-animation-name:keyframe_1fr1yn6 !important;-webkit-animation-duration:0.8s !important;-webkit-animation-iteration-count:infinite !important;-webkit-animation-timing-function:linear !important;-webkit-animation-fill-mode:both !important;-webkit-animation-delay:-0.15s !important;}.dot_1yhnfch-o_O-dotDefault_wivayp{width:6px !important;height:6px !important;margin-right:4px !important;border-radius:100% !important;display:inline-block !important;animation-name:keyframe_1fr1yn6 !important;animation-duration:0.8s !important;animation-iteration-count:infinite !important;animation-timing-function:linear !important;animation-fill-mode:both !important;vertical-align:middle !important;background-color:#00A699 !important;-webkit-animation-name:keyframe_1fr1yn6 !important;-webkit-animation-duration:0.8s !important;-webkit-animation-iteration-count:infinite !important;-webkit-animation-timing-function:linear !important;-webkit-animation-fill-mode:both !important;}
+    </style>
+    <div data-hypernova-key="p1page_containerbundlejs">
+      <div class="page_13hv8io" data-reactroot="" data-reactid="1" data-react-checksum="1052401032">
+        <div class="1pageContainer_85zg64-o_O-pageContainer_verticalSpacingTop_1f5xw8o" style="background-color:transparent;" data-reactid="2">
+          <!-- <div class="textHeaderContainer_7g4ol" data-reactid="3"> -->
+            <!-- <h1 class="textHeader_1yif89n" data-reactid="4"> -->
+              <!-- <span class="textHeader_rausch_14b1e4e" data-reactid="5"> -->
+            <!-- react-text: 6 -->
+            <!-- 에어비앤비에 오신 것을 환영합니다. -->
+            <!-- /react-text -->
+            <!-- react-text: 7 -->
+            <!-- /react-text -->
+              <!-- </span> -->
+            <!-- react-text: 8 -->
+            <!-- 전 세계의 독특한 숙소를 예약하고 살아보는 여행을 해 보세요. -->
+            <!-- /react-text -->
+            <!-- </h1> -->
+          <!-- </div> -->
+        <!-- </div> -->
+        <div class="pageContainer_85zg64-o_O-pageContainer_verticalSpacingTop_1f5xw8o" style="background-color:#ffffff;" data-reactid="9">
+          <div data-reactid="10">
+            <span style="font-size:0;" data-reactid="11"></span>
+            <div class="container_avg348-o_O-mediumAndAbove_1fqrq3n" data-reactid="12">
+              <div class="SearchForm row" role="search" data-reactid="13">
+                <form action="/s" method="get" data-reactid="14">
+                  <div class="SearchForm__inputs-wrapper col-md-12" data-reactid="15">
+                    <div class="SearchForm__row row" data-reactid="16">
+                      <div class="SearchForm__location" data-reactid="17">
+                        <label for="search-location" class="SearchForm__label" data-reactid="18"><span data-reactid="19">위치</span></label>
+                        <div data-reactid="20">
+                          <div data-reactid="21">
+                            <input type="text" class="LocationInput input-large" name="location" placeholder="지역명" autocomplete="off" id="search-location" value="" data-reactid="22"/>
+                          </div>
+                          <div class="DropDownWrapper col-md-12" data-reactid="23">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="SearchForm__dates text-left" data-reactid="24">
+                        <label for="startDate" class="SearchForm__label" data-reactid="25"><span data-reactid="26">날짜</span></label>
+                        <div class="DateRangePicker" data-reactid="27">
+                          <div data-reactid="28">
+                            <div class="DateRangePickerInput" data-reactid="29">
+                              <div class="DateInput" data-reactid="30">
+                                <input type="text" aria-label="체크인" class="DateInput__input" id="startDate" name="startDate" value="" placeholder="체크인" autocomplete="off" aria-describedby="" data-reactid="31"/>
+                                <!-- react-text: 32 -->
+                                <!-- /react-text -->
+                                <div class="DateInput__display-text" data-reactid="33">
+                                  체크인
+                                </div>
+                              </div>
+                              <div class="DateRangePickerInput__arrow" data-reactid="34">
+                                <svg viewbox="0 0 1000 1000" data-reactid="35"><path d="M694.4 242.4l249.1 249.1c11 11 11 21 0 32L694.4 772.7c-5 5-10 7-16 7s-11-2-16-7c-11-11-11-21 0-32l210.1-210.1H67.1c-13 0-23-10-23-23s10-23 23-23h805.4L662.4 274.5c-21-21.1 11-53.1 32-32.1z" data-reactid="36"></path></svg>
+                              </div>
+                              <div class="DateInput" data-reactid="37">
+                                <input type="text" aria-label="체크아웃" class="DateInput__input" id="endDate" name="endDate" value="" placeholder="체크아웃" autocomplete="off" aria-describedby="" data-reactid="38"/>
+                                <!-- react-text: 39 -->
+                                <!-- /react-text -->
+                                <div class="DateInput__display-text" data-reactid="40">
+                                  체크아웃
+                                </div>
+                              </div>
+                              <button type="button" class="DateRangePickerInput__clear-dates DateRangePickerInput__clear-dates--hide" data-reactid="41"><span class="screen-reader-only" data-reactid="42"><span data-reactid="43">날짜 선택 지우기</span></span><svg viewbox="0 0 12 12" data-reactid="44"><path fill-rule="evenodd" d="M11.53.47a.75.75 0 0 0-1.061 0l-4.47 4.47L1.529.47A.75.75 0 1 0 .468 1.531l4.47 4.47-4.47 4.47a.75.75 0 1 0 1.061 1.061l4.47-4.47 4.47 4.47a.75.75 0 1 0 1.061-1.061l-4.47-4.47 4.47-4.47a.75.75 0 0 0 0-1.061z" data-reactid="45"></path></svg></button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="SearchForm__guests text-left" data-reactid="46">
+                        <label for="how-many-guests" class="SearchForm__label" data-reactid="47"><span data-reactid="48">인원</span></label>
+                        <div class="GuestPickerTrigger" data-reactid="49">
+                          <button class="GuestPickerTrigger__button" type="button" data-reactid="50">
+                          <div class="guest-label" data-reactid="51">
+                            <span class="guest-label__text guest-label__text-guests" data-reactid="52"><span data-reactid="53">인원 1명</span></span>
+                          </div>
+                          <div class="dropdown-icon" data-reactid="54">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 18 18" style="fill:currentColor;height:12px;width:12px;display:block;" data-reactid="55"><path fill-rule="evenodd" d="M16.291 4.295a1 1 0 1 1 1.414 1.415l-8 7.995a1 1 0 0 1-1.414 0l-8-7.995a1 1 0 1 1 1.414-1.415l7.293 7.29 7.293-7.29z" data-reactid="56"></path></svg>
+                          </div>
+                          </button>
+                          <div data-reactid="57">
+                            <div class="GuestPicker hide pointer" data-reactid="58">
+                              <div data-reactid="59">
+                                <div class="GuestPickerRow row row-condensed" data-reactid="60">
+                                  <div class="col-sm-8 GuestPickerRow__label" data-reactid="61">
+                                    <strong aria-live="polite" data-reactid="62">성인 1명</strong>
+                                  </div>
+                                  <div class="col-sm-4 increment-btn-container" data-reactid="63">
+                                    <div class="increment-btn" data-reactid="64">
+                                      <button class="btn btn-decrement" disabled="" aria-label="성인 수 줄이기" data-reactid="65"><i class="icon icon-minus" data-reactid="66"></i></button><button class="btn btn-increment" aria-label="성인 수 늘리기" data-reactid="67"><i class="icon icon-add" data-reactid="68"></i></button>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="GuestPickerRow row row-condensed" data-reactid="69">
+                                  <div class="col-sm-8 GuestPickerRow__label" data-reactid="70">
+                                    <strong aria-live="polite" data-reactid="71">어린이 0명</strong>
+                                    <div class="pull-right text-muted text-small" data-reactid="72">
+                                      2~12세
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-4 increment-btn-container" data-reactid="73">
+                                    <div class="increment-btn" data-reactid="74">
+                                      <button class="btn btn-decrement" disabled="" aria-label="어린이 수 줄이기" data-reactid="75"><i class="icon icon-minus" data-reactid="76"></i></button><button class="btn btn-increment" aria-label="어린이 수 늘리기" data-reactid="77"><i class="icon icon-add" data-reactid="78"></i></button>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="GuestPickerRow row row-condensed" data-reactid="79">
+                                  <div class="col-sm-8 GuestPickerRow__label" data-reactid="80">
+                                    <strong aria-live="polite" data-reactid="81">유아 0명</strong>
+                                    <div class="pull-right text-muted text-small" data-reactid="82">
+                                      2세 미만
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-4 increment-btn-container" data-reactid="83">
+                                    <div class="increment-btn" data-reactid="84">
+                                      <button class="btn btn-decrement" disabled="" aria-label="유아 수 줄이기" data-reactid="85"><i class="icon icon-minus" data-reactid="86"></i></button><button class="btn btn-increment" aria-label="유아 수 늘리기" data-reactid="87"><i class="icon icon-add" data-reactid="88"></i></button>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="GuestPickerFooter text-muted text-small" data-reactid="89">
+                                  <div class="row row-condensed" data-reactid="90">
+                                    <div class="col-sm-9" data-reactid="91">
+                                    </div>
+                                    <div class="col-sm-3 text-right GuestPickerFooter__close" data-reactid="92">
+                                      <button class="btn-link" type="button" data-reactid="93"><span data-reactid="94">닫기</span></button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="SearchForm__submit" data-reactid="95">
+                        <button type="submit" class="btn btn-primary btn-large btn-block" data-reactid="96">
+                        <div data-reactid="97">
+                          <div class="hide-lg" data-reactid="98">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="fill:currentColor;height:1em;width:1em;display:block;" data-reactid="99"><path fill-rule="evenodd" d="M23.53 22.47l-6.807-6.808A9.455 9.455 0 0 0 19 9.5 9.5 9.5 0 1 0 9.5 19c2.353 0 4.502-.86 6.162-2.277l6.808 6.807a.75.75 0 0 0 1.06-1.06zM9.5 17.5a8 8 0 1 1 0-16 8 8 0 0 1 0 16z" data-reactid="100"></path></svg>
+                          </div>
+                          <span class="SearchForm__submit-text hide-md" data-reactid="101"><span data-reactid="102">펫시터 검색</span></span>
+                        </div>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <input type="hidden" name="source" value="bb" data-reactid="103"/>
+                </form>
+              </div>
+            </div>
+            <div class="container_2jlos-o_O-mediumAndAbove_dzkbme" data-reactid="104">
+              <div tabindex="0" data-reactid="105">
+                <div class="container_157txhx" data-reactid="106">
+                  <div class="inputContainer_2ci0p" data-reactid="107">
+                    <span class="fakeInput_wlvusc" data-reactid="108"><span data-reactid="109">숙소 검색</span></span>
+                  </div>
+                  <button class="button_1hueyqh" data-reactid="110"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="fill:#000000;height:24px;width:24px;display:block;" data-reactid="111"><path fill-rule="evenodd" d="M23.53 22.47l-6.807-6.808A9.455 9.455 0 0 0 19 9.5 9.5 9.5 0 1 0 9.5 19c2.353 0 4.502-.86 6.162-2.277l6.808 6.807a.75.75 0 0 0 1.06-1.06zM9.5 17.5a8 8 0 1 1 0-16 8 8 0 0 1 0 16z" data-reactid="112"></path></svg></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- react-empty: 120 -->
+      </div>
+    </div>
+    <script type="application/json" data-hypernova-key="p1page_containerbundlejs"><!--{
+      "path":"/",
+      "phrases":{
+        "marquee_button":"비디오 보기",
+        "magical_trips.launch_platform.airbnb_places":"에어비앤비 장소",
+        "mt.explore.tab_name.for_you":"추천",
+        "mt.explore.tab_name.experiences":"트립",
+        "mt.explore.tab_name.homes":"숙소",
+        "mt.explore.tab_name.places":"장소",
+        "mt.explore.tab_name.for_you.uppercase":"추천",
+        "mt.explore.tab_name.experiences.uppercase":"트립",
+        "mt.explore.tab_name.homes.uppercase":"숙소",
+        "mt.explore.tab_name.places.uppercase":"장소",
+        "engagement.p1.search_intro":"190개 이상 국가에 있는 2백만 개 이상의 숙소를 검색해 보세요.",
+        "shared.Anywhere":"모든 위치",
+        "shared.Anytime":"모든 날짜",
+        "shared.When":"날짜",
+        "shared.Where":"위치",
+        "shared.Guests":"펫",
+        "android.strings.search_where_to":"어디로 가세요?",
+        "shared.Search":"펫시터 검색",
+        "search_bar.destination_city_address":"지역명",
+        "room_type":"숙소 유형",
+        "room_type_0":"집 전체",
+        "room_type_1":"개인실",
+        "room_type_2":"다인실",
+        "Clear Dates":"날짜 선택 지우기",
+        "saved_search_checkin":"체크인",
+        "saved_search_checkout":"체크아웃",
+        "saved_search_number_of_guests":"게스트 수",
+        "guest_picker_guests_label":"%{smart_count}마리",
+        "saved_search_search_button":"펫시터 검색",
+        "saved_search_guests":"인원 %{smart_count}명",
+        "Night":"박",
+        "ios.explore_airbnb_picks":"에어비앤비 추천 보기",
+        "shared.reviews with smart count":"후기 %{smart_count}개",
+        "shared.Recommended listings":"추천 숙소",
+        "shared.Recently viewed":"최근 조회",
+        "onboarding.videos.p1_title":"에어비앤비란?",
+        "p1.remind users to turn on javascript":"에어비앤비를 제대로 보시려면 자바스크립트를 켜세요.",
+        "p1.suggest users what to do without javascript":"자바스크립트를 설치하는 동안 먼저 인기 숙소를 둘러 볼 수 있습니다.",
+        "shared.Explore the world":"두근두근 세계 여행",
+        "shared.Destinations your friends love":"주변 사람들이 즐겨 찾는 곳",
+        "paid_growth.friend_destinations.destination":"%{country} %{city}",
+        "paid_growth.friend_destinations.visited_here_short":"%{first_name}님이 방문했습니다.",
+        "paid_growth.friend_destinations.visited_here_pluralized":"%{first_name}님과 %{smart_count}명의 친구가 방문했습니다.",
+        "guidebook.p1_title":"가이드북을 소개합니다",
+        "host_pluralized":"장소 %{smart_count}개",
+        "shared.See all":"전체보기",
+        "experiences.p1_title":"인기 트립",
+        "host_mentors.room type in location":"%{city}에 위치한 %{room_type}",
+        "shared.Yes":"예",
+        "shared.No":"아니요",
+        "shared.or":"또는",
+        "help.onboarding.faq_module.link_to_help_center":"도움말 센터 방문하기",
+        "help.onboarding.faq_module.collect_feedback":"도움이 되었나요?",
+        "help.onboarding.faq_module.feedback_is_helpful":"다행이네요!",
+        "help.onboarding.faq_module.feedback_is_not_helpful":"의견 주셔서 감사합니다.",
+        "china_p1.24_7_support":"24시간 고객센터 전화번호입니다. 오전 7시부터 오후 10시(베이징 시간)까지 중국어로 지원됩니다.",
+        "p1.china.secure_payments":"안심 결제",
+        "p1.china.secure_payments.description_new":"주요 신용카드와 알리페이 등 현지 결제 방법을 사용할 수 있습니다. %{link_start}자세히 알아보기%{link_end}",
+        "verification_id.sesame":"세서미 크레딧",
+        "china_p1.sesame description":"호스트와 게스트가 세서미 크레딧(Sesame Credit)으로 신원을 인증할 수 있습니다.",
+        "china_p1.search_dropdown.popular_cities":"인기 도시",
+        "china_p1.learn_more":"자세히 알아보기",
+        "china_p1.24_7_customer_support":"24시간 연중무휴 고객 지원",
+        "china_p1.24_7_support_in_india":"여행 또는 호스팅 도중에 도움이 필요하시면, 에어비앤비로 문의주세요(%{cxPhoneNumber} - 수신자 부담).",
+        "p1.china.host_guarantee_india":"₹6,00,00,000 호스트 보호 프로그램",
+        "p1.china.host_guarantee_india.description":"숙소 파손 시 에어비앤비가 최대 ₹6,00,00,000까지 보상해 드립니다. %{link_start}자세히 알아보기%{link_end}",
+        "p1.china.verified_id_india":"본인 인증",
+        "china_p1.verified_id_india.description":"에어비앤비는 신뢰할 수 있는 커뮤니티를 구축하기 위해 호스팅 또는 숙박 여부를 결정할 때 도움이 되도록 보다 상세한 정보를 제공합니다.",
+        "p1.instant_promo_november.button":"알림 받기",
+        "place_names.city.Shanghai":"상하이(Shanghai)",
+        "place_names.city.Bangkok":"방콕",
+        "place_names.city.Hualian":"화롄",
+        "place_names.city.Seoul":"서울",
+        "place_names.city.Ōsaka-shi":"오사카",
+        "china.chinese_new_year_campaign.p1.message.unknown_failure":"문제가 발생했습니다. 나중에 다시 시도해 주세요.",
+        "guidebook.guidebook_p2_button.title":"%{location} 완전정복!",
+        "guest_picker_adult_count":"소형견 %{smart_count}마리",
+        "guest_picker_child_count":"중형견 %{smart_count}마리",
+        "guest_picker_infant_count":"대형견 %{smart_count}마리",
+        "guest_picker_age_range":"5 ~ 10kg",
+        "guest_picker_age_under":"10kg ~",
+        "guest_picker_guest_maximum":"최대 %{smart_count}명. 유아는 숙박에 포함되지 않습니다.",
+        "guest_picker_close":"닫기",
+        "guest_picker_increment":"%{label} 수 늘리기",
+        "guest_picker_decrement":"%{label} 수 줄이기",
+        "guest_picker_adults":"성인",
+        "guest_picker_children":"어린이",
+        "guest_picker_infants":"유아",
+        "shared.Learn more":"더 알아보기",
+        "p2_market_trends.label_for_percent_places_available_in_market":"예약 가능한 숙소",
+        "check_trends":"현재 상황 확인하기",
+        "percent_places_available":"% 숙소 예약 가능",
+        "pricing_disclaimer":"추가 수수료가 부과됩니다. 세금도 부과될 수 있습니다.",
+        "pricing_disclaimer_without_dates":"전체 요금을 보려면 날짜를 입력하세요. 추가 요금이 적용되고 세금이 추가될 수 있습니다.",
+        "pricing_disclaimer_gb":"추가 수수료가 부과됩니다. 세금도 부과될 수 있습니다.",
+        "pricing_disclaimer_without_dates_gb":"예약비 총액을 보려면 날짜를 입력하세요. 추가 수수료가 적용되며, 세금이 추가될 수 있습니다.",
+        "pricing_disclaimer_au":"표시된 요금은 세전 총 숙박비입니다.",
+        "pricing_disclaimer_without_dates_au_exclude_taxes":"추가 수수료를 포함한 (세전) 총 숙박비를 보려면 날짜를 입력하세요.",
+        "pricing_disclaimer_without_dates_au_include_taxes":"수수료 및 세금을 포함한 총 여행 비용을 알아보려면 날짜를 입력하세요.",
+        "pricing_disclaimer_nl":"추가 서비스 수수료가 적용될 수 있습니다.",
+        "pricing_disclaimer_without_dates_nl":"예약비 총액을 보려면 날짜를 입력하세요. 추가 청소비와 서비스 수수료가 적용될 수 있습니다.",
+        "search_pricing_disclaimer_de":"1박당 요금에는 VAT와 해당 수수료가 포함됩니다.",
+        "search_pricing_disclaimer_without_dates_de":"여행 날짜를 입력하면 1박당 총 요금을 확인할 수 있습니다.",
+        "more_filters":"필터 추가하기",
+        "step_incrementer_label_for_plus_button_to_add_to_count":"추가",
+        "step_incrementer_label_for_minus_button_to_subtract_from_count":"차감",
+        "more_filters_with_count":"필터 추가(%{count}개)",
+        "check_in":"체크인",
+        "checkin":"체크인",
+        "check_out":"체크아웃",
+        "checkout":"체크아웃",
+        "shared.Check in":"체크인",
+        "shared.Check out":"체크아웃",
+        "clear_dates":"날짜 지우기",
+        "dates":"날짜",
+        "entire_home":"집 전체",
+        "private_room":"개인실",
+        "shared_room":"다인실",
+        "entire_home_description":"집 혹은 아파트 전체를 사용하는 숙소",
+        "private_room_description":"단독 침실을 사용하지만 기타 공간을 공유하는 숙소",
+        "shared_room_description":"회원님의 방을 같이 쓰거나 회원님의 방이 공동 공간으로 사용되는 숙소",
+        "entire_home_description2":"나 혼자 사용할 수 있는 숙소",
+        "private_room_description2":"개인실이 있고 공동 공간은 함께 사용하는 숙소",
+        "shared_room_description2":"다인실과 같은 공유 공간을 이용하는 숙소",
+        "price_range":"가격 범위",
+        "up_to_x_currency":"최대 %{price}",
+        "price_plus":"%{price}+",
+        "avg_price_for_location":"%{location} 지역 평균 1박 요금은 %{price}입니다.",
+        "avg_price_for_unknown_location":"평균 1박 요금은 %{price}입니다.",
+        "see_homes":"숙소 보기",
+        "apply_filters":"필터 적용하기",
+        "just_apply":"적용",
+        "just_filters":"필터",
+        "reset_filters":"재설정",
+        "clear_current_filters":"필터 삭제",
+        "clear_all":"모두 지우기",
+        "all_filters":"모든 필터",
+        "all_filters_with_count":"모든 필터(%{count}개)",
+        "guests":"",
+        "number_of_guests":"게스트 수",
+        "x_guests":"숙박  %{smart_count}명",
+        "bedrooms":"침실 수",
+        "list_your_space.bedrooms_step.bedrooms":"침실 %{smart_count}개",
+        "bathrooms":"욕실 수",
+        "any_bedrooms":"침실 개수 무관",
+        "any_bathrooms":"욕실 개수 무관",
+        "any_beds":"침대 개수 무관",
+        "bedrooms_plus":"침실 %{count}개 이상",
+        "beds_plus":"침대 %{count}개 이상",
+        "bathrooms_plus":"욕실 %{count}개 이상",
+        "list_your_space.bathrooms_step.bathrooms":"욕실 %{smart_count}개",
+        "beds":"침대 수",
+        "list_your_space.bedrooms_step.beds":"침대 %{smart_count}개",
+        "closing_button_tooltip_accessibility_label":"닫기",
+        "minimum_number_of_bathrooms":"욕실 최소 개수",
+        "minimum_number_of_bedrooms":"침실 최소 개수",
+        "minimum_number_of_beds":"침대 최소 개수",
+        "show_listings_button_label":"숙소 %{smart_count}개 표시",
+        "employee_host":"직원 호스트",
+        "size":"규모",
+        "superhost":"슈퍼호스트",
+        "see_all_general":"전체 보기",
+        "description_language":"설명 언어",
+        "host_language":"호스트 사용 언어: 한국어",
+        "amenities":"시설",
+        "facilities":"시설",
+        "house_rules":"숙소 이용규칙",
+        "neighborhoods":"지역",
+        "see_all_description_language":"설명 언어 모두 보기",
+        "see_all_host_language":"호스트 언어 모두 보기",
+        "see_all_amenities":"모든 편의시설 보기",
+        "see_all_facilities":"편의시설 모두 보기",
+        "see_all_house_rules":"숙소 이용규칙 모두 보기",
+        "see_all_neighborhoods":"지역 가이드 모두 보기",
+        "close_description_language":"설명 언어 닫기",
+        "close_host_language":"호스트 언어 닫기",
+        "close_amenities":"편의시설 닫기",
+        "close_facilities":"편의시설 닫기",
+        "close_house_rules":"숙소 이용규칙 닫기",
+        "close_neighborhoods":"지역 가이드 닫기",
+        "rooms_and_beds":"침실과 침대",
+        "other_options":"기타 선택사항",
+        "cancel_policy":"환불정책",
+        "property_type":"건물 유형",
+        "average_price_text":"평균 %{amount}",
+        "ib_filter_last_minute_tooltip":"예약 날짜가 가깝기 때문에 즉시 예약이 가능한 숙소들만 보여드립니다.",
+        "ib_filter_tooltip":"즉시 예약이 가능한 숙소만 보기",
+        "ib_auto_on_filter_tooltip":"이 필터를 사용하여 즉시 예약할 수 있는 숙소를 검색할 수 있습니다.  더 많은 검색 결과를 보려면 필터 기능을 해제하세요.",
+        "filters":"검색필터",
+        "cancel":"취소",
+        "more_filter_cta":"+ 더보기",
+        "learn_more":"더 알아보기",
+        "search_tooltip_superhost":"인정받은 슈퍼호스트를 찾아 보세요.",
+        "search_tooltip_see_where_airbnb_employees_are_hosting":"에어비앤비 직원들이 호스팅하는 숙소를 찾아보세요",
+        "search_subtext_instant_book":"예약을 즉시 확정하세요.",
+        "search_subtext_instant_book_new":"호스트 승인을 기다릴 필요 없이 예약할 수 있는 숙소",
+        "instant_book":"즉시 예약",
+        "instant_book_only":"즉시 예약만 가능",
+        "options":"옵션",
+        "enter_dates":"정확한 요금을 보려면 날짜를 입력하세요.",
+        "shared.On":"켜짐",
+        "shared.Off":"꺼짐",
+        "redo_search_here":"이곳에서 다시 검색하세요",
+        "search_when_i_move_the_map":"지도를 움직이며 검색",
+        "There are N homes nearby":"근처에 1개의 숙소가 있습니다.",
+        "There are N more homes nearby":"근처에 1개의 숙소가 더 있습니다.",
+        "Show more homes":"숙소 더 보기",
+        "map":"지도",
+        "results":"결과",
+        "disaster_urgent_accommodations_header":"%{disaster_name}(으)로 인해 갈 곳을 잃은 이들을 위한 긴급 숙소",
+        "disaster.i need a place to stay":"숙박할 곳이 필요합니다",
+        "disaster.i can offer my space":"우리집의 공간을 무료로 제공하겠습니다",
+        "saved_search_search_for_city_address_landmark":"도시, 주소, 명소로 검색하세요...",
+        "saved_search_recent_searches":"최근 검색 기록",
+        "saved_search_destinations":"여행지",
+        "shared.Close":"닫기",
+        "search_results.zero_homes_available":"예약 가능한 숙소 0개",
+        "search_results.no_results":"검색 결과 없음",
+        "new_label":"NEW",
+        "review_pluralized":"후기 %{smart_count}개",
+        "seo_reviews":"후기",
+        "distance_away":"거리: %{distance_localized}",
+        "wishlist_button_tooltip":"위시리스트에 저장하기.",
+        "instant_book_tooltip":"즉시 예약하기",
+        "book_now":"지금 예약",
+        "per_night":"1박",
+        "per_month":"/월",
+        "slash_per_night":"/박",
+        "slash_per_month":"/1개월",
+        "total":"합계",
+        "geocoding_unsuccessful":"검색어와 일치하는 장소를 찾을 수 없습니다. 다른 도시, 주소, 또는 명소를 입력해 보세요.",
+        "too_many_filters":"회원님의 검색조건에 맞는 결과를 찾지 못했습니다. 검색조건을 이렇게 살짝 바꿔보시면 도움이 될 수 있습니다:",
+        "remove_filters":"검색 필터 항목 삭제하기",
+        "expand_search":"검색 지역을 더 넓게 잡으세요.",
+        "search_specific":"도시, 주소, 또는 명소로 검색하세요.",
+        "try_adjusting_search":"검색어를 변경해서 시도해보세요. 다음의 팁을 참조하세요.",
+        "change_filters_or_dates":"필터 또는 날짜 변경",
+        "zoom_out_on_map":"지도에서 확대",
+        "search_for_specific_location":"특정 도시, 주소 또는 명소 검색",
+        "see_this_listing":"이 숙소 보기",
+        "price_summary_error":"지금은 이 숙소에 대한 요금 요약 정보를 볼 수 없습니다.",
+        "room_available_text":"이 날짜에는 예약이 가능합니다.",
+        "accommodates":"수용 ",
+        "bedroom":"침실 수",
+        "business_travel_ready":"출장 적합형 숙소",
+        "listing_business_travel_ready":"출장 적합형 숙소",
+        "business_travel_ready_tooltip":"개인 생활이 존중되는 이 공간은 무선 인터넷을 무료로 사용할 수 있고, 24시간 출입이 가능하며 필수 물품들이 제공됩니다.",
+        "business_travel_ready_tooltip_with_self_checkin":"이 개인 공간에서 무료 무선 인터넷, 셀프 체크인, 기타 필수품을 이용하실 수 있습니다.",
+        "host_language_tooltip":"호스트와 한국어로 대화할 수 있습니다.",
+        "label_showing_minimum_price_of_a_listing":"%{price}%{from_start}부터%{from_end}",
+        "see_price":"요금 보기",
+        "enter_dates_tooltip":"날짜별로 다른 요금을 설정하는 호스트도 있습니다.",
+        "unavailable":"예약 불가",
+        "unavailable_for_dates":"선택하신 날짜에 이 숙소를 이용할 수 없습니다.",
+        "booking.coupon_disclaimer.alipay.message":"알리페이에서 발급한 쿠폰은 %{min_cost_string} 이상의 첫 에어비앤비 예약에만 사용하실 수 있습니다. %{link_start}자세히 알아보기%{link_end}",
+        "below_alipay_coupon_min_trip_cost_message":"알리페이 쿠폰은 숙박 비용 %{min_trip_cost_string}(을)를 초과하는 첫 번째 예약에만 사용할 수 있습니다. %{link_start}상세 정보%{link_end}를 참조하세요.",
+        "book_without_waiting":"호스트의 수락을 기다릴 필요 없이 바로 예약하세요.",
+        "instant_book_v2":"즉시 예약",
+        "book_without_waiting_v2":"호스트의 수락을 기다릴 필요 없이 바로 예약하세요.",
+        "shared.stars.avg_rating":"별 %{total_stars}개 중 평균 %{num_stars}개",
+        "shared.rating out of total rating":"평점 %{rating}/%{total}",
+        "shared.stars.avg_rating_reviews":"%{review_count}개의 게스트 후기에서 별 %{total_stars}개 중 평균 %{num_stars}개",
+        "review_tags.tag.central":"중심지에 위치",
+        "review_tags.tag.walkable":"도보로 이동 가능",
+        "review_tags.tag.near_transit":"대중교통이 근접함",
+        "review_tags.tag.near_shops":"음식점과 상점이 근접함",
+        "review_tags.tag.near_nightlife":"유흥시설이 근접함",
+        "review_tags.tag.secluded":"한적함",
+        "review_tags.tag.residential":"주택가",
+        "review_tags.tag.scenic":"경치 좋음",
+        "review_tags.tag.lively":"활기참",
+        "review_tags.tag.quiet":"조용함",
+        "review_tags.tag.hip":"트렌디",
+        "review_tags.tag.family_friendly":"가족 친화형",
+        "review_tags.tag.cozy":"안락함",
+        "review_tags.tag.spacious":"넓음",
+        "review_tags.tag.rustic":"전원적",
+        "review_tags.tag.modern":"현대적",
+        "review_tags.tag.unique":"독특함",
+        "review_tags.tag.private":"사생활 보장",
+        "review_tags.tag.kitchen":"잘 구비된 주방",
+        "review_tags.tag.wifi":"안정적인 와이파이",
+        "review_tags.tag.bed":"편안한 침대",
+        "review_tags.tag.bathroom":"고급스러운 욕실",
+        "review_tags.tag.parking":"편리한 주차",
+        "review_tags.tag.pool":"훌륭한 수영장",
+        "review_tags.tag.explore":"도시 관광",
+        "review_tags.tag.families":"가족 여행",
+        "review_tags.tag.business":"출장",
+        "review_tags.tag.rest":"휴식/휴양",
+        "review_tags.tag.romantic":"낭만적인 휴가",
+        "review_tags.tag.local":"현지인처럼 살기",
+        "review_tags.preferences_modal.sort_results":"검색 결과 분류",
+        "review_tags.preferences_modal.sort_by_what_guests_say":"게스트가 후기에서 사용한 표현에 따른 분류",
+        "review_tags.preferences_modal.select_a_few_preferences.v2":"어떤 숙소에 머물고 싶은지 원하는 사항을 선택하세요.",
+        "review_tags.preferences_modal.options_come_from_guests":"다른 게스트가 후기에 사용한 표현을 바탕으로 작성한 선택안입니다.",
+        "review_tags.preferences_modal.what_the_place_is_like":"숙소의 특징",
+        "review_tags.preferences_modal.what_the_neighborhood_is_like":"동네의 특징",
+        "review_tags.preferences_modal.continue_search":"검색 계속하기",
+        "shared.BETA":"베타",
+        "review_tags.preferences_modal.upsell":"걷기 좋은 동네를 원하시나요? 빠른 주차요? 게스트가 숙소 후기에 쓴 내용을 바탕으로 검색 결과를 분류할 수 있습니다.",
+        "list_your_space.bedrooms_step.how_many_beds":"게스트가 사용할 수 있는 침대는 몇 개인가요?",
+        "list_your_space.bedrooms_step.guests":"숙박 인원 %{smart_count}명",
+        "list_your_space.bedrooms_step.Studio":"원룸",
+        "list_your_space.bedrooms_step.how_many_bedrooms":"게스트가 몇 개의 침실을 사용할 수 있나요?",
+        "list_your_space.bedrooms_step.subsection.title.bed_detail":"침대 유형",
+        "listing_your_space.bedrooms_step.bed_detail.common_spaces":"공용 공간",
+        "listing_your_space.bedrooms_step.bed_detail.preview_common_spaces":"공용공간 미리 보기",
+        "listing_your_space.bedrooms_step.bed_detail.add_beds":"침대 추가하기",
+        "listing_your_space.bedrooms_step.bed_detail.edit_beds":"침대 수정하기",
+        "listing_your_space.bedrooms_step.bed_detail.bedroom_n":"%{room_number}번 침실",
+        "listing_your_space.bedrooms_step.bed_detail.preview_bedroom_n":"%{room_number}번 침실 미리 보기",
+        "listing_your_space.bedrooms_step.bed_detail.done":"완료",
+        "listing_your_space.bedrooms_step.bed_detail.add_another_bed":"다른 침대 추가",
+        "shared.pluralize.king bed":"킹 베드 %{smart_count}개",
+        "shared.pluralize.queen bed":"퀸 베드 %{smart_count}개",
+        "shared.pluralize.double bed":"더블 베드 %{smart_count}개",
+        "shared.pluralize.single bed":"싱글 베드 %{smart_count}개",
+        "shared.pluralize.sofa bed":"소파 베드 %{smart_count}개",
+        "shared.pluralize.couch":"소파 %{smart_count}개",
+        "shared.pluralize.futon":"이불/요 %{smart_count}개",
+        "shared.pluralize.floor mattress":"매트리스 %{smart_count}개",
+        "shared.pluralize.bunk bed":"2층 침대 %{smart_count}개",
+        "shared.pluralize.toddler bed":"유아용 침대 %{smart_count}개",
+        "shared.pluralize.crib":"아기 침대 %{smart_count}개",
+        "shared.pluralize.hammock":"해먹 %{smart_count}개",
+        "shared.pluralize.air mattress":"에어 메트리스 %{smart_count}개",
+        "shared.pluralize.water bed":"물침대 %{smart_count}개",
+        "shared.pluralize.other":"기타 %{smart_count}개",
+        "list_your_space.bedrooms_step.bedrooms.emptypreview.help":"침대 유형이 게스트에게 어떻게 보일지 여기서 미리 확인할 수 있습니다.",
+        "list_your_space.bedrooms_step.bedrooms.help":"회원님 숙소의 침대 수와 종류에 따라 몇 명의 인원이 불편함 없이 머물 수 있는지가 결정됩니다.",
+        "list_your_space.bedrooms_step.bedrooms.beddetail.help":"침대 유형을 명시하면 게스트가 어떤 종류의 침대가 있는지 알 수 있습니다.",
+        "mario_copy_monorail_china_cny_promo":{
+          "intro":"이번 설 연휴에 어디 가세요?",
+          "shanghai_cta":"플레이스홀더",
+          "bangkok_cta":"플레이스홀더",
+          "hualian_cta":"플레이스홀더",
+          "seoul_cta":"플레이스홀더",
+          "osaka_cta":"플레이스홀더",
+          "hero_title":"새해 복 많이 받으세요!",
+          "hero_subtitle_visitor":"첫 번째 여행에 %{coupon_amount}(을)를 할인받고 특별한 경험을 즐겨보세요.",
+          "hero_subtitle_never_booked":"에어비앤비에서 첫 여행을 예약하고 특별한 경험을 즐겨보세요.",
+          "hero_subtitle_has_booked":"여행을 예약하고 특별한 경험을 즐겨보세요.",
+          "claim_cta_visitor":"지금 회원가입하여 선물을 수령하세요",
+          "claim_cta_unclaimed_never_booked":"%{coupon_amount}의 쿠폰 선물을 받으려면 여기를 클릭하세요.",
+          "coupon_claimed":"%{coupon_amount} 쿠폰을 받으셨습니다. 쿠폰을 사용하려면 %{date} 전에 예약하세요.",
+          "coupon_unavailable":"죄송합니다. 회원님은 이 쿠폰을 이용하실 수 없습니다.",
+          "coupon_unavailable_details":"본 혜택은 에어비앤비로 첫 여행을 예약하는 신규 회원만 이용할 수 있습니다. 회원님의 양해를 부탁드립니다.",
+          "terms_and_conditions":"이용약관",
+          "unknown_failure":"문제가 발생했습니다. 나중에 다시 시도해 주세요.",
+          "signup_modal_title":"에어비앤비에 가입하시고 첫 여행에서 사용할 수 있는 크레딧 %{sign_up_credit}을 받으세요.",
+          "signup_modal_subtitle":"%{date}까지 유효합니다. %{link_begin}이용약관%{link_end}",
+          "p4_coupon_disclaimer_text":"금액이 %{min_cost_string} 이상인 예약에 대해서만 사용하실 수 있는 쿠폰입니다.",
+          "shanghai_caption_title":"This is a placeholder",
+          "shanghai_caption_subtitle":"This is a placeholder",
+          "bangkok_caption_title":"This is a placeholder",
+          "bangkok_caption_subtitle":"This is a placeholder",
+          "hualian_caption_title":"This is a placeholder",
+          "hualian_caption_subtitle":"This is a placeholder",
+          "seoul_caption_title":"This is a placeholder",
+          "seoul_caption_subtitle":"This is a placeholder",
+          "osaka_caption_title":"This is a placeholder",
+          "osaka_caption_subtitle":"This is a placeholder",
+          "listings_to_fetch":"4"
+        },
+        "shared_previous":"이전",
+        "shared_next":"다음"
+      },
+      "searchFormData":{
+        "searchFormAction":"/s",
+        "guestCountOptions":[
+          {
+            "text":"인원 1명",
+            "value":1
+          },
+          {
+            "text":"인원 2명",
+            "value":2
+          },
+          {
+            "text":"인원 3명",
+            "value":3
+          },
+          {
+            "text":"인원 4명",
+            "value":4
+          },
+          {
+            "text":"인원 5명",
+            "value":5
+          },
+          {
+            "text":"인원 6명",
+            "value":6
+          },
+          {
+            "text":"인원 7명",
+            "value":7
+          },
+          {
+            "text":"인원 8명",
+            "value":8
+          },
+          {
+            "text":"인원 9명",
+            "value":9
+          },
+          {
+            "text":"인원 10명",
+            "value":10
+          },
+          {
+            "text":"인원 11명",
+            "value":11
+          },
+          {
+            "text":"인원 12명",
+            "value":12
+          },
+          {
+            "text":"인원 13명",
+            "value":13
+          },
+          {
+            "text":"인원 14명",
+            "value":14
+          },
+          {
+            "text":"인원 15명",
+            "value":15
+          },
+          {
+            "text":"인원 16+명",
+            "value":16
+          }
+        ],
+        "groupedDestinationTips":null,
+        "groupedDestinations":[],
+        "popularDestinations":[]
+      },
+      "allTopDestinations":[
+        {
+          "url":"/s/Albuquerque--NM",
+          "name":"Albuquerque"
+        },
+        {
+          "url":"/s/Amsterdam--Netherlands",
+          "name":"Amsterdam"
+        },
+        {
+          "url":"/s/Anna-Maria-Island--FL",
+          "name":"Anna Maria Island"
+        },
+        {
+          "url":"/s/Aruba",
+          "name":"Aruba"
+        },
+        {
+          "url":"/s/Asheville--NC?type=bnb",
+          "name":"Asheville"
+        },
+        {
+          "url":"/s/Aspen--CO",
+          "name":"Aspen"
+        },
+        {
+          "url":"/s/Atlanta--GA",
+          "name":"Atlanta"
+        },
+        {
+          "url":"/s/Austin--TX",
+          "name":"Austin"
+        },
+        {
+          "url":"/s/Baltimore--MD",
+          "name":"Baltimore"
+        },
+        {
+          "url":"/s/Baton-Rouge--lA",
+          "name":"Baton Rouge"
+        },
+        {
+          "url":"/s/Bermuda",
+          "name":"Bermuda"
+        },
+        {
+          "url":"/s/Boone--NC?type=cabin",
+          "name":"Boone"
+        },
+        {
+          "url":"/s/Bora-Bora--French-Polynesia",
+          "name":"Bora Bora"
+        },
+        {
+          "url":"/s/Brooklyn--New-York--NY",
+          "name":"Brooklyn"
+        },
+        {
+          "url":"/s/Brussels--Belgium",
+          "name":"Brussels"
+        },
+        {
+          "url":"/s/Cancún--Mexico",
+          "name":"Cancún"
+        },
+        {
+          "url":"/s/Cannon-Beach--OR",
+          "name":"Cannon Beach"
+        },
+        {
+          "url":"/s/Cape-Cod--MA",
+          "name":"Cape Cod"
+        },
+        {
+          "url":"/s/Charlotte--NC",
+          "name":"Charlotte"
+        },
+        {
+          "url":"/s/Chicago--IL",
+          "name":"Chicago"
+        },
+        {
+          "url":"/s/Cincinnati--OH",
+          "name":"Cincinnati"
+        },
+        {
+          "url":"/s/Cleveland--OH",
+          "name":"Cleveland"
+        },
+        {
+          "url":"/s/Cocoa-Beach--FL",
+          "name":"Cocoa Beach"
+        },
+        {
+          "url":"/s/Dallas--TX",
+          "name":"Dallas"
+        },
+        {
+          "url":"/s/Daytona-Beach--FL",
+          "name":"Daytona Beach"
+        },
+        {
+          "url":"/s/Denver--CO",
+          "name":"Denver"
+        },
+        {
+          "url":"/s/Destin--FL",
+          "name":"Destin"
+        },
+        {
+          "url":"/s/Dubai--United-Arab-Emirates",
+          "name":"Dubai"
+        },
+        {
+          "url":"/s/Florida--United-States",
+          "name":"Florida"
+        },
+        {
+          "url":"/s/Florida-Keys",
+          "name":"Florida Keys"
+        },
+        {
+          "url":"/s/Fredericksburg--TX?type=bnb",
+          "name":"Fredericksburg"
+        },
+        {
+          "url":"/s/Gulf-Shores--AL",
+          "name":"Gulf Shores"
+        },
+        {
+          "url":"/s/Hawaii--United-States",
+          "name":"Hawaii"
+        },
+        {
+          "url":"/s/Hilton-Head-Island--SC",
+          "name":"Hilton Head Island"
+        },
+        {
+          "url":"/s/Hong-Kong",
+          "name":"Hong Kong"
+        },
+        {
+          "url":"/s/Houston--TX",
+          "name":"Houston"
+        },
+        {
+          "url":"/s/Ibiza--Spain",
+          "name":"Ibiza"
+        },
+        {
+          "url":"/s/Indianapolis--IN",
+          "name":"Indianapolis"
+        },
+        {
+          "url":"/s/Istanbul--Turkey",
+          "name":"Istanbul"
+        },
+        {
+          "url":"/s/Kansas-City--MO",
+          "name":"Kansas City"
+        },
+        {
+          "url":"/s/Key-West--FL",
+          "name":"Key West"
+        },
+        {
+          "url":"/s/Hyogo-Prefecture--Japan",
+          "name":"Kobe"
+        },
+        {
+          "url":"/s/Lake-Tahoe--United-States",
+          "name":"Lake Tahoe"
+        },
+        {
+          "url":"/s/London--United-Kingdom",
+          "name":"London"
+        },
+        {
+          "url":"/s/Los-Angeles--CA",
+          "name":"Los Angeles"
+        },
+        {
+          "url":"/s/Madrid--Spain",
+          "name":"Madrid"
+        },
+        {
+          "url":"/s/Maine--United-States",
+          "name":"Maine"
+        },
+        {
+          "url":"/s/Maui-County--HI",
+          "name":"Maui"
+        },
+        {
+          "url":"/s/Miami--FL",
+          "name":"Miami"
+        },
+        {
+          "url":"/s/Minneapolis--MN",
+          "name":"Minneapolis"
+        },
+        {
+          "url":"/s/Myrtle-Beach--SC",
+          "name":"Myrtle Beach"
+        },
+        {
+          "url":"/s/Nashville--TN",
+          "name":"Nashville"
+        },
+        {
+          "url":"/s/New-Orleans--LA?type=bnb",
+          "name":"New Orleans"
+        },
+        {
+          "url":"/s/Newport--OR",
+          "name":"Newport"
+        },
+        {
+          "url":"/s/Niagara-Falls--Canada",
+          "name":"Niagara Falls"
+        },
+        {
+          "url":"/s/Nice--France",
+          "name":"Nice"
+        },
+        {
+          "url":"/s/North-Myrtle-Beach--SC",
+          "name":"North Myrtle Beach"
+        },
+        {
+          "url":"/s/Oak-Island--NC",
+          "name":"Oak Island"
+        },
+        {
+          "url":"/s/Ocean-City--MD",
+          "name":"Ocean City"
+        },
+        {
+          "url":"/s/Orange-Beach--AL",
+          "name":"Orange Beach"
+        },
+        {
+          "url":"/s/Orlando--FL",
+          "name":"Orlando"
+        },
+        {
+          "url":"/s/Outer-Banks--NC",
+          "name":"Outer Banks"
+        },
+        {
+          "url":"/s/O‘ahu--HI",
+          "name":"O‘ahu"
+        },
+        {
+          "url":"/s/Palm-Springs--CA",
+          "name":"Palm Springs"
+        },
+        {
+          "url":"/s/Panama-City--FL",
+          "name":"Panama City"
+        },
+        {
+          "url":"/s/Phoenix--AZ",
+          "name":"Phoenix"
+        },
+        {
+          "url":"/s/Pigeon-Forge--TN?type=cabin",
+          "name":"Pigeon Forge"
+        },
+        {
+          "url":"/s/Pittsburgh--PA",
+          "name":"Pittsburgh"
+        },
+        {
+          "url":"/s/Portland--OR",
+          "name":"Portland"
+        },
+        {
+          "url":"/s/Puerto-Vallarta--Mexico",
+          "name":"Puerto Vallarta"
+        },
+        {
+          "url":"/s/Punta-Cana--Dominican-Republic",
+          "name":"Punta Cana"
+        },
+        {
+          "url":"/s/Sacramento--CA",
+          "name":"Sacramento"
+        },
+        {
+          "url":"/s/Saint-Augustine--FL?type=bnb",
+          "name":"Saint Augustine"
+        },
+        {
+          "url":"/s/San-Antonio--TX",
+          "name":"San Antonio"
+        },
+        {
+          "url":"/s/San-Diego--CA",
+          "name":"San Diego"
+        },
+        {
+          "url":"/s/San-Francisco--CA",
+          "name":"San Francisco"
+        },
+        {
+          "url":"/s/Sanibel-Island--FL",
+          "name":"Sanibel Island"
+        },
+        {
+          "url":"/s/Santa-Barbara--CA",
+          "name":"Santa Barbara"
+        },
+        {
+          "url":"/s/Santa-Catalina-Island--CA",
+          "name":"Santa Catalina Island"
+        },
+        {
+          "url":"/s/Seaside--OR",
+          "name":"Seaside"
+        },
+        {
+          "url":"/s/Seattle--WA",
+          "name":"Seattle"
+        },
+        {
+          "url":"/s/Sedona--AZ?type=bnb",
+          "name":"Sedona"
+        },
+        {
+          "url":"/s/Siesta-Key--FL",
+          "name":"Siesta Key"
+        },
+        {
+          "url":"/s/Singapore",
+          "name":"Singapore"
+        },
+        {
+          "url":"/s/Sonoma--CA",
+          "name":"Sonoma"
+        },
+        {
+          "url":"/s/South-Padre-Island--TX",
+          "name":"South Padre Island"
+        },
+        {
+          "url":"/s/St-Louis--MO",
+          "name":"St Louis"
+        },
+        {
+          "url":"/s/Sunriver--OR",
+          "name":"Sunriver"
+        },
+        {
+          "url":"/s/Syracuse--NY",
+          "name":"Syracuse"
+        },
+        {
+          "url":"/s/Toronto--Canada",
+          "name":"Toronto"
+        },
+        {
+          "url":"/s/Tybee-Island--GA",
+          "name":"Tybee Island"
+        },
+        {
+          "url":"/s/Vail--CO",
+          "name":"Vail"
+        },
+        {
+          "url":"/s/Vancouver--Canada",
+          "name":"Vancouver"
+        },
+        {
+          "url":"/s/Virginia-Beach--VA",
+          "name":"Virginia Beach"
+        },
+        {
+          "url":"/s/Whistler--Canada",
+          "name":"Whistler"
+        },
+        {
+          "url":"/s/Wilmington--NC",
+          "name":"Wilmington"
+        }
+      ],
+      "cxPhoneNumber":null,
+      "locale":"ko",
+      "chinaCampaign":{
+        "chinaCouponAmount":"₩33,286",
+        "chinaCouponExpiresAfter":"(bad date)",
+        "chinaCouponTermsUrl":"",
+        "displayChineseNewYearCoupon":false,
+        "initialChinaCouponState":"unclaimed",
+        "initialHeroSubtitle":""
+      },
+      "marqueeTitle":"펫시팅에 오신 것을 환영합니다.",
+      "marqueeCaption":"당신에게 자유를 선물하세요.",
+
+      "trebuchets":{
+        "show_cookie_banner":true,
+        "ethnio_p1":false,
+        "p1_enable_faq_module_experiment":false,
+        "offset_p1_load":false,
+        "killswitch_p1_infinite_scroll":false,
+        "render_sitewide_footer_instant_promo":true
+      }
+    }--></script>
+  </main>
+
+  <!-- 중요 -->
+
+  <!-- <script src="https://a0.muscache.com/airbnb/static/packages/header_cookie.bundle-303fdcf4ebf356d958fd.js" type="text/javascript"></script> -->
+  <script src="{{ url_for('static', filename='js/header_cookie.js') }}" type="text/javascript"></script>
+
+  <meta content="{&quot;mario_copy_monorail_p3_modal.title&quot;:&quot;에어비앤비에 오신 것을 환영합니다" id="_bootstrap-phrases" />
+
+  <!-- <script defer="defer" src="https://a0.muscache.com/airbnb/static/packages/shims_post_es5.bundle-8ced110b6b7f49b6d567.js" type="text/javascript"></script> -->
+  <script defer="defer" src="{{ url_for('static', filename='js/shims_post.js') }}" type="text/javascript"></script>
+
+  <!-- <script defer="defer" src="https://a0.muscache.com/airbnb/static/packages/libs_jquery.bundle-a54e443e2272c8ed4d00.js" type="text/javascript"></script> -->
+  <script defer="defer" src="{{ url_for('static', filename='js/libs_jquery.js') }}" type="text/javascript"></script>
+
+
+  <!-- <script defer="defer" src="https://a0.muscache.com/airbnb/static/packages/moment/default.bundle-5aff133d88534dabd3c4.js" type="text/javascript"></script> -->
+  <!-- <script defer="defer" src="https://a0.muscache.com/airbnb/static/packages/moment/ko.bundle-b86c0729a8e67363d36b.js" type="text/javascript"></script> -->
+  <script defer="defer" src="{{ url_for('static', filename='js/english.js') }}" type="text/javascript"></script>
+
+  <!-- <script defer="defer" src="https://a0.muscache.com/airbnb/static/packages/core.bundle-2d5c9148a41c5761a72a.js" type="text/javascript"></script> -->
+  <script defer="defer" src="{{ url_for('static', filename='js/ko_core.js') }}" type="text/javascript"></script>
+
+  <!-- 검색 테이블에 영향 -->
+  <!-- <script defer="defer" src="https://a0.muscache.com/airbnb/static/packages/mystique/p1/page_container.bundle-fc4fdd5cfadac7fb4461.js" type="text/javascript"></script> -->
+  <script defer="defer" src="{{ url_for('static', filename='js/page_container.js') }}" type="text/javascript"></script>
+  <!-- <script defer="defer" src="https://a0.muscache.com/airbnb/static/packages/mystique/signup_login_dls/header.bundle-dd6419ff727951f9b679.js" type="text/javascript"></script> -->
+  <!-- <script defer="defer" src="https://a0.muscache.com/airbnb/static/packages/mystique/site_footer/site_footer.bundle-9b76aa09b678e24cce3c.js" type="text/javascript"></script> -->
+
+
+
+  <!-- 숙소검색 -->
+
+  {% include 'footer.html' %}
+  {% endblock %}

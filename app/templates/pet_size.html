@@ -1,0 +1,178 @@
+{% extends "base.html" %} {% block body %} {% include 'header.html' %}
+
+<!-- progress 2/3 -->
+<div>
+    <div class="progress-bar__container">
+        <div>
+            <span>
+			<div class="progress-section progress__bar-section progress-section--first progress-section--completed" style="width: 16.666666666666668%; left: 0%; max-width: 100%;">
+			</div>
+			<div class="progress-section progress__bar-section progress-section--completed progress-section--last-completed" style="width: 16.666666666666668%; left: 16.666666666666668%; max-width: 83.33333333333333%;">
+			</div>
+			<div class="progress-section progress__bar-section" style="width: 16.666666666666668%; left: 33.333333333333336%; max-width: 66.66666666666666%;">
+			</div>
+			<div class="progress-section progress__bar-section" style="width: 16.666666666666668%; left: 50%; max-width: 50%;">
+			</div>
+			<div class="progress-section progress__bar-section" style="width: 16.666666666666668%; left: 66.66666666666667%; max-width: 33.33333333333333%;">
+			</div>
+			<div class="progress-section progress__bar-section" style="width: 16.666666666666668%; left: 83.33333333333334%; max-width: 16.666666666666657%;">
+			</div>
+			</span>
+        </div>
+    </div>
+</div>
+<!-- progress 2/3-->
+
+<div class="left-backdrop"></div>
+<div class="right-backdrop hide-sm bg-white right-backdrop--with-bg"></div>
+<div class="list-your-space__content">
+    <div class="centered-content clearfix">
+        <div>
+            <form accept-charset="UTF-8" action="/enrollment_pet/size" class="size" data-action="Size" method="post">
+                <div class="main-panel-container no-padding-h bg-white main-panel-outer-half clearfix" tabindex="-1">
+                    <!-- react-empty: 1167 -->
+                    <div class="main-panel main-panel-padding main-panel-progress pull-right main-panel-inner-half space-sm-8">
+                        <div class="panel--no-border panel-title">
+                            <h3 class="no-margin-padding">강아지 크기와 종을 무엇입니까?</h3>
+                        </div>
+                    </div>
+
+                    <!-- <div class="row"> -->
+
+                      <!-- 강아지종류 -->
+
+                      <div class="space-4">
+            						<div>
+            							<label for="pet-breed" class="h4 text-gray text-normal"><span>강아지 종</span></label>
+            							<div class="select select-block select-jumbo">
+            								<!-- react-empty: 108 -->
+            								<select id="breed" name="breed" class="">
+            									<option value="" disabled=""></option>
+            									<option value="리트리버">리트리버</option>
+            									<option value="골든리트리버">골든리트리버</option>
+            									<!-- <option value="-1" disabled="">──────────────</option> -->
+            									<option value="불독">불독</option>
+            									<option value="비글">비글</option>
+            									<option value="푸들">푸들</option>
+            									<option value="프랜치 불독">프랜치 불독</option>
+            									<option value="요크셔테리어">요크셔테리어</option>
+            									<option value="시베리안허스키">시베리안허스키</option>
+            									<option value="닥스훈트">닥스훈트</option>
+            									<option value="말티즈">말티즈</option>
+            									<option value="시츄">시츄</option>
+            									<!-- <option value="-2" disabled="">──────────────</option> -->
+            									<option value="치와와">치와와</option>
+            									<option value="장모치와와">장모치와와</option>
+            									<option value="도베르만">도베르만</option>
+            									<option value="슈나우져">슈나우져</option>
+            									<option value="진돗개">진돗개</option>
+            									<option value="웰시코기">웰시코기</option>
+            									<option value="포메리안">포메리안</option>
+            									<option value="보스톤테리어">보스톤테리어</option>
+            									<option value="코카스파니엘">코카스파니엘</option>
+            									<option value="콜리">콜리</option>
+            									<option value="시바견">시바견</option>
+            									<option value="물테리어">불테리어</option>
+            								</select>
+            							</div>
+            						</div>
+            					</div>
+                      <!-- 강아지종류 -->
+
+                      <!-- 강아지 사이즈 -->
+
+                      <div class="space-4">
+                        <div>
+                          <label for="pet-size" class="h4 text-gray text-normal"><span>강아지 사이즈</span></label>
+                          <div class="select select-block select-jumbo">
+                            <!-- react-empty: 108 -->
+                            <select id="size" name="size" class="">
+                              <option value="" disabled=""></option>
+                              <option value="1">S</option>
+                              <option value="2">M</option>
+                              <option value="3">L</option>
+
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- 강아지 사이즈 -->
+
+
+
+
+                    <!-- </div> -->
+
+
+
+
+
+                    <div class="main-panel__actions-wrapper">
+                        <div class="centered-content clearfix">
+                            <div class="bg-white main-panel-outer-half clearfix">
+                                <div class="no-margin-padding__sm main-panel-padding main-panel-progress pull-right main-panel-inner-half space-sm-8">
+                                    <div class="divider hide-sm">
+                                    </div>
+                                    <div class="row no-margin-padding__sm">
+                                        <div class="main-panel__actions col-sm-12 no-margin-padding__sm">
+                                            <div>
+                                                <a class="btn-progress-back link-icon va-container va-container-v pull-left text-gray link--accessibility-outline" href="/enrollment_pet/pet">
+                                                    <span class="icon hide-sm"></span>
+                                                    <span class="va-middle"><h5 class="text-normal"><span>뒤로</span></h5>
+                                                    </span>
+                                                </a>
+                                                <button type="submit" class="btn btn-large btn-progress-next btn-large__next-btn pull-right-md btn-primary" id="user-login-btn">
+                                  <div class="btn-progress-next__text">
+                                    <span>다음</span>
+                                  </div> </button>
+                                                <!-- <a class="btn btn-large btn-progress-next btn-large__next-btn pull-right-md btn-primary" href="/test">
+                                  <div class="btn-progress-next__text">
+                                    <span>다음</span>
+                                  </div>
+                                </a> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="waypoint-container">
+                        <span style="font-size: 0px;"></span>
+                    </div>
+                </div>
+            </form>
+            <!-- Help (Right side) -->
+            <div class="help-panel-container">
+                <div class="hide-sm help-panel panel">
+                    <div class="panel-body">
+                        <div class="help-panel__bulb-img space-2"></div>
+                        <div class="help-panel__text">
+                          <div>
+                            <p>
+                              <span class="help-panel__title"><span>대형견</span><br>
+                            </span><span>크기가 48~60cm 이며 무게가 10kg 이상입니다.</span>
+                            </p>
+                            <p>
+                              <span class="help-panel__title"><span>중형견</span><br>
+                            </span><span>크기가 25~30cm 이며 무게가 5kg~10kg 정도 됩니다.</span>
+                            </p>
+                            <p>
+                              <span class="help-panel__title"><span>소형견</span><br>
+                            </span><span>크기가 25cm 이하이고 무게가 5kg 이하입니다. </span>
+                            </p>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="show-sm help-panel__floating-container">
+                    <!-- react-empty: 1470 --><span class="tooltip-popup__transition-container"><div class="help-panel--collapsed help-panel__bulb-img-bubble"><div class="help-panel__bulb-img img-center"></div></div><!-- react-empty: 1474 --></span></div>
+            </div>
+						<!-- Help (Right side) -->
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

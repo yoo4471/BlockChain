@@ -1,0 +1,277 @@
+{% extends "base.html" %} {% block body %} {% include 'header.html' %}
+
+<div class="comp pull-right">
+    <a class="no-crawl hdr-btn link-reset header-avatar-trigger needsclick" rel="nofollow" href="/trips" data-href="/dashboard" data-href-host="/trips">
+        <span class="value_name margin-right--tiny hide-md">효정</span>
+        <div class="media-photo media-round user-profile-image header-icon icon-profile-alt-gray"><img width="28" height="28" src="https://a0.muscache.com/defaults/user_pic-50x50.png?v=2" alt="">
+        </div>
+    </a>
+
+    <div class="panel tooltip-top-right drop-down-menu avatar-tooltip--new">
+        <a href="/trips" class="js-your-trips-item panel-body link-reset hover-item no-crawl hide">
+            <div class="hover-item__content">
+                여행 목록
+            </div>
+        </a>
+        <a href="/wishlists/my" class="js-wishlists-item panel-body link-reset hover-item no-crawl hide">
+            <div class="hover-item__content">
+                위시리스트
+            </div>
+        </a>
+        <a href="/users/edit" class=" panel-body link-reset hover-item no-crawl">
+            <div class="hover-item__content">
+                프로필 수정
+            </div>
+        </a>
+        <a href="/invite?r=3" class="travel-credit-item panel-body link-reset hover-item">
+            <div class="hover-item__content">여행 크레딧</div>
+        </a>
+        <a href="/users/notifications" class=" panel-body link-reset hover-item no-crawl">
+            <div class="hover-item__content">
+                계정 관리
+            </div>
+        </a>
+        <a href="/business-travel?s=nav" class="business-travel  panel-body link-reset hover-item">
+            <div class="hover-item__content">
+                출장 프로그램
+            </div>
+        </a>
+        <a href="/things-to-do" class="js-guidebook-item panel-body link-reset hover-item">
+            <div class="hover-item__content">
+                나의 가이드북
+            </div>
+        </a>
+        <a href="/logout" class=" panel-body link-reset hover-item no-crawl">
+            <div class="hover-item__content">
+                로그아웃
+            </div>
+        </a>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- 메뉴 보드 -->
+
+<main id="site-content" role="main" tabindex="-1">
+
+
+
+<div class="subnav hide-print">
+  <div class="page-container-responsive">
+    <ul class="subnav-list">
+      <li>
+        <a href="/dashboard" aria-selected="false" class="subnav-item" id="dashboard-item">알림판</a>
+      </li>
+      <li>
+        <a href="https://www.airbnb.co.kr/stats" aria-selected="false" class="subnav-item" id="stats-item">통계</a>
+      </li>
+      <li>
+        <a href="/inbox" aria-selected="false" class="subnav-item" id="inbox-item">메시지</a>
+      </li>
+      <li>
+        <a href="/rooms" aria-selected="false" class="subnav-item cohosting-ml-tooltip-trigger" id="rooms-item">숙소 목록</a>
+      </li>
+      <li>
+           <a href="/trips/upcoming" aria-selected="false" class="subnav-item" id="your-trips-item">여행 목록</a>
+      </li>
+      <li>
+        <a href="/users/edit" aria-selected="false" class="subnav-item" id="user-profile-item">프로필</a>
+      </li>
+      <li>
+        <a href="/account" aria-selected="true" class="subnav-item" id="account-item">계정 관리</a>
+      </li>
+        <li>
+          <a href="/invite?r=32" class="subnav-item" id="invite-friends-item">여행 크레딧</a>
+        </li>
+    </ul>
+  </div>
+</div>
+
+
+<div class="page-container-responsive space-top-4 space-4">
+  <div class="row">
+    <div class="col-md-3">
+
+<ul class="sidenav-list">
+  <li>
+    <a href="https://www.airbnb.co.kr/users/notifications/119890938" aria-selected="true" class="sidenav-item">알림</a>
+  </li>
+
+  <li>
+    <a href="https://www.airbnb.co.kr/users/payment_methods/119890938" aria-selected="false" class="sidenav-item">결제 수단</a>
+  </li>
+
+  <li>
+    <a href="https://www.airbnb.co.kr/users/payout_preferences/119890938" aria-selected="false" class="sidenav-item">대금 수령 방법</a>
+  </li>
+
+  <li>
+    <a href="https://www.airbnb.co.kr/users/transaction_history/119890938" aria-selected="false" class="sidenav-item">대금 수령 내역</a>
+  </li>
+
+
+  <li>
+    <a href="https://www.airbnb.co.kr/users/privacy/119890938" aria-selected="false" class="sidenav-item">개인정보</a>
+  </li>
+
+  <li>
+    <a href="https://www.airbnb.co.kr/users/security/119890938" aria-selected="false" class="sidenav-item">보안</a>
+  </li>
+
+  <li>
+    <a href="https://www.airbnb.co.kr/users/apps?id=119890938" aria-selected="false" class="sidenav-item">연결된 앱</a>
+  </li>
+
+  <li>
+    <a href="https://www.airbnb.co.kr/users/settings/119890938" aria-selected="false" class="sidenav-item">환경설정</a>
+  </li>
+
+    <li>
+      <a href="https://www.airbnb.co.kr/users/badges" aria-selected="false" class="sidenav-item">배지</a>
+    </li>
+
+</ul>
+
+<div class="space-top-4 space-4">
+  <a href="https://www.airbnb.co.kr/invite?r=5" class="btn btn-block">여행 크레딧</a>
+</div>
+
+    </div>
+    <div class="col-md-9">
+      <div class="panel">
+  <form accept-charset="UTF-8" action="https://www.airbnb.co.kr/users/update_notifications/119890938" id="notification_settings_form" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="V4$.airbnb.co.kr$tXEVwZjh0f8$JsYkk4o9842iRERAiXxU_9xg0MlEpZuHUFfN3MS8zD8="></div>
+
+        <input id="id" name="id" type="hidden" value="119890938">
+          <div class="panel-header">
+            푸시 알림 설정
+          </div>
+
+          <section class="panel-body">
+            <div class="row">
+              <div class="col-sm-4">
+                <p>아이폰, 아이패드 또는 안드로이드 기기로 푸시 알림 받기</p>
+              </div>
+              <div class="col-sm-8">
+                  <div>
+                    일반 문자 메시지 대신 푸시 알림을 받으려면 <a href="/mobile">에어비앤비 앱</a>을 다운로드 하세요. 모바일 기기에서 푸시 알림을 활성화시키면 여기에 설정 메뉴가 나타납니다.
+                  </div>
+              </div>
+            </div>
+          </section>
+        </form></div>
+
+        <div class="panel space-top-4">
+          <div class="panel-header">
+            문자 메시지 설정
+          </div>
+
+          <section class="panel-body">
+            <div class="row">
+              <div class="col-sm-4">
+                <p>문자 메시지로 업데이트 받기</p>
+              </div>
+              <div class="col-sm-8">
+                  <div class="row">
+                    <label class="col-sm-6" for="sms_phone_number_id">문자 알림 받을 휴대전화:
+                      <p><a href="https://www.airbnb.co.kr/users/edit">전화번호 변경하기</a></p>
+
+                    </label>
+                    <div class="select">
+                      <select id="sms_phone_number_id" name="sms_phone_number_id"><option value="65555917" selected="selected">+82 ** **** 5787</option></select>
+                    </div>
+                  </div>
+                      <label class="col-sm-1 checkbox">
+                        <input checked="checked" id="sms_messages" name="sms[messages]" type="checkbox" value="1">
+                      </label>
+                      <label class="col-sm-11" for="settings_messages">
+                        <strong>메시지</strong><br>
+                        호스트 및 게스트 알림
+                      </label>
+                      <label class="col-sm-1 checkbox">
+                        <input checked="checked" id="sms_reservations" name="sms[reservations]" type="checkbox" value="1">
+                      </label>
+                      <label class="col-sm-11" for="settings_messages">
+                        <strong>예약 업데이트</strong><br>
+                        요청, 확인, 변경 등
+                      </label>
+                      <label class="col-sm-1 checkbox">
+                        <input checked="checked" id="sms_other" name="sms[other]" type="checkbox" value="1">
+                      </label>
+                      <label class="col-sm-11" for="settings_messages">
+                        <strong>기타</strong><br>
+                        기능 업데이트 등
+                      </label>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="panel space-top-4">
+          <div class="panel-header">
+            이메일 환경설정
+          </div>
+          <section class="panel-body">
+            <div class="row">
+              <div class="col-sm-4">
+                <h5>수신 설정:</h5>
+                <p>언제든지 수신 설정을 변경할 수 있습니다.</p>
+              </div>
+              <div class="col-sm-8">
+                  <label class="col-sm-1 checkbox">
+                    <input name="user_profile_info[receive_promotional_email]" type="hidden" value="0"><input checked="checked" id="user_profile_info_receive_promotional_email" name="user_profile_info[receive_promotional_email]" type="checkbox" value="1">
+                  </label>
+                  <label class="col-sm-11" for="user_profile_info_receive_promotional_email">
+                    기본적인 홍보, 업데이트, 에어비앤비에 대한 뉴스나 협력사 캠페인 및 서비스 홍보, 사용자 설문 조사 등
+                  </label>
+                  <label class="col-sm-1 checkbox">
+                    <input name="user_profile_info[receive_informative_email]" type="hidden" value="0"><input checked="checked" id="user_profile_info_receive_informative_email" name="user_profile_info[receive_informative_email]" type="checkbox" value="1">
+                  </label>
+                  <label class="col-sm-11" for="user_profile_info_receive_informative_email">
+                    예약 및 후기 알림
+                  </label>
+              </div>
+            </div>
+          </section>
+        </div>
+
+          <div class="panel space-top-4">
+            <div class="panel-header">
+              전화 설정
+            </div>
+            <section class="panel-body">
+              <div class="row">
+                <div class="col-sm-4">
+                  <h5>수신 설정:</h5>
+                  <p>언제든지 이 설정을 변경하실 수 있습니다.</p>
+                </div>
+                <div class="col-sm-8">
+                  <label class="col-sm-1 checkbox">
+                    <input checked="checked" id="can_receive_phone_call" name="can_receive_phone_call" type="checkbox" value="1">
+                  </label>
+                  <label class="col-sm-11" for="user_can_receive_phone_call">
+                    <strong>나의 계정, 숙소, 예약 또는 에어비앤비 커뮤니티에 대한 연락
+                    </strong><br>
+                      선택하지 않으셔도 긴급한 상황이나 이전에 발송한 이메일이 반송된 경우 계정에 대한 문제로 에어비앤비에서 회원님께 연락을 드릴 수 있습니다.
+                  </label>
+                </div>
+              </div>
+            </section>
+          </div>
+
+      <div class="panel-footer">
+        <input class="btn btn-primary" id="user_submit" name="commit" type="submit" value="저장하기">
+      </div>
+
+</div>
+
+    </div>
+  </div>
+
+
+    </main>
+
+{% include 'footer.html' %} {% endblock %}
