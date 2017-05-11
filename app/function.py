@@ -1,11 +1,23 @@
 #-*- coding: utf-8 -*-
 import sqlite3
 
-#petsitting.db 만드는 함수
 #Email, PW, PN, CC, AP
-# PN: 펫 수 (1, 0) , 0으로 초기화
-# CC: 집등록할경우 해당 집의 city code, 0으로 초기화
-# AP: 펫시팅 가능 여부 (1, 0) , 0으로 초기화
+def Make_db_key(S):
+    con = sqlite3.connect("petsitting.db")
+    cursor = con.cursor()
+    cursor.execute("CREATE TABLE IF NOT EXISTS key(key_value text NOT NULL UNIQUE)")
+    cursor.execute("INSERT INTO key(key_value) VALUES (?)", (S))
+    con.commit()
+    con.close()
+
+def Get_key():
+    con = sqlite3.connect("petsitting.db")
+    cursor = con.cursor()
+    cursor.execute("SELECT * FROM key ",)
+    data = cursor.fetchall()
+    con.commit()
+    con.close()
+    return data[0][0]
 
 def Make_db_member():
     con = sqlite3.connect("petsitting.db")
@@ -14,10 +26,8 @@ def Make_db_member():
     con.commit()
     con.close()
 
-#pet.db 만드는 함수
 #Host, P_key, Name, Birth, Gender, Kind, Size,  NS, Vac
-#HosT: member table 의 Email
-#P_key: 이메일#Pet
+
 def Make_db_pet():
     con = sqlite3.connect("petsitting.db")
     cursor = con.cursor()
@@ -25,10 +35,9 @@ def Make_db_pet():
     con.commit()
     con.close()
 
-#house.db 만드는 함수
 #Host, H_key, State, City, Street, Apt, Address,citycode, Type, Room, Area, Elevator, Parking
 #Host, H_key, Address, Type, Room, Area, Elevator, Parking
-#Type :  집타입 아파트 : A, 빌라 : V, 개인주택 : P, 다세대 주택 : M
+
 #Host -> member table 의 Email
 def Make_db_house():
     con = sqlite3.connect("petsitting.db")
@@ -37,18 +46,15 @@ def Make_db_house():
     con.commit()
     con.close()
 
- #petsitter.db 만드는 함수
- #Host , Cost , Start_Date , End_Date , Except_Date , Total , Large , Midium , Small
+ #Host , Cost_L, Cost_M, Cost_S , Start_Date , End_Date , Except_Date , Total , Large , Medium , Small, H_name, Intro
 def Make_db_petsitter():
     con = sqlite3.connect("petsitting.db")
     cursor = con.cursor()
-    cursor.execute("CREATE TABLE IF NOT EXISTS petsitter(Host text NOT NULL, Cost int, Start_Date text, End_Date text, Except_Date text, Total int, Large int, Midium int, Small int, Time DATE DEFAULT (datetime('now','localtime')), PRIMARY KEY(Host), CONSTRAINT fk_petsitter FOREIGN KEY (Host) REFERENCES member(Email))")
+    cursor.execute("CREATE TABLE IF NOT EXISTS petsitter(Host text NOT NULL, Nickname text , Cost_L int, Cost_M int, Cost_S int, Start_Date text, End_Date text, Except_Date text, Total int, Large int, Medium int, Small int,H_name text, Intro text, Time DATE DEFAULT (datetime('now','localtime')), PRIMARY KEY(Host), CONSTRAINT fk_petsitter FOREIGN KEY (Host) REFERENCES member(Email))")
     con.commit()
     con.close()
 
-# image table 생성
-# Host, Asset, Path
-#Path는 이미지의 절대경로이다.
+
 def Make_db_image():
     con = sqlite3.connect("petsitting.db")
     cursor = con.cursor()
@@ -57,27 +63,27 @@ def Make_db_image():
     con.close()
 
 # C_key, PSID, CSID, TS, TE, TC, TA, TH
-#거래키, 판매자아이디, 소비자아이디, 거래시작시간, 거래 종료시간, 결제완료시간, 결제 금액, 기타사항
 def Make_db_tran():
     con = sqlite3.connect("petsitting.db")
     cursor = con.cursor()
-    cursor.execute("CREATE TABLE IF NOT EXISTS tran(C_key text NOT NULL, PSID text NOT NULL, CSID text NOT NULL, TS text NOT NULL, TE text NOT NULL, TC DATE DEFAULT (datetime('now','localtime')), TA text NOT NULL, TH text NOT NULL)")
+    cursor.execute("CREATE TABLE IF NOT EXISTS tran(C_key text NOT NULL, PSID text NOT NULL, PS_NickName text NOT NULL, CSID text NOT NULL, TS text NOT NULL, TE text NOT NULL, TC text NOT NULL, TA text NOT NULL, TH text NOT NULL)")
     con.commit()
     con.close()
 
 def Search_tran(E):
     con = sqlite3.connect("petsitting.db")
     cursor = con.cursor()
-    cursor.execute("SELECT * FROM tran WHERE PSID =? OR CSID =? ", (E,E ))
+    cursor.execute("SELECT * FROM tran WHERE PSID =? OR CSID =? ORDER BY TC ", (E,E ))
     data = cursor.fetchall()
     con.commit()
     con.close()
     return data
 
-def Save_tran(C_key, PSID, CSID, TS, TE, TA, TH):
+def Save_tran(PSID, PS_NickName, CSID, TS, TE, TC, TA, TH):
     con = sqlite3.connect("petsitting.db")
     cursor = con.cursor()
-    cursor.execute("INSERT INTO tran(C_key, PSID, CSID, TS, TE, TA, TH) VALUES (?,?,?,?,?,?,?)", (C_key, PSID, CSID, TS, TE, TA, TH))
+    C_key = PSID + "#" +CSID +"#" +TC
+    cursor.execute("INSERT INTO tran(C_key, PSID, PS_NickName, CSID, TS, TE, TC, TA, TH) VALUES (?,?,?,?,?,?,?,?,?)", (C_key, PSID, PS_NickName, CSID, TS, TE,  TC, TA, TH))
     con.commit()
     con.close()
 
@@ -92,7 +98,7 @@ def Check_email(E):
     return data
 
 def Check_pw(E, P):
-    con = sqlite3.connect("pesitting.db")
+    con = sqlite3.connect("petsitting.db")
     cursor = con.cursor()
     cursor.execute("SELECT Email FROM member WHERE Email=? AND PW = ?",(E, P))
     data = cursor.fetchall()
@@ -118,60 +124,64 @@ def Check_npet(E):
     con.close()
     return data
 
-#petsitter.db에 펫시터 정보 삽입하는 함수
-def Save_petsitter1(Host, Cost, Start_Date , End_Date , Except_Date):
+def Save_petsitter1(Host, Nickname, Cost_L, Cost_M, Cost_S, Start_Date , End_Date , Except_Date):
     con = sqlite3.connect("petsitting.db")
     cursor = con.cursor()
     try:
-         cursor.execute("INSERT INTO petsitter (Host, Cost, Start_Date , End_Date , Except_Date ) VALUES (?, ?, ?, ?, ?)", (Host, Cost, Start_Date , End_Date , Except_Date))
+         cursor.execute("INSERT INTO petsitter (Host, Nickname, Cost_L, Cost_M, Cost_S, Start_Date , End_Date , Except_Date ) VALUES (?, ?, ?, ?, ? ,?, ?, ?)", (Host, Nickname, Cost_L, Cost_M, Cost_S, Start_Date , End_Date , Except_Date))
     except:
         return 0
     con.commit()
     con.close()
     return 1
-# cursor.execute("UPDATE house set Type = ?, Room = ? WHERE Host = ?", (H_Type, H_Room, E))
-#petsitter.db에 펫시터 정보 삽입하는 함수
-def Save_petsitter2(Host,Total , Large , Midium , Small):
+
+
+def Save_petsitter2(Host,Total , Large , Medium , Small, H_name ,Intro):
     con = sqlite3.connect("petsitting.db")
     cursor = con.cursor()
-    cursor.execute("UPDATE petsitter set Total =?, Large = ?, Midium =?, Small=? WHERE Host =?", (Total , Large , Midium , Small, Host))
+    cursor.execute("UPDATE petsitter set Total =?, Large = ?, Medium =?, Small=? , H_name = ?, Intro=? WHERE Host =?", (Total , Large , Medium , Small, H_name, Intro, Host))
     con.commit()
     con.close()
 
 # cursor.execute("UPDATE house SET State = ? WHERE Host = ? AND State <> ? ", (H_State,E, H_State))
-def Modify_petsitter1(Host, Cost, Start_Date , End_Date , Except_Date):
+def Modify_petsitter1(Host, Nickname, Cost_L, Cost_M, Cost_S, Start_Date , End_Date , Except_Date):
     con = sqlite3.connect("petsitting.db")
     cursor = con.cursor()
-    cursor.execute("UPDATE petsitter  SET Cost =? WHERE Host =? AND Cost <> ?", (Cost, Host, Cost))
+    cursor.execute("UPDATE petsitter  SET Nickname =? WHERE Host =? AND Nickname <> ?", (Nickname, Host, Nickname))
+    cursor.execute("UPDATE petsitter  SET Cost_L =? WHERE Host =? AND Cost_L <> ?", (Cost_L, Host, Cost_L))
+    cursor.execute("UPDATE petsitter  SET Cost_M =? WHERE Host =? AND Cost_M <> ?", (Cost_M, Host, Cost_M))
+    cursor.execute("UPDATE petsitter  SET Cost_S =? WHERE Host =? AND Cost_S <> ?", (Cost_S, Host, Cost_S))
     cursor.execute("UPDATE petsitter  SET Start_Date =? WHERE Host =? AND Start_Date <> ?", (Start_Date, Host, Start_Date))
     cursor.execute("UPDATE petsitter  SET  End_Date =? WHERE Host =? AND  End_Date <> ?", (End_Date, Host,  End_Date))
     cursor.execute("UPDATE petsitter  SET  Except_Date =? WHERE Host =? AND  Except_Date <> ?", ( Except_Date, Host,  Except_Date))
     con.commit()
     con.close()
 
-def Modify_petsitter2(Host,Total , Large , Midium , Small):
+def Modify_petsitter2(Host,Total , Large , Medium , Small, H_name, Intro):
     con = sqlite3.connect("petsitting.db")
     cursor = con.cursor()
     cursor.execute("UPDATE petsitter  SET Total =? WHERE Host =? AND Total <> ?", (Total, Host, Total))
     cursor.execute("UPDATE petsitter  SET Large =? WHERE Host =? AND Large <> ?", (Large, Host, Large))
-    cursor.execute("UPDATE petsitter  SET Midium =? WHERE Host =? AND Midium <> ?", (Midium, Host, Midium))
+    cursor.execute("UPDATE petsitter  SET Medium =? WHERE Host =? AND Medium <> ?", (Medium, Host, Medium))
     cursor.execute("UPDATE petsitter  SET Small =? WHERE Host =? AND Small <> ?", (Small, Host, Small))
+    cursor.execute("UPDATE petsitter  SET H_name =? WHERE Host =? AND H_name <> ?", (H_name, Host, H_name))
+    cursor.execute("UPDATE petsitter  SET Intro =? WHERE Host =? AND Intro <> ?", (Intro, Host, Intro))
     con.commit()
     con.close()
 
-#Email : E, Password: P로 회원가입 할 경우 디비에 이를 저장
+
 def Save_mem(E, P):
     con = sqlite3.connect("petsitting.db")
     cursor = con.cursor()
     try:
         cursor.execute("INSERT INTO member (Email, PW) VALUES (?,?)", (E,P))
     except:
-        return 0 # 이미 있는 이메일인 경우 -중복가입 방지
+        return 0 #remove duplicated user
     con.commit()
     con.close()
     return 1
 
-#db에서 Citycode 수정하는 함수
+
 def Update_Citycode(E, city):
     con = sqlite3.connect("petsitting.db")
     cursor = con.cursor()
@@ -179,7 +189,7 @@ def Update_Citycode(E, city):
     con.commit()
     con.close()
 
-#pet 등록할 경우 db에서 해당 고객 N_pet 증가시켜주는 함수
+
 def Increase_npet(E):
     con = sqlite3.connect("petsitting.db")
     cursor = con.cursor()
@@ -187,7 +197,7 @@ def Increase_npet(E):
     con.commit()
     con.close()
 
-#house 등록할 경우 db에 집 정보 저장하는 함수
+
 #Host, H_key, State, City, Street, Apt, Address, Zipcode
 def Save_home_address(E, H_State, H_City, H_Street, H_Apt,H_Zipcode):
     con = sqlite3.connect("petsitting.db")
@@ -198,7 +208,7 @@ def Save_home_address(E, H_State, H_City, H_Street, H_Apt,H_Zipcode):
     con.commit()
     con.close()
 
-#house 등록할 경우 db에 집 정보 저장하는 함수
+
 #Type, Room
 def Save_home_room(E, H_Type, H_Room):
     con = sqlite3.connect("petsitting.db")
@@ -206,7 +216,7 @@ def Save_home_room(E, H_Type, H_Room):
     cursor.execute("UPDATE house set Type = ?, Room = ? WHERE Host = ?", (H_Type, H_Room, E))
     con.commit()
     con.close()
-#house 등록할 경우 db에 집 정보 저장하는 함수
+
 #Elevator, Parking
 def Save_home_car_elevator(E, H_Elevator, H_Parking):
     con = sqlite3.connect("petsitting.db")
@@ -243,9 +253,8 @@ def Modify_home_car_elevator(E, H_Elevator, H_Parking):
     cursor.execute("UPDATE house SET Parking = ? WHERE Host = ? AND Parking <> ? ", (H_Parking,E, H_Parking))
     con.commit()
     con.close()
-#pet 등록할 경우 db에 펫 정보 저장하는 함수
+
 #Host, P_key, Name, Birth, Gender, Kind, size, NS, Vac
-#P_size : S= 소형견, M= 중형견, L=대형경
 #NS, Vac : Y, N
 def Save_pet_pet(E, P_Name, P_Gender, P_Birth):
     con = sqlite3.connect("petsitting.db")
@@ -303,7 +312,6 @@ def Save_House(E,H_Address, H_Type, H_Room, H_Area, H_Elevator, H_Parking):
     con.commit()
     con.close()
 
-#petsitter로 등록할 경우 해당고객의 F_Petsitter를 1로 업데이트
 def Update_AP(E):
     con = sqlite3.connect("petsitting.db")
     cursor = con.cursor()
@@ -347,6 +355,15 @@ def Read_house(E):
     con = sqlite3.connect("petsitting.db")
     cursor = con.cursor()
     cursor.execute("SELECT * FROM house WHERE Host = ?", (E, ))
+    data = cursor.fetchall()
+    con.commit()
+    con.close()
+    return data
+
+def Read_petsitter(E):
+    con = sqlite3.connect("petsitting.db")
+    cursor = con.cursor()
+    cursor.execute("SELECT * FROM petsitter WHERE Host = ?", (E, ))
     data = cursor.fetchall()
     con.commit()
     con.close()
@@ -398,14 +415,13 @@ def Delete_image(Host, Asset):
     con.commit()
     con.close()
 
-#총마리수로 검색하는 경우
-#result : Host, cost, total, address, type
-def Search_bytotal(T, L, M, S, S_date, E_date):
+#result : Host, Cost_L, Cost_M, Cost_S, total, address, type
+def Search_bytotal(R, T, L, M, S, S_date, E_date):
     con = sqlite3.connect("petsitting.db")
     cursor = con.cursor()
-    cursor.execute("SELECT Host, Cost, Total FROM petsitter WHERE Total >= ? AND Large >= ? AND Midium >= ? AND Small >=? AND Start_Date <=? AND End_Date >= ? AND Except_Date NOT BETWEEN Start_Date AND End_Date", (T, L, M, S, S_date, E_date))
+    cursor.execute("SELECT Host, Cost_L, Cost_M, Cost_S, Total FROM petsitter WHERE Total >= ? AND Large >= ? AND Medium >= ? AND Small >=? AND Start_Date <=? AND End_Date >= ? AND Except_Date NOT BETWEEN Start_Date AND End_Date", (T, L, M, S, S_date, E_date))
     data = cursor.fetchall()
-    cursor.execute("SELECT COUNT(Host) FROM petsitter WHERE Total >= ? AND Large >= ? AND Midium >= ? AND Small >=? AND Start_Date <=? AND End_Date >= ? AND Except_Date NOT BETWEEN Start_Date AND End_Date", (T, L, M, S, S_date, E_date))
+    cursor.execute("SELECT COUNT(Host) FROM petsitter WHERE Total >= ? AND Large >= ? AND Medium >= ? AND Small >=? AND Start_Date <=? AND End_Date >= ? AND Except_Date NOT BETWEEN Start_Date AND End_Date", (T, L, M, S, S_date, E_date))
     cnt = cursor.fetchone()
     if data ==[]:
         return 0
@@ -414,7 +430,11 @@ def Search_bytotal(T, L, M, S, S_date, E_date):
     result2 = []
     while i<cnt[0]:
         a = data[i][0]
-        cursor2.execute("SELECT Address, Type, Room FROM house WHERE Host = ?", (a, ))
+        if R == None:
+            cursor2.execute("SELECT Address, Type, Room FROM house WHERE Host = ?", (a, ))
+        else:
+            R2 = '%' + R + '%'
+            cursor2.execute("SELECT Address, Type, Room FROM house WHERE Address LIKE ? AND Host = ?", (R2, a, ))
         data2 = cursor2.fetchall()
         if data2 ==[]:
             return 0
