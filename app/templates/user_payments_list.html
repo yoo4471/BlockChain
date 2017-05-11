@@ -1,0 +1,204 @@
+{% extends "base.html" %} {% block body %} {% include 'header.html' %} {% include 'profilemenu.html' %}
+
+
+
+<div class="page-container-responsive space-top-4 space-4">
+
+
+    <div class="row">
+        <div class="col-md-3 space-sm-3">
+            <ul class="sidenav-list">
+                <li>
+                    <a href="/user/payments/ing" aria-selected="true" class="sidenav-item">진행중</a>
+                </li>
+                <li>
+                    <a href="/user/payments/complete" aria-selected="false" class="sidenav-item">완료</a>
+                </li>
+                <!-- <li>
+                    <a href="#/hosting/requirements" aria-selected="false" class="sidenav-item">예약 필수조건</a>
+                </li> -->
+
+                <div class="space-top-4 space-4">
+                    <a href="/" aria-selected="false" class="btn btn-host">새로운 예약</a>
+                </div>
+            </ul>
+
+        </div>
+
+
+
+        <div class="col-md-9">
+            <div class="your-listings-flash-container"></div>
+            <div id="listings-container">
+                <div data-reactroot="">
+                    <div class="suspension-container">
+                      가장 최근 진행중인 거래목록을 보여드립니다.
+
+                      {% if result_list[0] %}
+                        <div class="panel space-4">
+                            <div class="panel-header active-panel-header">
+                                <div class="active-panel-padding">펫시팅이 진행중입니다!</div>
+                            </div>
+                            <ul class="list-unstyled list-layout">
+                                <li class="listing panel-body" data-hosting-id="17629582">
+                                    <div class="row row-table"><i class="icon icon-size-1 icon-remove icon-remove-listing show-sm"></i>
+                                        <div class="col-middle space-sm-2 space-top-sm-4 col-md-5 listing-photo">
+
+                                            <!-- <a href="/manage-listing/17629582/photos"> -->
+                                                <div class="media-photo media-photo-block-lg">
+                                                    <div class="media-cover text-center">
+                                                      <img class="img-responsive-height" src="{{ url_for('static', filename= 'img/dog.png') }}" alt="...">
+
+                                                    </div>
+                                                </div>
+                                            <!-- </a> -->
+                                        </div>
+                                        <div class="col-sm-10 col-lg-7 col-middle">
+                                            <div class="row row-table">
+                                                <div class="col-lg-10">
+                                                    <div class="listing-progress">
+                                                        <div class="text-babu space-top-1"><span>완료된 거래</span></div>
+                                                        <div class="space-top-2"></div>
+                                                    </div>
+                                                </div>
+                                            </div><span class="h4">
+                                              <!-- <a href="/manage-listing/17629582" class="text-normal"> -->
+                                                <span><!-- react-text: 27 -->
+
+
+                                              {{ result_list[0][2] }} ({{result_list[0][1] }}) 님에게 <br>
+
+                                              {{result_list[0][4]}} 부터 {{result_list[0][5]}} 까지 맡기셨습니다.
+
+
+                                          </span>
+                                        <!-- </a> -->
+                                            </span>
+
+                                            <div class="text-muted text-grey space-top-1 last-modified-date"><span>최종 거래 완료: {{ result_list[0][6] }}</span></div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        {% endif %}
+
+                        {% if result_list[1] %}
+                        <div class="panel space-4">
+                            <div class="panel-header active-panel-header">
+                                <div class="active-panel-padding">펫시팅이 진행중입니다!</div>
+                            </div>
+                            <ul class="list-unstyled list-layout">
+                                <li class="listing panel-body" data-hosting-id="17629582">
+                                    <div class="row row-table"><i class="icon icon-size-1 icon-remove icon-remove-listing show-sm"></i>
+                                        <div class="col-middle space-sm-2 space-top-sm-4 col-md-5 listing-photo">
+
+                                            <!-- <a href="/manage-listing/17629582/photos"> -->
+                                                <div class="media-photo media-photo-block-lg">
+                                                    <div class="media-cover text-center">
+                                                      <img class="img-responsive-height" src="{{ url_for('static', filename= 'img/dog.png') }}" alt="...">
+
+                                                    </div>
+                                                </div>
+                                            <!-- </a> -->
+                                        </div>
+                                        <div class="col-sm-10 col-lg-7 col-middle">
+                                            <div class="row row-table">
+                                                <div class="col-lg-10">
+                                                    <div class="listing-progress">
+                                                        <div class="text-babu space-top-1"><span>완료된 거래</span></div>
+                                                        <div class="space-top-2"></div>
+                                                    </div>
+                                                </div>
+                                            </div><span class="h4">
+                                              <!-- <a href="/manage-listing/17629582" class="text-normal"> -->
+                                                <span><!-- react-text: 27 -->
+
+
+                                              {{ result_list[1][2] }} ({{result_list[1][1] }}) 님에게 <br>
+
+                                              {{result_list[1][4]}} 부터 {{result_list[1][5]}} 까지 맡기셨습니다.
+
+
+                                          </span>
+                                        <!-- </a> -->
+                                            </span>
+
+                                            <div class="text-muted text-grey space-top-1 last-modified-date"><span>최종 거래 완료: {{ result_list[1][6] }}</span></div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        {% endif %}
+
+
+                        {% if result_list[2] %}
+                        <div class="panel space-4">
+                            <div class="panel-header active-panel-header">
+                                <div class="active-panel-padding">펫시팅이 진행중입니다!</div>
+                            </div>
+                            <ul class="list-unstyled list-layout">
+                                <li class="listing panel-body" data-hosting-id="17629582">
+                                    <div class="row row-table"><i class="icon icon-size-1 icon-remove icon-remove-listing show-sm"></i>
+                                        <div class="col-middle space-sm-2 space-top-sm-4 col-md-5 listing-photo">
+
+                                            <!-- <a href="/manage-listing/17629582/photos"> -->
+                                                <div class="media-photo media-photo-block-lg">
+                                                    <div class="media-cover text-center">
+                                                      <img class="img-responsive-height" src="{{ url_for('static', filename= 'img/dog.png') }}" alt="...">
+
+                                                    </div>
+                                                </div>
+                                            <!-- </a> -->
+                                        </div>
+                                        <div class="col-sm-10 col-lg-7 col-middle">
+                                            <div class="row row-table">
+                                                <div class="col-lg-10">
+                                                    <div class="listing-progress">
+                                                        <div class="text-babu space-top-1"><span>완료된 거래</span></div>
+                                                        <div class="space-top-2"></div>
+                                                    </div>
+                                                </div>
+                                            </div><span class="h4">
+                                              <!-- <a href="/manage-listing/17629582" class="text-normal"> -->
+                                                <span><!-- react-text: 27 -->
+
+
+                                              {{ result_list[2][2] }} ({{result_list[2][1] }}) 님에게 <br>
+
+                                              {{result_list[2][4]}} 부터 {{result_list[2][5]}} 까지 맡기셨습니다.
+
+
+                                          </span>
+                                        <!-- </a> -->
+                                            </span>
+
+                                            <div class="text-muted text-grey space-top-1 last-modified-date"><span>최종 거래 완료: {{ result_list[2][6] }}</span></div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        {% endif %}
+
+
+
+                        <!-- react-empty: 36 -->
+                        <!-- react-empty: 37 -->
+                        <!-- react-empty: 38 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+
+</div>
+
+{% endblock %}

@@ -24,10 +24,7 @@
                         <div class="col-md-12 col-lg-6" data-reactid="102">
                             <div data-reactid="103">
                                 <div class="crossfading-panel__container text-right pull-right show-lg" data-reactid="104">
-                                    <div class="crossfading-panel crossfading-panel__vertically-centered-container crossfading-panel--right crossfading-panel--invisible" data-reactid="105">
-                                        <!-- <h3 class="crossfading-panel--vertically-centered h6 text-right pull-right" data-reactid="106"><span data-reactid="107">숙소 300개 이상</span><span data-reactid="108"><!-- react-text: 109 --> · <!-- /react-text --><!-- react-text: 110 --><!-- /react-text -->
-                                        <!-- </span></h3> -->
-                                      </div>
+
                                     <div class="crossfading-panel crossfading-panel--right pull-right last-minute-trip" data-reactid="111">
                                         <div class="last-minute-panel media-round text-center pull-right crossfading-panel--margin-left" data-reactid="112">
                                           <i class="icon icon-bolt icon-beach h3" data-reactid="113"></i>
@@ -59,21 +56,23 @@
                         <div class="sectionContainer_15x3onf" data-reactid="138">
                             <div class="row listing-cards-row" data-reactid="139">
 
-
-
-
-
+                                <!-- info[0] -->
+                                {% if info[0] %}
                                 <div class="listing-card-wrapper col-sm-12-s col-md-6-s space-4" data-reactid="140">
                                     <div class="listingCardWrapper_9kg52c" data-reactid="141">
                                         <div id="listing-13964145" class="listingContainer_f21qs6" data-reactid="142">
                                             <div aria-hidden="true" class="imageContainer_1xligvk-o_O-legacyImageContainer_1xlpym-o_O-imageContainer_seo_y9ev9r" data-reactid="143">
 
                                             <div data-reactid="171">
-                                                <a href="/rooms/13964145?checkin=2017%2F03%2F20&amp;checkout=2017%2F03%2F23&amp;guests=1&amp;adults=1&amp;children=0&amp;infants=0" target="_blank" aria-hidden="true" class="mediaPhoto_1bow0j6-o_O-mediaCover_n02jag"
+
+
+                                                <a href="/booking/1" target="_blank" aria-hidden="true" class="mediaPhoto_1bow0j6-o_O-mediaCover_n02jag"
                                                     data-reactid="172">
                                                     <div class="listingImgContainer_zzjd4c-o_O-mediaCover_n02jag-o_O-centerImage_12to336" data-reactid="173">
+
                                                       <img itemprop="image" src="https://a0.muscache.com/im/pictures/7c98533c-e529-4301-b799-216e689d9dea.jpg?aki_policy=x_medium" alt="Big sale[K-Room #1-3]4min. to Sth - 용산구 - 단독주택" class="imageResponsiveHeight_rodubx"
                                                       data-reactid="174">
+
                                                     </div>
                                                 </a>
                                             </div>
@@ -87,8 +86,16 @@
                                                         <span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-inline_g86r3e" data-reactid="185">
                                                           <span data-reactid="186">
                                                             <!-- react-text: 187 -->
-                                                            ₩ {{ info[0][1] }}
-                                                            <!-- /react-text -->
+
+                                                            <strong>
+                                                            ₩{{ info[0][1] }}
+                                                            ,
+                                                            ₩{{ info[0][2] }}
+                                                            ,
+                                                            ₩{{ info[0][3] }} {{ info[0][5]}}
+
+                                                            <!-- 집 이름 -->
+                                                            </strong>
                                                           </span>
                                                         </span>
                                                         <span
@@ -98,13 +105,13 @@
                                                 </div>
                                     <div class="listingNameContainer_kq7ac0-o_O-ellipsized_1iurgbx" data-reactid="227">
                                       <span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-inline_g86r3e" data-reactid="228">
-                                        {{ info[0][3] }}
+                                        {{ info[0][6] }}
                                       </span>
                                     </div>
                                     <div data-reactid="229">
                                       <span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-weight_light_mf0ohk-o_O-inline_g86r3e" data-reactid="230">
                                         <span class="detailWithoutWrap_j1kt73" data-reactid="231">
-                                          {{ info[0][4] }}
+                                          {{ info[0][7] }}
                                         </span>
                                       </span>
                                       <span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-weight_light_mf0ohk-o_O-inline_g86r3e"
@@ -112,7 +119,7 @@
                                             <span aria-hidden="true" data-reactid="233"> · </span>
                                             <span class="detailWithoutWrap_j1kt73" data-reactid="234">
                                               <span data-reactid="235">
-                                                방 {{ info[0][5] }}개
+                                                방 {{ info[0][8] }}개
                                               </span>
                                             </span>
                                         </span>
@@ -120,7 +127,7 @@
                                           <span aria-hidden="true" data-reactid="237"> · </span>
                                           <span class="detailWithoutWrap_j1kt73" data-reactid="238">
                                             <span data-reactid="239">
-                                              총 {{ info[0][2] }}마리
+                                              총 {{ info[0][4] }}마리
                                             </span>
                                           </span>
                                         </span>
@@ -130,15 +137,18 @@
                             </div>
                         </div>
                     </div>
+                    <!-- info[0] -->
+                    {% endif %}
 
-
+                    <!-- info[1] -->
+                    {% if info[1] %}
                     <div class="listing-card-wrapper col-sm-12-s col-md-6-s space-4" data-reactid="240">
                         <div class="listingCardWrapper_9kg52c" data-reactid="241">
                             <div id="listing-13498067" class="listingContainer_f21qs6" data-reactid="242">
                                 <div aria-hidden="true" class="imageContainer_1xligvk-o_O-legacyImageContainer_1xlpym-o_O-imageContainer_seo_y9ev9r" data-reactid="243">
 
                                 <div data-reactid="271">
-                                    <a href="/rooms/13498067?checkin=2017%2F03%2F20&amp;checkout=2017%2F03%2F23&amp;guests=1&amp;adults=1&amp;children=0&amp;infants=0" target="_blank" aria-hidden="true" class="mediaPhoto_1bow0j6-o_O-mediaCover_n02jag" data-reactid="272">
+                                    <a href="/booking/2" target="_blank" aria-hidden="true" class="mediaPhoto_1bow0j6-o_O-mediaCover_n02jag" data-reactid="272">
                                         <div class="listingImgContainer_zzjd4c-o_O-mediaCover_n02jag-o_O-centerImage_12to336" data-reactid="273"><img itemprop="image" src="https://a0.muscache.com/im/pictures/f447ace7-eba1-4a93-bdce-79ffaa0236c4.jpg?aki_policy=x_medium" alt="Best LocatioSingleBedroom in the middle of Itaewon - 용산구 - 아파트" class="imageResponsiveHeight_rodubx"
                                                 data-reactid="274"></div>
                                     </a>
@@ -149,23 +159,31 @@
                                     data-reactid="281">
                                     <div class="priceRatingContainer_1joc06t" data-reactid="282">
                                         <div class="priceContainer_4ml1ll" data-reactid="283"><span data-reactid="284"><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-inline_g86r3e" data-reactid="285"><span data-reactid="286"><!-- react-text: 287 -->
-                                          ₩ {{ info[1][1] }}
+                                          <strong>
+                                          ₩{{ info[1][1] }}
+                                          ,
+                                          ₩{{ info[1][2] }}
+                                          ,
+                                          ₩{{ info[1][3] }} {{ info[1][5]}}
+
+                                          <!-- 집 이름 -->
+                                          </strong>
                                           <!-- /react-text --></span></span><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-inline_g86r3e"
                                                 data-reactid="288"></span></span>
                                         </div>
 
                             </div>
                             <div class="listingNameContainer_kq7ac0-o_O-ellipsized_1iurgbx" data-reactid="327"><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-inline_g86r3e" data-reactid="328">
-                              {{ info[1][3] }}
+                              {{ info[1][6] }}
                             </span></div>
                             <div data-reactid="329"><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-weight_light_mf0ohk-o_O-inline_g86r3e" data-reactid="330"><span class="detailWithoutWrap_j1kt73" data-reactid="331">
-                              {{ info[1][4] }}
+                              {{ info[1][7] }}
                             </span></span><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-weight_light_mf0ohk-o_O-inline_g86r3e"
                                     data-reactid="332"><span aria-hidden="true" data-reactid="333"> · </span><span class="detailWithoutWrap_j1kt73" data-reactid="334"><span data-reactid="335">
-                                      방 {{ info[1][5] }}개
+                                      방 {{ info[1][8] }}개
                                     </span></span>
                                 </span><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-weight_light_mf0ohk-o_O-inline_g86r3e" data-reactid="336"><span aria-hidden="true" data-reactid="337"> · </span><span class="detailWithoutWrap_j1kt73" data-reactid="338"><span data-reactid="339">
-                                  총 {{ info[1][2] }}마리
+                                  총 {{ info[1][4] }}마리
                                 </span></span>
                                 </span>
                             </div>
@@ -174,15 +192,18 @@
                     </div>
                 </div>
             </div>
+            <!-- info[1] -->
+            {% endif %}
 
-
+            <!-- info[2] -->
+            {% if info[2] %}
             <div class="listing-card-wrapper col-sm-12-s col-md-6-s space-4" data-reactid="340">
                 <div class="listingCardWrapper_9kg52c" data-reactid="341">
                     <div id="listing-10318858" class="listingContainer_f21qs6" data-reactid="342">
                         <div aria-hidden="true" class="imageContainer_1xligvk-o_O-legacyImageContainer_1xlpym-o_O-imageContainer_seo_y9ev9r" data-reactid="343">
 
                         <div data-reactid="371">
-                            <a href="/rooms/10318858?checkin=2017%2F03%2F20&amp;checkout=2017%2F03%2F23&amp;guests=1&amp;adults=1&amp;children=0&amp;infants=0" target="_blank" aria-hidden="true" class="mediaPhoto_1bow0j6-o_O-mediaCover_n02jag" data-reactid="372">
+                            <a href="/booking/3" target="_blank" aria-hidden="true" class="mediaPhoto_1bow0j6-o_O-mediaCover_n02jag" data-reactid="372">
                                 <div class="listingImgContainer_zzjd4c-o_O-mediaCover_n02jag-o_O-centerImage_12to336" data-reactid="373"><img itemprop="image" src="https://a0.muscache.com/im/pictures/134f1b68-038d-4893-b865-787ba79199d2.jpg?aki_policy=x_medium" alt="The tidy and comfortable life in a wide room - Bucheon-si - 아파트" class="imageResponsiveHeight_rodubx"
                                         data-reactid="374"></div>
                             </a>
@@ -193,23 +214,31 @@
                             <div class="priceRatingContainer_1joc06t" data-reactid="382">
                                 <div class="priceContainer_4ml1ll" data-reactid="383"><span data-reactid="384"><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-inline_g86r3e" data-reactid="385"><span data-reactid="386">
                                   <!-- react-text: 387 -->
-                                  ₩ {{ info[2][1] }}
+                                  <strong>
+                                  ₩{{ info[2][1] }}
+                                  ,
+                                  ₩{{ info[2][2] }}
+                                  ,
+                                  ₩{{ info[2][3] }} {{ info[2][5]}}
+
+                                  <!-- 집 이름 -->
+                                  </strong>
                                   <!-- /react-text -->
                                 </span></span><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-inline_g86r3e"
                                         data-reactid="388"></span></span>
                                 </div>
                     </div>
                     <div class="listingNameContainer_kq7ac0-o_O-ellipsized_1iurgbx" data-reactid="421"><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-inline_g86r3e" data-reactid="422">
-                      {{ info[2][3] }}
+                      {{ info[2][6] }}
                     </span></div>
                     <div data-reactid="423"><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-weight_light_mf0ohk-o_O-inline_g86r3e" data-reactid="424"><span class="detailWithoutWrap_j1kt73" data-reactid="425">
-                      {{ info[2][4] }}
+                      {{ info[2][7] }}
                     </span></span><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-weight_light_mf0ohk-o_O-inline_g86r3e"
                             data-reactid="426"><span aria-hidden="true" data-reactid="427"> · </span><span class="detailWithoutWrap_j1kt73" data-reactid="428"><span data-reactid="429">
-                              방 {{ info[2][5] }}개
+                              방 {{ info[2][8] }}개
                             </span></span>
                         </span><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-weight_light_mf0ohk-o_O-inline_g86r3e" data-reactid="430"><span aria-hidden="true" data-reactid="431"> · </span><span class="detailWithoutWrap_j1kt73" data-reactid="432"><span data-reactid="433">
-                          총 {{ info[2][2] }}마리
+                          총 {{ info[2][4] }}마리
                         </span></span>
                         </span>
                     </div>
@@ -218,15 +247,18 @@
             </div>
         </div>
     </div>
+    <!-- info[2] -->
+    {% endif %}
 
-
+    <!-- info[3] -->
+    {% if info[3] %}
     <div class="listing-card-wrapper col-sm-12-s col-md-6-s space-4" data-reactid="434">
         <div class="listingCardWrapper_9kg52c" data-reactid="435">
             <div id="listing-15301195" class="listingContainer_f21qs6" data-reactid="436">
                 <div aria-hidden="true" class="imageContainer_1xligvk-o_O-legacyImageContainer_1xlpym-o_O-imageContainer_seo_y9ev9r" data-reactid="437">
 
                 <div data-reactid="465">
-                    <a href="/rooms/15301195?checkin=2017%2F03%2F20&amp;checkout=2017%2F03%2F23&amp;guests=1&amp;adults=1&amp;children=0&amp;infants=0" target="_blank" aria-hidden="true" class="mediaPhoto_1bow0j6-o_O-mediaCover_n02jag" data-reactid="466">
+                    <a href="/booking/4" target="_blank" aria-hidden="true" class="mediaPhoto_1bow0j6-o_O-mediaCover_n02jag" data-reactid="466">
                         <div class="listingImgContainer_zzjd4c-o_O-mediaCover_n02jag-o_O-centerImage_12to336" data-reactid="467"><img itemprop="image" src="https://a0.muscache.com/im/pictures/63c58926-f5ed-4291-8b4b-b07d912160a8.jpg?aki_policy=x_medium" alt="1 MIN from Station / Myeongdong Area #2 - 중구 - 아파트" class="imageResponsiveHeight_rodubx" data-reactid="468"></div>
                     </a>
                 </div>
@@ -235,23 +267,31 @@
                 <a href="/rooms/15301195?checkin=2017%2F03%2F20&amp;checkout=2017%2F03%2F23&amp;guests=1&amp;adults=1&amp;children=0&amp;infants=0" target="_blank" rel="noopener" data-check-info-section="true" class="linkContainer_55zci1" data-reactid="475">
                     <div class="priceRatingContainer_1joc06t" data-reactid="476">
                         <div class="priceContainer_4ml1ll" data-reactid="477"><span data-reactid="478"><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-inline_g86r3e" data-reactid="479"><span data-reactid="480"><!-- react-text: 481 -->
-                          ₩ {{ info[3][1] }}
+                          <strong>
+                          ₩{{ info[3][1] }}
+                          ,
+                          ₩{{ info[3][2] }}
+                          ,
+                          ₩{{ info[3][3] }} {{ info[3][5]}}
+
+                          <!-- 집 이름 -->
+                          </strong>
                           <!-- /react-text -->
                         </span></span><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-inline_g86r3e"
                                 data-reactid="482"></span></span>
                         </div>
             </div>
             <div class="listingNameContainer_kq7ac0-o_O-ellipsized_1iurgbx" data-reactid="518"><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-inline_g86r3e" data-reactid="519">
-              {{ info[3][3] }}
+              {{ info[3][6] }}
             </span></div>
             <div data-reactid="520"><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-weight_light_mf0ohk-o_O-inline_g86r3e" data-reactid="521"><span class="detailWithoutWrap_j1kt73" data-reactid="522">
-              {{ info[3][4] }}
+              {{ info[3][7] }}
             </span></span><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-weight_light_mf0ohk-o_O-inline_g86r3e"
                     data-reactid="523"><span aria-hidden="true" data-reactid="524"> · </span><span class="detailWithoutWrap_j1kt73" data-reactid="525"><span data-reactid="526">
-                      방 {{ info[3][5] }}개
+                      방 {{ info[3][8] }}개
                     </span></span>
                 </span><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-weight_light_mf0ohk-o_O-inline_g86r3e" data-reactid="527"><span aria-hidden="true" data-reactid="528"> · </span><span class="detailWithoutWrap_j1kt73" data-reactid="529"><span data-reactid="530">
-                  총 {{ info[3][2] }}마리
+                  총 {{ info[3][4] }}마리
                 </span></span>
                 </span>
             </div>
@@ -260,15 +300,18 @@
     </div>
 </div>
 </div>
+<!-- info[3] -->
+{% endif %}
 
 
+{% if info[4] %}
 <div class="listing-card-wrapper col-sm-12-s col-md-6-s space-4" data-reactid="531">
     <div class="listingCardWrapper_9kg52c" data-reactid="532">
         <div id="listing-17142489" class="listingContainer_f21qs6" data-reactid="533">
             <div aria-hidden="true" class="imageContainer_1xligvk-o_O-legacyImageContainer_1xlpym-o_O-imageContainer_seo_y9ev9r" data-reactid="534">
 
             <div data-reactid="562">
-                <a href="/rooms/17142489?checkin=2017%2F03%2F20&amp;checkout=2017%2F03%2F23&amp;guests=1&amp;adults=1&amp;children=0&amp;infants=0" target="_blank" aria-hidden="true" class="mediaPhoto_1bow0j6-o_O-mediaCover_n02jag" data-reactid="563">
+                <a href="/booking/5" target="_blank" aria-hidden="true" class="mediaPhoto_1bow0j6-o_O-mediaCover_n02jag" data-reactid="563">
                     <div class="listingImgContainer_zzjd4c-o_O-mediaCover_n02jag-o_O-centerImage_12to336" data-reactid="564"><img itemprop="image" src="https://a0.muscache.com/im/pictures/29931758-cca9-4ed6-9348-91e83c72dea5.jpg?aki_policy=x_medium" alt="3Bedrooms Apt. In Hongdae #2 - 마포구 - 단독주택" class="imageResponsiveHeight_rodubx" data-reactid="565"></div>
                 </a>
             </div>
@@ -277,7 +320,11 @@
             <a href="/rooms/17142489?checkin=2017%2F03%2F20&amp;checkout=2017%2F03%2F23&amp;guests=1&amp;adults=1&amp;children=0&amp;infants=0" target="_blank" rel="noopener" data-check-info-section="true" class="linkContainer_55zci1" data-reactid="572">
                 <div class="priceRatingContainer_1joc06t" data-reactid="573">
                     <div class="priceContainer_4ml1ll" data-reactid="574"><span data-reactid="575"><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-inline_g86r3e" data-reactid="576"><span data-reactid="577"><!-- react-text: 578 -->
-                      ₩ {{ info[4][1] }}
+                      <strong>
+                      ₩{{ info[4][1] }} , ₩{{ info[4][2] }} , ₩{{ info[4][3] }} {{ info[4][5]}}
+
+                      <!-- 집 이름 -->
+                      </strong>
                       <!-- /react-text --></span></span><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-inline_g86r3e"
                             data-reactid="579"></span></span>
                     </div>
@@ -289,17 +336,17 @@
                 </div> -->
         </div>
         <div class="listingNameContainer_kq7ac0-o_O-ellipsized_1iurgbx" data-reactid="594"><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-inline_g86r3e" data-reactid="595">
-          {{ info[4][3] }}
+          {{ info[4][6] }}
         </span></div>
         <div data-reactid="596"><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-weight_light_mf0ohk-o_O-inline_g86r3e" data-reactid="597"><span class="detailWithoutWrap_j1kt73" data-reactid="598">
-          {{ info[4][4] }}
+          {{ info[4][7] }}
         </span></span><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-weight_light_mf0ohk-o_O-inline_g86r3e"
                 data-reactid="599"><span aria-hidden="true" data-reactid="600"> · </span><span class="detailWithoutWrap_j1kt73" data-reactid="601">
                   <span data-reactid="602">
-                    방 {{ info[4][5] }}개
+                    방 {{ info[4][8] }}개
                 </span></span>
             </span><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-weight_light_mf0ohk-o_O-inline_g86r3e" data-reactid="603"><span aria-hidden="true" data-reactid="604"> · </span><span class="detailWithoutWrap_j1kt73" data-reactid="605"><span data-reactid="606">
-              숙박 인원 7명 {{ info[0][4] }}
+              총 {{ info[4][4] }}마리
             </span></span>
             </span>
         </div>
@@ -308,15 +355,18 @@
 </div>
 </div>
 </div>
+<!-- info[4] -->
+{% endif %}
 
 
+{% if info[5] %}
 <div class="listing-card-wrapper col-sm-12-s col-md-6-s space-4" data-reactid="607">
     <div class="listingCardWrapper_9kg52c" data-reactid="608">
         <div id="listing-12765435" class="listingContainer_f21qs6" data-reactid="609">
             <div aria-hidden="true" class="imageContainer_1xligvk-o_O-legacyImageContainer_1xlpym-o_O-imageContainer_seo_y9ev9r" data-reactid="610">
 
             <div data-reactid="638">
-                <a href="/rooms/12765435?checkin=2017%2F03%2F20&amp;checkout=2017%2F03%2F23&amp;guests=1&amp;adults=1&amp;children=0&amp;infants=0" target="_blank" aria-hidden="true" class="mediaPhoto_1bow0j6-o_O-mediaCover_n02jag" data-reactid="639">
+                <a href="/booking/6" target="_blank" aria-hidden="true" class="mediaPhoto_1bow0j6-o_O-mediaCover_n02jag" data-reactid="639">
                     <div class="listingImgContainer_zzjd4c-o_O-mediaCover_n02jag-o_O-centerImage_12to336" data-reactid="640"><img itemprop="image" src="https://a0.muscache.com/im/pictures/bef551f6-3365-442c-a11c-9e1fad51de4d.jpg?aki_policy=x_medium" alt="서울 럭키 게스트하우스, 서촌 중심 위치3, 싱글룸+개인화장실 - 종로구 - B&amp;B" class="imageResponsiveHeight_rodubx" data-reactid="641"></div>
                 </a>
                 <div class="slideshow-controls" data-reactid="642"><button class="target-prev target-control block-link" aria-label="이전" data-reactid="643"><i class="icon icon-chevron-left icon-size-2 icon-white" data-reactid="644"></i></button><button class="target-next target-control block-link" aria-label="다음"
@@ -328,24 +378,28 @@
                 <div class="priceRatingContainer_1joc06t" data-reactid="649">
                     <div class="priceContainer_4ml1ll" data-reactid="650"><span data-reactid="651"><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-inline_g86r3e" data-reactid="652"><span data-reactid="653">
                       <!-- react-text: 654 -->
-                      ₩35,985 {{ info[0][0] }}
+                      <strong>
+                      ₩{{ info[5][1] }} , ₩{{ info[5][2] }} , ₩{{ info[5][3] }} {{ info[5][5]}}
+
+                      <!-- 집 이름 -->
+                      </strong>
                       <!-- /react-text -->
                     </span></span><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-inline_g86r3e"
                             data-reactid="655"></span></span>
                     </div>
         </div>
         <div class="listingNameContainer_kq7ac0-o_O-ellipsized_1iurgbx" data-reactid="691"><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-inline_g86r3e" data-reactid="692">
-          서울 럭키 게스트하우스, 서촌 중심 위치3, 싱글룸+개인화장실 {{ info[0][1] }}
+          {{ info[5][6] }}
         </span></div>
         <div data-reactid="693"><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-weight_light_mf0ohk-o_O-inline_g86r3e" data-reactid="694"><span class="detailWithoutWrap_j1kt73" data-reactid="695">
-          개인실 {{ info[0][2] }}
+          {{ info[5][7] }}
         </span></span><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-weight_light_mf0ohk-o_O-inline_g86r3e"
                 data-reactid="696"><span aria-hidden="true" data-reactid="697"> · </span><span class="detailWithoutWrap_j1kt73" data-reactid="698">
                   <span data-reactid="699">
-                    침대 1개 {{ info[0][3] }}
+                    방 {{ info[5][8] }}개
                   </span></span>
             </span><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-weight_light_mf0ohk-o_O-inline_g86r3e" data-reactid="700"><span aria-hidden="true" data-reactid="701"> · </span><span class="detailWithoutWrap_j1kt73" data-reactid="702"><span data-reactid="703">
-              숙박 인원 2명 {{ info[0][4] }}
+              총 {{ info[5][4] }}마리
             </span></span>
             </span>
         </div>
@@ -354,15 +408,18 @@
 </div>
 </div>
 </div>
+<!-- info[5] -->
+{% endif %}
 
 
+{% if info[6] %}
 <div class="listing-card-wrapper col-sm-12-s col-md-6-s space-4" data-reactid="704">
     <div class="listingCardWrapper_9kg52c" data-reactid="705">
         <div id="listing-17383987" class="listingContainer_f21qs6" data-reactid="706">
             <div aria-hidden="true" class="imageContainer_1xligvk-o_O-legacyImageContainer_1xlpym-o_O-imageContainer_seo_y9ev9r" data-reactid="707">
 
             <div data-reactid="735">
-                <a href="/rooms/17383987?checkin=2017%2F03%2F20&amp;checkout=2017%2F03%2F23&amp;guests=1&amp;adults=1&amp;children=0&amp;infants=0" target="_blank" aria-hidden="true" class="mediaPhoto_1bow0j6-o_O-mediaCover_n02jag" data-reactid="736">
+                <a href="/booking/7" target="_blank" aria-hidden="true" class="mediaPhoto_1bow0j6-o_O-mediaCover_n02jag" data-reactid="736">
                     <div class="listingImgContainer_zzjd4c-o_O-mediaCover_n02jag-o_O-centerImage_12to336" data-reactid="737"><img itemprop="image" src="https://a0.muscache.com/im/pictures/19892db2-e05a-478a-a424-3cc47f15b1ab.jpg?aki_policy=x_medium" alt="So bigroom around dong dae mun - 서울특별시 - 단독주택" class="imageResponsiveHeight_rodubx" data-reactid="738"></div>
                 </a>
             </div>
@@ -372,24 +429,28 @@
                 <div class="priceRatingContainer_1joc06t" data-reactid="746">
                     <div class="priceContainer_4ml1ll" data-reactid="747"><span data-reactid="748"><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-inline_g86r3e" data-reactid="749"><span data-reactid="750">
                       <!-- react-text: 751 -->
-                      ₩25,964 {{ info[0][0] }}
+                      <strong>
+                      ₩{{ info[6][1] }} , ₩{{ info[6][2] }} , ₩{{ info[6][3] }} {{ info[6][5]}}
+
+                      <!-- 집 이름 -->
+                      </strong>
                       <!-- /react-text -->
                     </span></span><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-inline_g86r3e"
                             data-reactid="752"></span></span>
                     </div>
         </div>
         <div class="listingNameContainer_kq7ac0-o_O-ellipsized_1iurgbx" data-reactid="788"><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-inline_g86r3e" data-reactid="789">
-          So bigroom around dong dae mun {{ info[0][1] }}
+          {{ info[6][6] }}
         </span></div>
         <div data-reactid="790"><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-weight_light_mf0ohk-o_O-inline_g86r3e" data-reactid="791"><span class="detailWithoutWrap_j1kt73" data-reactid="792">
-          개인실 {{ info[0][2] }}
+          {{ info[6][7] }}
         </span></span><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-weight_light_mf0ohk-o_O-inline_g86r3e"
                 data-reactid="793"><span  aria-hidden="true" data-reactid="794"> · </span><span class="detailWithoutWrap_j1kt73" data-reactid="795">
                   <span data-reactid="796">
-                    침대 2개 {{ info[0][3] }}
+                    방 {{ info[6][8] }}개
                 </span></span>
             </span><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-weight_light_mf0ohk-o_O-inline_g86r3e" data-reactid="797"><span aria-hidden="true" data-reactid="798"> · </span><span class="detailWithoutWrap_j1kt73" data-reactid="799"><span data-reactid="800">
-              숙박 인원 4명 {{ info[0][4] }}
+              총 {{ info[6][4] }}마리
             </span></span>
             </span>
         </div>
@@ -398,15 +459,18 @@
 </div>
 </div>
 </div>
+<!-- info[6] -->
+{% endif %}
 
-
+<!-- info[7] -->
+{% if info[7] %}
 <div class="listing-card-wrapper col-sm-12-s col-md-6-s space-4" data-reactid="801">
     <div class="listingCardWrapper_9kg52c" data-reactid="802">
         <div id="listing-13099300" class="listingContainer_f21qs6" data-reactid="803">
             <div aria-hidden="true" class="imageContainer_1xligvk-o_O-legacyImageContainer_1xlpym-o_O-imageContainer_seo_y9ev9r" data-reactid="804">
 
             <div data-reactid="832">
-                <a href="/rooms/13099300?checkin=2017%2F03%2F20&amp;checkout=2017%2F03%2F23&amp;guests=1&amp;adults=1&amp;children=0&amp;infants=0" target="_blank" aria-hidden="true" class="mediaPhoto_1bow0j6-o_O-mediaCover_n02jag" data-reactid="833">
+                <a href="/booking/8" target="_blank" aria-hidden="true" class="mediaPhoto_1bow0j6-o_O-mediaCover_n02jag" data-reactid="833">
                     <div class="listingImgContainer_zzjd4c-o_O-mediaCover_n02jag-o_O-centerImage_12to336" data-reactid="834"><img itemprop="image" src="https://a0.muscache.com/im/pictures/09969950-94c9-40e7-bb9a-d94f00f24de2.jpg?aki_policy=x_medium" alt="Room A - New n clean APT close to Ewha/Yunsei Univ - 서대문구 - 아파트" class="imageResponsiveHeight_rodubx"
                             data-reactid="835"></div>
                 </a>
@@ -419,24 +483,28 @@
                 <div class="priceRatingContainer_1joc06t" data-reactid="843">
                     <div class="priceContainer_4ml1ll" data-reactid="844"><span data-reactid="845"><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-inline_g86r3e" data-reactid="846"><span data-reactid="847">
                       <!-- react-text: 848 -->
-                      ₩30,480 {{ info[0][0] }}
+                      <strong>
+                      ₩{{ info[7][1] }} , ₩{{ info[7][2] }} , ₩{{ info[7][3] }} {{ info[7][5]}}
+
+                      <!-- 집 이름 -->
+                      </strong>
                       <!-- /react-text -->
                     </span></span><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-inline_g86r3e"
                             data-reactid="849"></span></span>
                     </div>
         </div>
         <div class="listingNameContainer_kq7ac0-o_O-ellipsized_1iurgbx" data-reactid="888"><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-inline_g86r3e" data-reactid="889">
-          Room A - New n clean APT close to Ewha/Yunsei Univ {{ info[0][1] }}
+          {{ info[7][6] }}
         </span></div>
         <div data-reactid="890"><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-weight_light_mf0ohk-o_O-inline_g86r3e" data-reactid="891"><span class="detailWithoutWrap_j1kt73" data-reactid="892">
-          개인실 {{ info[0][2] }}
+          {{ info[7][7] }}
         </span></span><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-weight_light_mf0ohk-o_O-inline_g86r3e"
                 data-reactid="893"><span aria-hidden="true" data-reactid="894"> · </span><span class="detailWithoutWrap_j1kt73" data-reactid="895">
                   <span data-reactid="896">
-                    침대 2개 {{ info[0][3] }}
+                    방 {{ info[7][8] }}개
                   </span></span>
             </span><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-weight_light_mf0ohk-o_O-inline_g86r3e" data-reactid="897"><span aria-hidden="true" data-reactid="898"> · </span><span class="detailWithoutWrap_j1kt73" data-reactid="899"><span data-reactid="900">
-              숙박 인원 2명 {{ info[0][4] }}
+              총 {{ info[7][4] }}마리
             </span></span>
             </span>
         </div>
@@ -445,6 +513,12 @@
 </div>
 </div>
 </div>
+<!-- info[7] -->
+{% endif %}
+<!--
+{% if total == 0 %}
+검색결과가 없습니다.
+{% endif %} -->
 
 
 
@@ -454,11 +528,16 @@
 </div><span style="font-size: 0px;"></span></div>
 <div class="results-footer" data-reactid="1841">
     <div class="pagination-buttons-container space-8" data-reactid="1842">
-        <div class="results_count" data-reactid="1843"><span data-reactid="1844"><span data-reactid="1845"><span data-reactid="1846">펫시터 50명 이상</span></span>
-            <!-- react-text: 1847 -->중
-            <!-- /react-text --><span data-reactid="1848">1</span>
-            <!-- react-text: 1849 -->–
-            <!-- /react-text --><span data-reactid="1850">18</span></span>
+        <div class="results_count petsitter_total" data-reactid="1843"><span data-reactid="1844"><span data-reactid="1845"><span data-reactid="1846">
+          펫시터 {{total}}명 이상</span></span>
+            <!-- react-text: 1847 -->
+            <!-- /react-text -->
+            <!-- <span data-reactid="1848">1</span> -->
+            <!-- react-text: 1849 -->
+            <!-- – -->
+            <!-- /react-text -->
+            <!-- <span data-reactid="1850">{{ page }}</span> -->
+          </span>
         </div>
         <div class="pagination pagination-responsive" data-reactid="1851">
             <ul class="list-unstyled" data-reactid="1852">
@@ -466,7 +545,7 @@
                 <li class="" data-reactid="1855"><a href="/s/한국?page=2" rel="next" data-prevent-default="true" data-reactid="1856">2</a></li>
                 <li class="" data-reactid="1857"><a href="/s/한국?page=3" rel="next" data-prevent-default="true" data-reactid="1858">3</a></li>
                 <li class="gap" data-reactid="1859"><span class="gap" data-reactid="1860">…</span></li>
-                <li class="" data-reactid="1861"><a href="/s/한국?page=17" rel="next" data-prevent-default="true" data-reactid="1862">17</a></li>
+                <li class="" data-reactid="1861"><a href="/s/한국?page=17" rel="next" data-prevent-default="true" data-reactid="1862">{{ page }}</a></li>
                 <li class="next next_page" data-reactid="1863"><a href="/s/한국?page=2" rel="next" data-prevent-default="true" data-reactid="1864"><span class="screen-reader-only" data-reactid="1865"><span data-reactid="1866">다음</span></span><i class="icon icon-caret-right" data-reactid="1867"></i></a></li>
             </ul>
         </div>

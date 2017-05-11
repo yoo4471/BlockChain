@@ -15,6 +15,7 @@
     <div data-hypernova-key="p1page_containerbundlejs">
       <div class="page_13hv8io" data-reactroot="" data-reactid="1" data-react-checksum="1052401032">
         <div class="1pageContainer_85zg64-o_O-pageContainer_verticalSpacingTop_1f5xw8o" style="background-color:transparent;" data-reactid="2">
+          <!-- <img src="http://mblogthumb3.phinf.naver.net/20160311_278/drdolittle_1457676185158BV801_PNG/2016-03-11_15%3B02%3B29.PNG?type=w800" alt=""> -->
           <!-- <div class="textHeaderContainer_7g4ol" data-reactid="3"> -->
             <!-- <h1 class="textHeader_1yif89n" data-reactid="4"> -->
               <!-- <span class="textHeader_rausch_14b1e4e" data-reactid="5"> -->
@@ -35,6 +36,9 @@
             <span style="font-size:0;" data-reactid="11"></span>
             <div class="container_avg348-o_O-mediumAndAbove_1fqrq3n" data-reactid="12">
               <div class="SearchForm row" role="search" data-reactid="13">
+
+
+                <!-- get -->
                 <form action="/s" method="get" data-reactid="14">
                   <div class="SearchForm__inputs-wrapper col-md-12" data-reactid="15">
                     <div class="SearchForm__row row" data-reactid="16">
@@ -80,6 +84,7 @@
                       <div class="SearchForm__guests text-left" data-reactid="46">
                         <label for="how-many-guests" class="SearchForm__label" data-reactid="47"><span data-reactid="48">인원</span></label>
                         <div class="GuestPickerTrigger" data-reactid="49">
+
                           <button class="GuestPickerTrigger__button" type="button" data-reactid="50">
                           <div class="guest-label" data-reactid="51">
                             <span class="guest-label__text guest-label__text-guests" data-reactid="52"><span data-reactid="53">인원 1명</span></span>
@@ -88,6 +93,7 @@
                             <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 18 18" style="fill:currentColor;height:12px;width:12px;display:block;" data-reactid="55"><path fill-rule="evenodd" d="M16.291 4.295a1 1 0 1 1 1.414 1.415l-8 7.995a1 1 0 0 1-1.414 0l-8-7.995a1 1 0 1 1 1.414-1.415l7.293 7.29 7.293-7.29z" data-reactid="56"></path></svg>
                           </div>
                           </button>
+
                           <div data-reactid="57">
                             <div class="GuestPicker hide pointer" data-reactid="58">
                               <div data-reactid="59">
@@ -97,7 +103,9 @@
                                   </div>
                                   <div class="col-sm-4 increment-btn-container" data-reactid="63">
                                     <div class="increment-btn" data-reactid="64">
-                                      <button class="btn btn-decrement" disabled="" aria-label="성인 수 줄이기" data-reactid="65"><i class="icon icon-minus" data-reactid="66"></i></button><button class="btn btn-increment" aria-label="성인 수 늘리기" data-reactid="67"><i class="icon icon-add" data-reactid="68"></i></button>
+                                      <button class="btn btn-decrement" disabled="" aria-label="성인 수 줄이기" data-reactid="65">
+                                        <i class="icon icon-minus" data-reactid="66"></i></button>
+                                        <button class="btn btn-increment" aria-label="성인 수 늘리기" data-reactid="67"><i class="icon icon-add" data-reactid="68"></i></button>
                                     </div>
                                   </div>
                                 </div>
@@ -155,8 +163,12 @@
                   </div>
                   <input type="hidden" name="source" value="bb" data-reactid="103"/>
                 </form>
+                <!-- get -->
+
+
               </div>
             </div>
+
             <div class="container_2jlos-o_O-mediumAndAbove_dzkbme" data-reactid="104">
               <div tabindex="0" data-reactid="105">
                 <div class="container_157txhx" data-reactid="106">
@@ -173,6 +185,7 @@
         <!-- react-empty: 120 -->
       </div>
     </div>
+
     <script type="application/json" data-hypernova-key="p1page_containerbundlejs"><!--{
       "path":"/",
       "phrases":{
@@ -1013,8 +1026,7 @@
         "initialHeroSubtitle":""
       },
       "marqueeTitle":"펫시팅에 오신 것을 환영합니다.",
-      "marqueeCaption":"당신에게 자유를 선물하세요.",
-
+      "marqueeCaption":"당신에게 자유를 선물하세요",
       "trebuchets":{
         "show_cookie_banner":true,
         "ethnio_p1":false,
@@ -1056,6 +1068,5 @@
 
 
   <!-- 숙소검색 -->
-
-  {% include 'footer.html' %}
-  {% endblock %}
+{% include "footer.html" %}
+{% endblock %}

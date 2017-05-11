@@ -5,13 +5,12 @@
 <div id="header-filler">
 </div>
 <div id="header" class="airbnb-header new ">
-
   <div class="header--sm show-sm clearfix" aria-hidden="true">
     <a href="#a" aria-label="홈페이지" data-prevent-default class="link-reset burger--sm">
     <i class="icon icon-airbnb-alt show-login pull-left"></i>
     <i class="icon icon-chevron-small icon-chevron-down icon-black pull-left"></i>
     <span class="screen-reader-only">
-    에어비앤비 </span>
+    러브펫 </span>
     </a>
     <div class="title--sm text-center">
       <button class="btn btn-block search-btn--sm search-modal-trigger " style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
@@ -22,7 +21,7 @@
       </button>
       <a href="#b" class="header-belo hide">
       <span class="screen-reader-only">
-      에어비앤비 </span>
+      러브펫 </span>
       </a>
     </div>
     <div class="action--sm">
@@ -33,11 +32,11 @@
     <div class="search-modal-container">
     </div>
   </div>
-
   <header class="regular-header clearfix hide-sm" id="new-header" role="banner">
   <div class="comp pull-left">
-    <a href="/" class="hdr-btn link-reset belo-container" aria-label="에어비앤비">
-    <i class="icon icon-pos--lower icon-airbnb-alt"></i>
+    <a href="/" class="hdr-btn link-reset belo-container" aria-label="러브펫">
+    <i class="icon icon-pos--lower icon-airbnb-alt h2 show-login"></i>
+    <i class="icon icon-pos--lower icon-airbnb show-logout"></i>
     </a>
   </div>
   <style data-aphrodite>
@@ -53,6 +52,9 @@
         <a data-reactified-header-link="true" href="#help" class="hdr-btn link-reset" data-login-modal="true" style="outline:none;" data-reactid="3"><span data-reactid="4">도움말</span></a>
       </div>
       {% if home_enroll %}
+      <div class="comp pull-right show-logout" data-reactid="6">
+        <a data-reactified-header-link="true" href="/start/" class="hdr-btn link-reset" data-signup-modal="true" style="outline:none;" data-reactid="8"><span data-reactid="7">펫시터 정보 수정</span></a>
+      </div>
       <div class="comp pull-right show-logout" data-reactid="5">
         <a data-reactified-header-link="true" href="/enrollment_home/address" class="hdr-btn link-reset" data-signup-modal="true" style="outline:none;" data-reactid="6"><span data-reactid="7">집 수정</span></a>
       </div>
@@ -61,10 +63,14 @@
       </div>
 
       {% else %}
+      <div class="comp pull-right show-logout" data-reactid="6">
+        <a data-reactified-header-link="true" href="/start/" class="hdr-btn link-reset" data-signup-modal="true" style="outline:none;" data-reactid="7"><span data-reactid="7">펫시터되기</span></a>
+      </div>
       <div class="comp pull-right show-logout" data-reactid="5">
         <a data-reactified-header-link="true" href="/enrollment_home/address" class="hdr-btn link-reset" data-signup-modal="true" style="outline:none;" data-reactid="6"><span data-reactid="7">집 등록</span></a>
       </div>
-      <div class="comp pull-right show-logout" data-reactid="6">
+
+      <div class="comp pull-right show-logout" data-reactid="8">
         <a data-reactified-header-link="true" href="/enrollment_pet/pet" class="hdr-btn link-reset" data-signup-modal="true" style="outline:none;" data-reactid="8"><span data-reactid="8">펫 등록</span></a>
       </div>
       {% endif %}
@@ -83,7 +89,7 @@
       </div>
 
       <div class="comp pull-right show-logout" data-reactid="1">
-        <a data-reactified-header-link="true" href="/login" class="hdr-btn link-reset" data-login-modal="true" style="outline:none;" data-reactid="1"><span data-reactid="1">도움말</span></a>
+        <a data-reactified-header-link="true" href="#/" class="hdr-btn link-reset" data-login-modal="true" style="outline:none;" data-reactid="1"><span data-reactid="1">도움말</span></a>
       </div>
       {% endif %}
 
@@ -99,7 +105,7 @@
                 <!--{"loginURL":"/login","signupURL":"/signup_login","phrases":{"header.Log In":"로그인","header.Sign Up":"회원가입"},"dataURLs":{"login":"/login_modal.json","signup":"/signup_modal.json","logout":"/signed_out_modal.json","otp":"/otp_modal.json"},"currentPageRedirectParams":"redirect_params=","trebuchets":{}}-->
             </script>
   <script type="application/json" data-aphrodite-css="signup_login_dls/header.bundle.js">
-                <!--[]-->
+                <!---->
             </script>
 
   <div class="comp search-bar-wrapper" role="search">

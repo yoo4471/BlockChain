@@ -1,0 +1,625 @@
+<head>
+  <meta charset="utf-8">
+  <link href="https://a0.muscache.com/airbnb/static/packages/common_o2.1-dd6a103de40d51f2c682308fb1ae17fb.css" media="all" rel="stylesheet" type="text/css">
+  <link href="https://a0.muscache.com/airbnb/static/packages/common-3d6d481140b41b27096e4ee0d1f0f550.css" media="all" rel="stylesheet" type="text/css">
+
+
+  <link href="https://a0.muscache.com/airbnb/static/payments-334fd6d7fc9350e42312eb9b71541b6f.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="https://a0.muscache.com/airbnb/static/p4/p4-9f3214d946dc86351d648638c08753ca.css" media="screen" rel="stylesheet" type="text/css">
+
+
+  <title>거의 끝났습니다!</title>
+
+  <link rel="manifest" href="/manifest.json">
+
+  <meta name="csrf-token" id="csrf-token-meta-tag" content="V4$.airbnb.co.kr$E2Slrh54xcI$Gn2toV6v5CJtsD5q5W7g7NVhrUmw__-EJvKFccaU4mQ=">
+  <meta name="csrf-param" id="csrf-param-meta-tag" content="authenticity_token">
+</head>
+
+<body class="with-new-header has-epcot-header">
+
+
+  <main id="site-content" role="main" tabindex="-1">
+
+    <style data-aphrodite=""></style>
+
+
+
+
+    <div id="main-view" class="main-view page-container-responsive     space-top-md-6 space-md-6 space-top-lg-6 space-lg-6">
+
+      <form action="/user/payments/ing" method="post" id="checkout-form">
+
+        <div class="row">
+          <div class="col-sm-12 p4-error-header space-1">
+            <div class="alert alert-with-icon alert-error alert-block hide space-lg-2 space-md-2" id="form-errors">
+              <i class="icon alert-icon icon-alert-alt"></i>
+
+              <div class="h5 space-1 error-header">
+                거의 끝났습니다!
+              </div>
+              <ul></ul>
+
+            </div>
+
+            <div class="alert alert-with-icon alert-error alert-block hide space-lg-2 space-md-2" id="ineligible-coupon-error">
+              <i class="icon alert-icon icon-alert-alt"></i>
+
+              <div class="h5 space-1 error-header">
+                회원님의 쿠폰에 문제가 발생했습니다.
+              </div>
+              <p></p>
+
+            </div>
+
+            <div class="alert alert-with-icon alert-success alert-block hide space-lg-2 space-md-2" id="coupon-success">
+              <i class="icon alert-icon icon-star-circled"></i>
+
+              <div class="h5 space-1 error-header">
+                프로모션 요금이 적용되었습니다.
+              </div>
+              전체 숙박 요금에 프로모션을 적용했습니다. 이제 즐거운 여행을 하는 일만 남았네요!
+
+            </div>
+
+            <div class="alert alert-with-icon alert-error alert-block hide space-lg-2 space-md-2" id="server-error">
+              <i class="icon alert-icon icon-alert-alt"></i> 오류가 발생하여 요청이 접수되지 않았습니다. 에어비앤비 웹사이트가 점검 중이었거나 연결이 자동으로 중지되었을 수 있습니다. 다시 시도해 주세요.
+
+            </div>
+
+            <div class="alert alert-with-icon alert-error alert-block hide space-lg-2 space-md-2" id="verification-error">
+              <i class="icon alert-icon icon-alert-alt"></i> 회원님의 카드를 인증할 수 없습니다. 다른 카드로 시도해 보세요. 회원님의 카드에는 금액이 청구되지 않았습니다.
+
+            </div>
+
+            <div class="alert alert-with-icon alert-error alert-block hide space-lg-2 space-md-2" id="house-rules-error">
+              <i class="icon alert-icon icon-alert-alt"></i>
+
+              <div class="h5 space-1 error-header">
+                숙소 이용규칙과 약관
+              </div>
+              <p>
+                예약를 하려면, 숙소 이용규칙과 약관에 동의하세요.
+              </p>
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-5 col-md-push-7 space-lg-2 space-md-2 side-summary-container">
+
+            <div data-hypernova-key="p4_sidebarbundlejs">
+              <div class="summary-card col-center" data-reactroot="" data-reactid="1">
+                <div class="background-cover summary-card__payments-listing-image" style="background-image:url(https://a0.muscache.com/im/pictures/83ddd658-971c-43cc-be85-c059ae37e222.jpg?aki_policy=large);" data-reactid="2"></div>
+                <div class="pull-right space-3 summary-card__host-profile-photo" data-reactid="3">
+                  <div class="media-photo media-round" data-reactid="4"><img class="summary-card__host-profile-photo-src" src="https://a0.muscache.com/im/pictures/7066eced-82fb-474f-a0e6-1d85a5c3db3c.jpg?aki_policy=profile_x_medium" alt="Hostel" data-reactid="5"></div>
+                </div>
+                <div class="panel" data-reactid="6">
+                  <div class="panel-body" data-reactid="7">
+                    <div class="text-muted space-2" data-reactid="8"><span data-reactid="9">펫시터: {{detail_petsitter[0][1]}}님</span></div>
+                    <div class="sidebar-text-large" data-reactid="10">{{detail_petsitter[0][12]}}</div>
+                    <div class="hide-sm text-muted" data-reactid="11">
+                      <div data-reactid="57">동작구, 서울, 한국</div>
+                    </div>
+                  </div>
+                  <div class="panel-body hide-sm" data-reactid="58">
+                    <div class="row row-condensed" data-reactid="59">
+                      <div class="col-sm-5" data-reactid="60">
+                        <div class="text-muted space-bottom-2" data-reactid="61"><span data-reactid="62">체크인</span></div>
+                        <!-- react-text: 63 -->{{ user[4] }}
+                        <!-- /react-text -->
+                      </div>
+                      <div class="col-sm-2 summary-card__check-in-icon" data-reactid="64"><i class="icon icon-chevron-right icon-light-gray" data-reactid="65"></i></div>
+                      <div class="col-sm-5" data-reactid="66">
+                        <div class="text-muted space-bottom-2" data-reactid="67"><span data-reactid="68">체크아웃</span></div>
+                        <!-- react-text: 69 -->{{ user[5] }}
+                        <!-- /react-text -->
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel-body hide-sm" data-reactid="70">
+                    <table class="summary-card__billing-table" data-reactid="71">
+                      <tbody data-reactid="72">
+                        <tr class="price-item">
+                          <th class="" scope="row"><span><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-weight_light_1nmzz2x-o_O-inline_g86r3e">
+                            ₩{{charge}} x {{term}}박
+                          </span><span><span><!-- react-empty: 143 --></span></span>
+                            </span>
+                          </th>
+                          <td class="text-right price-item__price"><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-weight_light_1nmzz2x-o_O-inline_g86r3e"><div class=""><span><!-- react-text: 149 -->₩{{total}}<!-- /react-text --></span></div>
+                  </span>
+                  </td>
+                  </tr>
+                  </tbody>
+                  </table>
+                </div>
+                <div class="panel-body hide-sm" data-reactid="104"><button class="sidebar-text-large space-2 summary-card__total-price" tabindex="-1" data-reactid="105"><table class="summary-card__billing-table" data-reactid="106"><tbody data-reactid="107">
+                  <tr class="price-item" data-reactid="108">
+                  <th class="" scope="row" data-reactid="109">
+                  <span data-reactid="110">
+                  <span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-inline_g86r3e" data-reactid="111">총합계</span></span></th>
+                  <td class="text-right price-item__price" data-reactid="112">
+                    <span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-inline_g86r3e" data-reactid="113">
+                      <div class="" data-reactid="114"><span data-reactid="115">
+                        <!-- react-text: 116 -->₩{{total}}<!-- /react-text --></span>
+                        <sup data-reactid="117">KRW</sup></div></span></td>
+                      </tr></tbody></table></button>
+                  <!-- react-empty: 118 -->
+                </div><input type="hidden" value="1" name="apply_airbnb_credit" id="apply_airbnb_credit" data-reactid="122"></div>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div id="content-container" class="summary-card-page-content col-md-7 col-md-pull-5">
+
+          <div class="accordion-panel" data-panel-name="AboutYourTrip">
+            <section data-hook="accordion-panel-header">
+              <header data-reactroot="" class="accordion-header text-lead space-top-2">
+                <div class="row">
+                  <div class="col-md-10 text-left">
+                    <div class="h3 pull-left">결제 정보</div>
+                    <div class="hide-sm pull-left title-content__wrapper"></div>
+                  </div>
+                  <div class="col-md-2 text-right header-edit-link"></div>
+                </div>
+                <div class="space-2"></div>
+              </header>
+            </section>
+            <div class="accordion-panel__content accordion-panel--expanded">
+              <style data-aphrodite="">
+                .table_qtix31 {
+                  display: table !important;
+                }
+
+                .table_qtix31-o_O-buttons_y5lyrw {
+                  display: table !important;
+                  width: 120px !important;
+                }
+
+                .middleAlignedCell_17u98ky-o_O-left_e4x16a {
+                  display: table-cell !important;
+                  vertical-align: middle !important;
+                  text-align: left !important;
+                }
+
+                .middleAlignedCell_17u98ky-o_O-center_12to336 {
+                  display: table-cell !important;
+                  vertical-align: middle !important;
+                  text-align: center !important;
+                }
+
+                .middleAlignedCell_17u98ky-o_O-right_140n9qh {
+                  display: table-cell !important;
+                  vertical-align: middle !important;
+                  text-align: right !important;
+                }
+
+                .container_z8lbtc {
+                  border: none !important;
+                  margin: 0px !important;
+                  padding: 0px !important;
+                }
+
+                .visuallyHidden_1m8bb6v {
+                  position: absolute !important;
+                  display: block !important;
+                  border: 0px !important;
+                  margin: -1px !important;
+                  padding: 0px !important;
+                  height: 1px !important;
+                  width: 1px !important;
+                  clip: rect(0, 0, 0, 0) !important;
+                  overflow: hidden !important;
+                }
+
+                .containerFallback_1cmo568-o_O-container_1s8su0z {
+                  -webkit-box-align: center !important;
+                  -ms-flex-align: center !important;
+                  -webkit-box-lines: multiple !important;
+                  text-align: justify !important;
+                  line-height: 0 !important;
+                  display: -webkit-box !important;
+                  display: -moz-box !important;
+                  display: -ms-flexbox !important;
+                  display: -webkit-flex !important;
+                  display: flex !important;
+                  -webkit-flex-wrap: wrap !important;
+                  -ms-flex-wrap: wrap !important;
+                  flex-wrap: wrap !important;
+                  -webkit-align-items: center !important;
+                  align-items: center !important;
+                }
+
+                .containerFallback_1cmo568-o_O-container_1s8su0z::after {
+                  content: '' !important;
+                  display: inline-block !important;
+                  vertical-align: top !important;
+                  width: 100% !important;
+                }
+
+                .beforeFallback_1iti0ju-o_O-before_t0tx82 {
+                  -ms-flex-positive: 1 !important;
+                  display: inline-block !important;
+                  vertical-align: middle !important;
+                  -webkit-flex-grow: 1 !important;
+                  flex-grow: 1 !important;
+                }
+
+                .afterFallback_1iti0ju {
+                  display: inline-block !important;
+                  vertical-align: middle !important;
+                }
+
+                .text_5mbkop-o_O-size_regular_x6m9oi {
+                  font-weight: normal !important;
+                  color: #484848 !important;
+                  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif !important;
+                  margin: 0px !important;
+                  word-wrap: break-word !important;
+                  font-size: 19px !important;
+                  line-height: 24px !important;
+                  letter-spacing: undefined !important;
+                  padding-top: 0px !important;
+                  padding-bottom: 0px !important;
+                }
+
+                .button_qq3sll-o_O-button_1ju6z0l-o_O-button_small_1h534dv-o_O-button_light_1a24k02 {
+                  display: inline-block !important;
+                  width: 32px !important;
+                  height: 32px !important;
+                  cursor: pointer !important;
+                  border-radius: 16px !important;
+                  text-align: center !important;
+                  line-height: 1 !important;
+                  position: relative !important;
+                  border: 2px solid transparent !important;
+                  background-color: transparent !important;
+                  border-color: #008489 !important;
+                  text-color: #008489 !important;
+                  border-width: 1px !important;
+                }
+
+                .button_qq3sll-o_O-button_1ju6z0l-o_O-button_small_1h534dv-o_O-button_light_1a24k02:active {
+                  background-color: transparent !important;
+                  border-color: #00514A !important;
+                }
+
+                .button_qq3sll-o_O-button_1ju6z0l-o_O-button_small_1h534dv-o_O-button_light_1a24k02:disabled {
+                  background-color: transparent !important;
+                  border-color: rgba(0, 132, 137, 0.3) !important;
+                  text-color: rgba(0, 132, 137, 0.3) !important;
+                }
+
+                .icon_16b32nl-o_O-icon_11jdm7g-o_O-icon_small_abrv9k {
+                  display: inline-block !important;
+                  font-size: 16px !important;
+                  position: absolute !important;
+                  top: 50% !important;
+                  left: 50% !important;
+                  -webkit-transform: translate(-50%, -50%) !important;
+                  -ms-transform: translate(-50%, -50%) !important;
+                  transform: translate(-50%, -50%) !important;
+                  color: #008489 !important;
+                }
+
+                .icon_16b32nl-o_O-icon_11jdm7g-o_O-icon_small_abrv9k:active {
+                  color: undefined !important;
+                }
+
+                .subtitle_ac6rph {
+                  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif !important;
+                  font-size: 15px !important;
+                  line-height: 18px !important;
+                  letter-spacing: 0.2px !important;
+                  padding-top: 4px !important;
+                  padding-bottom: 0px !important;
+                  color: #484848 !important;
+                  display: block !important;
+                }
+
+                .text_5mbkop-o_O-size_small_1gg2mc-o_O-weight_light_1nmzz2x {
+                  font-weight: 300 !important;
+                  color: #484848 !important;
+                  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif !important;
+                  margin: 0px !important;
+                  word-wrap: break-word !important;
+                  font-size: 15px !important;
+                  line-height: 18px !important;
+                  letter-spacing: 0.2px !important;
+                  padding-top: 0px !important;
+                  padding-bottom: 0px !important;
+                }
+
+                .icon_16b32nl-o_O-icon_1wy8x1d-o_O-icon_small_abrv9k {
+                  display: inline-block !important;
+                  font-size: 16px !important;
+                  position: absolute !important;
+                  top: 50% !important;
+                  left: 50% !important;
+                  -webkit-transform: translate(-50%, -50%) !important;
+                  -ms-transform: translate(-50%, -50%) !important;
+                  transform: translate(-50%, -50%) !important;
+                  color: rgba(0, 132, 137, 0.3) !important;
+                }
+
+                .icon_16b32nl-o_O-icon_1wy8x1d-o_O-icon_small_abrv9k:active {
+                  color: undefined !important;
+                }
+
+                .component_9w5i1l-o_O-component_button_r8o91c {
+                  color: #008489 !important;
+                  font: inherit !important;
+                  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif !important;
+                  text-decoration: none !important;
+                  -webkit-appearance: none !important;
+                  -moz-appearance: none !important;
+                  appearance: none !important;
+                  background: transparent !important;
+                  border: 0px !important;
+                  cursor: pointer !important;
+                  margin: 0px !important;
+                  padding: 0px !important;
+                  text-align: left !important;
+                  -webkit-user-select: auto !important;
+                  -moz-user-select: auto !important;
+                  -ms-user-select: auto !important;
+                  user-select: auto !important;
+                }
+
+                .component_9w5i1l-o_O-component_button_r8o91c:hover {
+                  text-decoration: underline !important;
+                }
+
+                .component_9w5i1l-o_O-component_button_r8o91c:active {
+                  color: #00514A !important;
+                  outline: 0px !important;
+                }
+              </style>
+              <div data-hypernova-key="p4_first_messagebundlejs">
+                <div class="p4-first-message" data-reactroot="" data-reactid="1">
+                  <div class="space-4" data-reactid="2">
+                    <div class="guest-details" data-reactid="3"><span data-reactid="4">몇 마리를 맡기시나요?(대형견,중형견,소형견)</span>
+                      <div data-reactid="5">
+                        <div class="row space-top-1" data-reactid="6">
+                          <div class="col-md-12 col-lg-6" data-reactid="7">
+                            <div class="GuestPickerTrigger" data-reactid="8"><button class="GuestPickerTrigger__button" type="button" data-reactid="9"><div class="guest-label" data-reactid="10"><span class="guest-label__text guest-label__text-guests" data-reactid="11"><span data-reactid="12">총 {{ user[0] }}마리, 각각{{ user[1] }}, {{ user[2] }}, {{ user[3] }}마리</span></span></div>
+                              <div class="dropdown-icon" data-reactid="13"><svg viewBox="0 0 18 18" aria-hidden="true" focusable="false" style="display: block; fill: currentcolor; height: 12px; width: 12px;"><path fill-rule="evenodd" d="M16.291 4.295a1 1 0 1 1 1.414 1.415l-8 7.995a1 1 0 0 1-1.414 0l-8-7.995a1 1 0 1 1 1.414-1.415l7.293 7.29 7.293-7.29z"></path></svg></div></button>
+                              <div
+                                data-reactid="16">
+                                <div class="GuestPicker hide" data-reactid="17">
+                                  <div style="margin-top:16px;margin-bottom:16px;" data-reactid="18">
+                                    <div style="margin-top:16px;margin-bottom:16px;" data-reactid="19">
+                                      <fieldset class="container_z8lbtc" data-reactid="20">
+                                        <legend class="visuallyHidden_1m8bb6v" data-reactid="21"><span data-reactid="22">성인 수를 선택하세요.</span></legend>
+                                        <div class="containerFallback_1cmo568-o_O-container_1s8su0z" data-reactid="23">
+                                          <div class="beforeFallback_1iti0ju-o_O-before_t0tx82" data-reactid="24">
+                                            <div class="table_qtix31" data-reactid="25">
+                                              <div id="StepIncrementerRow-title-GuestCountFilter-GuestPicker-p4-guest_details-adults" data-reactid="26">
+                                                <div class="text_5mbkop-o_O-size_regular_x6m9oi" data-reactid="27"><span data-reactid="28">성인</span></div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <!-- react-text: 29 -->
+                                          <!-- /react-text -->
+                                          <div class="afterFallback_1iti0ju" data-reactid="30">
+                                            <div class="table_qtix31-o_O-buttons_y5lyrw" data-reactid="31">
+                                              <div class="middleAlignedCell_17u98ky-o_O-left_e4x16a" data-reactid="32">
+                                                <button class="button_qq3sll-o_O-button_1ju6z0l-o_O-button_small_1h534dv-o_O-button_light_1a24k02" type="button" aria-label="subtract" aria-controls="StepIncrementerRow-value-GuestCountFilter-GuestPicker-p4-guest_details-adults"
+                                                  data-reactid="33"><span class="icon_16b32nl-o_O-icon_11jdm7g-o_O-icon_small_abrv9k" data-reactid="34">
+                                                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="display:block;fill:currentColor;height:1em;width:1em;" data-reactid="35"><rect width="12" height="2" x="6" y="11" rx="1" data-reactid="36"></rect></svg></span></button></div>
+                                              <div
+                                                id="StepIncrementerRow-value-GuestCountFilter-GuestPicker-p4-guest_details-adults" role="region" aria-live="polite" aria-label="성인 2명" class="middleAlignedCell_17u98ky-o_O-center_12to336" data-reactid="37">
+                                                <div class="text_5mbkop-o_O-size_regular_x6m9oi" data-reactid="38">2</div>
+                                            </div>
+                                            <div class="middleAlignedCell_17u98ky-o_O-right_140n9qh" data-reactid="39"><button class="button_qq3sll-o_O-button_1ju6z0l-o_O-button_small_1h534dv-o_O-button_light_1a24k02" type="button" aria-label="add" aria-controls="StepIncrementerRow-value-GuestCountFilter-GuestPicker-p4-guest_details-adults"
+                                                data-reactid="40"><span class="icon_16b32nl-o_O-icon_11jdm7g-o_O-icon_small_abrv9k" data-reactid="41"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="display:block;fill:currentColor;height:1em;width:1em;" data-reactid="42">
+                                                  <rect width="12" height="2" x="6" y="11" rx="1" data-reactid="43"></rect><rect width="2" height="12" x="11" y="6" rx="1" data-reactid="44"></rect></svg></span></button></div>
+                                          </div>
+                                        </div>
+                                    </div>
+                                    </fieldset>
+                                  </div>
+                                  <div style="margin-top:24px;margin-bottom:24px;" data-reactid="45">
+                                    <fieldset class="container_z8lbtc" data-reactid="46">
+                                      <legend class="visuallyHidden_1m8bb6v" data-reactid="47"><span data-reactid="48">어린이 수를 선택하세요.</span></legend>
+                                      <div class="containerFallback_1cmo568-o_O-container_1s8su0z" data-reactid="49">
+                                        <div class="beforeFallback_1iti0ju-o_O-before_t0tx82" data-reactid="50">
+                                          <div class="table_qtix31" data-reactid="51">
+                                            <div id="StepIncrementerRow-title-GuestCountFilter-GuestPicker-p4-guest_details-children" data-reactid="52">
+                                              <div class="text_5mbkop-o_O-size_regular_x6m9oi" data-reactid="53"><span data-reactid="54">어린이</span></div>
+                                            </div>
+                                            <div id="StepIncrementerRow-subtitle-GuestCountFilter-GuestPicker-p4-guest_details-children" class="subtitle_ac6rph" data-reactid="55">
+                                              <div class="text_5mbkop-o_O-size_small_1gg2mc-o_O-weight_light_1nmzz2x" data-reactid="56"><span data-reactid="57">2~12세</span></div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <!-- react-text: 58 -->
+                                        <!-- /react-text -->
+                                        <div class="afterFallback_1iti0ju" data-reactid="59">
+                                          <div class="table_qtix31-o_O-buttons_y5lyrw" data-reactid="60">
+                                            <div class="middleAlignedCell_17u98ky-o_O-left_e4x16a" data-reactid="61"><button class="button_qq3sll-o_O-button_1ju6z0l-o_O-button_small_1h534dv-o_O-button_light_1a24k02" type="button" aria-label="subtract" aria-controls="StepIncrementerRow-value-GuestCountFilter-GuestPicker-p4-guest_details-children"
+                                                disabled="" data-reactid="62"><span class="icon_16b32nl-o_O-icon_1wy8x1d-o_O-icon_small_abrv9k" data-reactid="63"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="display:block;fill:currentColor;height:1em;width:1em;" data-reactid="64">
+                                                  <rect width="12" height="2" x="6" y="11" rx="1" data-reactid="65"></rect></svg></span></button></div>
+                                            <div
+                                              id="StepIncrementerRow-value-GuestCountFilter-GuestPicker-p4-guest_details-children" role="region" aria-live="polite" aria-label="어린이 0명" class="middleAlignedCell_17u98ky-o_O-center_12to336" data-reactid="66">
+                                              <div class="text_5mbkop-o_O-size_regular_x6m9oi" data-reactid="67">0</div>
+                                          </div>
+                                          <div class="middleAlignedCell_17u98ky-o_O-right_140n9qh" data-reactid="68"><button class="button_qq3sll-o_O-button_1ju6z0l-o_O-button_small_1h534dv-o_O-button_light_1a24k02" type="button" aria-label="add" aria-controls="StepIncrementerRow-value-GuestCountFilter-GuestPicker-p4-guest_details-children"
+                                              data-reactid="69"><span class="icon_16b32nl-o_O-icon_11jdm7g-o_O-icon_small_abrv9k" data-reactid="70"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="display:block;fill:currentColor;height:1em;width:1em;" data-reactid="71">
+                                                <rect width="12" height="2" x="6" y="11" rx="1" data-reactid="72"></rect><rect width="2" height="12" x="11" y="6" rx="1" data-reactid="73"></rect></svg></span></button></div>
+                                        </div>
+                                      </div>
+                                  </div>
+                                  </fieldset>
+                                </div>
+                                <div style="margin-top:24px;margin-bottom:24px;" data-reactid="74">
+                                  <fieldset class="container_z8lbtc" data-reactid="75">
+                                    <legend class="visuallyHidden_1m8bb6v" data-reactid="76"><span data-reactid="77">유아 수를 선택하세요.</span></legend>
+                                    <div class="containerFallback_1cmo568-o_O-container_1s8su0z" data-reactid="78">
+                                      <div class="beforeFallback_1iti0ju-o_O-before_t0tx82" data-reactid="79">
+                                        <div class="table_qtix31" data-reactid="80">
+                                          <div id="StepIncrementerRow-title-GuestCountFilter-GuestPicker-p4-guest_details-infants" data-reactid="81">
+                                            <div class="text_5mbkop-o_O-size_regular_x6m9oi" data-reactid="82"><span data-reactid="83">유아</span></div>
+                                          </div>
+                                          <div id="StepIncrementerRow-subtitle-GuestCountFilter-GuestPicker-p4-guest_details-infants" class="subtitle_ac6rph" data-reactid="84">
+                                            <div class="text_5mbkop-o_O-size_small_1gg2mc-o_O-weight_light_1nmzz2x" data-reactid="85"><span data-reactid="86">2세 미만</span></div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <!-- react-text: 87 -->
+                                      <!-- /react-text -->
+                                      <div class="afterFallback_1iti0ju" data-reactid="88">
+                                        <div class="table_qtix31-o_O-buttons_y5lyrw" data-reactid="89">
+                                          <div class="middleAlignedCell_17u98ky-o_O-left_e4x16a" data-reactid="90"><button class="button_qq3sll-o_O-button_1ju6z0l-o_O-button_small_1h534dv-o_O-button_light_1a24k02" type="button" aria-label="subtract" aria-controls="StepIncrementerRow-value-GuestCountFilter-GuestPicker-p4-guest_details-infants"
+                                              disabled="" data-reactid="91"><span class="icon_16b32nl-o_O-icon_1wy8x1d-o_O-icon_small_abrv9k" data-reactid="92"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="display:block;fill:currentColor;height:1em;width:1em;" data-reactid="93">
+                                                <rect width="12" height="2" x="6" y="11" rx="1" data-reactid="94"></rect></svg></span></button></div>
+                                          <div
+                                            id="StepIncrementerRow-value-GuestCountFilter-GuestPicker-p4-guest_details-infants" role="region" aria-live="polite" aria-label="유아 0명" class="middleAlignedCell_17u98ky-o_O-center_12to336" data-reactid="95">
+                                            <div class="text_5mbkop-o_O-size_regular_x6m9oi" data-reactid="96">0</div>
+                                        </div>
+                                        <div class="middleAlignedCell_17u98ky-o_O-right_140n9qh" data-reactid="97"><button class="button_qq3sll-o_O-button_1ju6z0l-o_O-button_small_1h534dv-o_O-button_light_1a24k02" type="button" aria-label="add" aria-controls="StepIncrementerRow-value-GuestCountFilter-GuestPicker-p4-guest_details-infants"
+                                            data-reactid="98"><span class="icon_16b32nl-o_O-icon_11jdm7g-o_O-icon_small_abrv9k" data-reactid="99"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="display:block;fill:currentColor;height:1em;width:1em;" data-reactid="100">
+                                              <rect width="12" height="2" x="6" y="11" rx="1" data-reactid="101"></rect><rect width="2" height="12" x="11" y="6" rx="1" data-reactid="102"></rect></svg></span></button></div>
+                                      </div>
+                                    </div>
+                                </div>
+                                </fieldset>
+                            </div>
+                            <div data-reactid="103">
+                              <div style="margin-bottom:16px;" data-reactid="104">
+                                <!-- react-text: 105 -->
+                                <!-- /react-text -->
+                                <div class="text_5mbkop-o_O-size_small_1gg2mc-o_O-weight_light_1nmzz2x" data-reactid="106"><span data-reactid="107">최대 3명. 유아는 숙박인원에 포함되지 않습니다.</span></div>
+                                <!-- react-text: 108 -->
+                                <!-- /react-text -->
+                              </div>
+                              <div class="containerFallback_1cmo568-o_O-container_1s8su0z" data-reactid="109">
+                                <div class="beforeFallback_1iti0ju-o_O-before_t0tx82" data-reactid="110"></div>
+                                <!-- react-text: 111 -->
+                                <!-- /react-text -->
+                                <div class="afterFallback_1iti0ju" data-reactid="112">
+                                  <div class="text_5mbkop-o_O-size_regular_x6m9oi" data-reactid="113"><button aria-disabled="false" class="component_9w5i1l-o_O-component_button_r8o91c" type="button" data-reactid="114"><span data-reactid="115">닫기</span></button></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="space-4" data-reactid="116">
+            <div data-reactid="117"><span data-reactid="118">맡길 시간은 언제인가요?</span>
+              <div class="text-muted space-3 space-top-1" data-reactid="119">예약하려면, 펫시터가 지정한 시간 사이에 맡기셔야 합니다.</div>
+              <div class="row" data-reactid="120">
+                <div class="col-md-6" data-reactid="121">
+                  <div class="select first-message-select" data-reactid="122"><select class="" data-reactid="123" name="time">
+                    <option selected="" value="NOT_SELECTED"  disabled="" data-reactid="124">선택</option>
+                    <option value="8" data-reactid="125">08:00 - 10:00</option>
+                    <option value="9" data-reactid="126">09:00 - 11:00</option>
+                    <option value="10" data-reactid="127">10:00 - 12:00</option>
+                    <option value="11" data-reactid="128">11:00 - 13:00</option>
+                    <option value="12" data-reactid="129">12:00 - 14:00</option>
+                    <option value="13" data-reactid="130">13:00 - 15:00</option>
+                    <option value="14" data-reactid="131">14:00 - 16:00</option>
+                    <option value="15" data-reactid="132">15:00 - 17:00</option>
+                    <option value="16" data-reactid="133">16:00 - 18:00</option>
+                    <option value="17" data-reactid="134">17:00 - 19:00</option>
+                    <option value="18" data-reactid="135">18:00 - 20:00</option>
+                    <option value="19" data-reactid="136">19:00 - 21:00</option>
+                    <option value="20" data-reactid="137">20:00 - 22:00</option>
+                    <option value="21" data-reactid="138">21:00 - 23:00</option>
+                    <option value="22" data-reactid="139">22:00 - 00:00</option>
+                    <option value="23" data-reactid="140">23:00 - 01:00(다음 날)</option>
+                    <option value="24" data-reactid="141">00:00 - 02:00(다음 날)</option></select>
+                    <div
+                      class="label label-warning inline-error hide" data-reactid="142"><span data-reactid="143">체크인 시간은 반드시 입력해야 합니다.</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="space-7" data-reactid="144">
+          <div data-reactid="145"><label for="guest-message-input" data-reactid="146"><span data-reactid="147">호스트에게 펫 주의사항을 알려주세요.</span><span data-reactid="148"></span></label>
+            <div class="guest-message-textarea" data-reactid="149">
+              <div data-reactid="150"><textarea aria-label="호스트에게 메시지를 보내세요" class="" id="message-to-host-input" name="message_to_host" placeholder="펫이 낯가림이 심한가요? 아니면 먹는 것을 많이 가리나요? 어떻게 맡겨주길 원하는 지 알려주시면 펫시터가 준비하는데 도움이 됩니다. 자기 소개도 잊지 마세요! :)" rows="4" data-reactid="151">안녕하세요.</textarea></div>
+            </div>
+          </div>
+          <div class="space-top-1" data-reactid="152">
+            <div data-reactid="153"></div>
+          </div>
+        </div>
+        <div class="space-6" data-reactid="154">
+          <div class="panel house-rules" data-reactid="155">
+            <div class="panel-body house-rules__wrapper" data-reactid="156">
+              <div class="house-rules__icon-wrapper" data-reactid="157">
+                <div class="bg-babu house-rules__icon" data-reactid="158"></div>
+              </div>
+              <h3 class="text-center" data-reactid="159"><span data-reactid="160">Hostel님의 숙소 이용규칙</span></h3>
+              <div data-reactid="161">
+                <div class="structured-house-rules" data-reactid="162">
+                  <div class="structured-house-rules__rule house-rules__guest-control" data-reactid="163"><span data-reactid="164">예방접종 안된 펫 금지</span>
+                    <!-- react-text: 165 -->&nbsp;
+                    <!-- /react-text --><i class="icon icon-ok-alt icon-babu structured-house-rules__rule-checkmark" data-reactid="166"></i></div>
+                  <div class="structured-house-rules__rule house-rules__guest-control" data-reactid="167"><span data-reactid="168">반려동물 동반이 가능해야 함</span>
+                    <!-- react-text: 169 -->&nbsp;
+                    <!-- /react-text --><i class="icon icon-ok-alt icon-babu structured-house-rules__rule-checkmark" data-reactid="170"></i></div>
+                  <div class="structured-house-rules__rule house-rules__guest-control" data-reactid="171"><span data-reactid="172">공격적인 성향 펫 금지</span>
+                    <!-- react-text: 173 -->&nbsp;
+                    <!-- /react-text --><i class="icon icon-ok-alt icon-babu structured-house-rules__rule-checkmark" data-reactid="174"></i></div>
+                  <div class="structured-house-rules__rule house-rules__guest-control" data-reactid="175"><span data-reactid="176">어린이(0-12세)와의 동반이 안전해야함</span>
+                    <!-- react-text: 177 -->&nbsp;
+                    <!-- /react-text --><i class="icon icon-ok-alt icon-babu structured-house-rules__rule-checkmark" data-reactid="178"></i></div>
+                  <div class="structured-house-rules__rule house-rules__guest-control" data-reactid="179"><span data-reactid="180">체크인 가능 시간은 15:00 - 02:00(다음 날)입니다</span>
+                    <!-- react-text: 181 -->&nbsp;
+                    <!-- /react-text --><i class="icon icon-ok-alt icon-babu structured-house-rules__rule-checkmark" data-reactid="182"></i></div>
+                </div>
+              </div>
+              <div class="house-rules__content" data-reactid="183"><pre class="house-rules__user-content" data-reactid="184"></pre>
+                <div class="house-rules__content-expandable-indicator hide" data-reactid="185"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    </div>
+    <script type="application/json" data-hypernova-key="p4_first_messagebundlejs">
+      <!--{"businessTravelData":{"businessEntityId":null,"companyName":null,"guestIsBusinessTravelVerified":false,"imagePaths":{"default_profile_pic_url":"https://a0.muscache.com/airbnb/static/user_pic-68x68-5d31bdce5300ad3971455bec2a2f80a9.png","invite_user_modal_group":"https://a0.muscache.com/airbnb/static/business_travel/p4/invite-user-modal-group-4802e68e5c80a54fcc09587151b5d74c.png","invite_user_modal_phone":"https://a0.muscache.com/airbnb/static/business_travel/p4/invite-user-modal-phone-75d120d729632bdd343e83fc70f746c8.png","invite_user_modal_sent":"https://a0.muscache.com/airbnb/static/business_travel/p4/invite-user-modal-sent-7fccc50048c9508165a04d2d8c3c8c82.png","invite_user_modal_suitcase":"https://a0.muscache.com/airbnb/static/business_travel/p4/invite-user-modal-suitcase-daf4ad34aaeabfcfb7a3d0961f360d16.png"},"pendingTraveler":null,
+      "phraseBundles":{"business_travel.p4.trip_purpose.trip_purpose":"여행 목적","business_travel.p4.flash_message.sent_invite":"%{email}님에게 초대장을 보냈습니다. 회원님이 결제 정보를 입력하여 예약을 완료할 수 있게 되면 에어비앤비에서 알림 메일을 보냅니다.","business_travel.p4.shared.invite_sent":"초대장 전송 완료","business_travel.p4.shared.send_invite":"초대장 보내기","business_travel.p4.shared.View status":"상태 보기","business_travel.p4.shared.View Status":"상태 보기","business_travel.p4.trip_purpose.purpose.question":"여행의 목적이 무엇인가요?","business_travel.p4.trip_purpose.purpose.tooltip":"이 정보를 바탕으로 결제 수단을 결정하도록 도와드리겠습니다.","business_travel.p4.trip_purpose.purpose.choices.personal":"개인 여행","business_travel.p4.trip_purpose.purpose.choices.business":"출장","business_travel.p4.trip_purpose.title_content.business":"출장","business_travel.p4.trip_purpose.title_content.invited_user":"초대한 출장자","business_travel.p4.trip_purpose.title_content.personal":"개인 여행","business_travel.p4.trip_purpose.who.question":"숙소에서 회원님이 숙박하시나요?","business_travel.p4.trip_purpose.who.choices.yes":"예","business_travel.p4.trip_purpose.who.choices.not_me":"아니요. 다른 직원을 대신해서 예약합니다.","business_travel.p4.trip_purpose.trip_notes.placeholder":"출장 목적을 설명하고 기타 회사에서 알아야 할 정보를 적어주세요.","business_travel.p4.trip_purpose.trip_notes.title":"회사 기록을 위해 이번 출장에 대한 메모를 작성해 주세요.","business_travel.p4.trip_purpose.employee_search.empty_results.add":"추가","business_travel.p4.trip_purpose.employee_search.empty_results.invite":"초대","business_travel.p4.trip_purpose.employee_search.empty_results.send_request":"요청하기","business_travel.p4.trip_purpose.employee_search.empty_results.new_traveler":"신규 출장자","business_travel.p4.trip_purpose.employee_search.empty_results.error":"유효한 이메일 주소를 입력하세요.","business_travel.p4.trip_purpose.employee_search.empty_results.placeholder":"employee@companyname.com","business_travel.p4.trip_purpose.employee_search.empty_results.title":"%{strong_start}출장자를 찾지 못했습니다.%{strong_end} 출장자를 대신하여 숙소를 예약하려면 해당 직원을 에어비앤비로 초대하세요.","business_travel.p4.trip_purpose.employee_search.empty_results.title_new":"“%{input_name}”을 찾지 못했습니다.","business_travel.p4.trip_purpose.employee_search.empty_results.add_new":"이 직원 추가하기","business_travel.p4.trip_purpose.employee_search.empty_results.invite_title":"권한을 요청하기 위해 이 출장자 추가하기","business_travel.p4.trip_purpose.employee_search.empty_results.invite_body":"출장자가 회원님에게 예약 권한을 주면 해당 직원의 출장 예약을 완료할 수 있다는 알림이 발송됩니다.","business_travel.p4.trip_purpose.employee_search.empty_results.invalid_email":"유효한 이메일 주소를 입력하세요.","business_travel.p4.trip_purpose.employee_search.ineligible.confirmed_email":"인증된 이메일","business_travel.p4.trip_purpose.employee_search.ineligible.verified_phone":"인증된 전화번호","business_travel.p4.trip_purpose.employee_search.ineligible.profile_photo":"프로필 사진","business_travel.p4.trip_purpose.employee_search.ineligible.profile_incomplete":"이 직원 계정은 %{missing_elements}이(가) 누락되어 있습니다. 이 필드가 입력되지 않으면 대신 예약을 할 수 없습니다. %{link_start}자세히 알아보기%{link_end}","business_travel.p4.trip_purpose.employee_search.profile_incomplete.title":"%{name}님이 프로필 작성을 완료해야 합니다","business_travel.p4.trip_purpose.employee_search.ineligible.profile_incomplete.body":"이 출장자의 계정에는 다음이 누락되어 있습니다. %{missing_elements} 출장자에게 이메일을 보내 정보 제공을 요청할 것이며, 정보가 제공되면 회원님이 출장 예약을 완료할 수 있습니다.","business_travel.p4.trip_purpose.employee_search.profile_incomplete.button":"요청하기","business_travel.p4.trip_purpose.employee_search.ineligible.self_book_only":"대리 예약을 허용하지 않는 직원입니다. %{link_start}자세히 알아보기%{link_end}","business_travel.p4.trip_purpose.employee_search.ineligible.unsupported":"이 직원에 대한 예약을 지원할 수 없습니다.","business_travel.p4.trip_purpose.employee_search.question":"실제 숙소에 체크인하고 호스트와 대화할 출장자를 추가해 주세요.","business_travel.p4.trip_purpose.employee_search.pending_traveler":"출장자가 인증 대기 중입니다. 예약을 계속 진행할 수 있게 되면 에어비앤비에서 알림 메일을 보냅니다. %{my_trip_link_start}여행 목록%{my_trip_link_end}에서 출장자의 상태를 확인해 보세요.","business_travel.p4.trip_purpose.employee_search.tooltip":"이름으로 직원을 검색하세요.","business_travel.p4.trip_purpose.employee_search.placeholder":"출장자 검색하기...","business_travel.p4.trip_purpose.employee_search.remove":"삭제","business_travel.p4.trip_purpose.employee_search.tags.profile_incomplete":"프로필 등록 미완료","business_travel.p4.trip_purpose.employee_search.tags.self_book_only":"본인 예약만 가능","business_travel.p4.trip_purpose.employee_search.tags.ineligible":"예약 불가","business_travel.p4.invite_user_modal.slide1.title":"초대장을 보냈습니다! 예약이 아직 완료되지 않았습니다.","business_travel.p4.invite_user_modal.slide1.body":"출장자 %{strong_start}%{email}%{strong_end}님이 회원님에게 예약 대행 권한을 부여해야 합니다. 다시 예약 절차를 진행할 수 있게 되면 에어비앤비에서 알림 메일을 보내 드리겠습니다.","business_travel.p4.trip_purpose.extra_details.title":"%{first_name}님을 추가하는 이유","business_travel.p4.trip_purpose.extra_details.accept_responsibility":"호스트가 예약을 확정하면 출장자가 출장에 따른 책임을 수락합니다.","business_travel.p4.trip_purpose.extra_details.can_also_communicate":"또한 호스트와 커뮤니케이션하며 일정을 변경하거나 예약을 취소할 수 있습니다.","business_travel.p4.trip_purpose.progress_button.send_invite":"초대장 보내기","business_travel.p4.about_your_trip.clear_suggested_message":"샘플 메시지 삭제하기","business_travel.p4.about_your_trip.guest_message_input.placeholder":"고객과의 미팅인가요? 컨퍼런스에 참석하세요?","business_travel.p4.about_your_trip.message_title":"호스트 %{host_first_name}님에게 %{traveler_first_name}님을 소개하세요.","business_travel.p4.about_your_trip.message_title_for_invited_user":"초대한 출장자를 호스트 %{host_first_name}님에게 소개하세요.","business_travel.p4.about_your_trip.suggested_message":"%{host_first_name}님, 안녕하세요. 저는 %{company_name}의 %{traveler_first_name}님과 다른 직원들을 대신해 숙소를 예약하는 출장 예약 담당자 %{booker_first_name}입니다. 저희 직원들이 출장 중에 호스트님의 숙소에 머무르면 좋을 것 같아서 연락드렸습니다."},"show3PBNewDesign":false,"showBusinessTravelNux":false,"showBusinessTravelSurvey":false,"showRewardInfo":false,"showTripPurpose":false,"userIsABooker":false},"bootstrapData":{"i18n-init":{"language":"ko","locale":"ko","moment_locale":"ko","country":"KR","tld_country":"KR","currencies":{"AED":{"symbol":"&amp;#1583;.&amp;#1573;","code_required":false,"options":{"unicode_symbol":"ﺩ.ﺇ"}},"ARS":{"symbol":"$","code_required":true,"options":{}},"AUD":{"symbol":"$","code_required":true,"options":{}},"BGN":{"symbol":"&amp;#1083;&amp;#1074;","code_required":false,"options":{"unicode_symbol":"лв"}},"BRL":{"symbol":"R$","code_required":false,"options":{}},"CAD":{"symbol":"$","code_required":true,"options":{}},"CHF":{"symbol":"CHF","code_required":false,"options":{"position":"after","space_between_price_and_symbol":true,"hide_code_if_symbol_shown":true}},"CLP":{"symbol":"$","code_required":true,"options":{}},"CNY":{"symbol":"&amp;#65509;","code_required":false,"options":{"unicode_symbol":"￥"}},"COP":{"symbol":"$","code_required":true,"options":{}},"CRC":{"symbol":"&amp;#8353;","code_required":false,"options":{"unicode_symbol":"₡"}},"CZK":{"symbol":"&amp;#75;&amp;#269;","code_required":false,"options":{"unicode_symbol":"Kč"}},"DKK":{"symbol":"kr","code_required":true,"options":{"position":"after","space_between_price_and_symbol":true,"explicit_currency_not_aesthetic":true}},"EUR":{"symbol":"&amp;euro;","code_required":false,"options":{"unicode_symbol":"€","position":"special"}},"GBP":{"symbol":"&amp;pound;","code_required":false,"options":{"unicode_symbol":"£"}},"HKD":{"symbol":"$","code_required":true,"options":{}},"HRK":{"symbol":"kn","code_required":false,"options":{}},"HUF":{"symbol":"Ft","code_required":false,"options":{}},"IDR":{"symbol":"Rp","code_required":false,"options":{}},"ILS":{"symbol":"&amp;#8362;","code_required":false,"options":{"unicode_symbol":"₪"}},"INR":{"symbol":"&amp;#8377;","code_required":false,"options":{"unicode_symbol":"₹"}},"JPY":{"symbol":"&amp;yen;","code_required":false,"options":{"unicode_symbol":"¥","space_between_price_and_symbol":true}},"KRW":{"symbol":"&amp;#8361;","code_required":false,"options":{"unicode_symbol":"₩"}},"MAD":{"symbol":"MAD","code_required":false,"options":{}},"MXN":{"symbol":"$","code_required":true,"options":{}},"MYR":{"symbol":"&amp;#82;&amp;#77;","code_required":false,"options":{"unicode_symbol":"RM"}},"NOK":{"symbol":"kr","code_required":true,"options":{"position":"after","space_between_price_and_symbol":true,"explicit_currency_not_aesthetic":true}},"NZD":{"symbol":"$","code_required":true,"options":{}},"PEN":{"symbol":"&amp;#83;&amp;#47;&amp;#46;","code_required":false,"options":{"unicode_symbol":"S/."}},"PHP":{"symbol":"&amp;#8369;","code_required":false,"options":{"unicode_symbol":"₱"}},"PLN":{"symbol":"z&amp;#22;&amp;#322;","code_required":false,"options":{"unicode_symbol":"zł","position":"after","space_between_price_and_symbol":true}},"RON":{"symbol":"lei","code_required":false,"options":{}},"RUB":{"symbol":"&amp;#1088;","code_required":false,"options":{"unicode_symbol":"₽","position":"after"}},"SAR":{"symbol":"SR","code_required":false,"options":{}},"SEK":{"symbol":"kr","code_required":true,"options":{"position":"after","space_between_price_and_symbol":true,"explicit_currency_not_aesthetic":true}},"SGD":{"symbol":"$","code_required":true,"options":{}},"THB":{"symbol":"&amp;#3647;","code_required":false,"options":{"unicode_symbol":"฿"}},"TRY":{"symbol":"&amp;#84;&amp;#76;","code_required":false,"options":{"unicode_symbol":"₺","position":"after","space_between_price_and_symbol":true}},"TWD":{"symbol":"$","code_required":true,"options":{}},"UAH":{"symbol":"&amp;#8372;","code_required":false,"options":{"unicode_symbol":"₴"}},"USD":{"symbol":"$","code_required":false,"options":{}},"UYU":{"symbol":"&amp;#36;&amp;#85;","code_required":false,"options":{"unicode_symbol":"$U"}},"VND":{"symbol":"&amp;#8363;","code_required":false,"options":{"unicode_symbol":"₫"}},"ZAR":{"symbol":"R","code_required":true,"options":{}}},"current_locale_name":"한국어","languages":[{"locale_name":"Bahasa Indonesia","locale":"id"},{"locale_name":"Bahasa Melayu","locale":"ms"},{"locale_name":"Català","locale":"ca"},{"locale_name":"Dansk","locale":"da"},{"locale_name":"Deutsch","locale":"de"},{"locale_name":"English","locale":"en"},{"locale_name":"Español","locale":"es"},{"locale_name":"Eλληνικά","locale":"el"},{"locale_name":"Français","locale":"fr"},{"locale_name":"Italiano","locale":"it"},{"locale_name":"Magyar","locale":"hu"},{"locale_name":"Nederlands","locale":"nl"},{"locale_name":"Norsk","locale":"no"},{"locale_name":"Polski","locale":"pl"},{"locale_name":"Português","locale":"pt"},{"locale_name":"Suomi","locale":"fi"},{"locale_name":"Svenska","locale":"sv"},{"locale_name":"Türkçe","locale":"tr"},{"locale_name":"Íslenska","locale":"is"},{"locale_name":"Čeština","locale":"cs"},{"locale_name":"Русский","locale":"ru"},{"locale_name":"ภาษาไทย","locale":"th"},{"locale_name":"中文 (简体)","locale":"zh"},{"locale_name":"中文 (繁體)","locale":"zh-TW"},{"locale_name":"日本語","locale":"ja"},{"locale_name":"한국어","locale":"ko"}]}},"phraseBundles":{"p4.phone_verification.Verify Your Phone Number":"전화번호 인증하기","t_verify_via_sms":"문자로 인증하기","t_dont_have_sms":"문자 기능이 없으신가요?","t_Verified":"인증 완료","t_the_confirmation_code_is":"확인 코드는 다음과 같습니다:","t_submit":"제출하기","country":"카드 발급 국가","mobile_phone_number":"휴대전화 번호","delete":"삭제","no_phone_number":"입력된 전화번호가 없습니다.","invalid_phone_number":"유효하지 않은 전화번호가 입력되었습니다.","no_code":"인증 코드가 입력되지 않았습니다.","incorrect_code":"정확하지 않은 인증 코드가 입력되었습니다.","incomplete_code":"인증 코드가 모두 입력되지 않았습니다.","code_is_phone_number":"인증 코드는 전화번호와 같을 수 없습니다.","error_sending_code":"인증 코드 전송 중에 오류가 발생하였습니다.","error_processing":"회원님의 인증 코드를 처리하는 중 오류가 발생하였습니다.","didnt_receive_it":"<a href=\"#\" data-phone-verification-role=resendOptions&gt;받지 못하셨나요?</a&gt;","resend_or_call_instead":"몇 분이 소요될 수 있습니다. <a href=\"#\" data-phone-verification-role=sendSMS&gt;메시지를 재전송</a&gt; 하거나, <a href=\"#\" data-phone-verification-role=sendCall&gt;전화</a&gt;를 드릴 수도 있습니다. .","message_resent":"메시지가 재전송되었습니다. 대신 <a href=\"#\" data-phone-verification-role=sendCall&gt;전화</a&gt;를 드릴 수도 있습니다.","calling_you_shortly_with_code":"확인 코드를 알려드리기 위해 곧 회원님께 전화를 드리겠습니다. <a href=\"#\" data-phone-verification-role=sendSMS&gt;문자 수신</a&gt;으로도 가능합니다.","taking_too_long":"시간이 너무 오래 걸리는 것 같습니다. 회원님께 다시 <a href=\"#\" data-phone-verification-role=sendCall&gt;전화</a&gt;를 드리거나, <a href=\"#\" data-phone-verification-role=sendSMS&gt;문자 메시지</a&gt;를 보내드릴 수도 있습니다.","ok_check_your_phone_for_a_text_from_us":"에어비앤비에서 전송한 문자 메시지를 확인해 주세요.","ok_check_your_phone_for_a_call_from_us":"에어비앤비에서 전화를 드렸습니다. 확인해 주세요.","jumio_modal_verification_error":"신분증을 스캔하는 중 오류가 발생했습니다. 다시 시도해 주세요.","jumio_modal_load_error":"오류가 발생했습니다. 페이지를 재로드하고 다시 시도해 주세요.","guest_picker_guests_label":"인원 %{smart_count}명","guest_picker_adult_count":"성인 %{smart_count}명","guest_picker_child_count":"어린이 %{smart_count}명","guest_picker_infant_count":"유아 %{smart_count}명","guest_picker_age_range":"%{min}~%{max}세","guest_picker_age_under":"%{age}세 미만","guest_picker_guest_maximum":"최대 %{smart_count}명. 유아는 숙박인원에 포함되지 않습니다.","guest_picker_close":"닫기","guest_picker_increment":"%{label} 수 늘리기","guest_picker_decrement":"%{label} 수 줄이기","guest_picker_adults":"성인","guest_picker_children":"어린이","guest_picker_infants":"유아","guest_picker_adults_capitalized":"성인","guest_picker_children_capitalized":"어린이","guest_picker_infants_capitalized":"유아","guest_picker_adults_label":"성인 수를 선택하세요.","guest_picker_children_label":"어린이 수를 선택하세요.","guest_picker_infants_label":"유아 수를 선택하세요.","shared.Close":"닫기","first_message_suggestions.title":"제안사항","first_message_suggestions.placeholder_for_no_suggestions_left":"%{host_first_name}님이 호스팅을 준비하는데 도움이 될만한 것이 있다면 무엇이든 공유하세요.","add_new_payment_method":"새로운 결제 수단 추가","cc_number":"카드 번호","cc_number_invalid":"카드 번호를 다시 확인하세요","expires_on":"만료일","cc_expiration_past":"카드 유효기간이 만료되었습니다.","cc_expiration_required":"카드 만료일을 입력하세요","security_code":"보안 코드","cc_security_code_required":"보안 코드를 입력하세요","cc_security_msg":"신용카드 정보는 안전한 결제 시스템을 통해 암호화됩니다.","first_name":"이름","last_name":"성","postal_code":"우편번호","billing_country":"결제 국가","p4.jumio_verification.Government ID":"정부 발급 신분증","p4.jumio_verification.Take a Photo of Your ID":"신분증 사진 촬영","p4.jumio_verification.Show your ID to stay with host name":"%{host_name}님의 숙소를 예약하려면 신분증을 보여주세요.","p4.jumio_verification.Your host asks guests to provide an ID":"호스트 %{host_name}님은 예약 전에 에어비앤비에 정부 발행 신분증을 제출할 것을 요구합니다. 신분증 자체는 호스트에게 보이지 않으며, 본 인증은 신분증이 만료될 때까지 유효합니다.","Shared.Learn more":"더 알아보기","shared.Continue":"계속하기","p4.jumio_verification.Pending confirmation":"대기 중...","p4.jumio_verification.pending verification description":"제공하신 정보를 확인 중입니다. 2분 정도 걸릴 수 있습니다.","p4.jumio_verification.Ready to book":"예약 준비 완료","p4.jumio_verification.Nicely done, guest_name":"%{guest_name}님, 잘하셨어요.","p4.jumio_verification.All set to book host_name place":"%{host_name}님의 숙소를 예약할 준비가 되었습니다.","p4.jumio_verification.Unable to confirm":"신분증을 인증할 수 없음","p4.jumio_verification.jumio failure can RTB or try again to IB":"제공하신 정보를 확인하는데 문제가 있습니다. %{host_name}님의 숙소를 즉시 예약하고 싶으시면 다시 시도하시거나 %{host_name}님에게 요청을 보내고 응답을 기다리시기 바랍니다.","shared.Try Again":"다시 시도하기","p4.jumio_verification.Send Request Instead":"요청 보내기","p4.jumio_verification.Take a photo of your government ID":"국가가 발행한 회워님 신분증의 사진을 찍으세요.","book.reservation.view summary":"요금 및 여행 요약 보기","book.reservation.includes taxes and fees":"세금 및 수수료 포함","book.reservation.apply airbnb_credit":"에어비앤비 크레딧 %{airbnb_credit_amount} 사용하기","book.reservation.credit applied":"* %{credit_localized_title} 사용됨","book.reservation.remove airbnb_credit":"크레딧 사용 취소","book.reservation.remove coupon":"쿠폰 삭제","book.reservation.apply coupon":"쿠폰 사용하기","coupon":"쿠폰","cancel":"취소","cancellation_policy":"환불 정책: %{link_start}%{cancellation_string}%{link_end}","Check-in":"체크인","shared.Checkout":"체크아웃","base_price_tooltip.cleaning_fee":"청소비","base_price_tooltip_extra_guest_fee":"추가 인원 요금","base_price_tooltip_base_price_breakdown":"기본 요금 상세내역","base_price_tooltip_total_base_price":"총 기본 요금","total_amounts":"총액","installments":"할부","number_of_installments":"%{num_months}개월","hosted_by":"호스트: %{host_name}님","host_cancel_coupon_alert.shared have coupon to spend":"예약이 수락되면 이전 취소 예약 건에서 남은 %{price_start}%{refund_price}%{price_end}을(를) 돌려드리겠습니다.","Reviews with smart count":"후기 %{smart_count}개","shared.stars.avg_rating_reviews":"%{review_count}개의 게스트 후기에서 별 %{total_stars}개 중 평균 %{num_stars}개","shared.stars.avg_rating":"별 %{total_stars}개 중 평균 %{num_stars}개","risk.offline payment message title":"에어비앤비에서는 회원님께 절대 송금을 요구하지 않습니다.","risk.offline payment message content":"에어비앤비 웹사이트나 앱을 통해 결제하면 안전하고 관련 정책의 적용으로 보호 받으실 수 있습니다.","risk.property damage deposit title":"재산 피해 보증금","risk.property damage deposit messagebox":"재산 피해 보증금이란 호스트가 회원님의 숙박으로 인한 재산 피해를 신고하면, 회원님의 결제 수단에 최대 %{bold_start}%{property_damage_deposit_amount}%{bold_end}의 금액을 청구하여 호스트의 피해 신고를 해결하도록 승인하는 제도입니다.","additional_required_info":"추가로 필요한 정보","billing_summary":"청구내역 요약","payment":"결제","cleaning_fee":"청소비","subtotal":"소계","service_fee":"서비스 수수료","total":"합계","coupon_code":"쿠폰 코드","continue_booking":"확인","apply_coupon":"적용","last_names_without_abbreviations":"성(약자 미포함)","street_address":"집 주소","street_address2":"아파트 호수","street_name":"거리 이름","building_number":"건물 번호","complement":"추가","close":"닫기","city":"도시","state":"주","cep":"CEP","cpf":"CPF","birthdate":"생년월일","cc_type":"카드 종류","day":"일","month":"월","year":"연도","tooltip":"툴팁","currency_update":"통화 업데이트","currency_update_msg1":"회원님의 %{payment_method} 사용 통화는 %{currency}입니다. %{currency} 통화로 숙박대금이 청구됩니다.","currency_update_msg2":"새로운 총액은 %{total_string}%{currency}입니다.","cc_expiration":"카드 만료일자","cc_full_name":"이름","cc_type_invalid":"선택하신 나라에서 사용할 수 없는 신용카드입니다. 카드 번호를 확인하시거나 다른 카드를 사용하세요.","cc_name_required":"성명을 입력하세요","cc_address_1_required":"주소를 입력하세요","cc_city_required":"도시는 필수 입력입니다","cc_zip_required":"우편번호는 필수 입력입니다","cc_zip_error":"우편번호는 5자리 숫자여야 합니다.","paypal_redirect_after_booking":"페이팔로 연결됩니다.","paypal_you_must_complete":"모든 단계를 마치기 전까지는 결제가 이루어지지 않습니다.","return_after_complete":"이후에 에어비앤비로 돌아와 거래를 완료하게 됩니다.","redirect_you_will_be":"나머지 세부사항을 입력할 수 있도록 보안 결제 페이지로 이동합니다.","redirect_must_complete":"모든 단계를 마치기 전까지는 결제가 이루어지지 않습니다.","alipay_redirect_after_booking":"알리페이 페이지로 이동합니다.","alipay_you_must_complete":"모든 단계를 마치기 전까지는 결제가 이루어지지 않습니다.","redirect_after_booking":"%{payment_processor}로 연결됩니다.","business_travel_payment_instructions":"여행 경비는 회원님의 회사 측에 청구되며 여행 일정표가 회사로 보내집니다. 회사의 출장 관련 정책을 따르시기 바랍니다.","business_travel_trip_notes_placeholder":"여행 목적과 기타 회사가 알아야 하는 내용을 설명하세요.","business_travel_trip_notes_header":"경비 청구를 위해 여행에 대한 메모를 추가하세요.","business_travel_survey_text":"호스트에게 출장이라고 알려주세요.","business_group":"사업 그룹","concur_corporate_booking_add":"<strong&gt;기업 예약</strong&gt;. 컨커(Concur) 계정에 예약 정보 추가하기.","credit_card":"신용카드","unionpay":"유니언 페이","visa":"비자 카드","master":"마스터카드","american_express":"아메리칸 익스프레스 카드","amex_express_checkout":"아메리칸 익스프레스 체크아웃","discover":"Discover 카드","jcb":"JCB 카드","paypal":"페이팔","postepay":"PostePay","alipay":"Alipay","ideal":"iDEAL","sofort":"Sofortüberweisung","boleto":"Boleto Bancário","hipercard":"Hipercard","elo":"Elo","aura":"Aura","you_are_paying_in_currency":"결제 통화:","payment_transacts_in":"사용되는 통화단위:","your_total_charge":"총 청구금액 :","monthly_payment":"월간 요금","due_today":"금일 지불 금액","which_card_to_use":"어느 카드를 사용하시겠습니까?","tooltip_variable_pricing":"날짜에 따라 숙박요금이 달라집니다.<br /&gt; 숙소 정보 페이지의 상세설명을 참고하시기 바랍니다.","save_credit_card":"추후 거래를 위해 신용카드 정보를 저장하고 싶어요.","security_deposit":"보증금","learn_more_about_sd":"보증금에 대해 더 알아보기","security_deposit_p1":"보증금은 체크인 하루 전에 회원님의 신용카드로 청구됩니다. 호스트가 문제를 제기하지 않는 경우, 체크아웃 48시간 후 청구 금액 전액이 취소됩니다.","security_deposit_p2":"호스트가 문제를 제기할 경우에는, 에어비앤비에서 보증금의 지급을 유보하고 호스트와 게스트 양 당사자들로부터 추가 정보를 수집할 것입니다. 만약 호스트와 게스트 간에 합의가 이루어 지는 경우, 에어비앤비에서 해당 금액을 돌려드립니다. 주로 호스트가 피해 정도를 결정하지만, 에어비앤비는 모든 청구건들을 추적하여, 호스트가 보증금을 차지하기 위해 과도하게 청구를 하는 경향이 있다고 판단되면 이 호스트를 퇴출시킵니다.","payment_type":"결제 방법","billing_address":"신용카드 청구지 주소","billing_information":"결제 정보","problems_authorizing":"%{display_currency}(으)로 %{cc_type}을(를) 승인하는 데 문제가 발생하였습니다.","authorize_fallback_instead":"같은 금액을 %{currency}(으)로 승인하는 것은 어떠세요? 총 금액은 %{new_total}입니다.","retry_using_currency":"%{currency}(으)로 재시도","exchange_rate_messaging":"이 숙소를 예약하는 데 적용되는 %{open_faq_link}환율%{close_link}은 %{from_currency}=%{to_currency}입니다(호스트의  숙소 통화).","cc_name_field":"이름:","cc_name_expires":"만료일:","occupancy_taxes":"숙박세","learn_more":"더 알아보기","accommodation":"숙소","includes_vat":"(VAT 포함)","brazil_cc_messaging":"모든 브라질 국제 신용 카드에는 IOF가 6.38% 적용됩니다.","brazil_national_card_limits":"<strong&gt;브라질 헤알(BRL)로 청구되지 않는 이유는 무엇인가요?</strong&gt; 브라질 헤알화 거래는 월 단위와 거래 단위의 한도가 있습니다.","brazil_national_card_limits.v2":"%{bold_start}브라질 레알로 결제되지 않는 이유가 무엇인가요?%{bold_end} 브라질 레알로 거래하는 경우 월간 한도와 결제당 한도가 정해져 있습니다.","deferred_payment_sofort_messaging":"호스트가 회원님의 요청을 수락하면, 24시간 이내에 결제를 완료하여 예약을 확정지으라는 알림 메시지가 발송 됩니다.","deferred_payment_ideal_messaging":"호스트가 회원님의 요청을 수락하면, 24시간 이내에 결제를 완료하여 예약을 확정지으라는 알림 메시지가 발송 됩니다.","deferred_payment_boleto_messaging":"호스트가 회원님의 요청을 수락하면, 24시간 이내에 결제를 완료하여 예약을 확정지으라는 알림 메시지가 발송 됩니다.","no_payment_methods_available":"죄송하지만 현재 기술적 문제가 발생하여 결제를 할 수 없습니다. 몇 분 후에 다시 시도해 주세요.","submit":"제출하기","dd":"일","mm":"월","yyyy":"년","something_went_wrong":"죄송합니다. 오류가 발생했습니다. 페이지를 새로고침하고 다시 시도해 주세요.","please_fix_fields":"계속하려면 강조표시된 부분을 수정해 주세요.","paypal_redirect_helper_text":"페이팔에 로그인하세요. 예약 요청은 최종 제출 전에 검토하실 수 있습니다.","paypal_use_another_email":"이 예약에 %{link_start}다른 페이팔 계정 사용%{link_end}","sofort_redirect_helper_text":"결제 완료를 위해 Sofortüberweisung으로 연결됩니다. %{bold_start}결제를 하지 않으면 거래가 완료되지 않습니다.%{bold_end}","ideal_redirect_helper_text":"결제 완료를 위해 iDEAL로 연결됩니다. %{bold_start}결제를 하지 않으면 거래가 완료되지 않습니다.%{bold_end}","alipay_redirect_helper_text":"결제 완료를 위해 알리페이로 연결됩니다. %{bold_start}결제를 하지 않으면 거래가 완료되지 않습니다.%{bold_end}","payu_redirect_helper_text":"결제 완료를 위해 PayU로 연결됩니다. %{bold_start}결제를 하지 않으면 거래가 완료되지 않습니다.%{bold_end}","digital_river_cc_redirect_helper_text":"결제 완료를 위해 Digital River로 연결됩니다. %{bold_start}결제를 하지 않으면 거래가 완료되지 않습니다.%{bold_end}","redirecting_you_to_payment_processor":"결제 완료를 위해 %{payment_processor}로 연결됩니다.","airbnb_credit":"에어비앤비 여행 크레딧","installment_fee":"할부 수수료","ideal_bank":"은행","message_to_host":"호스트에게 전할 메시지를 입력하세요.","photo_id_required":"숙소를 예약하려면 계정을 인증해 주세요.","payments.book.verify_your_account":"계정 인증하기","new_all_caps":"NEW","expense_your_business_trips":"출장비를 청구하세요!","select_your_companys_payment_option":"다음에 출장 가실 때에는 결제 수단으로 회원님 회사의 결제 옵션을 선택하시면 됩니다.","apply_airbnb_gift_credit":"크레딧 적용","remove_airbnb_gift_credit":"크레딧 삭제","payments.cuba_attestation.purpose_of_travel_to_cuba":"쿠바 여행 목적","payments.cuba_attestation.certify_reason":"다음과 관련하여 쿠바로 여행할 수 있는 일반 허가 요건을 충족함을 확인합니다.","stub.issues.select_one":"한 개를 선택하세요","shared.add_physical_address":"실제 주소를 추가하세요","shared.street":"도로명 주소","shared.apt":"아파트 동호수","shared.State":"주","shared.Postal_code":"우편번호","shared.City":"도시","shared.Country":"국가","booking.Coupon min trip cost disclaimer message explaining why coupon not applied":"금액이 %{min_cost_string} 이상인 예약에 대해서만 사용하실 수 있는 쿠폰입니다.","booking.Text for coupon terms and conditions used on p4":"이용약관","amex_checkout_continue_to_login":"아멕스 익스프레스 체크아웃®으로 로그인하면 아메리칸 익스프레스 카드 정보가 자동으로 입력되고 회원님의 에어비앤비 프로필에 저장됩니다. 예약 요청은 완료하기 전에 다시 확인하실 수 있습니다.","amex_pwp_error_unable_to_check_points":"죄송합니다. 지금은 포인트 잔액을 확인할 수 없습니다.","amex_pwp_error_invalid_card_number":"올바른 카드 번호를 입력하세요.","amex_pwp_error_ineligible_card":"죄송합니다. 이 카드는 예약 시 포인트를 사용할 수 없습니다.","amex_pwp_error_not_enough_points":"현재 멤버십 리워드® 계정에 충분한 포인트가 없습니다.","amex_pwp_error_invalid_card_info":"제공한 카드 정보가 올바르지 않습니다. 다시 시도해 주세요.","amex_pwp_eligible_members_can_use_points":"해당하는 카드가 있으면 이 예약에 멤버십 리워드® 포인트를 사용할 수 있습니다. %{learn_link_start}자세히 알아보기%{learn_link_end}","amex_pwp_enter_amount":"금액을 입력하세요.","amex_pwp_entered_amount_exceeds_total_points":"적용된 금액이 이용 가능한 포인트 잔액보다 많습니다.","amex_pwp_entered_amount_exceeds_trip_total":"적용된 금액이 총 숙박비보다 많습니다.","amex_pwp_num_points":"%{format_num}포인트","amex_pwp_check_points_balance":"포인트 잔액 확인","amex_pwp_you_are_eligible_to_use_x_points":"에어비앤비에서 최대 %{bold_start}%{color_span_start}$%{num_dollars} (%{format_num_points} 포인트)%{color_span_end}%{bold_end}를 사용할 수 있습니다!","payments.amex_pwp.you_can_cover_total":"포인트로 총 숙박 대금을 결제할 수 있습니다!","payments.amex_pwp.you_can_cover_part":"포인트로 총 숙박 대금 일부를 결제할 수 있습니다!","amex_pwp_enter_dollar_amount_to_use":"사용하려는 금액을 입력하세요.","amex_pwp_apply_points_to_trip_button":"예약에 적용","payments.amex_pwp.apply_amex_membership_rewards":"적격한 아메리칸 익스프레스 카드가 있다면 %{link_start}멤버십 리워드® 포인트를 사용%{link_end}하여 예약하세요.","amex_pwp_x_dollars_points_applied_to_total":"예약비 총액에 %{bold_start}%{green_span_start}$%{num_dollars}(%{format_num_points}포인트)%{green_span_end}%{bold_end}의 금액이 적용됩니다.","amex_pwp_modify_amount":"변경","amex_pwp_info_and_terms":"예약이 확정될 때까지 멤버십 리워드® 포인트는 사용되지 않습니다. %{info_link_start}프로그램 정보%{info_link_end}와 %{terms_link_start}약관%{terms_link_end}","amex_pwp_billing_summary_message":"예약이 완료된 후 카드에 예약비 총액이 청구되며, 2~4일 이내에 아메리칸 익스프레스 카드 명세서에 %{bold_start}%{green_span_start}$%{num_dollars}%{green_span_end}%{bold_end}의 금액이 나타납니다.","amex_pwp_timeout_points_updated":"죄송합니다. 최근 포인트 잔액이 변경되었습니다. 사용하고 싶은 포인트 수를 다시 확인해 주세요.","amex_pwp_points_updated_to_reflect_new_total":"새로운 총액을 반영하기 위해 적용된 포인트가 업데이트되었습니다.","shared.Edit":"수정","shared.Required fields legend under form":"필수 항목","shared.Next":"다음","shared.Log In":"로그인","first_message.about_your_trip":"여행 정보","book_and_continue":"예약 및 계속하기","reservation_summary":"%{host_name}님이 호스팅하는 %{listing_type}","checkin":"체크인","checkout":"체크아웃","p4.payment.header credit_card_last_four":"카드 번호 마지막 4자리 %{credit_card_last_four}","p4.payment.header.charge_to_company":"회사에 청구","p4.payment.header.company":"회사 이야기","book.reservation.your host label":"호스트 %{host_name}","book.reservation.house.rules title":"%{host_name}님의 숙소 이용규칙","book.reservation.house.rules see all rules":"+ 숙소 이용규칙 모두 보기","no house rules":"이 호스트는 숙소 이용규칙을 정하지 않았습니다.","+ More (as in, to view more content)":"+ 더보기","book.reservation.guest details label":"몇 명이 머무나요?","book.reservation.number of adults":"성인 %{smart_count}명","book.reservation.number of children":"어린이 %{smart_count}명","book.reservation.number of infants":"유아 %{smart_count}명","your_trips.x_guest(s)":"게스트 %{smart_count}명","book.reservation.age range":"(%{min_age}-%{max_age})","book.reservation.infant age range":"(만 2세 미만)","book.reservation.bringing pets":"반려동물 동반","book.reservation.exceeded max guests alert":"이 숙소의 숙박 가능 인원은 %{smart_count}명입니다.","book.reservation.guest first message CTA":"호스트에게 간단한 자기소개를 하고 여행 가는 이유를 알려주세요.","book.reservation.guest first message place holder":"가족이나 친구를 만나러 가시나요? 아니면 관광이 목적인가요? 여행 목적을 알면 호스팅을 준비하는데 도움이 됩니다. 자기 소개도 잊지 마세요! :)","book.reservation.guest first message minimum length required":"(최소 %{minLength}자 필수입니다.)","book.reservation.checkin form label":"체크인 시간은 언제인가요?","book.reservation.host check in window":"체크인 가능 시간은 %{start_time} - %{end_time}입니다","book.reservation.host earliest check in time":"체크인은 %{time} 이후입니다","book.reservation.early check in alert":"정해진 체크인 시간대보다 이른 시간이므로, 호스트 %{host_name}님이 이 요청을 승인해야 합니다.","book.reservation.late check in alert":"정해진 체크인 시간대보다 늦은 시간이므로, 호스트 %{host_name}님이 이 요청을 승인해야 합니다.","book.reservation.early check in alert for instant book":"정해진 체크인 시간대보다 이른 시간입니다.","book.reservation.late check in alert for instant book":"정해진 체크인 시간대보다 늦은 시간입니다.","book.reservation.early check in placeholder":"정해진 시간보다 빨리 체크인이 가능할 수도 있습니다. 호스트에게 도착 시간이 이른 이유를 설명해 주세요.","book.reservation.late check in placeholder":"정해진 시간보다 늦게 체크인이 가능할 수도 있습니다. 호스트에게 도착 시간이 늦은 이유를 설명해 주세요.","book.reservation.unsure check in placeholder":"체크인 시간을 유동적으로 운영하는 호스트도 있습니다. 언제 어떻게 도착하는지 좀 더 자세히 알려주세요.","book.reservation.unsure check in alert with window":"예약 후에 체크인 시간을 호스트와 조율하세요. %{host_name}님의 예약 가능 시간은 %{start_time}부터 %{end_time}까지 입니다.","book.reservation.unsure check in alert":"체크인 시간은 예약 후에 호스트와 조율하세요.","book.reservation.too many guests error message":"동행 인원 수를 이 숙소의 최대 숙박 가능 인원 이하로 변경해 주세요.","book.reservation.check in time not chosen error message":"체크인 시간이 선택되지 않았습니다.","book.reservation.no check in message given error message":"체크인 관련 설명을 입력해 주세요.","book.reservation.message to host inline error":"메시지를 반드시 입력해야 합니다.","book.reservation.check in time inline error":"체크인 시간은 반드시 입력해야 합니다.","book.reservation.check in message inline error":"체크인 관련 설명은 반드시 입력해야 합니다.","book.reservation.please complete the cuban attestation form":"쿠바 증명 양식을 완료하세요","book.reservation.message to host minimum length error":"메시지는 %{min_length} 이상이어야 합니다.","book.reservation.first message minimum length error":"메시지의 최소 글자 수는 %{minLength}자입니다. 호스트에게 내용을 좀 더 설명해주세요...","p4.book_it_button.send_request":"요청 보내기","fully_refundable.100_percent_refundable":"100% 환불","fully_refundable.cancel_up_to_24_hours":"예약 시작 24시간 전까지는 취소 시 서비스 수수료를 포함한 전액을 환불받을 수 있습니다.","fully_refundable.cancel_up_to_5_days":"예약 시작 5일 전까지는 취소 시 서비스 수수료를 포함한 전액을 환불받을 수 있습니다.","p4.send_request.check_in_window_reminder.remember":"기억해야 할 점:","p4.send_request.check_in_window_reminder.update":"체크인 시간 수정하기","risk.property damage deposit content":"만약의 경우라도 사고는 일어날 수 있습니다. 재산 피해 보증금이란 호스트가 회원님의 숙박으로 인한 재산 피해를 신고하면, 회원님의 결제 수단에 최대 %{bold_start}%{property_damage_deposit_amount}%{bold_end}의 금액을 청구하여 호스트의 피해 신고를 해결하도록 승인하는 제도입니다.","risk.property damage agree terms":"재산 피해 보증금 약관에 동의합니다.","risk.property damage alert":"예약 요청을 보내려면 재산 피해 보증금 약관에 동의해야 합니다.","book.reservation.Guest reviews hosts house rules before booking":"%{host_name}님의 숙소 이용규칙 확인하기","book.reservation.Additonal rules to note about the listing":"추가 규칙","book.reservation.Guest also acknowledges things to know about the listing":"기타 알아두어야 할 사항","book.reservation.These house rules are originally written in this language":"이 숙소 이용규칙은 %{language}로 작성되었습니다.","book.reservation.These house rules are written in a different language than language that user is viewing":"이 숙소 이용 규칙은 다른 언어로 작성되었습니다.","book.reservation.Translate text below to this language":"한국어로 번역하기","book.reservation.The text below has been translated to this language":"구글 번역을 통해 한국어로 번역되었습니다.","book.reservation.Button to show original text instead of translated text":"원문 보기","(required)":"(필수항목)","business_travel.p4.trip_purpose.trip_purpose":"여행 목적","business_travel.p4.trip_purpose.title_content.business_travel":"출장 프로그램","p4.guest_information":"게스트 정보","p4.guest_identifications.explanation_for_collecting_identifications":"중국 숙소를 예약하려면 본인과 다른 게스트에 대한 정보를 입력하세요. 이 정보는 호스트와 공유하지 않습니다. 게스트 프로필은 향후 사용하실 수 있도록 안전하게 저장됩니다. 이 정보는 %{link_start}개인정보 보호정책%{link_end}의 적용을 받습니다.","p4.guest_identifications.guest_number":"게스트 %{guest_number}","p4.guest_identifications.guest_number_optional":"게스트 %{guest_number}(선택사항)","p4.guest_identifications.your_information":"본인 정보","p4.china_guest_information":"중국의 숙소 예약","p4.china_transparency.collecting_identifications_chinese_guest":"중국 여행객은 다음 정보를 작성해야 합니다. 중국 거주자로서 회원님의 정보는 Airbnb China에서 저장 및 처리됩니다. 중국 정부가 중국 내 숙박과 관련한 호스트, 게스트 및 숙소 정보를 공개하도록 Airbnb China에 요구할 수 있습니다.","p4.china_transparency.collecting_identifications_foreign_guest":"모든 중국 여행객은 다음 정보를 작성해야 합니다. 회원님의 이름, 전화번호, 예약 정보, 호스트와 주고받은 메시지도 Airbnb China에 전달되어 저장 및 처리됩니다. 중국 정부가 중국에서의 숙박과 관련된 호스트, 게스트, 숙소 정보를 공개하도록 Airbnb China에 요구할 수 있습니다.","p4.china_transparency.identifications_privacy":"제공하신 정보는 호스트와 공유되지 않습니다. 게스트 프로필은 나중에 다시 사용하실 수 있도록 저장됩니다.","p4.payment_method_china_transparency_cutover":"12월 07일을 기점으로, 계속 진행하면 이 결제 수단 관련 정보가 Airbnb China에 전송, 저장 및 처리됩니다. 에어비앤비는 중국에서 운영되는 다른 모든 기업과 마찬가지로 개인정보 및 정보 공개 법을 포함한 현지 법규를 준수해야 합니다.","shared.Learn_more":"더 알아보기","p4.additional_hosts_may_respond.one_host":"%{primary_host}님이 %{additional_host}님과 함께 호스팅합니다. 회원님을 돕고 메시지에 응답해 드립니다.","p4.additional_hosts_may_respond.two_hosts":"%{primary_host}님이 %{first_additional_host}님, %{second_additional_host}님과 함께 호스팅합니다. 회원님을 돕고 메시지에 응답해 드립니다.","p4.additional_hosts_may_respond.three_hosts":"%{primary_host}님이 %{first_additional_host}님, %{second_additional_host}님, %{third_additional_host}님과 함께 호스팅합니다. 4명의 호스트 모두가 회원님을 돕고 메시지에 응답해 드립니다.","shared.Okay":"확인","sandy.have_you_been_displaced":"%{disaster_name}로 인해 살 곳을 잃으셨나요?","sandy.check_the_box":"%{disaster_name}로 인해 살 곳을 잃으셨다면, 에어비앤비 서비스 수수료가 면제됩니다. %{disaster_name}의 피해를 입으셨다면 아래 상자에 체크해주세요.","sandy.yes_displaced":"%{disaster_name}로 인해 살 곳을 잃었습니다.","p4.guest.check-in_time.title":"체크인 시간은 언제인가요?","p4.host_needs_to_confirm_reservation.outside_check-in_window":". 불가한 경우, %{host_name}님이 예약 요청을 보고 승인해야 합니다.","payments.alipay.connect_to_alipay":"알리페이에 연결","payments.book.Add Alipay Account":"알리페이 계정 추가","payments.alipay.enter_alipay_id":"알리페이 ID 입력","payments.alipay.enter_alipay_id_new":"알리페이 추가하기","payments.alipay.enter_alipay_id_desc":"알리페이 이메일 주소 또는 전화번호를 입력하세요.","payments.alipay.enter_alipay_id_desc_new":"알리페이 로그인 이메일 또는 전화번호","payments.alipay.qrcode_step_desc":"알리페이 모바일 앱으로 QR 코드를 스캔하여 알리페이에 추가하거나, %{link_start}알리페이 계정 정보를 입력%{link_end}하세요.","payments.alipay.enter_alipay_id_error":"올바른 이메일 주소 또는 전화번호를 입력하세요.","payments.alipay.enter_national_id":"국가 발급 신분증의 마지막 5자리를 입력하세요.","payments.alipay.enter_national_id_new":"알리페이 계정과 연결된 정부 발급 신분증의 마지막 5자리","payments.alipay.enter_national_id_error":"올바른 국가 발급 신분증 번호를 입력하세요.","payments.alipay.enter_phone_number":"알리페이 휴대전화 번호를 입력하세요.","payments.alipay.enter_phone_number_new":"알리페이 계정과 연결된 전화번호","payments.alipay.enter_phone_number_error":"올바른 전화번호를 입력하세요.","payments.alipay.enter_verification_code":"인증 코드 입력","payments.alipay.enter_verification_code_desc":"뒷자리가 %{phone_last_four}인 알리페이 계좌로 전송된 6자리의 인증 코드를 입력하세요. %{link_start}코드 재전송%{link_end}","payments.alipay.enter_verification_code_error":"올바른 인증 코드를 입력하세요.","payments.alipay.invalid_account_details":"계정 정보가 올바르지 않습니다. 다시 시도하세요.","payments.alipay.invalid_account_details_phone_number":"로그인 정보가 올바르지 않습니다. 전화번호를 사용하거나 위에 입력된 모든 정보를 재확인하고 다시 시도하세요.","payments.alipay.invalid_account_details_national_id":"로그인 정보가 올바르지 않습니다. 이메일을 사용하거나 위에 입력된 모든 정보를 재확인하고 다시 시도하세요.","payments.charged_after_host_accepts":"호스트가 요청을 수락한 경우에만 비용이 청구됩니다. 호스트는 24시간 내로 요청을 수락 또는 거절해야 합니다.","payments.refund_if_host_does_not_accept":"회원님의 결제 수단으로 비용이 청구됩니다. 호스트가 24시간 내로 요청을 수락하지 않으면 전체 금액을 환불받을 수 있습니다.","payments.asked_to_pay_if_host_accepts":"호스트가 예약 요청을 수락하면 결제를 완료하라는 요청이 뜹니다. 호스트는 24시간 내로 요청을 수락 또는 거절해야 합니다.","Confirm &amp; pay":"확인 및 결제","book.label_for_first_message_textarea":"호스트에게 메시지를 보내세요","p4.header for payment plan options":"이 예약에 대해 어떻게 결제하시겠어요? %{learn_link_start}자세히 알아보기%{learn_link_end}","p4.deposits opt in radio label":"지금 %{first_charge_amount}을(를) 결제하고 %{last_charge_date}에 잔액을 결제하세요","p4.shared title for payment plan option of full payment":"전액 결제","p4.payment plan modal pay in full body":"회원님의 결제 수단을 사용하여 예약금 전액을 지금 결제하실 수도 있습니다.","p4.payment plan headline for paying less upfront":"총 요금의 일부만 선납하세요.","p4.payment plan body for paying less upfront":"신용카드나 페이팔을 사용하여 조건에 부합하는 예약을 하는 경우, 요금의 일부만 선납하고 체크인 날짜에 가까워질 무렵 잔액을 결제하도록 선택할 수 있습니다.%{line_break}%{line_break}이 옵션에 대한 수수료는 없습니다.","p4.payment plan modal info for second payment":"%{bold_start}잔액 결제 날짜에 어떻게 해야 하나요?%{bold_end} 회원님이 별도로 취하셔야 하는 조치는 없습니다. 잔액 결제 날짜에 예약 결제 당시 사용된 결제 수단으로 자동 부과됩니다.%{line_break}%{line_break} 해당 결제에 문제가 있는 경우 이메일로 안내해드립니다. 에어비앤비가 잔액을 수금하지 못하는 경우 예약이 취소되며 호스트의 환불 정책에 따라 예약 대금이 환불됩니다.","p4.payment plan learn more modal go back button content":"뒤로","p4.sidebar first deposit installment title":"지금 지급","p4.sidebar future deposit installment title":"%{due_date} 지급","business_travel_reward.prompt.p4.earning_amount":"출장을 완료하시면 %{amount_string}의 에어비앤비 크레딧이 지급됩니다.","business_travel_reward.prompt.p4.earning_amount.multiple_guest":"이 출장을 다녀온 모든 직원에게 %{amount_string}의 에어비앤비 크레딧이 지급됩니다.","p4.group_payment opt in radio label":"친구들과 비용 나누기","p4.group_payment select number of payers":"회원님과 비용을 나눌 사람이 몇 명인가요?","p4.group_payment option number of payers":"%{number_of_adults}명(회원님 외 %{number_of_others}명)","p4.group_payment details of group payment":"지금 %{amount}을(를) 결제하여 숙소를 예약할 수 있습니다. 회원님 그룹이 %{hours}시간 이내에 잔액을 결제하지 않으면 회원님이 잔액 결제 요청을 받게 됩니다.","p4.sidebar group payment price per share and number of payers":"1인당 금액 (x%{number_payer})","p4.sidebar group payment price for the organizer":"지금 결제","business_travel.p4.flash_message.sent_invite":"%{email}님에게 초대장을 보냈습니다. 회원님이 결제 정보를 입력하여 예약을 완료할 수 있게 되면 에어비앤비에서 알림 메일을 보냅니다.","business_travel.p4.shared.invite_sent":"초대장 전송 완료","business_travel.p4.shared.send_invite":"초대장 보내기","business_travel.p4.shared.View status":"상태 보기","business_travel.p4.shared.View Status":"상태 보기","business_travel.p4.trip_purpose.purpose.question":"여행의 목적이 무엇인가요?","business_travel.p4.trip_purpose.purpose.tooltip":"이 정보를 바탕으로 결제 수단을 결정하도록 도와드리겠습니다.","business_travel.p4.trip_purpose.purpose.choices.personal":"개인 여행","business_travel.p4.trip_purpose.purpose.choices.business":"출장","business_travel.p4.trip_purpose.title_content.business":"출장","business_travel.p4.trip_purpose.title_content.invited_user":"초대한 출장자","business_travel.p4.trip_purpose.title_content.personal":"개인 여행","business_travel.p4.trip_purpose.who.question":"숙소에서 회원님이 숙박하시나요?","business_travel.p4.trip_purpose.who.choices.yes":"예","business_travel.p4.trip_purpose.who.choices.not_me":"아니요. 다른 직원을 대신해서 예약합니다.","business_travel.p4.trip_purpose.trip_notes.placeholder":"출장 목적을 설명하고 기타 회사에서 알아야 할 정보를 적어주세요.","business_travel.p4.trip_purpose.trip_notes.title":"회사 기록을 위해 이번 출장에 대한 메모를 작성해 주세요.","business_travel.p4.trip_purpose.employee_search.empty_results.add":"추가","business_travel.p4.trip_purpose.employee_search.empty_results.invite":"초대","business_travel.p4.trip_purpose.employee_search.empty_results.send_request":"요청하기","business_travel.p4.trip_purpose.employee_search.empty_results.new_traveler":"신규 출장자","business_travel.p4.trip_purpose.employee_search.empty_results.error":"유효한 이메일 주소를 입력하세요.","business_travel.p4.trip_purpose.employee_search.empty_results.placeholder":"employee@companyname.com","business_travel.p4.trip_purpose.employee_search.empty_results.title":"%{strong_start}출장자를 찾지 못했습니다.%{strong_end} 출장자를 대신하여 숙소를 예약하려면 해당 직원을 에어비앤비로 초대하세요.","business_travel.p4.trip_purpose.employee_search.empty_results.title_new":"“%{input_name}”을 찾지 못했습니다.","business_travel.p4.trip_purpose.employee_search.empty_results.add_new":"이 직원 추가하기","business_travel.p4.trip_purpose.employee_search.empty_results.invite_title":"권한을 요청하기 위해 이 출장자 추가하기","business_travel.p4.trip_purpose.employee_search.empty_results.invite_body":"출장자가 회원님에게 예약 권한을 주면 해당 직원의 출장 예약을 완료할 수 있다는 알림이 발송됩니다.","business_travel.p4.trip_purpose.employee_search.empty_results.invalid_email":"유효한 이메일 주소를 입력하세요.","business_travel.p4.trip_purpose.employee_search.ineligible.confirmed_email":"인증된 이메일","business_travel.p4.trip_purpose.employee_search.ineligible.verified_phone":"인증된 전화번호","business_travel.p4.trip_purpose.employee_search.ineligible.profile_photo":"프로필 사진","business_travel.p4.trip_purpose.employee_search.ineligible.profile_incomplete":"이 직원 계정은 %{missing_elements}이(가) 누락되어 있습니다. 이 필드가 입력되지 않으면 대신 예약을 할 수 없습니다. %{link_start}자세히 알아보기%{link_end}","business_travel.p4.trip_purpose.employee_search.profile_incomplete.title":"%{name}님이 프로필 작성을 완료해야 합니다","business_travel.p4.trip_purpose.employee_search.ineligible.profile_incomplete.body":"이 출장자의 계정에는 다음이 누락되어 있습니다. %{missing_elements} 출장자에게 이메일을 보내 정보 제공을 요청할 것이며, 정보가 제공되면 회원님이 출장 예약을 완료할 수 있습니다.","business_travel.p4.trip_purpose.employee_search.profile_incomplete.button":"요청하기","business_travel.p4.trip_purpose.employee_search.ineligible.self_book_only":"대리 예약을 허용하지 않는 직원입니다. %{link_start}자세히 알아보기%{link_end}","business_travel.p4.trip_purpose.employee_search.ineligible.unsupported":"이 직원에 대한 예약을 지원할 수 없습니다.","business_travel.p4.trip_purpose.employee_search.question":"실제 숙소에 체크인하고 호스트와 대화할 출장자를 추가해 주세요.","business_travel.p4.trip_purpose.employee_search.pending_traveler":"출장자가 인증 대기 중입니다. 예약을 계속 진행할 수 있게 되면 에어비앤비에서 알림 메일을 보냅니다. %{my_trip_link_start}여행 목록%{my_trip_link_end}에서 출장자의 상태를 확인해 보세요.","business_travel.p4.trip_purpose.employee_search.tooltip":"이름으로 직원을 검색하세요.","business_travel.p4.trip_purpose.employee_search.placeholder":"출장자 검색하기...","business_travel.p4.trip_purpose.employee_search.remove":"삭제","business_travel.p4.trip_purpose.employee_search.tags.profile_incomplete":"프로필 등록 미완료","business_travel.p4.trip_purpose.employee_search.tags.self_book_only":"본인 예약만 가능","business_travel.p4.trip_purpose.employee_search.tags.ineligible":"예약 불가","business_travel.p4.invite_user_modal.slide1.title":"초대장을 보냈습니다! 예약이 아직 완료되지 않았습니다.","business_travel.p4.invite_user_modal.slide1.body":"출장자 %{strong_start}%{email}%{strong_end}님이 회원님에게 예약 대행 권한을 부여해야 합니다. 다시 예약 절차를 진행할 수 있게 되면 에어비앤비에서 알림 메일을 보내 드리겠습니다.","business_travel.p4.trip_purpose.extra_details.title":"%{first_name}님을 추가하는 이유","business_travel.p4.trip_purpose.extra_details.accept_responsibility":"호스트가 예약을 확정하면 출장자가 출장에 따른 책임을 수락합니다.","business_travel.p4.trip_purpose.extra_details.can_also_communicate":"또한 호스트와 커뮤니케이션하며 일정을 변경하거나 예약을 취소할 수 있습니다.","business_travel.p4.trip_purpose.progress_button.send_invite":"초대장 보내기","business_travel.p4.about_your_trip.clear_suggested_message":"샘플 메시지 삭제하기","business_travel.p4.about_your_trip.guest_message_input.placeholder":"고객과의 미팅인가요? 컨퍼런스에 참석하세요?","business_travel.p4.about_your_trip.message_title":"호스트 %{host_first_name}님에게 %{traveler_first_name}님을 소개하세요.","business_travel.p4.about_your_trip.message_title_for_invited_user":"초대한 출장자를 호스트 %{host_first_name}님에게 소개하세요.","business_travel.p4.about_your_trip.suggested_message":"%{host_first_name}님, 안녕하세요. 저는 %{company_name}의 %{traveler_first_name}님과 다른 직원들을 대신해 숙소를 예약하는 출장 예약 담당자 %{booker_first_name}입니다. 저희 직원들이 출장 중에 호스트님의 숙소에 머무르면 좋을 것 같아서 연락드렸습니다.","mario_copy_monorail_p4_homes_not_hotels":{"title":"에어비앤비를 통해 첫 여행을 떠나시는 회원님께,","line0":"숙소를 존중하여 대해 주세요. 호스트가 실제 자신의 집을 공유하고 있습니다.","line1":"각 숙소만의 특징이 있습니다. 공간과 편의시설은 숙소마다 다릅니다.","line2":"호스트와 활발히 소통하세요. 체크인 방법에 관해 이야기를 나누세요.","email_title":"회원님의 첫 여행을 위한 도움말"}},"reservationData":{"arrival_details":{"checkin_time_selection_options":[{"formatted_hour":"NOT_SELECTED","localized_guest_checkin_window":"선택","is_check_in_time_instant_bookable":true},{"formatted_hour":"8","localized_guest_checkin_window":"08:00 - 10:00","is_check_in_time_instant_bookable":false},{"formatted_hour":"9","localized_guest_checkin_window":"09:00 - 11:00","is_check_in_time_instant_bookable":false},{"formatted_hour":"10","localized_guest_checkin_window":"10:00 - 12:00","is_check_in_time_instant_bookable":false},{"formatted_hour":"11","localized_guest_checkin_window":"11:00 - 13:00","is_check_in_time_instant_bookable":false},{"formatted_hour":"12","localized_guest_checkin_window":"12:00 - 14:00","is_check_in_time_instant_bookable":false},{"formatted_hour":"13","localized_guest_checkin_window":"13:00 - 15:00","is_check_in_time_instant_bookable":true},{"formatted_hour":"14","localized_guest_checkin_window":"14:00 - 16:00","is_check_in_time_instant_bookable":true},{"formatted_hour":"15","localized_guest_checkin_window":"15:00 - 17:00","is_check_in_time_instant_bookable":true},{"formatted_hour":"16","localized_guest_checkin_window":"16:00 - 18:00","is_check_in_time_instant_bookable":true},{"formatted_hour":"17","localized_guest_checkin_window":"17:00 - 19:00","is_check_in_time_instant_bookable":true},{"formatted_hour":"18","localized_guest_checkin_window":"18:00 - 20:00","is_check_in_time_instant_bookable":true},{"formatted_hour":"19","localized_guest_checkin_window":"19:00 - 21:00","is_check_in_time_instant_bookable":true},{"formatted_hour":"20","localized_guest_checkin_window":"20:00 - 22:00","is_check_in_time_instant_bookable":true},{"formatted_hour":"21","localized_guest_checkin_window":"21:00 - 23:00","is_check_in_time_instant_bookable":true},{"formatted_hour":"22","localized_guest_checkin_window":"22:00 - 00:00","is_check_in_time_instant_bookable":true},{"formatted_hour":"23","localized_guest_checkin_window":"23:00 - 01:00(다음 날)","is_check_in_time_instant_bookable":true},{"formatted_hour":"24","localized_guest_checkin_window":"00:00 - 02:00(다음 날)","is_check_in_time_instant_bookable":true}],"valid_checkin_time_selection_options":[{"formatted_hour":"8","localized_guest_checkin_window":"08:00 - 10:00","is_check_in_time_instant_bookable":false},{"formatted_hour":"9","localized_guest_checkin_window":"09:00 - 11:00","is_check_in_time_instant_bookable":false},{"formatted_hour":"10","localized_guest_checkin_window":"10:00 - 12:00","is_check_in_time_instant_bookable":false},{"formatted_hour":"11","localized_guest_checkin_window":"11:00 - 13:00","is_check_in_time_instant_bookable":false},{"formatted_hour":"12","localized_guest_checkin_window":"12:00 - 14:00","is_check_in_time_instant_bookable":false},{"formatted_hour":"13","localized_guest_checkin_window":"13:00 - 15:00","is_check_in_time_instant_bookable":true},{"formatted_hour":"14","localized_guest_checkin_window":"14:00 - 16:00","is_check_in_time_instant_bookable":true},{"formatted_hour":"15","localized_guest_checkin_window":"15:00 - 17:00","is_check_in_time_instant_bookable":true},{"formatted_hour":"16","localized_guest_checkin_window":"16:00 - 18:00","is_check_in_time_instant_bookable":true},{"formatted_hour":"17","localized_guest_checkin_window":"17:00 - 19:00","is_check_in_time_instant_bookable":true},{"formatted_hour":"18","localized_guest_checkin_window":"18:00 - 20:00","is_check_in_time_instant_bookable":true},{"formatted_hour":"19","localized_guest_checkin_window":"19:00 - 21:00","is_check_in_time_instant_bookable":true},{"formatted_hour":"20","localized_guest_checkin_window":"20:00 - 22:00","is_check_in_time_instant_bookable":true},{"formatted_hour":"21","localized_guest_checkin_window":"21:00 - 23:00","is_check_in_time_instant_bookable":true},{"formatted_hour":"22","localized_guest_checkin_window":"22:00 - 00:00","is_check_in_time_instant_bookable":true},{"formatted_hour":"23","localized_guest_checkin_window":"23:00 - 01:00(다음 날)","is_check_in_time_instant_bookable":true},{"formatted_hour":"24","localized_guest_checkin_window":"00:00 - 02:00(다음 날)","is_check_in_time_instant_bookable":true}],"guest_checkin_time_from":{"formatted_hour":"NOT_SELECTED","localized_hour_string":"선택"},"guest_checkin_time_to":{"formatted_hour":"NOT_SELECTED","localized_hour_string":"선택"},"guest_details_block_instant_book_message":null,"is_bringing_pets":false,"is_check_in_time_instant_bookable":true,"number_of_adults":2,"number_of_children":0,"number_of_infants":0,"will_guest_details_block_instant_book":false},"cancellation_refund":0,"check_in":"2017-05-02","check_out":"2017-05-03","confirmation_code":"HMNZHFJW23","coupon_code":"","deposit_opt_in_message_data":null,"group_payment_opt_in_message_data":null,"guest":{"first_name":"효정","has_profile_pic":true,"id":119890938,"picture_url":"https://a0.muscache.com/im/pictures/73383085-85f6-4ab8-ae51-15ec3fe38869.jpg?aki_policy=profile_x_medium","smart_name":"효정","thumbnail_url":"https://a0.muscache.com/im/pictures/73383085-85f6-4ab8-ae51-15ec3fe38869.jpg?aki_policy=profile_small","country":"KR","is_superhost":false},"has_urgency_commitment_data":false,"host":{"first_name":"Hostel","has_profile_pic":true,"id":11287127,"picture_url":"https://a0.muscache.com/im/pictures/7066eced-82fb-474f-a0e6-1d85a5c3db3c.jpg?aki_policy=profile_x_medium","smart_name":"Hostel","thumbnail_url":"https://a0.muscache.com/im/pictures/7066eced-82fb-474f-a0e6-1d85a5c3db3c.jpg?aki_policy=profile_small","is_superhost":false,"has_past_bookings":true},"id":320673601,"is_airbnb_credit_excluded":false,"is_deposit_pilot_enabled":false,"is_group_payment_enabled":false,"is_host_cancel_coupon":false,"launch_check_in_time_v2":true,"listing":{"id":11618416,"name":"Hostel Korea Orignal Female Dormitory rooms","picture_url":"https://a0.muscache.com/im/pictures/83ddd658-971c-43cc-be85-c059ae37e222.jpg?aki_policy=large","thumbnail_url":"https://a0.muscache.com/im/pictures/83ddd658-971c-43cc-be85-c059ae37e222.jpg?aki_policy=small","xl_picture_url":"https://a0.muscache.com/im/pictures/83ddd658-971c-43cc-be85-c059ae37e222.jpg?aki_policy=x_large","additional_house_rules":"","bathrooms":0.5,"bedrooms":1,"beds":3,"check_in_time":15,"check_in_time_ends_at":26,"city":"Jongno-gu","country":"한국","country_code":"KR","guest_controls":{"allows_children":false,"allows_infants":false,"allows_pets":false,"allows_smoking":false,"allows_events":false,"id":11618416,"host_check_in_time_message":"Hostel님의 체크인 허용 시간은 15:00 - 02:00(다음 날)입니다.","p3_structured_house_rules":["흡연 금지","반려동물 동반에 적합하지 않음","파티나 이벤트 금지","어린이(0-12세) 숙박에 안전하거나 적합하지 않을 수 있음","체크인 가능 시간은 15:00 - 02:00(다음 날)입니다"],"structured_house_rules":["흡연 금지","반려동물 동반에 적합하지 않음","파티나 이벤트 금지","어린이(0-12세) 숙박에 안전하거나 적합하지 않을 수 있음","체크인 가능 시간은 15:00 - 02:00(다음 날)입니다"],"structured_house_rules_with_tips":[{"key":"is_smoking_allowed_as_host","text":"흡연 금지","tip":null},{"key":"are_pets_allowed_as_host","text":"반려동물 동반에 적합하지 않음","tip":null},{"key":"are_events_allowed_as_host","text":"파티나 이벤트 금지","tip":null},{"key":"are_infants_and_children_allowed","text":"어린이(0-12세) 숙박에 안전하거나 적합하지 않을 수 있음","tip":null},{"key":"check_in_time","text":"체크인 가능 시간은 15:00 - 02:00(다음 날)입니다","tip":null}]},"has_24_hour_checkin":false,"hosts":[{"first_name":"Hostel","has_profile_pic":true,"id":11287127,"picture_url":"https://a0.muscache.com/im/pictures/7066eced-82fb-474f-a0e6-1d85a5c3db3c.jpg?aki_policy=profile_x_medium","smart_name":"Hostel","thumbnail_url":"https://a0.muscache.com/im/pictures/7066eced-82fb-474f-a0e6-1d85a5c3db3c.jpg?aki_policy=profile_small","is_superhost":false,"has_past_bookings":true}],"host_check_in_time_phrase_for_p4":"지금 예약하려면, 15:00 - 02:00(다음 날) 사이에 체크인해야 합니다.","house_rules":"• 체크인 가능 시간은 15:00 - 02:00(다음 날)입니다\r\n• 어린이(0-12세) 숙박에 안전하거나 적합하지 않을 수 있음\r\n• 파티나 이벤트 금지\r\n• 반려동물 동반에 적합하지 않음\r\n• 흡연 금지\r\n\r\n","instant_book_welcome_message":null,"instant_booking_allowed_category":"everyone","listing_expectations":[{"added_details":null,"checked":false,"description":"계단에 관해 설명하세요(예시: 계단 층수)","placeholder":"추가 설명을 입력하세요","title":"계단을 이용해야 합니다","type":"requires_stairs"},{"added_details":null,"checked":false,"description":"소음도 및 소음 발생 가능 상황에 관해 설명하세요","placeholder":"추가 설명을 입력하세요","title":"소음이 발생할 수 있습니다","type":"potential_noise"},{"added_details":null,"checked":false,"description":"반려동물에 관해 설명하세요","placeholder":"추가 설명을 입력하세요","title":"숙소에 반려동물이 있습니다","type":"has_pets"},{"added_details":null,"checked":false,"description":"숙소 주변 주차 상황에 관해 설명하세요","placeholder":"추가 설명을 입력하세요","title":"건물 내 주차 불가","type":"limited_parking"},{"added_details":null,"checked":false,"description":"게스트가 공유할 공간에 관해 설명하세요","placeholder":"추가 설명을 입력하세요","title":"일부 공용 공간이 있습니다","type":"shared_spaces"},{"added_details":null,"checked":false,"description":"불안정한 무선인터넷, 온수 제한 등 편의시설이나 서비스 제한에 대해 설명하세요","placeholder":"추가 설명을 입력하세요","title":"편의시설 제한","type":"limited_amenities"}],"localized_additional_house_rules":"","localized_city":"종로구","localized_listing_expectations":null,"max_nights":1125,"min_nights":1,"person_capacity":3,"primary_host":{"first_name":"Hostel","has_profile_pic":true,"id":11287127,"picture_url":"https://a0.muscache.com/im/pictures/7066eced-82fb-474f-a0e6-1d85a5c3db3c.jpg?aki_policy=profile_x_medium","smart_name":"Hostel","thumbnail_url":"https://a0.muscache.com/im/pictures/7066eced-82fb-474f-a0e6-1d85a5c3db3c.jpg?aki_policy=profile_small","is_superhost":false,"has_past_bookings":true},"public_address":"종로구, 서울, 한국","room_type":"다인실","smart_location":"종로구, 한국","star_rating":4.5,"visible_review_count":4},"number_of_guests":2,"pending_traveler_id":null,"pricing_quote":{"accommodation_price_includes_cleaning_fee":false,"airbnb_credit_currency_amount":{"amount":0,"amount_formatted":"₩0","is_micros_accuracy":null,"currency":"KRW"},"available":true,"average_booked_price":null,"base_price_breakdown":[{"amount":11786,"amount_formatted":"₩11786","is_micros_accuracy":null,"currency":"KRW"}],"base_price_fx_fee_as_guest":{"amount":0,"amount_formatted":"₩0","is_micros_accuracy":null,"currency":"KRW"},"business_reservation_reward_info":{"currency":null,"display_currency":"KRW","has_applicable_reward_rule":false,"reward_amount_payout":0,"reward_amount_viewer_native":0},"can_instant_book":true,"cancellation_policy_label":"moderate","cancellation_policy_link":"/home/cancellation_policies#moderate","check_in":"2017-05-02","check_out":"2017-05-03","cleaning_fee_as_guest":0,"deposit_pilot_eligible":false,"extra_guests":1,"extra_guest_fee":{"amount":9831,"amount_formatted":"₩9831","is_micros_accuracy":null,"currency":"KRW"},"group_payment_breakdown":null,"group_payment_eligible":false,"guests":2,"guest_details":{"number_of_adults":2,"number_of_children":0,"number_of_infants":0},"installments":[],"is_good_price":null,"localized_cancellation_policy_name":"일반","localized_unavailability_message":"","long_term_discount_amount_as_guest":0,"nights":1,"p3_exclude_taxes_and_fees":false,"price":{"date_range":null,"localized_explanation":null,"localized_title":"총합계","price_items":[{"date_range":null,"localized_explanation":"포함 내역: 추가 게스트 요금","localized_title":"₩21,617 x 1박","price_items":[],"total":{"amount":21617,"amount_formatted":"₩21617","is_micros_accuracy":null,"currency":"KRW"},"type":"ACCOMMODATION","localized_url_text":null,"url":null},{"date_range":null,"localized_explanation":"수수료는 에어비앤비 플랫폼을 운영하고 연중무휴 지원과 같은 다양한 서비스를 제공하는데 사용됩니다.","localized_title":"서비스 수수료","price_items":[],"total":{"amount":2275,"amount_formatted":"₩2275","is_micros_accuracy":null,"currency":"KRW"},"type":"AIRBNB_GUEST_FEE","localized_url_text":null,"url":null}],"total":{"amount":23892,"amount_formatted":"₩23892","is_micros_accuracy":null,"currency":"KRW"},"type":"TOTAL","localized_url_text":null,"url":null},"price_excluding_fees":{"date_range":null,"localized_explanation":null,"localized_title":"총합계","price_items":[{"date_range":null,"localized_explanation":"포함 내역: 추가 게스트 요금","localized_title":"₩21,617 x 1박","price_items":[],"total":{"amount":21617,"amount_formatted":"₩21617","is_micros_accuracy":null,"currency":"KRW"},"type":"ACCOMMODATION","localized_url_text":null,"url":null}],"total":{"amount":21617,"amount_formatted":"₩21617","is_micros_accuracy":null,"currency":"KRW"},"type":"TOTAL","localized_url_text":null,"url":null},"rate":{"amount":21617,"amount_formatted":"₩21617","is_micros_accuracy":null,"currency":"KRW"},"rate_type":"nightly","refund":null,"intent_predictions":[],"p4_cancellation_refund_banner":{"show_banner":true,"html_body":"체크인 전에 예약을 취소하면 ₩2275이(가) 환불됩니다.","html_title":"일부 환불 가능","plain_body":"체크인 전에 예약을 취소하면 ₩2275이(가) 환불됩니다.","plain_title":"일부 환불 가능","guest_fee_is_refundable":true,"show_overlapping_warning_banner":false,"overlapping_warning_title":"","overlapping_warning_body":""},"price_with_combined_cleaning_fee":{"date_range":null,"localized_explanation":null,"localized_title":"총합계","price_items":[{"date_range":null,"localized_explanation":"포함 내역: 추가 게스트 요금","localized_title":"₩21,617 x 1박","price_items":[],"total":{"amount":21617,"amount_formatted":"₩21617","is_micros_accuracy":null,"currency":"KRW"},"type":"ACCOMMODATION","localized_url_text":null,"url":null},{"date_range":null,"localized_explanation":"수수료는 에어비앤비 플랫폼을 운영하고 연중무휴 지원과 같은 다양한 서비스를 제공하는데 사용됩니다.","localized_title":"서비스 수수료","price_items":[],"total":{"amount":2275,"amount_formatted":"₩2275","is_micros_accuracy":null,"currency":"KRW"},"type":"AIRBNB_GUEST_FEE","localized_url_text":null,"url":null}],"total":{"amount":23892,"amount_formatted":"₩23892","is_micros_accuracy":null,"currency":"KRW"},"type":"TOTAL","localized_url_text":null,"url":null},"settlement_quote":{"charge_amount":{"amount":23892,"amount_formatted":"₩23892","is_micros_accuracy":null,"currency":"KRW"},"fx_fee_rate":null,"settlement_currency_unit":{"amount":1000,"amount_formatted":"₩1000","is_micros_accuracy":null,"currency":"KRW"},"target_currency_unit":{"amount":1000,"amount_formatted":"₩1000","is_micros_accuracy":null,"currency":"KRW"},"exchange_rate_message":null,"fx_message":null}},"primary_host":{"first_name":"Hostel","has_profile_pic":true,"id":11287127,"picture_url":"https://a0.muscache.com/im/pictures/7066eced-82fb-474f-a0e6-1d85a5c3db3c.jpg?aki_policy=profile_x_medium","smart_name":"Hostel","thumbnail_url":"https://a0.muscache.com/im/pictures/7066eced-82fb-474f-a0e6-1d85a5c3db3c.jpg?aki_policy=profile_small","is_superhost":false,"has_past_bookings":true},"should_show_first_message":true,"status":"new","urgency_commitment_body":null,"urgency_commitment_context":null,"urgency_commitment_headline":null,"urgency_commitment_icon":null,"urgency_commitment_type":null,"will_auto_accept":true},"reservationMessageExists":false,"launchCheckInTimeV2":true,"launchInfantsV2":true,"listingLanguage":"한국어","showHomesNotHotels":false,"cubaAttestationData":null,"phrases":{},"trebuchets":{"booking_first_message_length_validation":true}}-->
+    </script>
+    <script type="application/json" data-aphrodite-css="p4_first_message.bundle.js">
+      <!--["table_qtix31","table_qtix31-o_O-buttons_y5lyrw","middleAlignedCell_17u98ky-o_O-left_e4x16a","middleAlignedCell_17u98ky-o_O-center_12to336","middleAlignedCell_17u98ky-o_O-right_140n9qh","container_z8lbtc","visuallyHidden_1m8bb6v","containerFallback_1cmo568-o_O-container_1s8su0z","beforeFallback_1iti0ju-o_O-before_t0tx82","afterFallback_1iti0ju","text_5mbkop-o_O-size_regular_x6m9oi","button_qq3sll-o_O-button_1ju6z0l-o_O-button_small_1h534dv-o_O-button_light_1a24k02","icon_16b32nl-o_O-icon_11jdm7g-o_O-icon_small_abrv9k","subtitle_ac6rph","text_5mbkop-o_O-size_small_1gg2mc-o_O-weight_light_1nmzz2x","icon_16b32nl-o_O-icon_1wy8x1d-o_O-icon_small_abrv9k","component_9w5i1l-o_O-component_button_r8o91c"]-->
+    </script>
+
+    <section data-hook="progress_button">
+      <div data-reactroot="" class="row space-2 space-top-2">
+        <div class="col-sm-4"><button class="btn btn-large btn-primary" type="submit"><span>결제</span></button></div>
+      </div>
+    </section>
+    </div>
+    </div>
+
+
+    </div>
+    </div>
+    </form>
+
+
+
+    </div>
+
+
+  </main>
+
+
+  <!--<![endif]-->
+
+
+</body>

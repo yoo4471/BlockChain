@@ -17,49 +17,9 @@
         <div class="panel-body signup-login-form__extra-panel-body first">
 
           <!-- <form accept-charset="UTF-8" action="https://www.airbnb.co.kr/oauth_connect?from=facebook_login&amp;service=facebook" method="post"> -->
-          <form accept-charset="UTF-8" action="#a" method="post">
 
-            <div style="margin:0;padding:0;display:inline">
-              <!-- <input name="utf8" type="hidden" value="&#x2713;"/><input name="authenticity_token" type="hidden" value="V4$.airbnb.co.kr$i2jMYbS5cPA$HvPgw1VL_FAsO2cutCO0Ks_kv5wWjuBF_pUU4e8tbuQ="/> -->
-              <input name="utf8" type="hidden" value="&#x2713;"/><input name="authenticity_token" type="hidden" value="#b"/>
-            </div>
-            <button class="btn icon-btn btn-block signup-login-form__btn-xl btn-large space-1 btn-facebook js-facebook-auth" name="button" type="submit">
-            <span class="icon-container">
-            <i class="icon icon-facebook"></i>
-            </span>
-            <span class="text-container">
-            페이스북 계정으로 로그인 </span>
-            </button>
-          </form>
           <!-- <form accept-charset="UTF-8" action="https://www.airbnb.co.kr/oauth_connect?from=google_login&amp;service=google" method="post"> -->
-          <form accept-charset="UTF-8" action="#c" method="post">
-            <div style="margin:0;padding:0;display:inline">
-              <!-- <input name="utf8" type="hidden" value="&#x2713;"/><input name="authenticity_token" type="hidden" value="V4$.airbnb.co.kr$i2jMYbS5cPA$HvPgw1VL_FAsO2cutCO0Ks_kv5wWjuBF_pUU4e8tbuQ="/> -->
-              <input name="utf8" type="hidden" value="&#x2713;"/><input name="authenticity_token" type="hidden" value="#d"/>
-            </div>
-            <button class="btn icon-btn btn-block signup-login-form__btn-xl btn-large space-1 btn-google js-google-auth" name="button" type="submit">
-            <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="icon icon-google-image">
-            <defs></defs>
-            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-            <g id="super-g">
-            <path d="M9,3.48 C10.69,3.48 11.83,4.21 12.48,4.82 L15.02,2.34 C13.46,0.89 11.43,0 9,0 C5.48,0 2.44,2.02 0.96,4.96 L3.87,7.22 C4.6,5.05 6.62,3.48 9,3.48 L9,3.48 L9,3.48 Z" id="Shape" fill="#EA4335"></path>
-            <path d="M17.64,9.2 C17.64,8.46 17.58,7.92 17.45,7.36 L9,7.36 L9,10.7 L13.96,10.7 C13.86,11.53 13.32,12.78 12.12,13.62 L14.96,15.82 C16.66,14.25 17.64,11.94 17.64,9.2 L17.64,9.2 L17.64,9.2 Z" id="Shape" fill="#4285F4"></path>
-            <path d="M3.88,10.78 C3.69,10.22 3.58,9.62 3.58,9 C3.58,8.38 3.69,7.78 3.87,7.22 L0.96,4.96 C0.35,6.18 0,7.55 0,9 C0,10.45 0.35,11.82 0.96,13.04 L3.88,10.78 L3.88,10.78 L3.88,10.78 Z" id="Shape" fill="#FBBC05"></path>
-            <path d="M9,18 C11.43,18 13.47,17.2 14.96,15.82 L12.12,13.62 C11.36,14.15 10.34,14.52 9,14.52 C6.62,14.52 4.6,12.95 3.88,10.78 L0.97,13.04 C2.45,15.98 5.48,18 9,18 L9,18 L9,18 Z" id="Shape" fill="#34A853"></path>
-            <path d="M0,0 L18,0 L18,18 L0,18 L0,0 L0,0 Z" id="Shape"></path>
-            </g>
-            </g>
-            <image class="google-logo-svg-fallback" src="https://a0.muscache.com/airbnb/static/signinup/google_icon_2x-745c2280e5004d4c90e3ca4e60e3f677.png" xlink:href="#gogole_img">
-            </svg>
-            <span class="text-container">
-            구글 계정으로 로그인 </span>
-            </button>
-          </form>
-          <div class="signup-or-separator">
-            <span class="h6 signup-or-separator--text">또는</span>
-            <hr>
-          </div>
+
           <!-- <form accept-charset="UTF-8" action="https://www.airbnb.co.kr/authenticate" class="login-form " data-action="Signin" method="post"> -->
           <form accept-charset="UTF-8" action="/login" class="login-form " data-action="Signin" method="post">
             <div style="margin:0;padding:0;display:inline">
@@ -88,7 +48,7 @@
           <div class="panel-body signup-login-form__extra-panel-body">
             <div class="clearfix">
               <div class="signup-login-form__switch-copy">
-                 에어비앤비 계정이 없으세요?
+                 저희 러브펫 계정이 없으세요?
               </div>
               <a href="/signup" class="link-to-signup-in-login modal-link btn btn-default signup-login-form__btn-rausch-border signup-login-form__switch-button signup-login-form__btn-font-normal">
               회원 가입 </a>
@@ -105,5 +65,5 @@
         <input id="airlock_id" name="airlock_id" type="hidden" value=""/>
       </form>
   </main>
-  {% include 'footer.html' %}
+  {% include "footer.html" %}
   {% endblock %}

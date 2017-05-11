@@ -11,12 +11,12 @@
                 <li>
                     <a href="/rooms" aria-selected="true" class="sidenav-item">숙소 목록</a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="#/my_reservations" aria-selected="false" class="sidenav-item">예약 관리</a>
                 </li>
                 <li>
                     <a href="#/hosting/requirements" aria-selected="false" class="sidenav-item">예약 필수조건</a>
-                </li>
+                </li> -->
 
                 <div class="space-top-4 space-4">
                     <a href="#/rooms/new" aria-selected="false" class="btn btn-host">새로운 숙소 추가</a>
@@ -58,7 +58,8 @@
                                                         <div class="space-top-2"></div>
                                                     </div>
                                                 </div>
-                                            </div><span class="h4"><a href="/manage-listing/17629582" class="text-normal"><span><!-- react-text: 27 -->
+                                            </div>
+                                            <span class="h4"><span><!-- react-text: 27 -->
                                               <!-- 개인실(위치: Dongjak-gu) -->
                                               <!-- /react-text -->
 
@@ -89,14 +90,14 @@
                                             {% endif %}<br>
 
 
-                                            </span></a>
                                             </span>
-                                            <div class="text-muted text-grey space-top-1 last-modified-date"><span>최종 업데이트: 2017년 3월 15일</span></div>
+                                            </span>
+                                            <div class="text-muted text-grey space-top-1 last-modified-date"><span>최종 업데이트: {{rooms[0][12]}}</span></div>
 
 
 
                                             <div class="space-top-4">
-                                              <a class="btn btn__first-btn btn-primary" href="/enrollment_home/address"><span>등록 수정하기</span></a>
+                                              <a class="btn btn__first-btn btn-primary" href="/modify_home/address"><span>등록 수정하기</span></a>
                                               <a class="btn btn__second-btn" href="#"><span>삭제하기</span></a></div><noscript></noscript></div>
                                     </div>
                                 </li>
