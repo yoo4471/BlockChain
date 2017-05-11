@@ -38,7 +38,6 @@ def Make_db_pet():
 #Host, H_key, State, City, Street, Apt, Address,citycode, Type, Room, Area, Elevator, Parking
 #Host, H_key, Address, Type, Room, Area, Elevator, Parking
 
-#Host -> member table 의 Email
 def Make_db_house():
     con = sqlite3.connect("petsitting.db")
     cursor = con.cursor()
