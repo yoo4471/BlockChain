@@ -173,20 +173,11 @@ def results(region):
 							page = page,
 							print_search = pass_search)
 
-# def get_petsitter(petsitter_info):
-#     rv = cache.get(petsitter_info[0])
-#     if rv is None:
-#         rv = calculate_value()
-#         cache.set(PETSITTERS, rv, timeout=5 * 60)
-#     return rv
-
 @app.route('/booking/<int:num>', methods=['GET', 'POST'])
 def booking(num):
 
 	global PETSITTERS
 	global count
-	# print("===============petsitter : " , PETSITTERS[num-1] , "================")
-	# print("num-1: ", PETSITTERS[num-1])
 	count = num - 1
 
 	if 'email' in session:
@@ -200,9 +191,7 @@ def detail(petsitter):
 	global PETSITTERS
 	global USER_SEARCH
 	global total_charge
-	# print("petsitter name : " , PETSITTERS[petsitter][0])
 
-	# get petsitter's information
 	detail_about_petsitter = function.Read_petsitter(PETSITTERS[petsitter][0])
 	print("detail : ", detail_about_petsitter)
 	print("petsitter: ", PETSITTERS[petsitter])
@@ -246,7 +235,7 @@ def payments():
 	print("count: ", count)
 
 	if 'email' in session:
-		# get petsitter's information
+		# get petsitters information
 		detail_about_petsitter = function.Read_petsitter(PETSITTERS[count][0])
 
 		checkin = USER_SEARCH[4]
@@ -263,7 +252,6 @@ def payments():
 		d0 = date(checkin_year, checkin_month, checkin_day)
 		d1 = date(checkout_year, checkout_month, checkout_day)
 		term = d1 - d0
-		# print(term.days)
 		temp_charge = total_charge
 		total = temp_charge * term.days
 		total_charge = total
@@ -285,19 +273,6 @@ def payments():
 							title='SignUp',
 							error=None
 							)
-
-
-#
-# @app.route('/guest/<guest>')
-# def hello_guest(guest):
-#    return 'Hello %s as Guest' % guest
-#
-# @app.route('/user/<name>')
-# def hello_user(name):
-#    if name =='admin':
-#       return redirect(url_for('hello_admin'))
-#    else:
-#       return redirect(url_for('hello_guest',guest = name))
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -324,19 +299,6 @@ def login():
 
 @app.route('/signup', methods=['POST', 'GET'])
 def signup():
-	# ImmutableMultiDict([('user[last_name]', 'yoo'),
-	# 					('user[password]', '1q2w3e4r'),
-	# 					('user[birthday_month]', '1'),
-	# 					('user[birthday_day]', '4'),
-	# 					('user[birthday_year]', '2011'),
-	# 					('utf8', '✓'),
-	# 					('from', 'email_signup'),
-	# 					('user[first_name]', 'dongwon'),
-	# 					('user[email]', 'asldkfj@nave.rcom'),
-	# 					('user_profile_info[receive_promotional_email]', '0'),
-	# 					('user_profile_info[receive_promotional_email]', '1'),
-	# 					('authenticity_token', '#j')])
-
 	if request.method == 'POST':
 		Email= request.form.get("user[email]")
 		PW = request.form.get("user[password]")
@@ -371,12 +333,6 @@ def enrollment_home_address():
 
     if request.method == 'POST':
         print(request.form)
-		# ImmutableMultiDict([('country_code', 'US'),
-		# 					('city', '1'),
-		# 					('street', '1'),
-		# 					('zipcode', '1'),
-		# 					('apt', '1'),
-		# 					('state', '1')])
         state = request.form.get("state")
         city = request.form.get("city")
         street = request.form.get("street")
@@ -387,8 +343,6 @@ def enrollment_home_address():
         function.Update_Citycode(User, citycode)
         return redirect('/enrollment_home/room')
 
-	# if citycode[0][0] != '0':
-        # city =
     return render_template("address.html",
                         title='progress',
 						session='OK',
@@ -405,8 +359,6 @@ def enrollment_home_room():
 	if request.method == 'POST':
 		User = session['email']
 		print(request.form)
-		# ImmutableMultiDict([('house_type', '2'),
-		# 					('number_of_room', '1')])
 
 		house_type = request.form.get("house_type")
 		if house_type == '1':
@@ -431,8 +383,6 @@ def enrollment_home_car_elevator():
 	if request.method == 'POST':
 		User = session['email']
 		print(request.form)
-		# ImmutableMultiDict([('elevatorType', 'yes'),
-		# 					('parkingType', 'no')])
 		print(User)
 		elevator = house_type = request.form.get("elevatorType")
 		parking = house_type = request.form.get("parkingType")
@@ -485,20 +435,8 @@ def enrollment_pet_pet():
 	if not 'email' in session:
 		return redirect('/')
 
-	# User = session['email']
-    # citycode = function.Check_citycode(User)
-	# if citycode[0][0] != '0':
-    #     return "already enroll home!"
-
-
 	if request.method == 'POST':
 		print(request.form)
-
-		# ImmutableMultiDict([('petName', 'mong'),
-		# 					('petGender', 'male'),
-		# 					('pet[birthday_month]', '1'),
-		# 					('pet[birthday_day]', '10'),
-		# 					('pet[birthday_year]', '2016')])
 
 		User = session['email']
 
@@ -528,9 +466,6 @@ def enrollment_pet_size():
 	if request.method == 'POST':
 		print(request.form)
 
-		# ImmutableMultiDict([('pet-breed', '1'),
-		# 					('pet-size', '3')])
-
 		User = session['email']
 
 		breed = request.form.get("breed")
@@ -552,8 +487,6 @@ def enrollment_pet_vac():
 	if request.method == 'POST':
 		print(request.form)
 
-		# ImmutableMultiDict([('ns', '1'),
-		# 					('vac', '2')])
 		User = session['email']
 		ns = request.form.get("ns")
 		vac = request.form.get("vac")
@@ -575,12 +508,6 @@ def modify_pet_pet():
 
    if request.method == 'POST':
       print(request.form)
-
-      # ImmutableMultiDict([('petName', 'mong'),
-      #                ('petGender', 'male'),
-      #                ('pet[birthday_month]', '1'),
-      #                ('pet[birthday_day]', '10'),
-      #                ('pet[birthday_year]', '2016')])
 
       User = session['email']
 
@@ -608,9 +535,6 @@ def modify_pet_size():
    if request.method == 'POST':
       print(request.form)
 
-      # ImmutableMultiDict([('pet-breed', '1'),
-      #                ('pet-size', '3')])
-
       User = session['email']
 
       breed = request.form.get("breed")
@@ -632,8 +556,6 @@ def modify_pet_vac():
    if request.method == 'POST':
       print(request.form)
 
-      # ImmutableMultiDict([('ns', '1'),
-      #                ('vac', '2')])
       User = session['email']
       ns = request.form.get("ns")
       vac = request.form.get("vac")
@@ -653,17 +575,8 @@ def modify_home_address():
     User = session['email']
     citycode = function.Check_citycode(User)
 
-    # if citycode[0][0] != '0':
-        # return "already enroll home!"
-
     if request.method == 'POST':
         print(request.form)
-      # ImmutableMultiDict([('country_code', 'US'),
-      #                ('city', '1'),
-      #                ('street', '1'),
-      #                ('zipcode', '1'),
-      #                ('apt', '1'),
-      #                ('state', '1')])
         state = request.form.get("state")
         city = request.form.get("city")
         street = request.form.get("street")
@@ -674,8 +587,6 @@ def modify_home_address():
         function.Update_Citycode(User, citycode)
         return redirect('/modify_home/room')
 
-   # if citycode[0][0] != '0':
-        # city =
     return render_template("modify_address.html",
                         title='progress',
                   session='OK',
@@ -692,8 +603,6 @@ def modify_home_room():
    if request.method == 'POST':
       User = session['email']
       print(request.form)
-      # ImmutableMultiDict([('house_type', '2'),
-      #                ('number_of_room', '1')])
 
       house_type = request.form.get("house_type")
       if house_type == '1':
@@ -718,8 +627,6 @@ def modify_home_car_elevator():
    if request.method == 'POST':
       User = session['email']
       print(request.form)
-      # ImmutableMultiDict([('elevatorType', 'yes'),
-      #                ('parkingType', 'no')])
       print(User)
       elevator = house_type = request.form.get("elevatorType")
       parking = house_type = request.form.get("parkingType")
@@ -800,12 +707,6 @@ def pets():
 	check_pet = function.Check_npet(User)
 	if check_pet[0][0]=='1':
 		pet = function.Read_pet(User)
-		# if pet[0][6] == '1':
-		# 	pet[0][6] == "Small"
-		# elif pet[0][6] == '2':
-		# 	pet[0][6] == "Medium"
-		# else:
-		# 	pet[0][6] == "Large"
 	else:
 		pet = ''
 
@@ -840,12 +741,9 @@ def payments_list():
 		global count
 		global total_charge
 
-		# print("petsitter: ", PETSITTERS[count])
 		print("user: ", )
 
 		User = session['email']
-
-		# petsitter/ user/ checkin/ checkout/ tran_complete / charge / etc
 
 		a = time.localtime()
 		date = str(a.tm_year) +"_" +str(a.tm_mon)+ "_" +str(a.tm_mday) + " "+str(a.tm_hour)+":"+str(a.tm_min)+":"+str(a.tm_sec)
@@ -855,10 +753,7 @@ def payments_list():
 
 		function.Save_tran(PETSITTERS[count][0], petsitter_nickname[0][1], User, USER_SEARCH[4], USER_SEARCH[5], date, str(total_charge), '\0')
 
-		# petsitter/ checkin/ checkout / charge
 		result = function.Search_tran(User)
-		# print("result: ", result)
-
 		return render_template("user_payments_list.html",
 	                        title='MyPayments/list',
 							session='OK',
@@ -884,8 +779,6 @@ def payments_list():
 			check += 1
 			if check == 3:
 				break
-
-	# {{result_list[0][4]}} ~ {{result_list[0][5]}}
 
 	return render_template("user_payments_list.html",
                         title='MyPayments/list',
@@ -921,18 +814,20 @@ def complete_list():
 						session='OK',
 						result_list = temp)
 
+
 @app.route('/remove_petsitter', methods=['GET', 'POST'])
 def remove_petsitter():
 
    if not 'email' in session:
       return redirect('/')
 
-   User = session['email']
-   function.Delete_petsitter(User)
+   if request.method == 'POST':
+      User = session['email']
+      function.Delete_petsitter(User)
 
-   return render_template("remove_petsitter.html",
+   return render_template("remove.html",
                         title='Search',
-                  		session='OK')
+                  session='OK')
 
 @app.route('/remove_house', methods=['GET', 'POST'])
 def remove_house():
@@ -940,12 +835,13 @@ def remove_house():
    if not 'email' in session:
       return redirect('/')
 
-   User = session['email']
-   function.Delete_house(User)
+   if request.method == 'POST':
+      User = session['email']
+      function.Delete_house(User)
 
-   return render_template("remove_house.html",
+   return render_template("remove.html",
                         title='Search',
-                  		session='OK')
+                  session='OK')
 
 @app.route('/remove_pet', methods=['GET', 'POST'])
 def remove_pet():
@@ -953,12 +849,13 @@ def remove_pet():
    if not 'email' in session:
       return redirect('/')
 
-   User = session['email']
-   function.Delete_pet(User)
+   if request.method == 'POST':
+      User = session['email']
+      function.Delete_pet(User)
 
-   return render_template("remove_pet.html",
+   return render_template("remove.html",
                         title='Search',
-                  		session='OK')
+                  session='OK')
 
 
 @app.route('/users/edit', methods=['GET', 'POST'])
@@ -989,10 +886,6 @@ def test():
 	if request.method == 'POST':
 		print(request.form)
 
-	# User = session['email']
-	# info = function.Read_member(User)
-
-
 	return render_template("test_petsitter.html",
                         title='Search',
 						session='OK',
@@ -1012,26 +905,9 @@ def test2():
 	if request.method == 'POST':
 		print(request.form)
 
-	# User = session['email']
-	# info = function.Read_member(User)
-	# http://snacky.tistory.com/6
-
 	return render_template("test_search2.html",
                         title='Search',
 						session='OK')
-
-	# if not 'email' in session:
-	# 	return redirect('/')
-	#
-	# # if request.method == 'GET':
-	# 	# print(request.form)
-	# data = function.Read_member()
-	# print(data)
-
-	# return render_template("test_get_rooms.html",
-    #                     title='progress',
-	# 					session='OK',
-	# 					rooms = data)
 
 @app.route('/test_booking', methods=['GET', 'POST'])
 def test_booking():
@@ -1048,9 +924,6 @@ def test_booking():
 
 def remove_DBfiles():
     filenames = ['petsitting.db']
-
-    #print(Path().parent)
-
     for filename in filenames:
         try:
 
@@ -1079,9 +952,3 @@ def loop_insert():
 
         function.Save_petsitter1(user, 'lovePet',i+1000, i+2000, i+3000, '04/22/2017' , '05/13/2017' , '05/14/2017')
         function.Save_petsitter2(user, 10 , 6 , 6 , 6, "dongakgo + food + toy" ,"intro")
-
-# @app.route('/s/<name>/booking', methods=[GET,POST])
-# def booking(petsitter):
-# 	return render_template("test_search2.html",
-#                         title='Search',
-# 						session='OK')
