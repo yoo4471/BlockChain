@@ -1,9 +1,9 @@
 applications:
 - path: .
-  memory: 1024M
+  memory: 128M
   instances: 1
-  domain: mybluemix.net
-  name: pythonPet
-  host: pythonPet
+  domain: eu-gb.mybluemix.net
+  name: judy
+  host: judy
   disk_quota: 1024M
   buildpack: python_buildpack
