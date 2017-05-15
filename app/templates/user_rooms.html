@@ -1,5 +1,10 @@
 {% extends "base.html" %} {% block body %} {% include 'header.html' %} {% include 'profilemenu.html' %}
-
+<script type="text/javascript">
+function confirm_delete() {
+  var con_test = confirm('정말 삭제하시겠습니까?');
+  return con_test;
+}
+</script>
 
 
 <div class="page-container-responsive space-top-4 space-4">
@@ -95,10 +100,13 @@
                                             <div class="text-muted text-grey space-top-1 last-modified-date"><span>최종 업데이트: {{rooms[0][12]}}</span></div>
 
 
-
+                                            <form action="/remove_house" onSubmit="return confirm_delete()" method="post">
                                             <div class="space-top-4">
                                               <a class="btn btn__first-btn btn-primary" href="/modify_home/address"><span>등록 수정하기</span></a>
-                                              <a class="btn btn__second-btn" href="#"><span>삭제하기</span></a></div><noscript></noscript></div>
+                                              <input type="submit" class="btn btn__second-btn" value="삭제하기"/>
+                                            </form>
+
+                                              <noscript></noscript></div>
                                     </div>
                                 </li>
                             </ul>
