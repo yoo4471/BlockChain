@@ -1,57 +1,54 @@
 from flask import render_template, flash, redirect, request, Response
 from app import app
 import json, requests
+from . import function
 
-blockchain_ibm = 'https://d8ab2f755f2d4f38a76ceff057b45bf0-vp0.us.blockchain.ibm.com:5003'
-enrollId = 'user_type1_0'
-enrollSecret='f473edeb49'
-chaincodeID_name=""
-secureContext = ""
 
+blockchain_ibm = 'https://26f0206924e9422dbb67e806b70a5474-vp0.us.blockchain.ibm.com:5004'
+chaincodeID_path = "https://github.com/liil93/new_chaincode"
+
+enrollId = 'user_type2_3'
+enrollSecret = '97fbf47518'
+secureContext = enrollId
+
+#login
 def login():
     try:
         url = blockchain_ibm + '/registrar'
         payload = {
-    	  'enrollId': enrollId,
-    	  'enrollSecret': enrollSecret
-    	}
+         'enrollId': enrollId,
+         'enrollSecret': enrollSecret
+       }
         headers = {'content-type': 'application/json'}
         r = requests.post(url, data=json.dumps(payload), headers=headers)
         return r.text
     except:
         return "Chaincode is not working."
 
-#DEPLOY
-@app.route('/init', methods=['GET'])
-def init():
+#DEPLOY - init
+def deploy():
     url = blockchain_ibm + '/chaincode'
     payload = {
-          "jsonrpc": "2.0",
-          "method": "deploy",
-          "params": {
-            "type": 1,
-            "chaincodeID":{
-                "name": "mycc"
-            },
-            "ctorMsg": {
-                "args":[""]
-            },
-            "secureContext": "admin"
+      "jsonrpc": "2.0",
+      "method": "deploy",
+      "params": {
+          "type": 1,
+          "chaincodeID":{
+              "path": chaincodeID_path
           },
-          "id": 1
+          "ctorMsg": {
+             "args": [""]
+          },
+          "secureContext": secureContext
+      },
+      "id": 0
     }
     headers = {'content-type': 'application/json'}
     r = requests.post(url, data=json.dumps(payload), headers=headers)
+    return r.text
 
-    js = json.loads(r.text)
-    js = json.dumps(js)
-
-    resp = Response(js, status=200, mimetype='application/json')
-    return resp
-
-#INVOKE
-@app.route('/user_insert', methods=['GET'])
-def user_insert(userID, password):
+#INVOKE - UserRegist
+def UserRegist():
     url = blockchain_ibm + '/chaincode'
     payload = {
       "jsonrpc": "2.0",
@@ -59,27 +56,24 @@ def user_insert(userID, password):
       "params": {
           "type": 1,
           "chaincodeID":{
-              "name":"mycc"
+              "name": function.Get_key()
           },
           "ctorMsg": {
-             "args":["user_insert", userID, password]
+             "function": "UserRegist",
+             "args": [
+                "userID", "sceretkey", "contact"
+             ]
           },
-          "secureContext": "admin"
+          "secureContext": secureContext
       },
-      "id": 3
+      "id": 0
     }
     headers = {'content-type': 'application/json'}
     r = requests.post(url, data=json.dumps(payload), headers=headers)
+    return r.text
 
-    js = json.loads(r.text)
-    js = json.dumps(js)
-
-    resp = Response(js, status=200, mimetype='application/json')
-    return resp
-
-#INVOKE
-@app.route('/home_insert', methods=['GET'])
-def home_insert(userID, citycode, address, hometype, room, area, elevator, parking):
+#INVOKE - UserChangeContact
+def UserChangeContact():
     url = blockchain_ibm + '/chaincode'
     payload = {
       "jsonrpc": "2.0",
@@ -87,27 +81,24 @@ def home_insert(userID, citycode, address, hometype, room, area, elevator, parki
       "params": {
           "type": 1,
           "chaincodeID":{
-              "name":"mycc"
+              "name": function.Get_key()
           },
           "ctorMsg": {
-             "args":["home_insert", userID, citycode, address, hometype, room, area, elevator, parking]
+             "function": "UserChangeContact",
+             "args": [
+                "userID", "sceretkey", "contact"
+             ]
           },
-          "secureContext": "admin"
+          "secureContext": secureContext
       },
-      "id": 3
+      "id": 0
     }
     headers = {'content-type': 'application/json'}
     r = requests.post(url, data=json.dumps(payload), headers=headers)
+    return r.text
 
-    js = json.loads(r.text)
-    js = json.dumps(js)
-
-    resp = Response(js, status=200, mimetype='application/json')
-    return resp
-
-#INVOKE
-@app.route('/pet_insert', methods=['GET'])
-def pet_insert(userID, name, birth, gender, kind, size, ns, vac):
+#INVOKE - AssetRegist
+def AssetRegist():
     url = blockchain_ibm + '/chaincode'
     payload = {
       "jsonrpc": "2.0",
@@ -115,27 +106,24 @@ def pet_insert(userID, name, birth, gender, kind, size, ns, vac):
       "params": {
           "type": 1,
           "chaincodeID":{
-              "name":"mycc"
+              "name": function.Get_key()
           },
           "ctorMsg": {
-             "args":["pet_insert", userID, name, birth, gender, kind, size, ns, vac]
+             "function": "AssetRegist",
+             "args": [
+                "userID", "sceretkey", "type", "locate"
+             ]
           },
-          "secureContext": "admin"
+          "secureContext": secureContext
       },
-      "id": 3
+      "id": 0
     }
     headers = {'content-type': 'application/json'}
     r = requests.post(url, data=json.dumps(payload), headers=headers)
+    return r.text
 
-    js = json.loads(r.text)
-    js = json.dumps(js)
-
-    resp = Response(js, status=200, mimetype='application/json')
-    return resp
-
-#INVOKE
-@app.route('/user_change', methods=['GET'])
-def user_change(userID, newpassword, ap):
+#INVOKE - AssetChange
+def AssetChange():
     url = blockchain_ibm + '/chaincode'
     payload = {
       "jsonrpc": "2.0",
@@ -143,27 +131,24 @@ def user_change(userID, newpassword, ap):
       "params": {
           "type": 1,
           "chaincodeID":{
-              "name":"mycc"
+              "name": function.Get_key()
           },
           "ctorMsg": {
-             "args":["user_change", userID, newpassword, ap]
+             "function": "AssetChange",
+             "args": [
+                "userID", "sceretkey", "starttime", "endtime", "except"
+             ]
           },
-          "secureContext": "admin"
+          "secureContext": secureContext
       },
-      "id": 3
+      "id": 0
     }
     headers = {'content-type': 'application/json'}
     r = requests.post(url, data=json.dumps(payload), headers=headers)
+    return r.text
 
-    js = json.loads(r.text)
-    js = json.dumps(js)
-
-    resp = Response(js, status=200, mimetype='application/json')
-    return resp
-
-#INVOKE
-@app.route('/pet_change', methods=['GET'])
-def pet_change(userID, size, ns, vac):
+#INVOKE - AssetDelete
+def AssetDelete():
     url = blockchain_ibm + '/chaincode'
     payload = {
       "jsonrpc": "2.0",
@@ -171,27 +156,24 @@ def pet_change(userID, size, ns, vac):
       "params": {
           "type": 1,
           "chaincodeID":{
-              "name":"mycc"
+              "name": function.Get_key()
           },
           "ctorMsg": {
-             "args":["pet_change", userID, size, ns, vac]
+             "function": "AssetDelete",
+             "args": [
+                "userID", "sceretkey"
+             ]
           },
-          "secureContext": "admin"
+          "secureContext": secureContext
       },
-      "id": 3
+      "id": 0
     }
     headers = {'content-type': 'application/json'}
     r = requests.post(url, data=json.dumps(payload), headers=headers)
+    return r.text
 
-    js = json.loads(r.text)
-    js = json.dumps(js)
-
-    resp = Response(js, status=200, mimetype='application/json')
-    return resp
-
-#INVOKE
-@app.route('/home_delete', methods=['GET'])
-def home_delete(userID):
+#INVOKE - TransactionRegist
+def TransactionRegist():
     url = blockchain_ibm + '/chaincode'
     payload = {
       "jsonrpc": "2.0",
@@ -199,83 +181,24 @@ def home_delete(userID):
       "params": {
           "type": 1,
           "chaincodeID":{
-              "name":"mycc"
+              "name": function.Get_key()
           },
           "ctorMsg": {
-             "args":["home_delete", userID]
+             "function": "TransactionRegist",
+             "args": [
+                "producer", "secretkey", "consumer", "type", "starttime", "endtime", "cost"
+             ]
           },
-          "secureContext": "admin"
+          "secureContext": secureContext
       },
-      "id": 3
+      "id": 0
     }
     headers = {'content-type': 'application/json'}
     r = requests.post(url, data=json.dumps(payload), headers=headers)
+    return r.text
 
-    js = json.loads(r.text)
-    js = json.dumps(js)
-
-    resp = Response(js, status=200, mimetype='application/json')
-    return resp
-
-#INVOKE
-@app.route('/pet_delete', methods=['GET'])
-def pet_delete(userID):
-    url = blockchain_ibm + '/chaincode'
-    payload = {
-      "jsonrpc": "2.0",
-      "method": "invoke",
-      "params": {
-          "type": 1,
-          "chaincodeID":{
-              "name":"mycc"
-          },
-          "ctorMsg": {
-             "args":["pet_delete", userID]
-          },
-          "secureContext": "admin"
-      },
-      "id": 3
-    }
-    headers = {'content-type': 'application/json'}
-    r = requests.post(url, data=json.dumps(payload), headers=headers)
-
-    js = json.loads(r.text)
-    js = json.dumps(js)
-
-    resp = Response(js, status=200, mimetype='application/json')
-    return resp
-
-#INVOKE
-@app.route('/trade_insert', methods=['GET'])
-def trade_insert(petsitterID, consumerID, ts, te, tc, ta, th):
-    url = blockchain_ibm + '/chaincode'
-    payload = {
-      "jsonrpc": "2.0",
-      "method": "invoke",
-      "params": {
-          "type": 1,
-          "chaincodeID":{
-              "name":"mycc"
-          },
-          "ctorMsg": {
-             "args":["trade_insert", petsitterID, consumerID, ts, te, tc, ta, th]
-          },
-          "secureContext": "admin"
-      },
-      "id": 3
-    }
-    headers = {'content-type': 'application/json'}
-    r = requests.post(url, data=json.dumps(payload), headers=headers)
-
-    js = json.loads(r.text)
-    js = json.dumps(js)
-
-    resp = Response(js, status=200, mimetype='application/json')
-    return resp
-
-#Qeury
-@app.route('/user_read', methods=['GET'])
-def user_read(userID):
+#Query - UserRead
+def UserRead():
     url = blockchain_ibm + '/chaincode'
     payload = {
       "jsonrpc": "2.0",
@@ -283,27 +206,24 @@ def user_read(userID):
       "params": {
           "type": 1,
           "chaincodeID":{
-              "name":"mycc"
+              "name": function.Get_key()
           },
           "ctorMsg": {
-             "args":["user_read",userID]
+             "function": "UserRead",
+             "args": [
+                "userID"
+             ]
           },
-          "secureContext": "admin"
+          "secureContext": secureContext
       },
-      "id": 3
+      "id": 0
     }
     headers = {'content-type': 'application/json'}
     r = requests.post(url, data=json.dumps(payload), headers=headers)
+    return r.text
 
-    js = json.loads(r.text)
-    js = json.dumps(js)
-
-    resp = Response(js, status=200, mimetype='application/json')
-    return resp
-
-#Qeury
-@app.route('/home_read', methods=['GET'])
-def home_read(userID):
+#Query - AssetRead
+def AssetRead():
     url = blockchain_ibm + '/chaincode'
     payload = {
       "jsonrpc": "2.0",
@@ -311,27 +231,24 @@ def home_read(userID):
       "params": {
           "type": 1,
           "chaincodeID":{
-              "name":"mycc"
+              "name": function.Get_key()
           },
           "ctorMsg": {
-             "args":["home_read",userID]
+             "function": "AssetRead",
+             "args": [
+                "assetkey"
+             ]
           },
-          "secureContext": "admin"
+          "secureContext": secureContext
       },
-      "id": 3
+      "id": 0
     }
     headers = {'content-type': 'application/json'}
     r = requests.post(url, data=json.dumps(payload), headers=headers)
+    return r.text
 
-    js = json.loads(r.text)
-    js = json.dumps(js)
-
-    resp = Response(js, status=200, mimetype='application/json')
-    return resp
-
-#Qeury
-@app.route('/pet_read', methods=['GET'])
-def pet_read(userID):
+#Query - TransactionRead
+def TransactionRead():
     url = blockchain_ibm + '/chaincode'
     payload = {
       "jsonrpc": "2.0",
@@ -339,27 +256,24 @@ def pet_read(userID):
       "params": {
           "type": 1,
           "chaincodeID":{
-              "name":"mycc"
+              "name": function.Get_key()
           },
           "ctorMsg": {
-             "args":["pet_read",userID]
+             "function": "TransactionRead",
+             "args": [
+                "producer", "consumer", "type", "starttime"
+             ]
           },
-          "secureContext": "admin"
+          "secureContext": secureContext
       },
-      "id": 3
+      "id": 0
     }
     headers = {'content-type': 'application/json'}
     r = requests.post(url, data=json.dumps(payload), headers=headers)
+    return r.text
 
-    js = json.loads(r.text)
-    js = json.dumps(js)
-
-    resp = Response(js, status=200, mimetype='application/json')
-    return resp
-
-#Qeury
-@app.route('/city_search', methods=['GET'])
-def city_search(citycode):
+#Query - LocateSearch
+def LocateSearch():
     url = blockchain_ibm + '/chaincode'
     payload = {
       "jsonrpc": "2.0",
@@ -367,27 +281,24 @@ def city_search(citycode):
       "params": {
           "type": 1,
           "chaincodeID":{
-              "name":"mycc"
+              "name": function.Get_key()
           },
           "ctorMsg": {
-             "args":["city_search", citycode]
+             "function": "LocateSearch",
+             "args": [
+                "Seoul"
+             ]
           },
-          "secureContext": "admin"
+          "secureContext": secureContext
       },
-      "id": 3
+      "id": 0
     }
     headers = {'content-type': 'application/json'}
     r = requests.post(url, data=json.dumps(payload), headers=headers)
+    return r.text
 
-    js = json.loads(r.text)
-    js = json.dumps(js)
-
-    resp = Response(js, status=200, mimetype='application/json')
-    return resp
-
-#Qeury
-@app.route('/trade_search', methods=['GET'])
-def trade_search(petsitterID, consumerID, tc):
+#Query - GetUpdate
+def GetUpdate():
     url = blockchain_ibm + '/chaincode'
     payload = {
       "jsonrpc": "2.0",
@@ -395,20 +306,42 @@ def trade_search(petsitterID, consumerID, tc):
       "params": {
           "type": 1,
           "chaincodeID":{
-              "name":"mycc"
+              "name": function.Get_key()
           },
           "ctorMsg": {
-             "args":["trade_search", petsitterID, consumerID, tc]
+             "function": "GetUpdate",
+             "args": [""]
           },
-          "secureContext": "admin"
+          "secureContext": secureContext
       },
-      "id": 3
+      "id": 0
     }
     headers = {'content-type': 'application/json'}
     r = requests.post(url, data=json.dumps(payload), headers=headers)
+    return r.text
 
-    js = json.loads(r.text)
-    js = json.dumps(js)
 
-    resp = Response(js, status=200, mimetype='application/json')
-    return resp
+def get_chaincodeID_name():
+    res_login = login()
+    res_login = json.loads(res_login)
+
+    if 'OK' not in res_login:
+        return "failed login,failed login,failed login,failed login,failed login,failed login"
+
+    res_deploy = deploy()
+    res_deploy = json.loads(res_deploy)
+
+    if 'result' not in res_deploy:
+        return "failed deploy (result is not exist)"
+
+    result_res_deploy = res_deploy['result']
+    if result_res_deploy['status'] != 'OK':
+        return "failed deploy (status is not OK)"
+    else:
+        message_result_res_deploy = result_res_deploy['message']
+        print('Success login & deploy')
+
+    print(message_result_res_deploy)
+    function.Make_db_key(message_result_res_deploy)
+
+    return function.Get_key()
