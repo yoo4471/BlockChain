@@ -6,7 +6,7 @@ def Make_db_key(S):
     con = sqlite3.connect("petsitting.db")
     cursor = con.cursor()
     cursor.execute("CREATE TABLE IF NOT EXISTS key(key_value text NOT NULL UNIQUE)")
-    cursor.execute("INSERT INTO key(key_value) VALUES (?)", (S))
+    cursor.execute("INSERT INTO key(key_value) VALUES (?)", (S,))
     con.commit()
     con.close()
 

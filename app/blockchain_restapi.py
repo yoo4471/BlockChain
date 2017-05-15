@@ -7,8 +7,8 @@ from . import function
 blockchain_ibm = 'https://26f0206924e9422dbb67e806b70a5474-vp0.us.blockchain.ibm.com:5004'
 chaincodeID_path = "https://github.com/liil93/new_chaincode"
 
-enrollId = 'user_type2_3'
-enrollSecret = '97fbf47518'
+enrollId = 'user_type4_4'
+enrollSecret = '268b8276e5'
 secureContext = enrollId
 
 #login
