@@ -1,0 +1,44 @@
+{% extends "base.html" %} {% block body %} {% include 'header.html' %} {% include 'profilemenu.html' %}
+<script type="text/javascript">
+function confirm_delete() {
+  var con_test = confirm('정말 삭제하시겠습니까?');
+  return con_test;
+}
+</script>
+<div class="page-container-responsive space-top-4 space-4">
+
+
+    <div class="row">
+        
+        <div class="col-md-9">
+            <div class="your-listings-flash-container"></div>
+            <div id="listings-container">
+                <div data-reactroot="">
+                    <div class="suspension-container">
+                        <div class="panel space-4">
+                            <div class="panel-header active-panel-header">
+                                <div class="active-panel-padding">등록 삭제</div>
+                            </div>
+                            <ul class="list-unstyled list-layout">
+                                <li class="listing panel-body" data-hosting-id="17629582">
+                                    <div class="row row-table"><i class="icon icon-size-1 icon-remove icon-remove-listing show-sm"></i>
+                                      <div class="text-babu space-top-1"><span>성공적으로 삭제되었습니다. </span></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- react-empty: 36 -->
+                        <!-- react-empty: 37 -->
+                        <!-- react-empty: 38 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+</div>
+
+{% endblock %}

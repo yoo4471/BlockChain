@@ -1,0 +1,110 @@
+{% extends "base.html" %} {% block body %} {% include 'header.html' %} {% include 'profilemenu.html' %}
+<script type="text/javascript">
+function confirm_delete() {
+  var con_test = confirm('정말 삭제하시겠습니까?');
+  return con_test;
+}
+</script>
+
+<div class="page-container-responsive space-top-4 space-4">
+
+
+    <div class="row">
+        <div class="col-md-3 space-sm-3">
+            <ul class="sidenav-list">
+                <li>
+                    <a href="/petsitter" aria-selected="true" class="sidenav-item">내 정보</a>
+                </li>
+                <li>
+                    <a href="#/my_reservations" aria-selected="false" class="sidenav-item">예약 관리</a>
+                </li>
+
+                <div class="space-top-4 space-4">
+                    <a href="#/start/" aria-selected="false" class="btn btn-host">수정하기</a>
+                </div>
+            </ul>
+
+        </div>
+        {% if petsitter %}
+        <div class="col-md-9">
+            <div class="your-listings-flash-container"></div>
+            <div id="listings-container">
+                <div data-reactroot="">
+                    <div class="suspension-container">
+                        <div class="panel space-4">
+                            <div class="panel-header active-panel-header">
+                                <div class="active-panel-padding">등록하신 정보입니다.</div>
+                            </div>
+                            <ul class="list-unstyled list-layout">
+                                <li class="listing panel-body" data-hosting-id="17629582">
+                                    <div class="row row-table"><i class="icon icon-size-1 icon-remove icon-remove-listing show-sm"></i>
+                                        <div class="col-middle space-sm-2 space-top-sm-4 col-md-5 listing-photo">
+
+                                            <a href="#">
+                                                <div class="media-photo media-photo-block-lg">
+                                                    <div class="media-cover text-center">
+                                                      <!-- <img src="{{url_for('static', filename='ayrton_senna_movie_wallpaper_by_bashgfx-d4cm6x6.jpg')}}" /> -->
+                                                      <!-- <img class="img-responsive-height" src="../static/img/dog.png" alt="petsitter" /> -->
+                                                      <!-- <img class="img-responsive-height" src="https://a0.muscache.com/airbnb/static/page3/v3/room_default_no_photos-f209d3d70c1bed81fb0822b68e913045.png"> -->
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-sm-10 col-lg-7 col-middle">
+                                            <div class="row row-table">
+                                                <div class="col-lg-10">
+                                                    <div class="listing-progress">
+                                                        <!-- <div class="progress progress-bar__lean" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="7">
+                                                            <div class="progress-bar progress-bar-success progress-bar__babu" style="width: 100%;"></div>
+                                                        </div> -->
+                                                        <div class="text-babu space-top-1"><span> {{petsitter[0][12]}}</span></div>
+                                                        <div class="space-top-2"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <span class="h4"><span><!-- react-text: 27 -->
+                                              <!-- 소형견 : 장모치와와<br> -->
+                                              <!-- /react-text -->
+                                              <ul>
+                                                <li>총 {{ petsitter[0][8] }}마리 </li>
+                                                <li>소형견 {{petsitter[0][11]}}마리 중형견 {{petsitter[0][10]}}마리 대형견 {{petsitter[0][9]}}마리</li>
+                                                <li>소형견 ₩{{ petsitter[0][4] }}</li>
+                                                <li>중형견 ₩{{ petsitter[0][3] }}</li>
+                                                <li>대형견 ₩{{ petsitter[0][2] }}</li>
+                                                <li>{{petsitter[0][5]}} 부터 {{petsitter[0][6]}} 까지 가능합니다.</li>
+                                                {% if petsitter[0][7] %}
+                                                <li>{{petsitter[0][7]}} 제외</li>
+                                                {% else %}
+                                                <li>불가능한 날짜가 없습니다.</li>
+                                                {% endif %}
+                                          </span>
+                                            </span>
+
+                                            <div class="text-muted text-grey space-top-1 last-modified-date"><span>최종 업데이트: {{ petsitter[0][14] }}</span></div>
+                                            <form action="/remove_petsitter" onSubmit="return confirm_delete()" method="post">
+                                            <div class="space-top-4">
+                                              <a class="btn btn__first-btn btn-primary" href="/modify_start"><span>등록 수정하기</span></a>
+                                              <input type="submit" class="btn btn__second-btn" value="삭제하기"/>
+                                            </form>
+
+                                                <noscript></noscript></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- react-empty: 36 -->
+                        <!-- react-empty: 37 -->
+                        <!-- react-empty: 38 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+    </div>
+
+
+
+</div>
+
+{% endblock %}
