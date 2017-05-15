@@ -415,12 +415,12 @@ def Delete_image(Host, Asset):
     con.close()
 
 #result : Host, Cost_L, Cost_M, Cost_S, total, address, type
-def Search_bytotal(R, T, L, M, S, S_date, E_date):
+def Search_bytotal(T, L, M, S, S_date, E_date):
     con = sqlite3.connect("petsitting.db")
     cursor = con.cursor()
-    cursor.execute("SELECT Host, Cost_L, Cost_M, Cost_S, Total FROM petsitter WHERE Total >= ? AND Large >= ? AND Medium >= ? AND Small >=? AND Start_Date <=? AND End_Date >= ? AND Except_Date NOT BETWEEN Start_Date AND End_Date", (T, L, M, S, S_date, E_date))
+    cursor.execute("SELECT Host, Cost_L, Cost_M, Cost_S, Total, H_name FROM petsitter WHERE Total >= ? AND Large >= ? AND Midium >= ? AND Small >=? AND Start_Date <=? AND End_Date >= ? AND Except_Date NOT BETWEEN Start_Date AND End_Date", (T, L, M, S, S_date, E_date))
     data = cursor.fetchall()
-    cursor.execute("SELECT COUNT(Host) FROM petsitter WHERE Total >= ? AND Large >= ? AND Medium >= ? AND Small >=? AND Start_Date <=? AND End_Date >= ? AND Except_Date NOT BETWEEN Start_Date AND End_Date", (T, L, M, S, S_date, E_date))
+    cursor.execute("SELECT COUNT(Host) FROM petsitter WHERE Total >= ? AND Large >= ? AND Midium >= ? AND Small >=? AND Start_Date <=? AND End_Date >= ? AND Except_Date NOT BETWEEN Start_Date AND End_Date", (T, L, M, S, S_date, E_date))
     cnt = cursor.fetchone()
     if data ==[]:
         return 0
@@ -429,11 +429,7 @@ def Search_bytotal(R, T, L, M, S, S_date, E_date):
     result2 = []
     while i<cnt[0]:
         a = data[i][0]
-        if R == None:
-            cursor2.execute("SELECT Address, Type, Room FROM house WHERE Host = ?", (a, ))
-        else:
-            R2 = '%' + R + '%'
-            cursor2.execute("SELECT Address, Type, Room FROM house WHERE Address LIKE ? AND Host = ?", (R2, a, ))
+        cursor2.execute("SELECT Address, Type, Room FROM house WHERE Host = ?", (a, ))
         data2 = cursor2.fetchall()
         if data2 ==[]:
             return 0
