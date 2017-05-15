@@ -1,19 +1,18 @@
 #-*- coding: utf-8 -*-
 import sqlite3
 
-#Email, PW, PN, CC, AP
 def Make_db_key(S):
     con = sqlite3.connect("petsitting.db")
     cursor = con.cursor()
     cursor.execute("CREATE TABLE IF NOT EXISTS key(key_value text NOT NULL UNIQUE)")
-    cursor.execute("INSERT INTO key(key_value) VALUES (?)", (S))
+    cursor.execute("INSERT INTO key(key_value) VALUES (?)", (S, ))
     con.commit()
     con.close()
 
 def Get_key():
     con = sqlite3.connect("petsitting.db")
     cursor = con.cursor()
-    cursor.execute("SELECT * FROM key ",)
+    cursor.execute("SELECT * FROM key ")
     data = cursor.fetchall()
     con.commit()
     con.close()
@@ -26,17 +25,12 @@ def Make_db_member():
     con.commit()
     con.close()
 
-#Host, P_key, Name, Birth, Gender, Kind, Size,  NS, Vac
-
 def Make_db_pet():
     con = sqlite3.connect("petsitting.db")
     cursor = con.cursor()
     cursor.execute("CREATE TABLE IF NOT EXISTS pet(Host text NOT NULL,P_key text, Name text, Birth text, Gender text, Kind text, Size text, NS text, Vac text,  Time DATE DEFAULT (datetime('now','localtime')), PRIMARY KEY(Host), CONSTRAINT fk_Pet FOREIGN KEY (Host) REFERENCES member(Email))")
     con.commit()
     con.close()
-
-#Host, H_key, State, City, Street, Apt, Address,citycode, Type, Room, Area, Elevator, Parking
-#Host, H_key, Address, Type, Room, Area, Elevator, Parking
 
 def Make_db_house():
     con = sqlite3.connect("petsitting.db")
@@ -45,14 +39,12 @@ def Make_db_house():
     con.commit()
     con.close()
 
- #Host , Cost_L, Cost_M, Cost_S , Start_Date , End_Date , Except_Date , Total , Large , Medium , Small, H_name, Intro
 def Make_db_petsitter():
     con = sqlite3.connect("petsitting.db")
     cursor = con.cursor()
     cursor.execute("CREATE TABLE IF NOT EXISTS petsitter(Host text NOT NULL, Nickname text , Cost_L int, Cost_M int, Cost_S int, Start_Date text, End_Date text, Except_Date text, Total int, Large int, Medium int, Small int,H_name text, Intro text, Time DATE DEFAULT (datetime('now','localtime')), PRIMARY KEY(Host), CONSTRAINT fk_petsitter FOREIGN KEY (Host) REFERENCES member(Email))")
     con.commit()
     con.close()
-
 
 def Make_db_image():
     con = sqlite3.connect("petsitting.db")
@@ -61,7 +53,6 @@ def Make_db_image():
     con.commit()
     con.close()
 
-# C_key, PSID, CSID, TS, TE, TC, TA, TH
 def Make_db_tran():
     con = sqlite3.connect("petsitting.db")
     cursor = con.cursor()
@@ -134,7 +125,6 @@ def Save_petsitter1(Host, Nickname, Cost_L, Cost_M, Cost_S, Start_Date , End_Dat
     con.close()
     return 1
 
-
 def Save_petsitter2(Host,Total , Large , Medium , Small, H_name ,Intro):
     con = sqlite3.connect("petsitting.db")
     cursor = con.cursor()
@@ -142,7 +132,6 @@ def Save_petsitter2(Host,Total , Large , Medium , Small, H_name ,Intro):
     con.commit()
     con.close()
 
-# cursor.execute("UPDATE house SET State = ? WHERE Host = ? AND State <> ? ", (H_State,E, H_State))
 def Modify_petsitter1(Host, Nickname, Cost_L, Cost_M, Cost_S, Start_Date , End_Date , Except_Date):
     con = sqlite3.connect("petsitting.db")
     cursor = con.cursor()
@@ -168,18 +157,16 @@ def Modify_petsitter2(Host,Total , Large , Medium , Small, H_name, Intro):
     con.commit()
     con.close()
 
-
 def Save_mem(E, P):
     con = sqlite3.connect("petsitting.db")
     cursor = con.cursor()
     try:
         cursor.execute("INSERT INTO member (Email, PW) VALUES (?,?)", (E,P))
     except:
-        return 0 #remove duplicated user
+        return 0
     con.commit()
     con.close()
     return 1
-
 
 def Update_Citycode(E, city):
     con = sqlite3.connect("petsitting.db")
@@ -188,7 +175,6 @@ def Update_Citycode(E, city):
     con.commit()
     con.close()
 
-
 def Increase_npet(E):
     con = sqlite3.connect("petsitting.db")
     cursor = con.cursor()
@@ -196,8 +182,6 @@ def Increase_npet(E):
     con.commit()
     con.close()
 
-
-#Host, H_key, State, City, Street, Apt, Address, Zipcode
 def Save_home_address(E, H_State, H_City, H_Street, H_Apt,H_Zipcode):
     con = sqlite3.connect("petsitting.db")
     cursor = con.cursor()
@@ -207,8 +191,6 @@ def Save_home_address(E, H_State, H_City, H_Street, H_Apt,H_Zipcode):
     con.commit()
     con.close()
 
-
-#Type, Room
 def Save_home_room(E, H_Type, H_Room):
     con = sqlite3.connect("petsitting.db")
     cursor = con.cursor()
@@ -216,7 +198,6 @@ def Save_home_room(E, H_Type, H_Room):
     con.commit()
     con.close()
 
-#Elevator, Parking
 def Save_home_car_elevator(E, H_Elevator, H_Parking):
     con = sqlite3.connect("petsitting.db")
     cursor = con.cursor()
@@ -253,8 +234,6 @@ def Modify_home_car_elevator(E, H_Elevator, H_Parking):
     con.commit()
     con.close()
 
-#Host, P_key, Name, Birth, Gender, Kind, size, NS, Vac
-#NS, Vac : Y, N
 def Save_pet_pet(E, P_Name, P_Gender, P_Birth):
     con = sqlite3.connect("petsitting.db")
     cursor = con.cursor()
@@ -302,7 +281,6 @@ def Modify_pet_vac(E, P_NS, P_Vac):
     con.commit()
     con.close()
 
-#Host, H_key, Address, Type, Room, Area, Elevator, Parking
 def Save_House(E,H_Address, H_Type, H_Room, H_Area, H_Elevator, H_Parking):
     con = sqlite3.connect("petsitting.db")
     cursor = con.cursor()
@@ -414,13 +392,12 @@ def Delete_image(Host, Asset):
     con.commit()
     con.close()
 
-#result : Host, Cost_L, Cost_M, Cost_S, total, address, type
-def Search_bytotal(T, L, M, S, S_date, E_date):
+def Search_bytotal(R, T, L, M, S, S_date, E_date):
     con = sqlite3.connect("petsitting.db")
     cursor = con.cursor()
-    cursor.execute("SELECT Host, Cost_L, Cost_M, Cost_S, Total, H_name FROM petsitter WHERE Total >= ? AND Large >= ? AND Midium >= ? AND Small >=? AND Start_Date <=? AND End_Date >= ? AND Except_Date NOT BETWEEN Start_Date AND End_Date", (T, L, M, S, S_date, E_date))
+    cursor.execute("SELECT Host, Cost_L, Cost_M, Cost_S, Total FROM petsitter WHERE Total >= ? AND Large >= ? AND Medium >= ? AND Small >=? AND Start_Date <=? AND End_Date >= ? AND Except_Date NOT BETWEEN Start_Date AND End_Date", (T, L, M, S, S_date, E_date))
     data = cursor.fetchall()
-    cursor.execute("SELECT COUNT(Host) FROM petsitter WHERE Total >= ? AND Large >= ? AND Midium >= ? AND Small >=? AND Start_Date <=? AND End_Date >= ? AND Except_Date NOT BETWEEN Start_Date AND End_Date", (T, L, M, S, S_date, E_date))
+    cursor.execute("SELECT COUNT(Host) FROM petsitter WHERE Total >= ? AND Large >= ? AND Medium >= ? AND Small >=? AND Start_Date <=? AND End_Date >= ? AND Except_Date NOT BETWEEN Start_Date AND End_Date", (T, L, M, S, S_date, E_date))
     cnt = cursor.fetchone()
     if data ==[]:
         return 0
@@ -429,7 +406,11 @@ def Search_bytotal(T, L, M, S, S_date, E_date):
     result2 = []
     while i<cnt[0]:
         a = data[i][0]
-        cursor2.execute("SELECT Address, Type, Room FROM house WHERE Host = ?", (a, ))
+        if R == None:
+            cursor2.execute("SELECT Address, Type, Room FROM house WHERE Host = ?", (a, ))
+        else:
+            R2 = '%' + R + '%'
+            cursor2.execute("SELECT Address, Type, Room FROM house WHERE Address LIKE ? AND Host = ?", (R2, a, ))
         data2 = cursor2.fetchall()
         if data2 ==[]:
             return 0
