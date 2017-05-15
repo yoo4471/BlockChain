@@ -8,6 +8,7 @@ import os
 import time
 from werkzeug.contrib.cache import SimpleCache
 from datetime import date
+from . import blockchain_restapi
 
 cache = SimpleCache()
 
@@ -20,6 +21,26 @@ PETSITTERS = ''
 USER_SEARCH = ''
 count = 0
 total_charge = 0
+
+@app.route('/getChaincode')
+def getChaincode():
+	if function.Get_key():
+		return function.Get_key()
+	else:
+		return "Failed to get chaincode."
+
+@app.route('/chaincode_login')
+def chaincode_login():
+	return blockchain_restapi.login()
+
+@app.route('/chaincode_deploy')
+def chaincode_deploy():
+	return blockchain_restapi.deploy()
+
+@app.route('/chaincode_connect')
+def chaincode_deploy():
+	return blockchain_restapi.get_chaincodeID_name()
+
 
 @app.route('/')
 @app.route('/index')
@@ -920,6 +941,8 @@ def test_booking():
 	return render_template("test_booking.html",
                         title='Search',
 						session='OK')
+
+
 
 
 def remove_DBfiles():

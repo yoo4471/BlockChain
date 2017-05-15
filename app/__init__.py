@@ -3,9 +3,12 @@ from . import function
 
 app = Flask(__name__)
 from app import views
+from . import blockchain_restapi
 
+blockchain_restapi.get_chaincodeID_name()
 
 try:
+
     function.Make_db_member()
     function.Make_db_house()
     function.Make_db_pet()
