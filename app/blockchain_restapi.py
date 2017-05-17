@@ -4,11 +4,11 @@ import json, requests
 from . import function
 
 
-blockchain_ibm = 'https://26f0206924e9422dbb67e806b70a5474-vp0.us.blockchain.ibm.com:5004'
-chaincodeID_path = "https://github.com/liil93/new_chaincode"
+blockchain_ibm = 'https://4b469ea7ae5d4d3c8574f329e59a2d89-vp2.us.blockchain.ibm.com:5001'
+chaincodeID_path = "https://github.com/liil93/last_chaincode"
 
-enrollId = 'user_type4_4'
-enrollSecret = '268b8276e5'
+enrollId = 'user_type1_0'
+enrollSecret = '580029b4e5'
 secureContext = enrollId
 
 #login
@@ -47,8 +47,8 @@ def deploy():
     r = requests.post(url, data=json.dumps(payload), headers=headers)
     return r.text
 
-#INVOKE - UserRegist
-def UserRegist():
+#INVOKE - save_petsitter
+def save_petsitter(arg):
     url = blockchain_ibm + '/chaincode'
     payload = {
       "jsonrpc": "2.0",
@@ -56,10 +56,35 @@ def UserRegist():
       "params": {
           "type": 1,
           "chaincodeID":{
-              "name": function.Get_key()
+              "name": '0bca8c9a73db7f25cfbdb3893ec7950f766e06e89d6edb1e1a9a94f93e957d56453ab629e1d47ae13d13b13457ebe793d25b00c33a5f56075f25f217ea8567fd'
           },
           "ctorMsg": {
-             "function": "UserRegist",
+             "function": "save_petsitter",
+             "args": [
+                arg[0], arg[1], arg[2], arg[3], arg[4], arg[5], arg[6], arg[7], arg[8], arg[9], arg[10], arg[11], arg[12], arg[13]
+             ]
+          },
+          "secureContext": secureContext
+      },
+      "id": 0
+    }
+    headers = {'content-type': 'application/json'}
+    r = requests.post(url, data=json.dumps(payload), headers=headers)
+    return r.text
+
+#INVOKE - modify_petsitter
+def modify_petsitter():
+    url = blockchain_ibm + '/chaincode'
+    payload = {
+      "jsonrpc": "2.0",
+      "method": "invoke",
+      "params": {
+          "type": 1,
+          "chaincodeID":{
+              "name": "14330cb9a135478b6e9facddb25c83f70567a0426d3a935f660eb15a448fe9e41fdb25172dd1fa20742bbedab06f0561dfa9a8d9d40369da1df74666ebacc74e"
+          },
+          "ctorMsg": {
+             "function": "modify_petsitter",
              "args": [
                 "userID", "sceretkey", "contact"
              ]
@@ -72,8 +97,8 @@ def UserRegist():
     r = requests.post(url, data=json.dumps(payload), headers=headers)
     return r.text
 
-#INVOKE - UserChangeContact
-def UserChangeContact():
+#INVOKE - delete_petsitter
+def delete_petsitter():
     url = blockchain_ibm + '/chaincode'
     payload = {
       "jsonrpc": "2.0",
@@ -81,35 +106,10 @@ def UserChangeContact():
       "params": {
           "type": 1,
           "chaincodeID":{
-              "name": function.Get_key()
+              "name": "14330cb9a135478b6e9facddb25c83f70567a0426d3a935f660eb15a448fe9e41fdb25172dd1fa20742bbedab06f0561dfa9a8d9d40369da1df74666ebacc74e"
           },
           "ctorMsg": {
-             "function": "UserChangeContact",
-             "args": [
-                "userID", "sceretkey", "contact"
-             ]
-          },
-          "secureContext": secureContext
-      },
-      "id": 0
-    }
-    headers = {'content-type': 'application/json'}
-    r = requests.post(url, data=json.dumps(payload), headers=headers)
-    return r.text
-
-#INVOKE - AssetRegist
-def AssetRegist():
-    url = blockchain_ibm + '/chaincode'
-    payload = {
-      "jsonrpc": "2.0",
-      "method": "invoke",
-      "params": {
-          "type": 1,
-          "chaincodeID":{
-              "name": function.Get_key()
-          },
-          "ctorMsg": {
-             "function": "AssetRegist",
+             "function": "delete_petsitter",
              "args": [
                 "userID", "sceretkey", "type", "locate"
              ]
@@ -122,8 +122,8 @@ def AssetRegist():
     r = requests.post(url, data=json.dumps(payload), headers=headers)
     return r.text
 
-#INVOKE - AssetChange
-def AssetChange():
+#INVOKE - save_home_address
+def save_home_address(arg):
     url = blockchain_ibm + '/chaincode'
     payload = {
       "jsonrpc": "2.0",
@@ -131,12 +131,12 @@ def AssetChange():
       "params": {
           "type": 1,
           "chaincodeID":{
-              "name": function.Get_key()
+              "name": '0bca8c9a73db7f25cfbdb3893ec7950f766e06e89d6edb1e1a9a94f93e957d56453ab629e1d47ae13d13b13457ebe793d25b00c33a5f56075f25f217ea8567fd'
           },
           "ctorMsg": {
-             "function": "AssetChange",
+             "function": "save_home_address",
              "args": [
-                "userID", "sceretkey", "starttime", "endtime", "except"
+                arg[0], arg[1], arg[2], arg[3], arg[4], arg[5]
              ]
           },
           "secureContext": secureContext
@@ -147,8 +147,58 @@ def AssetChange():
     r = requests.post(url, data=json.dumps(payload), headers=headers)
     return r.text
 
-#INVOKE - AssetDelete
-def AssetDelete():
+#INVOKE - save_home_room
+def save_home_room(arg):
+    url = blockchain_ibm + '/chaincode'
+    payload = {
+      "jsonrpc": "2.0",
+      "method": "invoke",
+      "params": {
+          "type": 1,
+          "chaincodeID":{
+              "name": '0bca8c9a73db7f25cfbdb3893ec7950f766e06e89d6edb1e1a9a94f93e957d56453ab629e1d47ae13d13b13457ebe793d25b00c33a5f56075f25f217ea8567fd'
+          },
+          "ctorMsg": {
+             "function": "save_home_room",
+             "args": [
+                arg[0], arg[1], arg[2]
+             ]
+          },
+          "secureContext": secureContext
+      },
+      "id": 0
+    }
+    headers = {'content-type': 'application/json'}
+    r = requests.post(url, data=json.dumps(payload), headers=headers)
+    return r.text
+
+#INVOKE - save_home_car_elevator
+def save_home_car_elevator(arg):
+    url = blockchain_ibm + '/chaincode'
+    payload = {
+      "jsonrpc": "2.0",
+      "method": "invoke",
+      "params": {
+          "type": 1,
+          "chaincodeID":{
+              "name": '0bca8c9a73db7f25cfbdb3893ec7950f766e06e89d6edb1e1a9a94f93e957d56453ab629e1d47ae13d13b13457ebe793d25b00c33a5f56075f25f217ea8567fd'
+          },
+          "ctorMsg": {
+             "function": "save_home_car_elevator",
+             "args": [
+                arg[0], arg[1], arg[2]
+             ]
+          },
+          "secureContext": secureContext
+      },
+      "id": 0
+    }
+    headers = {'content-type': 'application/json'}
+    r = requests.post(url, data=json.dumps(payload), headers=headers)
+    return r.text
+
+#INVOKE - modify_home_address
+def modify_home_address():
     url = blockchain_ibm + '/chaincode'
     payload = {
       "jsonrpc": "2.0",
@@ -159,7 +209,7 @@ def AssetDelete():
               "name": function.Get_key()
           },
           "ctorMsg": {
-             "function": "AssetDelete",
+             "function": "modify_home_address",
              "args": [
                 "userID", "sceretkey"
              ]
@@ -172,8 +222,8 @@ def AssetDelete():
     r = requests.post(url, data=json.dumps(payload), headers=headers)
     return r.text
 
-#INVOKE - TransactionRegist
-def TransactionRegist():
+#INVOKE - modify_home_room
+def modify_home_room():
     url = blockchain_ibm + '/chaincode'
     payload = {
       "jsonrpc": "2.0",
@@ -184,9 +234,9 @@ def TransactionRegist():
               "name": function.Get_key()
           },
           "ctorMsg": {
-             "function": "TransactionRegist",
+             "function": "modify_home_room",
              "args": [
-                "producer", "secretkey", "consumer", "type", "starttime", "endtime", "cost"
+                "userID", "sceretkey"
              ]
           },
           "secureContext": secureContext
@@ -197,8 +247,58 @@ def TransactionRegist():
     r = requests.post(url, data=json.dumps(payload), headers=headers)
     return r.text
 
-#Query - UserRead
-def UserRead():
+#INVOKE - modify_home_car_elevator
+def modify_home_car_elevator():
+    url = blockchain_ibm + '/chaincode'
+    payload = {
+      "jsonrpc": "2.0",
+      "method": "invoke",
+      "params": {
+          "type": 1,
+          "chaincodeID":{
+              "name": function.Get_key()
+          },
+          "ctorMsg": {
+             "function": "modify_home_car_elevator",
+             "args": [
+                "userID", "sceretkey"
+             ]
+          },
+          "secureContext": secureContext
+      },
+      "id": 0
+    }
+    headers = {'content-type': 'application/json'}
+    r = requests.post(url, data=json.dumps(payload), headers=headers)
+    return r.text
+
+#INVOKE - save_tran
+def save_tran():
+    url = blockchain_ibm + '/chaincode'
+    payload = {
+      "jsonrpc": "2.0",
+      "method": "invoke",
+      "params": {
+          "type": 1,
+          "chaincodeID":{
+              "name": function.Get_key()
+          },
+          "ctorMsg": {
+             "function": "save_tran",
+             "args": [
+                "userID", "sceretkey"
+             ]
+          },
+          "secureContext": secureContext
+      },
+      "id": 0
+    }
+    headers = {'content-type': 'application/json'}
+    r = requests.post(url, data=json.dumps(payload), headers=headers)
+    return r.text
+
+#Query - read_petsitter
+def read_petsitter():
     url = blockchain_ibm + '/chaincode'
     payload = {
       "jsonrpc": "2.0",
@@ -209,7 +309,7 @@ def UserRead():
               "name": function.Get_key()
           },
           "ctorMsg": {
-             "function": "UserRead",
+             "function": "read_petsitter",
              "args": [
                 "userID"
              ]
@@ -222,8 +322,8 @@ def UserRead():
     r = requests.post(url, data=json.dumps(payload), headers=headers)
     return r.text
 
-#Query - AssetRead
-def AssetRead():
+#Query - read_house
+def read_house(arg):
     url = blockchain_ibm + '/chaincode'
     payload = {
       "jsonrpc": "2.0",
@@ -231,12 +331,12 @@ def AssetRead():
       "params": {
           "type": 1,
           "chaincodeID":{
-              "name": function.Get_key()
+              "name": '0bca8c9a73db7f25cfbdb3893ec7950f766e06e89d6edb1e1a9a94f93e957d56453ab629e1d47ae13d13b13457ebe793d25b00c33a5f56075f25f217ea8567fd'
           },
           "ctorMsg": {
-             "function": "AssetRead",
+             "function": "read_house",
              "args": [
-                "assetkey"
+                arg
              ]
           },
           "secureContext": secureContext
@@ -247,8 +347,8 @@ def AssetRead():
     r = requests.post(url, data=json.dumps(payload), headers=headers)
     return r.text
 
-#Query - TransactionRead
-def TransactionRead():
+#Query - search_tran
+def search_tran():
     url = blockchain_ibm + '/chaincode'
     payload = {
       "jsonrpc": "2.0",
@@ -259,7 +359,7 @@ def TransactionRead():
               "name": function.Get_key()
           },
           "ctorMsg": {
-             "function": "TransactionRead",
+             "function": "search_tran",
              "args": [
                 "producer", "consumer", "type", "starttime"
              ]
@@ -271,55 +371,6 @@ def TransactionRead():
     headers = {'content-type': 'application/json'}
     r = requests.post(url, data=json.dumps(payload), headers=headers)
     return r.text
-
-#Query - LocateSearch
-def LocateSearch():
-    url = blockchain_ibm + '/chaincode'
-    payload = {
-      "jsonrpc": "2.0",
-      "method": "query",
-      "params": {
-          "type": 1,
-          "chaincodeID":{
-              "name": function.Get_key()
-          },
-          "ctorMsg": {
-             "function": "LocateSearch",
-             "args": [
-                "Seoul"
-             ]
-          },
-          "secureContext": secureContext
-      },
-      "id": 0
-    }
-    headers = {'content-type': 'application/json'}
-    r = requests.post(url, data=json.dumps(payload), headers=headers)
-    return r.text
-
-#Query - GetUpdate
-def GetUpdate():
-    url = blockchain_ibm + '/chaincode'
-    payload = {
-      "jsonrpc": "2.0",
-      "method": "query",
-      "params": {
-          "type": 1,
-          "chaincodeID":{
-              "name": function.Get_key()
-          },
-          "ctorMsg": {
-             "function": "GetUpdate",
-             "args": [""]
-          },
-          "secureContext": secureContext
-      },
-      "id": 0
-    }
-    headers = {'content-type': 'application/json'}
-    r = requests.post(url, data=json.dumps(payload), headers=headers)
-    return r.text
-
 
 def get_chaincodeID_name():
     res_login = login()
