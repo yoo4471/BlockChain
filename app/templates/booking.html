@@ -40,7 +40,7 @@
                         <!-- react-empty: 5 -->
                         <div data-reactid="6">
                             <div id="photos" class="with-photos with-modal" data-reactid="7"><span class="cover-photo" data-reactid="8"><img alt="" class="hide" src="https://a0.muscache.com/im/pictures/e32eb0e7-a8eb-452c-988e-308bd0e67823.jpg?aki_policy=large" srcset="https://a0.muscache.com/im/pictures/e32eb0e7-a8eb-452c-988e-308bd0e67823.jpg?aki_policy=large 639w,https://a0.muscache.com/im/pictures/e32eb0e7-a8eb-452c-988e-308bd0e67823.jpg?aki_policy=xx_large 1440w" width="0" data-reactid="9"><span class="cover-img-container" data-hook="cover-img-container" data-reactid="10">
-                              <div class="cover-img" style="background-image:url(https://a0.muscache.com/im/pictures/e32eb0e7-a8eb-452c-988e-308bd0e67823.jpg?aki_policy=xx_large);" data-reactid="11"><div class="link-reset panel-overlay-bottom-left panel-overlay-label panel-overlay-listing-label show-sm" data-reactid="12"><div><span class="h3 text-contrast price-amount"><span>₩{{total_cost}}</span></span>
+                              <div class="cover-img" style="background-image:url(https://a0.muscache.com/im/pictures/e32eb0e7-a8eb-452c-988e-308bd0e67823.jpg?aki_policy=xx_large);" data-reactid="11"><div class="link-reset panel-overlay-bottom-left panel-overlay-label panel-overlay-listing-label show-sm" data-reactid="12"><div><span class="h3 text-contrast price-amount"><span>₩{{total_cost[3]}}</span></span>
                                 <span class="listing-price__per-night hide-sm"><span>1박</span></span>
                             </div>
                         </div>
@@ -729,7 +729,7 @@
                                     <div class="" data-reactid="8"><span><div itemprop="offers" itemscope="" itemtype="http://schema.org/Offer" class="book-it__price fixed"><div class="row" aria-labelledby="book-it-price-string book-it-rate-type ib-tooltip-title"><div class="col-sm-12"><div class="book-it__price-amount text-special"><span><span class="instantBookIconWrapper_1ummxr1"><span><!-- react-empty: 264 -->
                                       <span aria-labelledby="ib-tooltip-title" aria-describedby="ib-tooltip-description"><svg viewBox="0 0 16 24" aria-hidden="true" focusable="false" style="fill: rgb(255, 180, 0); height: 15px; width: 15px;"><path fill-rule="evenodd" d="M15.649 9.165a.815.815 0 0 0-.778-.392l-3.724.379c-1.005.102-1.127-.018-1.057-.861l.596-7.025c.032-.368.08-1.107-.41-1.248-.42-.122-.86.42-1.07.723L.14 14.088a.81.81 0 0 0-.025.872.84.84 0 0 0 .779.391l3.859-.392c1.003-.102.994-.002.924.84l-.598 7.059c-.031.367.019.951.42 1.09.478.163.905-.34 1.059-.564 2.27-3.335 9.066-13.347 9.066-13.347a.811.811 0 0 0 .025-.873"></path></svg></span></span>
                                         </span><span id="book-it-price-string"><span><span class="priceAmountWrapper_17axpax"><span class="text_5mbkop-o_O-size_large_16mhv7y-o_O-weight_bold_153t78d-o_O-color_inverse_1lslapz-o_O-inline_g86r3e"><span><!-- react-text: 273 -->
-                                          ₩54,611
+                                          ₩{{total_cost[3]}}
                                           <!-- /react-text --></span></span>
                                         </span><span class="text_5mbkop-o_O-size_small_1gg2mc-o_O-color_inverse_1lslapz-o_O-inline_g86r3e"><span>/박</span></span>
                                         </span>
@@ -858,7 +858,7 @@
                     <div class="page-container-responsive" data-reactid="159">
                         <div class="pull-left text-contrast subnav-element" data-reactid="160">
                             <div class="va-container va-container-v" data-reactid="161">
-                                <div class="va-middle" data-reactid="162"><strong data-reactid="163"><div><span class="h3 text-contrast price-amount"><span>₩{{total_cost}}</span></span><span class="listing-price__per-night hide-sm"><span>1박</span></span></div></strong></div>
+                                <div class="va-middle" data-reactid="162"><strong data-reactid="163"><div><span class="h3 text-contrast price-amount"><span>₩{{total_cost[3]}}</span></span><span class="listing-price__per-night hide-sm"><span>1박</span></span></div></strong></div>
                             </div>
                         </div>
                         <div class="tablet-bookit-btn-container js-bookit-btn-container pull-right" data-reactid="165"><button type="button" class="btn btn-primary btn-large" data-reactid="166"><i class="icon icon-bolt icon-beach h4"></i><span data-reactid="167">예약하기</span></button></div>
@@ -1376,7 +1376,7 @@
                                                                         <!-- react-text: 52 -->방 개수:
                                                                         <!-- /react-text -->
                                                                         <!-- react-text: 53 -->
-                                                                        <!-- /react-text --><strong data-reactid="54">{{ results[8] }}</strong></div>
+                                                                        <!-- /react-text --><strong data-reactid="54">{{ results[8] }}개</strong></div>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6" data-reactid="55">
@@ -1400,7 +1400,14 @@
                                                                             <!-- react-text: 69 -->건물 유형:
                                                                             <!-- /react-text -->
                                                                             <!-- react-text: 70 -->
-                                                                            <!-- /react-text --><strong data-reactid="71">{{ results[7] }}</strong></a>
+                                                                            <!-- /react-text -->
+                                                                            <strong data-reactid="71">
+                                                                            {% if results[7]=='A' %}
+                                                                              아파트
+                                                                            {% elif result[7]=='B' %}
+                                                                              단독주택
+                                                                            {% endif %}
+                                                                          </strong></a>
                                                                     </div>
                                                                 </div>
 
