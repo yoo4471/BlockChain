@@ -8,7 +8,6 @@ import os
 import time
 from werkzeug.contrib.cache import SimpleCache
 from datetime import date
-from . import blockchain_restapi
 
 cache = SimpleCache()
 
@@ -21,26 +20,6 @@ PETSITTERS = ''
 USER_SEARCH = ''
 count = 0
 total_charge = 0
-
-@app.route('/getChaincode')
-def getChaincode():
-	if function.Get_key():
-		return function.Get_key()
-	else:
-		return "Failed to get chaincode."
-
-@app.route('/chaincode_login')
-def chaincode_login():
-	return blockchain_restapi.login()
-
-@app.route('/chaincode_deploy')
-def chaincode_deploy():
-	return blockchain_restapi.deploy()
-
-@app.route('/chaincode_connect')
-def chaincode_deploy():
-	return blockchain_restapi.get_chaincodeID_name()
-
 
 @app.route('/')
 @app.route('/index')
@@ -89,7 +68,7 @@ def results_none_region():
 	print("number of large pet = ", children)
 	print("checkin  = ", checkin)
 	print("checkout = ", checkout)
-	print("====================================================="+request.query_string+"=====================================================")
+	print("=====================================================",request.query_string,"=====================================================")
 
 	Info = function.Search_bytotal(region, guests, adults, children, infants, checkin, checkout)
 
@@ -151,7 +130,7 @@ def results(region):
 	print("number of large pet = ", children)
 	print("checkin  = ", checkin)
 	print("checkout = ", checkout)
-	print("====================================================="+request.query_string+"=====================================================")
+	print("=====================================================",request.query_string,"=====================================================")
 
 	Info = function.Search_bytotal(region, guests, adults, children, infants, checkin, checkout)
 
@@ -943,8 +922,6 @@ def test_booking():
 						session='OK')
 
 
-
-
 def remove_DBfiles():
     filenames = ['petsitting.db']
     for filename in filenames:
@@ -973,5 +950,5 @@ def loop_insert():
         function.Save_pet_vac(user, 'ns', 'vac')
         function.Increase_npet(user)
 
-        function.Save_petsitter1(user, 'lovePet',i+1000, i+2000, i+3000, '04/22/2017' , '05/13/2017' , '05/14/2017')
+        function.Save_petsitter1(user, 'lovePet',i+1000, i+2000, i+3000, '05/13/2017' , '07/29/2017' , '07/14/2017')
         function.Save_petsitter2(user, 10 , 6 , 6 , 6, "dongakgo + food + toy" ,"intro")
