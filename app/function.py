@@ -397,7 +397,7 @@ def Delete_image(Host, Asset):
 def Search_bytotal(R, T, L, M, S, S_date, E_date):
     con = sqlite3.connect("petsitting.db")
     cursor = con.cursor()
-    cursor.execute("SELECT Host, Cost_L, Cost_M, Cost_S, Total FROM petsitter WHERE Total >= ? AND Large >= ? AND Medium >= ? AND Small >=? AND Start_Date <=? AND End_Date >= ? AND Except_Date NOT BETWEEN Start_Date AND End_Date", (T, L, M, S, S_date, E_date))
+    cursor.execute("SELECT Host, Cost_L, Cost_M, Cost_S, Total, H_name FROM petsitter WHERE Total >= ? AND Large >= ? AND Medium >= ? AND Small >=? AND Start_Date <=? AND End_Date >= ? AND Except_Date NOT BETWEEN Start_Date AND End_Date", (T, L, M, S, S_date, E_date))
     data = cursor.fetchall()
     cursor.execute("SELECT COUNT(Host) FROM petsitter WHERE Total >= ? AND Large >= ? AND Medium >= ? AND Small >=? AND Start_Date <=? AND End_Date >= ? AND Except_Date NOT BETWEEN Start_Date AND End_Date", (T, L, M, S, S_date, E_date))
     cnt = cursor.fetchone()
