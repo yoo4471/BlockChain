@@ -58,16 +58,16 @@ def index():
 			return render_template("search_results.html",
 							title='Welcome',
 							session=session['email'],
-							home_enroll = home_enroll[0],
-							pet_enroll = pet_enroll[0],
-							petsitter_enroll = petsitter_enroll[0]
+							home_enroll = home_enroll[0][0],
+							pet_enroll = pet_enroll[0][0],
+							petsitter_enroll = petsitter_enroll[0][0]
 							)
 		return render_template("search.html",
 						title='Welcome',
 						session=session['email'],
-						home_enroll = home_enroll[0],
-						pet_enroll = pet_enroll[0],
-						petsitter_enroll = petsitter_enroll[0]
+						home_enroll = home_enroll[0][0],
+						pet_enroll = pet_enroll[0][0],
+						petsitter_enroll = petsitter_enroll[0][0]
 						)
 
 	if request.method == 'POST':
@@ -167,9 +167,9 @@ def results_none_region():
 								total = total,
 								page = page,
 								print_search = pass_search,
-								home_enroll = home_enroll[0],
-								pet_enroll = pet_enroll[0],
-								petsitter_enroll = petsitter_enroll[0])
+								home_enroll = home_enroll[0][0],
+								pet_enroll = pet_enroll[0][0],
+								petsitter_enroll = petsitter_enroll[0][0])
 
 	return render_template("search_results.html",
 							   title='results',
@@ -268,9 +268,9 @@ def results(region):
 								total = total,
 								page = page,
 								print_search = pass_search,
-								home_enroll = home_enroll[0],
-								pet_enroll = pet_enroll[0],
-								petsitter_enroll = petsitter_enroll[0])
+								home_enroll = home_enroll[0][0],
+								pet_enroll = pet_enroll[0][0],
+								petsitter_enroll = petsitter_enroll[0][0])
 
 	return render_template("search_results.html",
 							   title='results',
@@ -328,9 +328,9 @@ def detail(petsitter):
 							results = PETSITTERS[petsitter],
 							user = USER_SEARCH,
 							total_cost = total,
-							home_enroll = home_enroll[0],
-							pet_enroll = pet_enroll[0],
-							petsitter_enroll = petsitter_enroll[0]
+							home_enroll = home_enroll[0][0],
+							pet_enroll = pet_enroll[0][0],
+							petsitter_enroll = petsitter_enroll[0][0]
 							)
 
 	return render_template("booking.html",
@@ -390,9 +390,9 @@ def payments():
 							charge = temp_charge,
 							term = term.days,
 							total = total,
-							home_enroll = home_enroll[0],
-							pet_enroll = pet_enroll[0],
-							petsitter_enroll = petsitter_enroll[0]
+							home_enroll = home_enroll[0][0],
+							pet_enroll = pet_enroll[0][0],
+							petsitter_enroll = petsitter_enroll[0][0]
 							)
 
 	else:
