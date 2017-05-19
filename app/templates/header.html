@@ -51,29 +51,40 @@
       <div class="comp pull-right show-logout" data-reactid="2">
         <a data-reactified-header-link="true" href="#help" class="hdr-btn link-reset" data-login-modal="true" style="outline:none;" data-reactid="3"><span data-reactid="4">도움말</span></a>
       </div>
-      {% if home_enroll %}
-      <div class="comp pull-right show-logout" data-reactid="6">
-        <a data-reactified-header-link="true" href="/start/" class="hdr-btn link-reset" data-signup-modal="true" style="outline:none;" data-reactid="8"><span data-reactid="7">펫시터 정보 수정</span></a>
-      </div>
+
+
+      {% if home_enroll == '1' %}
       <div class="comp pull-right show-logout" data-reactid="5">
         <a data-reactified-header-link="true" href="/enrollment_home/address" class="hdr-btn link-reset" data-signup-modal="true" style="outline:none;" data-reactid="6"><span data-reactid="7">집 수정</span></a>
       </div>
-      <div class="comp pull-right show-logout" data-reactid="6">
-        <a data-reactified-header-link="true" href="/enrollment_pet/pet" class="hdr-btn link-reset" data-signup-modal="true" style="outline:none;" data-reactid="8"><span data-reactid="8">펫 수정</span></a>
-      </div>
-
       {% else %}
-      <div class="comp pull-right show-logout" data-reactid="6">
-        <a data-reactified-header-link="true" href="/start/" class="hdr-btn link-reset" data-signup-modal="true" style="outline:none;" data-reactid="7"><span data-reactid="7">펫시터되기</span></a>
-      </div>
       <div class="comp pull-right show-logout" data-reactid="5">
         <a data-reactified-header-link="true" href="/enrollment_home/address" class="hdr-btn link-reset" data-signup-modal="true" style="outline:none;" data-reactid="6"><span data-reactid="7">집 등록</span></a>
       </div>
+      {% endif %}
 
+      {% if pet_enroll == '1' %}
+      <div class="comp pull-right show-logout" data-reactid="6">
+        <a data-reactified-header-link="true" href="/enrollment_pet/pet" class="hdr-btn link-reset" data-signup-modal="true" style="outline:none;" data-reactid="8"><span data-reactid="8">펫 수정</span></a>
+      </div>
+      {% else %}
       <div class="comp pull-right show-logout" data-reactid="8">
         <a data-reactified-header-link="true" href="/enrollment_pet/pet" class="hdr-btn link-reset" data-signup-modal="true" style="outline:none;" data-reactid="8"><span data-reactid="8">펫 등록</span></a>
       </div>
       {% endif %}
+
+      {% if petsitter_enroll == '1' %}
+      <div class="comp pull-right show-logout" data-reactid="6">
+        <a data-reactified-header-link="true" href="/start/" class="hdr-btn link-reset" data-signup-modal="true" style="outline:none;" data-reactid="8"><span data-reactid="7">펫시터 정보 수정</span></a>
+      </div>
+      {% else %}
+      <div class="comp pull-right show-logout" data-reactid="6">
+        <a data-reactified-header-link="true" href="/start/" class="hdr-btn link-reset" data-signup-modal="true" style="outline:none;" data-reactid="7"><span data-reactid="7">펫시터되기</span></a>
+      </div>
+      {% endif %}
+
+
+
 
       <div class="comp pull-right show-logout" data-reactid="6">
         <a data-reactified-header-link="true" href="/rooms" class="hdr-btn link-reset" data-signup-modal="true" style="outline:none;" data-reactid="8"><span data-reactid="8">내 정보</span></a>
