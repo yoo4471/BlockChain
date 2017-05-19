@@ -114,11 +114,22 @@ def results_none_region():
 	    petsitter_list.append(petsitter_split)
 	    home_list.append(home_split)
 
-	#have to do.
+	#count total petsitter list
+	cnt = 0
+	for i in petsitter_list:
+		cnt = cnt + 1
+
+	for i in range(0, cnt):
+		Info[i] = petsitter_list[i]+home_list[i]
+
+	addr = Info[15] + ' ' + Info[16]
+
+	#email largecost mediumcost smallcost homename region housetype room totalpet
+	result = Info[0], Info[2],Info[3],Info[4], Info[12], addr, Info[20], Info[21], Info[8]
 
 	# save petsitter
 	global PETSITTERS
-	PETSITTERS = Info
+	PETSITTERS = result
 	# save search
 	global USER_SEARCH
 	USER_SEARCH = guests, adults, children, infants, checkin, checkout
@@ -128,19 +139,19 @@ def results_none_region():
 	if Info == 0:
 		total = 0
 		page = 0
-		print("Info : ", Info)
+		# print("Info : ", Info)
 	else :
 		total = 0
 		for i in Info:
 			total = total + 1
-		page = total/8 + 1
+		page = int(total/8) + 1
 
 	if 'email' in session:
 
 		return render_template("search_results.html",
 								title='results',
 								session=session['email'],
-								info = Info,
+								info = result,
 								total = total,
 								page = page,
 								print_search = pass_search)
@@ -148,7 +159,7 @@ def results_none_region():
 	return render_template("search_results.html",
 							   title='results',
 							session=None,
-							info = Info,
+							info = result,
 							total = total,
 							page = page,
 							print_search = pass_search)
@@ -196,11 +207,22 @@ def results(region):
 	    petsitter_list.append(petsitter_split)
 	    home_list.append(home_split)
 
-	#have to do
+	#count total petsitter list
+	cnt = 0
+	for i in petsitter_list:
+		cnt=cnt+1
+
+	for i in range(0, cnt):
+		Info[i] = petsitter_list[i]+home_list[i]
+
+	addr = Info[15] + ' ' + Info[16]
+
+	#email largecost mediumcost smallcost homename region housetype room totalpet
+	result = Info[0], Info[2],Info[3],Info[4], Info[12], addr, Info[20], Info[21], Info[8]
 
 	# save petsitter
 	global PETSITTERS
-	PETSITTERS = Info
+	PETSITTERS = result
 	# save search
 	global USER_SEARCH
 	USER_SEARCH = guests, adults, children, infants, checkin, checkout
@@ -212,19 +234,19 @@ def results(region):
 	if Info == 0:
 		total = 0
 		page = 0
-		print("Info : ", Info)
+		# print("Info : ", Info)
 	else :
 		total = 0
 		for i in Info:
 			total = total + 1
-			page = total/8 + 1
+			page = int(total/8) + 1
 
 	if 'email' in session:
 
 		return render_template("search_results.html",
 								title='results',
 								session=session['email'],
-								info = Info,
+								info = result,
 								total = total,
 								page = page,
 								print_search = pass_search)
@@ -603,46 +625,41 @@ def modify_pet_pet():
 @app.route('/modify_pet/size', methods=['GET', 'POST'])
 def modify_pet_size():
 
-   if not 'email' in session:
-	  return redirect('/')
+	if not 'email' in session:
+		return redirect('/')
+	if request.method == 'POST':
+		print(request.form)
+		User = session['email']
+		breed = request.form.get("breed")
+		size = request.form.get("size")
+		function.Modify_pet_size(User, breed, size)
+		return redirect('/modify_pet/vac')
 
-   if request.method == 'POST':
-	  print(request.form)
-
-	  User = session['email']
-
-	  breed = request.form.get("breed")
-	  size = request.form.get("size")
-	  function.Modify_pet_size(User, breed, size)
-
-	  return redirect('/modify_pet/vac')
-
-   return render_template("modify_pet_size.html",
+	return render_template("modify_pet_size.html",
 						title='pet',
 						  session='OK')
 
 @app.route('/modify_pet/vac', methods=['GET', 'POST'])
 def modify_pet_vac():
 
-   if not 'email' in session:
-	  return redirect('/')
+	if not 'email' in session:
+		return redirect('/')
 
-   if request.method == 'POST':
-	  print(request.form)
+	if request.method == 'POST':
+		print(request.form)
+		User = session['email']
+		ns = request.form.get("ns")
+		vac = request.form.get("vac")
+		function.Modify_pet_vac(User, ns, vac)
+		return redirect('/pets')
 
-	  User = session['email']
-	  ns = request.form.get("ns")
-	  vac = request.form.get("vac")
-	  function.Modify_pet_vac(User, ns, vac)
-
-	  return redirect('/pets')
-
-   return render_template("modify_pet_vac.html",
+	return render_template("modify_pet_vac.html",
 						title='pet',
 						  session='OK')
 
 @app.route('/modify_home/address', methods=['GET', 'POST'])
 def modify_home_address():
+
 	if not 'email' in session:
 		return redirect('/')
 	User = session['email']
@@ -669,47 +686,46 @@ def modify_home_address():
 @app.route('/modify_home/room', methods=['GET', 'POST'])
 def modify_home_room():
    # Check session
-   if not 'email' in session:
-	  return redirect('/')
 
+	if not 'email' in session:
+		return redirect('/')
 
-   if request.method == 'POST':
-	  User = session['email']
-	  print(request.form)
+	if request.method == 'POST':
+		User = session['email']
+		print(request.form)
+		house_type = request.form.get("house_type")
 
-	  house_type = request.form.get("house_type")
-	  if house_type == '1':
-		 house_type = 'A'
-	  elif house_type == '2':
-		 house_type = 'P'
-	  room = request.form.get("number_of_room")
-	  home_room = [User, house_type, room]
-	  blockchain_restapi.modify_home_room(home_room)
-	  return redirect('/modify_home/car_elevator')
+		if house_type == '1':
+			house_type = 'A'
+		elif house_type == '2':
+			house_type = 'P'
+		room = request.form.get("number_of_room")
+		home_room = [User, house_type, room]
+		blockchain_restapi.modify_home_room(home_room)
+		return redirect('/modify_home/car_elevator')
 
-   return render_template("modify_room.html",
+	return render_template("modify_room.html",
 						title='progress',
 						  session='OK')
 
 @app.route('/modify_home/car_elevator', methods=['GET', 'POST'])
 def modify_home_car_elevator():
    # Check session
-   if not 'email' in session:
-	  return redirect('/')
 
+	if not 'email' in session:
+		return redirect('/')
 
-   if request.method == 'POST':
-	  User = session['email']
-	  print(request.form)
-	  print(User)
-	  elevator = house_type = request.form.get("elevatorType")
-	  parking = house_type = request.form.get("parkingType")
-	  home_car_elevator = [User, elevator, parking]
-	  blockchain_restapi.modify_home_car_elevator(home_car_elevator)
-	  return redirect('/rooms')
+	if request.method == 'POST':
+		User = session['email']
+		print(request.form)
+		print(User)
+		elevator = house_type = request.form.get("elevatorType")
+		parking = house_type = request.form.get("parkingType")
+		home_car_elevator = [User, elevator, parking]
+		blockchain_restapi.modify_home_car_elevator(home_car_elevator)
+		return redirect('/rooms')
 
-
-   return render_template("modify_car_elevator.html",
+	return render_template("modify_car_elevator.html",
 						title='progress',
 						  session='OK')
 
@@ -717,35 +733,32 @@ def modify_home_car_elevator():
 @app.route('/modify_start', methods=['GET', 'POST'])
 def modify_start_petsitter():
 
-   if not 'email' in session:
-	  return redirect('/')
+	if not 'email' in session:
+		return redirect('/')
 
-   if request.method == 'POST':
+	if request.method == 'POST':
+		print("start_petsitter : " , request.form)
+		Nickname = request.form.get("Nickname")
+		Count_Total = request.form.get("Count_Total")
+		Count_Large = request.form.get("Count_Large")
+		Count_Medium = request.form.get("Count_Medium")
+		Count_Small = request.form.get("Count_Small")
+		Cost_Large = request.form.get("Cost_Large")
+		Cost_Medium = request.form.get("Cost_Medium")
+		Cost_Small = request.form.get("Cost_Small")
+		Start_Date = request.form.get("Start_Date")
+		End_Date = request.form.get("End_Date")
+		Except_Date = request.form.get("Except_Date")
+		Home_Name = request.form.get("Home_Name")
+		Home_Intro = request.form.get("Home_Intro")
 
-	  print("start_petsitter : " , request.form)
-	  Nickname = request.form.get("Nickname")
-	  Count_Total = request.form.get("Count_Total")
-	  Count_Large = request.form.get("Count_Large")
-	  Count_Medium = request.form.get("Count_Medium")
-	  Count_Small = request.form.get("Count_Small")
-	  Cost_Large = request.form.get("Cost_Large")
-	  Cost_Medium = request.form.get("Cost_Medium")
-	  Cost_Small = request.form.get("Cost_Small")
-	  Start_Date = request.form.get("Start_Date")
-	  End_Date = request.form.get("End_Date")
-	  Except_Date = request.form.get("Except_Date")
-	  Home_Name = request.form.get("Home_Name")
-	  Home_Intro = request.form.get("Home_Intro")
+		User = session['email']
+		modify_petsitter_info = [User, Nickname, Cost_Large, Cost_Medium, Cost_Small, Start_Date, End_Date, Except_Date, Count_Total, Count_Large, Count_Medium, Count_Small, Home_Name, Home_Intro]
+		blockchain_restapi.modify_petsitter(modify_petsitter_info)
 
-	  User = session['email']
+		return redirect('/petsitter')
 
-	  modify_petsitter_info = [User, Nickname, Cost_Large, Cost_Medium, Cost_Small, Start_Date, End_Date, Except_Date
-	   , Count_Total, Count_Large, Count_Medium, Count_Small, Home_Name, Home_Intro]
-	  blockchain_restapi.modify_petsitter(modify_petsitter_info)
-	  return redirect('/petsitter')
-
-
-   return render_template("modify_start_petsitter.html",
+	return render_template("modify_start_petsitter.html",
 						title='Search',
 						  session='OK')
 
@@ -917,42 +930,41 @@ def complete_list():
 @app.route('/remove_petsitter', methods=['GET', 'POST'])
 def remove_petsitter():
 
-   if not 'email' in session:
-	  return redirect('/')
+	if not 'email' in session:
+		return redirect('/')
+	if request.method == 'POST':
+		User = session['email']
+		blockchain_restapi.delete_petsitter(User)
 
-   if request.method == 'POST':
-	  User = session['email']
-	  blockchain_restapi.delete_petsitter(User)
-
-   return render_template("remove.html",
+	return render_template("remove.html",
 						title='Search',
 				  session='OK')
 
 @app.route('/remove_house', methods=['GET', 'POST'])
 def remove_house():
 
-   if not 'email' in session:
-	  return redirect('/')
+	if not 'email' in session:
+		return redirect('/')
 
-   if request.method == 'POST':
-	  User = session['email']
-	  blockchain_restapi.delete_house(User)
+	if request.method == 'POST':
+		User = session['email']
+		blockchain_restapi.delete_house(User)
 
-   return render_template("remove.html",
+	return render_template("remove.html",
 						title='Search',
 				  session='OK')
 
 @app.route('/remove_pet', methods=['GET', 'POST'])
 def remove_pet():
 
-   if not 'email' in session:
-	  return redirect('/')
+	if not 'email' in session:
+		return redirect('/')
 
-   if request.method == 'POST':
-	  User = session['email']
-	  function.Delete_pet(User)
+	if request.method == 'POST':
+		User = session['email']
+		function.Delete_pet(User)
 
-   return render_template("remove.html",
+	return render_template("remove.html",
 						title='Search',
 				  session='OK')
 
