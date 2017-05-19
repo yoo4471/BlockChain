@@ -51,14 +51,23 @@ def chaincode_connect():
 @app.route('/index')
 def index():
 	if 'email' in session:
+		home_enroll = function.Check_citycode(session['email'])
+		pet_enroll = function.Check_npet(session['email'])
+		petsitter_enroll = function.Check_AP(session['email'])
 		if request.method == 'POST':
 			return render_template("search_results.html",
 							title='Welcome',
-							session=session['email']
+							session=session['email'],
+							home_enroll = home_enroll[0],
+							pet_enroll = pet_enroll[0],
+							petsitter_enroll = petsitter_enroll[0]
 							)
 		return render_template("search.html",
 						title='Welcome',
-						session=session['email']
+						session=session['email'],
+						home_enroll = home_enroll[0],
+						pet_enroll = pet_enroll[0],
+						petsitter_enroll = petsitter_enroll[0]
 						)
 
 	if request.method == 'POST':
@@ -147,6 +156,9 @@ def results_none_region():
 		page = int(total/8) + 1
 
 	if 'email' in session:
+		home_enroll = function.Check_citycode(session['email'])
+		pet_enroll = function.Check_npet(session['email'])
+		petsitter_enroll = function.Check_AP(session['email'])
 
 		return render_template("search_results.html",
 								title='results',
@@ -154,7 +166,10 @@ def results_none_region():
 								info = result,
 								total = total,
 								page = page,
-								print_search = pass_search)
+								print_search = pass_search,
+								home_enroll = home_enroll[0],
+								pet_enroll = pet_enroll[0],
+								petsitter_enroll = petsitter_enroll[0])
 
 	return render_template("search_results.html",
 							   title='results',
@@ -242,6 +257,9 @@ def results(region):
 			page = int(total/8) + 1
 
 	if 'email' in session:
+		home_enroll = function.Check_citycode(session['email'])
+		pet_enroll = function.Check_npet(session['email'])
+		petsitter_enroll = function.Check_AP(session['email'])
 
 		return render_template("search_results.html",
 								title='results',
@@ -249,7 +267,10 @@ def results(region):
 								info = result,
 								total = total,
 								page = page,
-								print_search = pass_search)
+								print_search = pass_search,
+								home_enroll = home_enroll[0],
+								pet_enroll = pet_enroll[0],
+								petsitter_enroll = petsitter_enroll[0])
 
 	return render_template("search_results.html",
 							   title='results',
@@ -297,13 +318,19 @@ def detail(petsitter):
 	total_charge = add_all
 
 	if 'email' in session:
+		home_enroll = function.Check_citycode(session['email'])
+		pet_enroll = function.Check_npet(session['email'])
+		petsitter_enroll = function.Check_AP(session['email'])
 		return render_template("booking.html",
 							title='booking',
 							session=session['email'],
 							detail_petsitter = detail_about_petsitter,
 							results = PETSITTERS[petsitter],
 							user = USER_SEARCH,
-							total_cost = total
+							total_cost = total,
+							home_enroll = home_enroll[0],
+							pet_enroll = pet_enroll[0],
+							petsitter_enroll = petsitter_enroll[0]
 							)
 
 	return render_template("booking.html",
@@ -326,6 +353,9 @@ def payments():
 	print("count: ", count)
 
 	if 'email' in session:
+		home_enroll = function.Check_citycode(session['email'])
+		pet_enroll = function.Check_npet(session['email'])
+		petsitter_enroll = function.Check_AP(session['email'])
 		# get petsitters information
 		a = blockchain_restapi.read_petsitter(PETSITTERS[count][0])
 		a = json.loads(a)
@@ -359,7 +389,10 @@ def payments():
 							user = USER_SEARCH,
 							charge = temp_charge,
 							term = term.days,
-							total = total
+							total = total,
+							home_enroll = home_enroll[0],
+							pet_enroll = pet_enroll[0],
+							petsitter_enroll = petsitter_enroll[0]
 							)
 
 	else:
@@ -435,7 +468,9 @@ def enrollment_home_address():
 		home_address = [User, state, city, street, apt, zipcode]
 		blockchain_restapi.save_home_address(home_address)
 		citycode = zipcode[0:3]
+
 		function.Update_Citycode(User, citycode)
+
 		return redirect('/enrollment_home/room')
 	return render_template("address.html",
 						title='progress',
@@ -515,10 +550,11 @@ def start_petsitter():
 
 		User = session['email']
 
-		save_petsitter_info = [User, Nickname, Cost_Large, Cost_Medium, Cost_Small, Start_Date , End_Date , Except_Date
-				  , Count_Total , Count_Large , Count_Medium , Count_Small, Home_Name ,Home_Intro]
+		save_petsitter_info = [User, Nickname, Cost_Large, Cost_Medium, Cost_Small, Start_Date , End_Date , Except_Date, Count_Total , Count_Large , Count_Medium , Count_Small, Home_Name ,Home_Intro]
 
 		blockchain_restapi.save_petsitter(save_petsitter_info)
+
+		Update_AP(User)
 		return redirect('/petsitter')
 
 	return render_template("start_petsitter.html",
@@ -545,6 +581,7 @@ def enrollment_pet_pet():
 		petbirth = year+"-"+month+"-"+day
 		function.Save_pet_pet(User, petname, petgender,petbirth)
 
+		function.Increase_npet(User)
 		return redirect('/enrollment_pet/size')
 
 	return render_template("pet.html",
@@ -936,6 +973,8 @@ def remove_petsitter():
 		User = session['email']
 		blockchain_restapi.delete_petsitter(User)
 
+		function.Decrease_AP(User)
+
 	return render_template("remove.html",
 						title='Search',
 				  session='OK')
@@ -950,6 +989,8 @@ def remove_house():
 		User = session['email']
 		blockchain_restapi.delete_house(User)
 
+		function.Decrease_Citycode(User)
+
 	return render_template("remove.html",
 						title='Search',
 				  session='OK')
@@ -963,6 +1004,8 @@ def remove_pet():
 	if request.method == 'POST':
 		User = session['email']
 		function.Delete_pet(User)
+
+		function.Decrease_npet(User)
 
 	return render_template("remove.html",
 						title='Search',
