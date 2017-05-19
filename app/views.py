@@ -128,6 +128,7 @@ def results_none_region():
 	for i in petsitter_list:
 		cnt = cnt + 1
 
+	Info=[]
 	for i in range(0, cnt):
 		Info[i] = petsitter_list[i]+home_list[i]
 
@@ -145,7 +146,7 @@ def results_none_region():
 
 	pass_search = "all location", checkin, checkout, guests, adults, children, infants
 
-	if Info == 0:
+	if Info == []:
 		total = 0
 		page = 0
 		# print("Info : ", Info)
@@ -227,6 +228,7 @@ def results(region):
 	for i in petsitter_list:
 		cnt=cnt+1
 
+	Info=[]
 	for i in range(0, cnt):
 		Info[i] = petsitter_list[i]+home_list[i]
 
@@ -246,7 +248,7 @@ def results(region):
 
 	print("===========with region=========")
 
-	if Info == 0:
+	if Info == []:
 		total = 0
 		page = 0
 		# print("Info : ", Info)
