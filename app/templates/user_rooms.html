@@ -72,23 +72,23 @@ function confirm_delete() {
                                               <!-- <br> -->
                                               <!-- {{ rooms[0][7] }}<br> -->
 
-                                            {% if rooms[0][8]=='A' %}
-                                            아파트(위치: {{ rooms[0][6] }})<br>
+                                            {% if rooms[0][6]=='A' %}
+                                            아파트(위치: {{ rooms[0][4] }})<br>
                                             {% else %}
-                                            단독주택(위치: {{ rooms[0][6] }})<br>
+                                            단독주택(위치: {{ rooms[0][4] }})<br>
                                             {% endif %}
                                             방개수
-                                              {{ rooms[0][9] }}개<br>
+                                              {{ rooms[0][7] }}개<br>
 
                                               <!-- {{ rooms[0][10] }} 평<br> -->
                                             엘레베이터
-                                            {% if rooms[0][10] == 'yes' %}
+                                            {% if rooms[0][8] == 'yes' %}
                                         			있음
                                         		{% else %}
                                         			없음
                                             {% endif %}<br>
                                             주차
-                                            {% if rooms[0][11] == 'yes' %}
+                                            {% if rooms[0][9] == 'yes' %}
                                         			가능
                                         		{% else %}
                                         			불가능
@@ -97,7 +97,7 @@ function confirm_delete() {
 
                                             </span>
                                             </span>
-                                            <div class="text-muted text-grey space-top-1 last-modified-date"><span>최종 업데이트: {{rooms[0][12]}}</span></div>
+                                            <div class="text-muted text-grey space-top-1 last-modified-date"><span>최종 업데이트: {{rooms[0][10]}}</span></div>
 
 
                                             <form action="/remove_house" onSubmit="return confirm_delete()" method="post">
