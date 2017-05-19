@@ -217,7 +217,12 @@ def detail(petsitter):
 	global USER_SEARCH
 	global total_charge
 
-	detail_about_petsitter = function.Read_petsitter(PETSITTERS[petsitter][0])
+	a = blockchain_restapi.read_petsitter(PETSITTERS[petsitter][0])
+	a = json.loads(a)
+	b = a['result']['message']
+	c = json.loads(b, object_pairs_hook=OrderedDict)
+	detail_about_petsitter = [list(c.values())]
+
 	print("detail : ", detail_about_petsitter)
 	print("petsitter: ", PETSITTERS[petsitter])
 
@@ -261,7 +266,11 @@ def payments():
 
 	if 'email' in session:
 		# get petsitters information
-		detail_about_petsitter = function.Read_petsitter(PETSITTERS[count][0])
+		a = blockchain_restapi.read_petsitter(PETSITTERS[count][0])
+		a = json.loads(a)
+		b = a['result']['message']
+		c = json.loads(b, object_pairs_hook=OrderedDict)
+		detail_about_petsitter = [list(c.values())]
 
 		checkin = USER_SEARCH[4]
 		checkout = USER_SEARCH[5]
@@ -691,9 +700,9 @@ def modify_start_petsitter():
 
 	  User = session['email']
 
-	  function.Modify_petsitter1(User, Nickname, Cost_Large, Cost_Medium, Cost_Small, Start_Date , End_Date , Except_Date)
-	  function.Modify_petsitter2(User, Count_Total , Count_Large , Count_Medium , Count_Small, Home_Name ,Home_Intro)
-
+	  modify_petsitter_info = [User, Nickname, Cost_Large, Cost_Medium, Cost_Small, Start_Date, End_Date, Except_Date
+	   , Count_Total, Count_Large, Count_Medium, Count_Small, Home_Name, Home_Intro]
+	  blockchain_restapi.modify_petsitter(modify_petsitter_info)
 	  return redirect('/petsitter')
 
 
@@ -754,7 +763,12 @@ def pesitter():
 		return redirect('/')
 
 	User = session['email']
-	petsitter = function.Read_petsitter(User)
+	a = blockchain_restapi.read_petsitter(User)
+
+	a = json.loads(a)
+	b = a['result']['message']
+	c = json.loads(b, object_pairs_hook=OrderedDict)
+	petsitter = [list(c.values())]
 
 	return render_template("user_petsitter.html",
 						title='MyProfile/petsitter',
@@ -781,7 +795,11 @@ def payments_list():
 		a = time.localtime()
 		date = str(a.tm_year) +"_" +str(a.tm_mon)+ "_" +str(a.tm_mday) + " "+str(a.tm_hour)+":"+str(a.tm_min)+":"+str(a.tm_sec)
 
-		petsitter_nickname = function.Read_petsitter(PETSITTERS[count][0])
+		a = blockchain_restapi.read_petsitter(PETSITTERS[count][0])
+		a = json.loads(a)
+		b = a['result']['message']
+		c = json.loads(b, object_pairs_hook=OrderedDict)
+		petsitter_nickname = [list(c.values())]
 		print("petsitter_nickname :",petsitter_nickname[0][1])
 
 		function.Save_tran(PETSITTERS[count][0], petsitter_nickname[0][1], User, USER_SEARCH[4], USER_SEARCH[5], date, str(total_charge), '\0')
@@ -856,7 +874,7 @@ def remove_petsitter():
 
    if request.method == 'POST':
 	  User = session['email']
-	  function.Delete_petsitter(User)
+	  blockchain_restapi.delete_petsitter(User)
 
    return render_template("remove.html",
 						title='Search',
@@ -959,7 +977,6 @@ def remove_DBfiles():
 	filenames = ['petsitting.db']
 	for filename in filenames:
 		try:
-
 			path = os.getcwd() + "/" + filename
 			print(path)
 			os.remove(path)
