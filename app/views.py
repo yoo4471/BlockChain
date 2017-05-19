@@ -95,7 +95,26 @@ def results_none_region():
 	print("checkout = ", checkout)
 	print("=====================================================",request.query_string,"=====================================================")
 
-	Info = function.Search_bytotal(region, guests, adults, children, infants, checkin, checkout)
+	bytotal = [region, str(guests), str(adults), str(children), str(infants), checkin, checkout]
+	a = blockchain_restapi.search_bytotal(bytotal)
+	a = json.loads(a)
+	b = a['result']['message']
+
+	c = b.split('/')
+	c.pop(-1)
+
+	petsitter_list = []
+	home_list = []
+
+	for d in c:
+	    petsitter = d.split('?')[0]
+	    petsitter_split = petsitter.split(',')
+	    home = d.split('?')[1]
+	    home_split = home.split(',')
+	    petsitter_list.append(petsitter_split)
+	    home_list.append(home_split)
+
+	#have to do.
 
 	# save petsitter
 	global PETSITTERS
@@ -138,6 +157,7 @@ def results_none_region():
 @app.route('/s/<region>', methods=['GET', 'POST'])
 def results(region):
 
+	print(type(region))
 	checkin = request.args['checkin']
 	checkout = request.args['checkout']
 
@@ -157,7 +177,26 @@ def results(region):
 	print("checkout = ", checkout)
 	print("=====================================================",request.query_string,"=====================================================")
 
-	Info = function.Search_bytotal(region, guests, adults, children, infants, checkin, checkout)
+	bytotal = [region, str(guests), str(adults), str(children), str(infants), checkin, checkout]
+	a = blockchain_restapi.search_bytotal(bytotal)
+	a = json.loads(a)
+	b = a['result']['message']
+
+	c = b.split('/')
+	c.pop(-1)
+
+	petsitter_list = []
+	home_list = []
+
+	for d in c:
+	    petsitter = d.split('?')[0]
+	    petsitter_split = petsitter.split(',')
+	    home = d.split('?')[1]
+	    home_split = home.split(',')
+	    petsitter_list.append(petsitter_split)
+	    home_list.append(home_split)
+
+	#have to do
 
 	# save petsitter
 	global PETSITTERS
@@ -724,9 +763,19 @@ def rooms():
 	if(check_room):
 		res_house = blockchain_restapi.read_house(User)
 		res_house = json.loads(res_house)
+		print(res_house)
 		b = res_house['result']['message']
 		c = json.loads(b, object_pairs_hook=OrderedDict)
 		room = [list(c.values())]
+		address = room[0][0] + ' ' + room[0][1] + ' ' + room[0][2] + ' ' + room[0][3]
+		room_ver2 = []
+		num = 0
+		for i in room[0]:
+			if num==4:
+				room_ver2.append(address)
+			room_ver2.append(i)
+			num = num + 1
+		room = [room_ver2]
 		print(room)
 		# room = function.Read_house(User)
 	else:
@@ -764,7 +813,6 @@ def pesitter():
 
 	User = session['email']
 	a = blockchain_restapi.read_petsitter(User)
-
 	a = json.loads(a)
 	b = a['result']['message']
 	c = json.loads(b, object_pairs_hook=OrderedDict)
@@ -888,7 +936,7 @@ def remove_house():
 
    if request.method == 'POST':
 	  User = session['email']
-	  function.Delete_house(User)
+	  blockchain_restapi.delete_house(User)
 
    return render_template("remove.html",
 						title='Search',
