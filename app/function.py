@@ -116,6 +116,15 @@ def Check_npet(E):
     con.close()
     return data
 
+def Check_AP(E):
+    con = sqlite3.connect("petsitting.db")
+    cursor = con.cursor()
+    cursor.execute("SELECT AP FROM member WHERE Email=?",(E, ))
+    data = cursor.fetchall()
+    con.commit()
+    con.close()
+    return data
+
 def Save_petsitter1(Host, Nickname, Cost_L, Cost_M, Cost_S, Start_Date , End_Date , Except_Date):
     con = sqlite3.connect("petsitting.db")
     cursor = con.cursor()
