@@ -124,18 +124,23 @@ def results_none_region():
 	    home_list.append(home_split)
 
 	#count total petsitter list
-	cnt = 0
-	for i in petsitter_list:
-		cnt = cnt + 1
+	if b != '0':
+		cnt = 0
+		for i in petsitter_list:
+	    	cnt=cnt+1
 
-	Info=[]
-	for i in range(0, cnt):
-		Info[i] = petsitter_list[i]+home_list[i]
+		Info = []
+		result = []
+		for i in range(0, cnt):
+	    	Info[i] = petsitter_list[i]+home_list[i]
+	    	addr = Info[i][15] + ' ' + Info[i][16]
+	    	temp= Info[i][0], Info[i][2],Info[i][3],Info[i][4], Info[i][12], addr, Info[i][20], Info[i][21], Info[i][8]
+	    	result.append(temp)
 
-	addr = Info[15] + ' ' + Info[16]
+	print(result)
 
 	#email largecost mediumcost smallcost homename region housetype room totalpet
-	result = Info[0], Info[2],Info[3],Info[4], Info[12], addr, Info[20], Info[21], Info[8]
+	# result = Info[0], Info[2],Info[3],Info[4], Info[12], addr, Info[20], Info[21], Info[8]
 
 	# save petsitter
 	global PETSITTERS
@@ -146,7 +151,7 @@ def results_none_region():
 
 	pass_search = "all location", checkin, checkout, guests, adults, children, infants
 
-	if Info == []:
+	if b != '0':
 		total = 0
 		page = 0
 		# print("Info : ", Info)
@@ -224,18 +229,23 @@ def results(region):
 	    home_list.append(home_split)
 
 	#count total petsitter list
-	cnt = 0
-	for i in petsitter_list:
-		cnt=cnt+1
+	if b != '0':
+		cnt = 0
+		for i in petsitter_list:
+	    	cnt=cnt+1
 
-	Info=[]
-	for i in range(0, cnt):
-		Info[i] = petsitter_list[i]+home_list[i]
+		Info = []
+		result = []
+		for i in range(0, cnt):
+	    	Info[i] = petsitter_list[i]+home_list[i]
+	    	addr = Info[i][15] + ' ' + Info[i][16]
+	    	temp= Info[i][0], Info[i][2],Info[i][3],Info[i][4], Info[i][12], addr, Info[i][20], Info[i][21], Info[i][8]
+	    	result.append(temp)
 
-	addr = Info[15] + ' ' + Info[16]
+	print(result)
 
 	#email largecost mediumcost smallcost homename region housetype room totalpet
-	result = Info[0], Info[2],Info[3],Info[4], Info[12], addr, Info[20], Info[21], Info[8]
+	# result = Info[0], Info[2],Info[3],Info[4], Info[12], addr, Info[20], Info[21], Info[8]
 
 	# save petsitter
 	global PETSITTERS
@@ -248,15 +258,15 @@ def results(region):
 
 	print("===========with region=========")
 
-	if Info == []:
+	if b != '0':
 		total = 0
 		page = 0
-		# print("Info : ", Info)
 	else :
 		total = 0
 		for i in Info:
 			total = total + 1
 			page = int(total/8) + 1
+
 
 	if 'email' in session:
 		home_enroll = function.Check_citycode(session['email'])
