@@ -594,8 +594,6 @@ def enrollment_pet_size():
 	if not 'email' in session:
 		return redirect('/')
 
-
-
 	if request.method == 'POST':
 		print(request.form)
 
@@ -831,9 +829,16 @@ def rooms():
 	else:
 		room = ''
 
+	home_enroll = function.Check_citycode(session['email'])
+	pet_enroll = function.Check_npet(session['email'])
+	petsitter_enroll = function.Check_AP(session['email'])
+
 	return render_template("user_rooms.html",
 						title='MyProfile/rooms',
-						session='OK', rooms = room)
+						session='OK', rooms = room,
+						home_enroll = home_enroll[0][0],
+						pet_enroll = pet_enroll[0][0],
+						petsitter_enroll = petsitter_enroll[0][0])
 
 @app.route('/pets', methods=['GET', 'POST'])
 def pets():
@@ -851,9 +856,15 @@ def pets():
 	else:
 		pet = ''
 
+	home_enroll = function.Check_citycode(session['email'])
+	pet_enroll = function.Check_npet(session['email'])
+	petsitter_enroll = function.Check_AP(session['email'])
 	return render_template("user_pets.html",
 						title='MyProfile/pets',
-						session='OK', pets=pet)
+						session='OK', pets=pet,
+						home_enroll = home_enroll[0][0],
+						pet_enroll = pet_enroll[0][0],
+						petsitter_enroll = petsitter_enroll[0][0])
 
 @app.route('/petsitter', methods=['GET', 'POST'])
 def pesitter():
@@ -868,10 +879,16 @@ def pesitter():
 	c = json.loads(b, object_pairs_hook=OrderedDict)
 	petsitter = [list(c.values())]
 
+	home_enroll = function.Check_citycode(session['email'])
+	pet_enroll = function.Check_npet(session['email'])
+	petsitter_enroll = function.Check_AP(session['email'])
 	return render_template("user_petsitter.html",
 						title='MyProfile/petsitter',
 						session='OK',
-						petsitter = petsitter)
+						petsitter = petsitter,
+						home_enroll = home_enroll[0][0],
+						pet_enroll = pet_enroll[0][0],
+						petsitter_enroll = petsitter_enroll[0][0])
 
 @app.route('/user/payments/ing', methods=['GET','POST'])
 def payments_list():
