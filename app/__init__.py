@@ -3,9 +3,7 @@ from . import function
 
 app = Flask(__name__)
 from app import views
-from . import blockchain_restapi
 
-blockchain_restapi.get_chaincodeID_name()
 
 try:
 
