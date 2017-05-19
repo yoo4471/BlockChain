@@ -57,7 +57,7 @@ function confirm_delete() {
                                                         <!-- <div class="progress progress-bar__lean" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="7">
                                                             <div class="progress-bar progress-bar-success progress-bar__babu" style="width: 100%;"></div>
                                                         </div> -->
-                                                        <div class="text-babu space-top-1"><span> {{petsitter[0][12]}}</span></div>
+                                                        <div class="text-babu space-top-1"><span> {{petsitter[0][11]}}</span></div>
                                                         <div class="space-top-2"></div>
                                                     </div>
                                                 </div>
@@ -66,21 +66,21 @@ function confirm_delete() {
                                               <!-- 소형견 : 장모치와와<br> -->
                                               <!-- /react-text -->
                                               <ul>
-                                                <li>총 {{ petsitter[0][8] }}마리 </li>
-                                                <li>소형견 {{petsitter[0][11]}}마리 중형견 {{petsitter[0][10]}}마리 대형견 {{petsitter[0][9]}}마리</li>
-                                                <li>소형견 ₩{{ petsitter[0][4] }}</li>
-                                                <li>중형견 ₩{{ petsitter[0][3] }}</li>
-                                                <li>대형견 ₩{{ petsitter[0][2] }}</li>
-                                                <li>{{petsitter[0][5]}} 부터 {{petsitter[0][6]}} 까지 가능합니다.</li>
-                                                {% if petsitter[0][7] %}
-                                                <li>{{petsitter[0][7]}} 제외</li>
+                                                <li>총 {{ petsitter[0][7] }}마리 </li>
+                                                <li>소형견 {{petsitter[0][10]}}마리 중형견 {{petsitter[0][9]}}마리 대형견 {{petsitter[0][8]}}마리</li>
+                                                <li>소형견 ₩{{ petsitter[0][3] }}</li>
+                                                <li>중형견 ₩{{ petsitter[0][2] }}</li>
+                                                <li>대형견 ₩{{ petsitter[0][1] }}</li>
+                                                <li>{{petsitter[0][4]}} 부터 {{petsitter[0][5]}} 까지 가능합니다.</li>
+                                                {% if petsitter[0][6] %}
+                                                <li>{{petsitter[0][6]}} 제외</li>
                                                 {% else %}
                                                 <li>불가능한 날짜가 없습니다.</li>
                                                 {% endif %}
                                           </span>
                                             </span>
 
-                                            <div class="text-muted text-grey space-top-1 last-modified-date"><span>최종 업데이트: {{ petsitter[0][14] }}</span></div>
+                                            <div class="text-muted text-grey space-top-1 last-modified-date"><span>최종 업데이트: {{ petsitter[0][13] }}</span></div>
                                             <form action="/remove_petsitter" onSubmit="return confirm_delete()" method="post">
                                             <div class="space-top-4">
                                               <a class="btn btn__first-btn btn-primary" href="/modify_start"><span>등록 수정하기</span></a>

@@ -298,6 +298,28 @@ def Update_AP(E):
     con.commit()
     con.close()
 
+def Decrease_AP(E):
+    con = sqlite3.connect("petsitting.db")
+    cursor = con.cursor()
+    cursor.execute("UPDATE member SET AP = 0 WHERE Email = ? ", (E,))
+    con.commit()
+    con.close()
+
+def Decrease_npet(E):
+    con = sqlite3.connect("petsitting.db")
+    cursor = con.cursor()
+    cursor.execute("UPDATE  member SET PN = 0 WHERE Email = ? ", (E,))
+    con.commit()
+    con.close()
+
+def Decrease_Citycode(E):
+    con = sqlite3.connect("petsitting.db")
+    cursor = con.cursor()
+    cursor.execute("UPDATE member SET CC = 0 WHERE Email = ? ", (E,))
+    con.commit()
+    con.close()
+
+
 def Modify_image(Host, Asset, Path):
     con = sqlite3.connect("petsitting.db")
     cursor = con.cursor()
