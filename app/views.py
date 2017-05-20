@@ -127,17 +127,15 @@ def results_none_region():
 	if b != '0':
 		cnt = 0
 		for i in petsitter_list:
-	    	cnt=cnt+1
+		    cnt=cnt+1
 
-		Info = []
 		result = []
 		for i in range(0, cnt):
-	    	Info[i] = petsitter_list[i]+home_list[i]
-	    	addr = Info[i][15] + ' ' + Info[i][16]
-	    	temp= Info[i][0], Info[i][2],Info[i][3],Info[i][4], Info[i][12], addr, Info[i][20], Info[i][21], Info[i][8]
-	    	result.append(temp)
-
-	print(result)
+		    Info = petsitter_list[i]+home_list[i]
+		    region = Info[15] + ' ' + Info[16]
+		    temp = Info[0], Info[2],Info[3],Info[4], Info[12], region, Info[20], Info[21], Info[8]
+		    result.append(temp)
+		print(result)
 
 	#email largecost mediumcost smallcost homename region housetype room totalpet
 	# result = Info[0], Info[2],Info[3],Info[4], Info[12], addr, Info[20], Info[21], Info[8]
@@ -232,17 +230,15 @@ def results(region):
 	if b != '0':
 		cnt = 0
 		for i in petsitter_list:
-	    	cnt=cnt+1
+		    cnt=cnt+1
 
-		Info = []
 		result = []
 		for i in range(0, cnt):
-	    	Info[i] = petsitter_list[i]+home_list[i]
-	    	addr = Info[i][15] + ' ' + Info[i][16]
-	    	temp= Info[i][0], Info[i][2],Info[i][3],Info[i][4], Info[i][12], addr, Info[i][20], Info[i][21], Info[i][8]
-	    	result.append(temp)
-
-	print(result)
+		    Info = petsitter_list[i]+home_list[i]
+		    region = Info[15] + ' ' + Info[16]
+		    temp = Info[0], Info[2],Info[3],Info[4], Info[12], region, Info[20], Info[21], Info[8]
+		    result.append(temp)
+		print(result)
 
 	#email largecost mediumcost smallcost homename region housetype room totalpet
 	# result = Info[0], Info[2],Info[3],Info[4], Info[12], addr, Info[20], Info[21], Info[8]
