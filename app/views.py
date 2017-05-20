@@ -85,7 +85,9 @@ def index():
 def results_none_region():
 
 	checkin = request.args['checkin']
+	checkin_ymd = checkin.split('/')[2] + checkin.split('/')[0] + checkin.split('/')[1]
 	checkout = request.args['checkout']
+	checkout_ymd = checkout.split('/')[2] + checkout.split('/')[0] + checkout.split('/')[1]
 
 	S = request.args['adults'] #small
 	M = request.args['children'] #medium
@@ -104,7 +106,7 @@ def results_none_region():
 	print("checkout = ", checkout)
 	print("=====================================================",request.query_string,"=====================================================")
 
-	bytotal = [region, str(guests), str(adults), str(children), str(infants), checkin, checkout]
+	bytotal = [region, str(guests), str(adults), str(children), str(infants), checkin_ymd, checkout_ymd]
 	a = blockchain_restapi.search_bytotal(bytotal)
 	a = json.loads(a)
 	b = a['result']['message']
@@ -189,7 +191,9 @@ def results(region):
 
 	print(type(region))
 	checkin = request.args['checkin']
+	checkin_ymd = checkin.split('/')[2] + checkin.split('/')[0] + checkin.split('/')[1]
 	checkout = request.args['checkout']
+	checkout_ymd = checkout.split('/')[2] + checkout.split('/')[0] + checkout.split('/')[1]
 
 	S = request.args['adults'] #small
 	M = request.args['children'] #medium
@@ -207,7 +211,7 @@ def results(region):
 	print("checkout = ", checkout)
 	print("=====================================================",request.query_string,"=====================================================")
 
-	bytotal = [region, str(guests), str(adults), str(children), str(infants), checkin, checkout]
+	bytotal = [region, str(guests), str(adults), str(children), str(infants), checkin_ymd, checkout_ymd]
 	a = blockchain_restapi.search_bytotal(bytotal)
 	a = json.loads(a)
 	b = a['result']['message']

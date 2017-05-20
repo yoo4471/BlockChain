@@ -4,11 +4,11 @@ import json, requests
 from . import function
 
 
-blockchain_ibm = 'https://b42b6871b4b14068bb3bb36ab1f998e7-vp0.us.blockchain.ibm.com:5004'
+blockchain_ibm = 'https://af04eccc275f43b3a3f90af88749a181-vp0.us.blockchain.ibm.com:5001'
 chaincodeID_path = "https://github.com/liil93/last_chaincode"
 
-enrollId = 'user_type1_4'
-enrollSecret = 'b594d97613'
+enrollId = 'user_type2_1'
+enrollSecret = 'ef307449f3'
 secureContext = enrollId
 
 #login
