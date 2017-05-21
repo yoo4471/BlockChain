@@ -526,7 +526,9 @@ def enrollment_home_car_elevator():
 		parking = house_type = request.form.get("parkingType")
 		home_car_elevator = [User, elevator, parking]
 		blockchain_restapi.save_home_car_elevator(home_car_elevator)
-		return redirect('/rooms')
+		# read error
+		# return redirect('/rooms')
+		return redirect('/')
 
 
 	return render_template("car_elevator.html",
@@ -816,23 +818,26 @@ def rooms():
 
 	User = session['email']
 	check_room = function.Check_citycode(User)
-	if(check_room):
-		res_house = blockchain_restapi.read_house(User)
-		res_house = json.loads(res_house)
-		print(res_house)
-		b = res_house['result']['message']
-		c = json.loads(b, object_pairs_hook=OrderedDict)
-		room = [list(c.values())]
-		address = room[0][0] + ' ' + room[0][1] + ' ' + room[0][2] + ' ' + room[0][3]
-		room_ver2 = []
-		num = 0
-		for i in room[0]:
-			if num==4:
-				room_ver2.append(address)
-			room_ver2.append(i)
-			num = num + 1
-		room = [room_ver2]
-		print(room)
+	if(check_room[0][0] != '0'):
+		try:
+			res_house = blockchain_restapi.read_house(User)
+			res_house = json.loads(res_house)
+			print(res_house)
+			b = res_house['result']['message']
+			c = json.loads(b, object_pairs_hook=OrderedDict)
+			room = [list(c.values())]
+			address = room[0][0] + ' ' + room[0][1] + ' ' + room[0][2] + ' ' + room[0][3]
+			room_ver2 = []
+			num = 0
+			for i in room[0]:
+				if num==4:
+					room_ver2.append(address)
+				room_ver2.append(i)
+				num = num + 1
+			room = [room_ver2]
+			print(room)
+		except:
+			room = 'loading'
 		# room = function.Read_house(User)
 	else:
 		room = ''
