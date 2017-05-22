@@ -108,6 +108,7 @@ def results_none_region():
 
 	bytotal = [region, str(guests), str(adults), str(children), str(infants), checkin_ymd, checkout_ymd]
 
+
 	try:
 		a = blockchain_restapi.search_bytotal(bytotal)
 		a = json.loads(a)
@@ -126,21 +127,23 @@ def results_none_region():
 	    	petsitter_list.append(petsitter_split)
 	    	home_list.append(home_split)
 
+
 	except:
 		b = '0'
+
 
 	#count total petsitter list
 	if b != '0':
 		cnt = 0
 		for i in petsitter_list:
-		    cnt=cnt+1
+			cnt=cnt+1
 
 		result = []
 		for i in range(0, cnt):
-		    Info = petsitter_list[i]+home_list[i]
-		    region = Info[15] + ' ' + Info[16]
-		    temp = Info[0], Info[2],Info[3],Info[4], Info[12], region, Info[20], Info[21], Info[8]
-		    result.append(temp)
+			Info = petsitter_list[i]+home_list[i]
+			region = Info[15] + ' ' + Info[16]
+			temp = Info[0], Info[2],Info[3],Info[4], Info[12], region, Info[20], Info[21], Info[8]
+			result.append(temp)
 		print(result)
 
 	#email largecost mediumcost smallcost homename region housetype room totalpet
@@ -241,6 +244,7 @@ def results(region):
 		petsitter_list = []
 		home_list = []
 
+
 		for d in c:
 		    petsitter = d.split('?')[0]
 		    petsitter_split = petsitter.split(',')
@@ -255,14 +259,14 @@ def results(region):
 	if b != '0':
 		cnt = 0
 		for i in petsitter_list:
-		    cnt=cnt+1
+			cnt=cnt+1
 
 		result = []
 		for i in range(0, cnt):
-		    Info = petsitter_list[i]+home_list[i]
-		    region = Info[15] + ' ' + Info[16]
-		    temp = Info[0], Info[2],Info[3],Info[4], Info[12], region, Info[20], Info[21], Info[8]
-		    result.append(temp)
+			Info = petsitter_list[i]+home_list[i]
+			region = Info[15] + ' ' + Info[16]
+			temp = Info[0], Info[2],Info[3],Info[4], Info[12], region, Info[20], Info[21], Info[8]
+			result.append(temp)
 		print(result)
 
 	#email largecost mediumcost smallcost homename region housetype room totalpet
@@ -333,6 +337,7 @@ def detail(petsitter):
 	global USER_SEARCH
 	global total_charge
 
+	print( PETSITTERS, USER_SEARCH, total_charge)
 	a = blockchain_restapi.read_petsitter(PETSITTERS[petsitter][0])
 	a = json.loads(a)
 	b = a['result']['message']
@@ -499,8 +504,7 @@ def enrollment_home_address():
 		street = request.form.get("street")
 		apt = request.form.get("apt")
 		zipcode = request.form.get("zipcode")
-		home_address = [User, state, city, street, apt, zipcode]
-		blockchain_restapi.save_home_address(home_address)
+		function.Save_house_address_new(User, state, city, street, apt, zipcode)
 		citycode = zipcode[0:3]
 
 		function.Update_Citycode(User, citycode)
@@ -529,8 +533,7 @@ def enrollment_home_room():
 		elif house_type == '2':
 			house_type = 'P'
 		room = request.form.get("number_of_room")
-		home_room = [User, house_type, room]
-		blockchain_restapi.save_home_room(home_room)
+		function.Save_house_room_new(User, house_type, room)
 		return redirect('/enrollment_home/car_elevator')
 
 	return render_template("room.html",
@@ -550,8 +553,12 @@ def enrollment_home_car_elevator():
 		print(User)
 		elevator = house_type = request.form.get("elevatorType")
 		parking = house_type = request.form.get("parkingType")
-		home_car_elevator = [User, elevator, parking]
-		blockchain_restapi.save_home_car_elevator(home_car_elevator)
+
+		home_car_elevator = [elevator, parking]
+		datas = function.Read_house_new(User)
+		total = list(datas)
+		total = total + home_car_elevator
+		blockchain_restapi.save_home(total)
 		# read error
 		# return redirect('/rooms')
 		return redirect('/')
@@ -744,8 +751,9 @@ def modify_home_address():
 		street = request.form.get("street")
 		apt = request.form.get("apt")
 		zipcode = request.form.get("zipcode")
-		home_address = [User, state, city, street, apt, zipcode]
-		blockchain_restapi.modify_home_address(home_address)
+
+		function.Save_house_address_new(User, state, city, street, apt, zipcode)
+
 		citycode = zipcode[0:3]
 		function.Update_Citycode(User, citycode)
 		return redirect('/modify_home/room')
@@ -773,8 +781,8 @@ def modify_home_room():
 		elif house_type == '2':
 			house_type = 'P'
 		room = request.form.get("number_of_room")
-		home_room = [User, house_type, room]
-		blockchain_restapi.modify_home_room(home_room)
+
+		function.Save_house_room_new(User, house_type, room)
 		return redirect('/modify_home/car_elevator')
 
 	return render_template("modify_room.html",
@@ -794,8 +802,12 @@ def modify_home_car_elevator():
 		print(User)
 		elevator = house_type = request.form.get("elevatorType")
 		parking = house_type = request.form.get("parkingType")
-		home_car_elevator = [User, elevator, parking]
-		blockchain_restapi.modify_home_car_elevator(home_car_elevator)
+
+		home_car_elevator = [elevator, parking]
+		datas = function.Read_house_new(User)
+		total = list(datas)
+		total = total + home_car_elevator
+		blockchain_restapi.modify_home(total)
 		return redirect('/rooms')
 
 	return render_template("modify_car_elevator.html",
