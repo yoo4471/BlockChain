@@ -995,7 +995,7 @@ def complete_list():
 	User = session['email']
 	get = function.Search_tran(User)
 
-	if get != []:
+	if get != 'None':
 
 		tm = time.localtime()
 		mon = format(tm.tm_mon,'02')
