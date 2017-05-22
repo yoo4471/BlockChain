@@ -109,23 +109,28 @@ def results_none_region():
 	bytotal = [region, str(guests), str(adults), str(children), str(infants), checkin_ymd, checkout_ymd]
 
 
-	a = blockchain_restapi.search_bytotal(bytotal)
-	a = json.loads(a)
-	b = a['result']['message']
+	try:
+		a = blockchain_restapi.search_bytotal(bytotal)
+		a = json.loads(a)
+		b = a['result']['message']
+		c = b.split('/')
+		c.pop(-1)
 
-	c = b.split('/')
-	c.pop(-1)
+		petsitter_list = []
+		home_list = []
 
-	petsitter_list = []
-	home_list = []
+		for d in c:
+	    	petsitter = d.split('?')[0]
+	    	petsitter_split = petsitter.split(',')
+	    	home = d.split('?')[1]
+	    	home_split = home.split(',')
+	    	petsitter_list.append(petsitter_split)
+	    	home_list.append(home_split)
 
-	for d in c:
-		petsitter = d.split('?')[0]
-		petsitter_split = petsitter.split(',')
-		home = d.split('?')[1]
-		home_split = home.split(',')
-		petsitter_list.append(petsitter_split)
-		home_list.append(home_split)
+
+	except:
+		b = '0'
+
 
 	#count total petsitter list
 	if b != '0':
@@ -153,6 +158,7 @@ def results_none_region():
 
 	pass_search = "all location", checkin, checkout, guests, adults, children, infants
 
+	page = 0
 	if b != '0':
 		total = 0
 		page = 0
@@ -200,37 +206,54 @@ def results(region):
 	S = request.args['adults'] #small
 	M = request.args['children'] #medium
 	L = request.args['infants'] #large
-	guests = int(S) + int(M) + int(L)
-	adults = int(S)
-	children = int(M)
-	infants = int(L)
 
-	print(region)
-	print("number of small pet = ", guests)
-	print("number of medium pet = ", adults)
-	print("number of large pet = ", children)
-	print("checkin  = ", checkin)
-	print("checkout = ", checkout)
-	print("=====================================================",request.query_string,"=====================================================")
+	if S == 'None':
+		# only location
+		byregion = [region]
+		a = blockchain_restapi.search_byregion(byregion)
+		guests = '1'
+		adults = 'None'
+		children = 'None'
+		infants = 'None'
 
-	bytotal = [region, str(guests), str(adults), str(children), str(infants), checkin_ymd, checkout_ymd]
-	a = blockchain_restapi.search_bytotal(bytotal)
-	a = json.loads(a)
-	b = a['result']['message']
 
-	c = b.split('/')
-	c.pop(-1)
+	else:
+		guests = int(S) + int(M) + int(L)
+		adults = int(S)
+		children = int(M)
+		infants = int(L)
 
-	petsitter_list = []
-	home_list = []
+		print(region)
+		print("number of small pet = ", guests)
+		print("number of medium pet = ", adults)
+		print("number of large pet = ", children)
+		print("checkin  = ", checkin)
+		print("checkout = ", checkout)
+		print("=====================================================",request.query_string,"=====================================================")
 
-	for d in c:
-		petsitter = d.split('?')[0]
-		petsitter_split = petsitter.split(',')
-		home = d.split('?')[1]
-		home_split = home.split(',')
-		petsitter_list.append(petsitter_split)
-		home_list.append(home_split)
+		bytotal = [region, str(guests), str(adults), str(children), str(infants), checkin_ymd, checkout_ymd]
+	  a = blockchain_restapi.search_bytotal(bytotal)
+
+	try:
+		a = json.loads(a)
+		b = a['result']['message']
+
+		c = b.split('/')
+		c.pop(-1)
+
+		petsitter_list = []
+		home_list = []
+
+
+		for d in c:
+		    petsitter = d.split('?')[0]
+		    petsitter_split = petsitter.split(',')
+		    home = d.split('?')[1]
+		    home_split = home.split(',')
+		    petsitter_list.append(petsitter_split)
+		    home_list.append(home_split)
+	except:
+		b = '0'
 
 	#count total petsitter list
 	if b != '0':
@@ -260,6 +283,7 @@ def results(region):
 
 	print("===========with region=========")
 
+	page = 0
 	if b != '0':
 		total = 0
 		page = 0
@@ -562,7 +586,9 @@ def start_petsitter():
 		Cost_Medium = request.form.get("Cost_Medium")
 		Cost_Small = request.form.get("Cost_Small")
 		Start_Date = request.form.get("Start_Date")
+		# Start_Date_ymd = checkin.split('/')[2] + checkin.split('/')[0] + checkin.split('/')[1]
 		End_Date = request.form.get("End_Date")
+		# End_Date_ymd = checkout.split('/')[2] + checkout.split('/')[0] + checkout.split('/')[1]
 		Except_Date = request.form.get("Except_Date")
 		Home_Name = request.form.get("Home_Name")
 		Home_Intro = request.form.get("Home_Intro")
