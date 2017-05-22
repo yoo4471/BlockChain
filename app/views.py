@@ -345,7 +345,7 @@ def detail(petsitter):
 	cost_small = detail_about_petsitter[0][2] * USER_SEARCH[1]
 	cost_medium = detail_about_petsitter[0][3] * USER_SEARCH[2]
 	cost_large = detail_about_petsitter[0][4] * USER_SEARCH[3]
-	add_all = cost_small + cost_medium + cost_large
+	add_all = int(cost_small) + int(cost_medium) + int(cost_large)
 
 	total = cost_small, cost_medium, cost_large, add_all
 
