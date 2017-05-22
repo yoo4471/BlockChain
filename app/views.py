@@ -205,8 +205,10 @@ def results(region):
 
 	if S == 'None':
 		# only location
-		byregion = [region]
+		byregion = region
 		a = blockchain_restapi.search_byregion(byregion)
+		# Hwiwon
+		print(a)
 		guests = '1'
 		adults = 'None'
 		children = 'None'
@@ -424,7 +426,7 @@ def payments():
 		d0 = date(checkin_year, checkin_month, checkin_day)
 		d1 = date(checkout_year, checkout_month, checkout_day)
 		term = d1 - d0
-		temp_charge = `total_charge`
+		temp_charge = total_charge
 		total = temp_charge * term.days
 		total_charge = total
 
@@ -993,7 +995,7 @@ def payments_list():
 		save_tran_info = [PETSITTERS[count][0], petsitter_nickname[0][1], User, USER_SEARCH[4], USER_SEARCH[5], date, str(total_charge), '\0']
 		blockchain_restapi.save_tran(save_tran_info)
 
-
+		# Hyojung
 		a = blockchain_restapi.search_tran(User)
 		a = json.loads(a)
 		b = a['result']['message']
