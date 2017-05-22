@@ -452,3 +452,35 @@ def Search_bytotal(R, T, L, M, S, S_date, E_date):
     con.commit()
     con.close()
     return result2
+
+def Make_db_house_new():
+    con = sqlite3.connect("petsitting.db")
+    cursor = con.cursor()
+    cursor.execute("CREATE TABLE IF NOT EXISTS house(Host text NOT NULL,State text NOT NULL, City text NOT NULL, Street text NOT NULL, Apt text NOT NULL, Address text NOT NULL, Citycode text DEFAULT 0 ,Type text DEFAULT 0, Room text DEFAULT 0, PRIMARY KEY(Host), CONSTRAINT fk_house FOREIGN KEY (Host) REFERENCES member(Email))")
+    con.commit()
+    con.close()
+
+def Save_house_address_new(E, H_State, H_City, H_Street, H_Apt,H_Zipcode):
+    con = sqlite3.connect("petsitting.db")
+    cursor = con.cursor()
+    H_Address = H_State + " "+ H_City + " " + H_Street + " " + H_Apt
+    cursor.execute("INSERT INTO house(Host, State, City, Street, Apt, Address,  Citycode) VALUES (?, ?, ?, ?,?,?,?)", (E,H_State, H_City, H_Street, H_Apt, H_Address, H_Zipcode))
+    con.commit()
+    con.close()
+
+def Save_house_room_new(E, H_Type, H_Room):
+    con = sqlite3.connect("petsitting.db")
+    cursor = con.cursor()
+    cursor.execute("UPDATE house set Type = ?, Room = ? WHERE Host = ?", (H_Type, H_Room, E))
+    con.commit()
+    con.close()
+
+def Read_house_new(E):
+    con = sqlite3.connect("petsitting.db")
+    cursor = con.cursor()
+    cursor.execute("SELECT * FROM house WHERE Host = ?", (E, ))
+    data = cursor.fetchall()
+    cursor.execute("DELETE FROM house WHERE Host=?", (E, ))
+    con.commit()
+    con.close()
+    return data[0]
