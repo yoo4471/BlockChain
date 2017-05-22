@@ -939,6 +939,7 @@ def payments_list():
 		function.Save_tran(PETSITTERS[count][0], petsitter_nickname[0][1], User, USER_SEARCH[4], USER_SEARCH[5], date, str(total_charge), '\0')
 
 		result = function.Search_tran(User)
+
 		return render_template("user_payments_list.html",
 							title='MyPayments/list',
 							session='OK',
@@ -947,28 +948,40 @@ def payments_list():
 	User = session['email']
 	get = function.Search_tran(User)
 
-	tm = time.localtime()
-	mon = format(tm.tm_mon,'02')
-	day = format(tm.tm_mday, '02')
-	today =  str(mon)+ "/" +str(tm.tm_mday) +"/" +str(tm.tm_year)
+	if get != []:
 
-	temp = []
-	check = 0
-	print("get: ", get)
-	for i in get:
-		# print("i:" ,i)
-		checkin = i[4]
-		checkout = i[5]
-		if today<=checkout:
-			temp.append(i)
-			check += 1
-			if check == 3:
-				break
+		tm = time.localtime()
+		mon = format(tm.tm_mon,'02')
+		day = format(tm.tm_mday, '02')
+		today =  str(mon)+ "/" +str(tm.tm_mday) +"/" +str(tm.tm_year)
+
+		temp = []
+		check = 0
+		print("get: ", get)
+		for i in get:
+			# print("i:" ,i)
+			checkin = i[4]
+			checkout = i[5]
+			if today<=checkout:
+				temp.append(i)
+				check += 1
+				if check == 3:
+					break
+
+	else:
+		temp = 'None'
+
+	home_enroll = function.Check_citycode(session['email'])
+	pet_enroll = function.Check_npet(session['email'])
+	petsitter_enroll = function.Check_AP(session['email'])
 
 	return render_template("user_payments_list.html",
 						title='MyPayments/list',
 						session='OK',
-						result_list = temp)
+						result_list = temp,
+						home_enroll = home_enroll[0][0],
+						pet_enroll = pet_enroll[0][0],
+						petsitter_enroll = petsitter_enroll[0][0])
 
 @app.route('/user/payments/complete', methods=['GET','POST'])
 def complete_list():
@@ -978,26 +991,34 @@ def complete_list():
 	User = session['email']
 	get = function.Search_tran(User)
 
-	tm = time.localtime()
-	mon = format(tm.tm_mon,'02')
-	day = format(tm.tm_mday, '02')
-	today =  str(mon)+ "/" +str(tm.tm_mday) +"/" +str(tm.tm_year)
+	if get != []:
 
-	temp = []
-	check = 0
-	for i in get:
-		checkin = i[4]
-		checkout = i[5]
-		if today>=checkout:
-			temp.append(i)
-			check += 1
-			if check == 3:
-				break
+		tm = time.localtime()
+		mon = format(tm.tm_mon,'02')
+		day = format(tm.tm_mday, '02')
+		today =  str(mon)+ "/" +str(tm.tm_mday) +"/" +str(tm.tm_year)
+
+		temp = []
+		check = 0
+		for i in get:
+			checkin = i[4]
+			checkout = i[5]
+			if today>=checkout:
+				temp.append(i)
+				check += 1
+				if check == 3:
+					break
+
+	else:
+		temp = 'None'
 
 	return render_template("user_payments_complete.html",
 						title='MyPayments/list',
 						session='OK',
-						result_list = temp)
+						result_list = temp,
+						home_enroll = home_enroll[0][0],
+						pet_enroll = pet_enroll[0][0],
+						petsitter_enroll = petsitter_enroll[0][0])
 
 
 @app.route('/remove_petsitter', methods=['GET', 'POST'])
