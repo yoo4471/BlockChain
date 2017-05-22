@@ -553,8 +553,8 @@ def enrollment_home_car_elevator():
 		home_car_elevator = [User, elevator, parking]
 		blockchain_restapi.save_home_car_elevator(home_car_elevator)
 		# read error
-		# return redirect('/rooms')
-		return redirect('/')
+		return redirect('/rooms')
+		# return redirect('/')
 
 
 	return render_template("car_elevator.html",
@@ -592,7 +592,7 @@ def start_petsitter():
 
 		blockchain_restapi.save_petsitter(save_petsitter_info)
 
-		Update_AP(User)
+		function.Update_AP(User)
 		return redirect('/petsitter')
 
 	return render_template("start_petsitter.html",
@@ -917,11 +917,14 @@ def pesitter():
 	Check_AP = function.Check_AP(User)
 
 	if Check_AP[0][0]=='1':
-		a = blockchain_restapi.read_petsitter(User)
-		a = json.loads(a)
-		b = a['result']['message']
-		c = json.loads(b, object_pairs_hook=OrderedDict)
-		petsitter = [list(c.values())]
+		try:
+			a = blockchain_restapi.read_petsitter(User)
+			a = json.loads(a)
+			b = a['result']['message']
+			c = json.loads(b, object_pairs_hook=OrderedDict)
+			petsitter = [list(c.values())]
+		except:
+			petsitter = 'loading'
 	else:
 		petsitter = ''
 
