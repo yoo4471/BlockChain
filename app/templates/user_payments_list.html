@@ -34,7 +34,50 @@
                     <div class="suspension-container">
                       가장 최근 진행중인 거래목록을 보여드립니다.
 
-                      {% if result_list == 'None' %}
+                      {% if result_list == 'loading' %}
+                      <div class="panel space-4">
+                          <div class="panel-header active-panel-header">
+                              <div class="active-panel-padding">잠시만 기다려 주세요.</div>
+                          </div>
+                          <ul class="list-unstyled list-layout">
+                              <li class="listing panel-body" data-hosting-id="17629582">
+                                  <div class="row row-table"><i class="icon icon-size-1 icon-remove icon-remove-listing show-sm"></i>
+                                      <div class="col-middle space-sm-2 space-top-sm-4 col-md-5 listing-photo">
+
+                                          <!-- <a href="/manage-listing/17629582/photos"> -->
+                                              <div class="media-photo media-photo-block-lg">
+                                                  <div class="media-cover text-center">
+                                                    <img class="img-responsive-height" src="{{ url_for('static', filename= 'img/dog.png') }}" alt="...">
+
+                                                  </div>
+                                              </div>
+                                          <!-- </a> -->
+                                      </div>
+                                      <div class="col-sm-10 col-lg-7 col-middle">
+                                          <div class="row row-table">
+                                              <div class="col-lg-10">
+                                                  <div class="listing-progress">
+                                                      <div class="text-babu space-top-1">
+                                                        <span>블록체인에 등록중 입니다.</span>
+                                                      </div>
+                                                      <div class="space-top-2"></div>
+                                                  </div>
+                                              </div>
+                                          </div><span class="h4">
+                                            <!-- <a href="/manage-listing/17629582" class="text-normal"> -->
+                                              <span><!-- react-text: 27 -->
+
+                                        </span>
+                                      <!-- </a> -->
+                                          </span>
+
+                                          <!-- <div class="text-muted text-grey space-top-1 last-modified-date"><span>최종 거래 완료: {{ result_list[2][6] }}</span></div> -->
+                                      </div>
+                                  </div>
+                              </li>
+                          </ul>
+                      </div>
+                      {% elif result_list == 'None' %}
                       <div class="panel space-4">
                           <div class="panel-header active-panel-header">
                               <div class="active-panel-padding">진행중인 펫시팅이 없습니다.</div>

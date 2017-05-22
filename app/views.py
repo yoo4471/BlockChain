@@ -996,26 +996,36 @@ def payments_list():
 		blockchain_restapi.save_tran(save_tran_info)
 
 		# Hyojung
-		a = blockchain_restapi.search_tran(User)
-		a = json.loads(a)
-		b = a['result']['message']
-		c = json.loads(b, object_pairs_hook=OrderedDict)
-		result = [list(c.values())]
+		try:
+			a = blockchain_restapi.search_tran(User)
+			a = json.loads(a)
+			b = a['result']['message']
+			c = json.loads(b, object_pairs_hook=OrderedDict)
+			result = [list(c.values())]
+		except:
+			result = 'loading'
 
 		return render_template("user_payments_list.html",
 							title='MyPayments/list',
 							session='OK',
 							result_list = result)
 
-	User = session['email']
-	# get = function.Search_tran(User)
-	a = blockchain_restapi.search_tran(User)
-	a = json.loads(a)
-	b = a['result']['message']
-	c = json.loads(b, object_pairs_hook=OrderedDict)
-	get = [list(c.values())]
+	try:
+		User = session['email']
+		# get = function.Search_tran(User)
+		a = blockchain_restapi.search_tran(User)
+		a = json.loads(a)
+		b = a['result']['message']
+		c = json.loads(b, object_pairs_hook=OrderedDict)
+		get = [list(c.values())]
+	except:
+		get = 'loading'
 
-	if get != 'None':
+	check = 0
+	if get == 'loading':
+		temp = 'loading'
+
+	else if get != 'None':
 
 		tm = time.localtime()
 		mon = format(tm.tm_mon,'02')
