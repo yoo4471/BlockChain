@@ -122,6 +122,67 @@ function confirm_delete() {
                 </div>
             </div>
         </div>
+        {% else %}
+        <div class="col-md-9">
+      <div id="listings-container">
+          <div data-reactroot="">
+              <div class="suspension-container">
+                  <div class="panel space-4">
+                      <div class="panel-header active-panel-header">
+                          <div class="active-panel-padding">등록한 펫 관리</div>
+                      </div>
+                      <ul class="list-unstyled list-layout">
+                          <li class="listing panel-body" data-hosting-id="17629582">
+                              <div class="row row-table"><i class="icon icon-size-1 icon-remove icon-remove-listing show-sm"></i>
+                                  <div class="col-middle space-sm-2 space-top-sm-4 col-md-5 listing-photo">
+                                      <a href="/manage-listing/17629582/photos">
+                                          <div class="media-photo media-photo-block-lg">
+                                              <div class="media-cover text-center"><img class="img-responsive-height" src="https://a0.muscache.com/airbnb/static/page3/v3/room_default_no_photos-f209d3d70c1bed81fb0822b68e913045.png"></div>
+                                          </div>
+                                      </a>
+                                  </div>
+                                  <div class="col-sm-10 col-lg-7 col-middle">
+                                      <div class="row row-table">
+                                          <div class="col-lg-10">
+                                              <div class="listing-progress">
+                                                  <!-- <div class="progress progress-bar__lean" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="7">
+                                                      <div class="progress-bar progress-bar-success progress-bar__babu" style="width: 100%;"></div>
+                                                  </div> -->
+                                                  <div class="text-babu space-top-1"><span>등록한 펫이 없습니다.</span></div>
+
+
+
+                                                  <div class="space-top-2"></div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <span class="h4"><span>
+
+
+                                      </span>
+                                      </span>
+                                      <!-- <div class="text-muted text-grey space-top-1 last-modified-date"><span>최종 업데이트: </span></div> -->
+
+
+                                      <form action="/remove_house" onSubmit="return confirm_delete()" method="post">
+                                      <div class="space-top-4">
+                                        <!-- <a class="btn btn__first-btn btn-primary" href="/enrollment_home/address"><span>새로운 숙소 추가</span></a> -->
+                                        <!-- <input type="submit" class="btn btn__second-btn" value="삭제하기"/> -->
+                                      </form>
+
+                                        <noscript></noscript></div>
+                              </div>
+                          </li>
+                      </ul>
+                  </div>
+                  <!-- react-empty: 36 -->
+                  <!-- react-empty: 37 -->
+                  <!-- react-empty: 38 -->
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
         {% endif %}
 
     </div>
