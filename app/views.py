@@ -1002,6 +1002,9 @@ def payments_list():
 	else:
 		temp = 'None'
 
+	if check == 0:
+		temp = 'None'
+
 	home_enroll = function.Check_citycode(session['email'])
 	pet_enroll = function.Check_npet(session['email'])
 	petsitter_enroll = function.Check_AP(session['email'])
@@ -1041,6 +1044,9 @@ def complete_list():
 					break
 
 	else:
+		temp = 'None'
+
+	if check == 0:
 		temp = 'None'
 
 	home_enroll = function.Check_citycode(session['email'])
