@@ -17,9 +17,15 @@ function confirm_delete() {
                     <a href="/pets" aria-selected="true" class="sidenav-item">펫 목록</a>
                 </li>
 
+                {% if not pets %}
                 <div class="space-top-4 space-4">
-                    <a href="#/pets/new" aria-selected="false" class="btn btn-host">새로운 펫 추가</a>
+                    <a href="//enrollment_pet/pet" aria-selected="false" class="btn btn-host">새로운 펫 추가</a>
                 </div>
+                {% else %}
+                <div class="space-top-4 space-4">
+                    <a href="/modify_pet/pet" aria-selected="false" class="btn btn-host">마이펫 수정</a>
+                </div>
+                {% endif %}
             </ul>
 
         </div>
