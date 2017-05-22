@@ -886,11 +886,17 @@ def pesitter():
 		return redirect('/')
 
 	User = session['email']
-	a = blockchain_restapi.read_petsitter(User)
-	a = json.loads(a)
-	b = a['result']['message']
-	c = json.loads(b, object_pairs_hook=OrderedDict)
-	petsitter = [list(c.values())]
+	Check_AP = function.Check_AP(User)
+
+	if Check_AP[0][0]=='1':
+		a = blockchain_restapi.read_petsitter(User)
+		a = json.loads(a)
+		b = a['result']['message']
+		c = json.loads(b, object_pairs_hook=OrderedDict)
+		petsitter = [list(c.values())]
+	else:
+		petsitter = ''
+
 
 	home_enroll = function.Check_citycode(session['email'])
 	pet_enroll = function.Check_npet(session['email'])
