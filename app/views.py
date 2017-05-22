@@ -107,9 +107,6 @@ def results_none_region():
 	print("=====================================================",request.query_string,"=====================================================")
 
 	bytotal = [region, str(guests), str(adults), str(children), str(infants), checkin_ymd, checkout_ymd]
-	a = blockchain_restapi.search_bytotal(bytotal)
-	a = json.loads(a)
-	b = a['result']['message']
 
 	try:
 		a = blockchain_restapi.search_bytotal(bytotal)
