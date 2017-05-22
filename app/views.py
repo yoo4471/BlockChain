@@ -979,9 +979,18 @@ def payments_list():
 		petsitter_nickname = [list(c.values())]
 		print("petsitter_nickname :",petsitter_nickname[0][1])
 
-		function.Save_tran(PETSITTERS[count][0], petsitter_nickname[0][1], User, USER_SEARCH[4], USER_SEARCH[5], date, str(total_charge), '\0')
+		# function.Save_tran(PETSITTERS[count][0], petsitter_nickname[0][1], User, USER_SEARCH[4], USER_SEARCH[5], date, str(total_charge), '\0')
+		#
+		# result = function.Search_tran(User)
+		save_tran_info = [PETSITTERS[count][0], petsitter_nickname[0][1], User, USER_SEARCH[4], USER_SEARCH[5], date, str(total_charge), '\0']
+		blockchain_restapi.save_tran(save_tran_info)
 
-		result = function.Search_tran(User)
+
+		a = blockchain_restapi.search_tran(User)
+		a = json.loads(a)
+		b = a['result']['message']
+		c = json.loads(b, object_pairs_hook=OrderedDict)
+		result = [list(c.values())]
 
 		return render_template("user_payments_list.html",
 							title='MyPayments/list',
@@ -989,7 +998,12 @@ def payments_list():
 							result_list = result)
 
 	User = session['email']
-	get = function.Search_tran(User)
+	# get = function.Search_tran(User)
+	a = blockchain_restapi.search_tran(User)
+	a = json.loads(a)
+	b = a['result']['message']
+	c = json.loads(b, object_pairs_hook=OrderedDict)
+	get = [list(c.values())]
 
 	if get != 'None':
 
@@ -1035,7 +1049,12 @@ def complete_list():
 		return redirect('/')
 
 	User = session['email']
-	get = function.Search_tran(User)
+	# get = function.Search_tran(User)
+	a = blockchain_restapi.search_tran(User)
+	a = json.loads(a)
+	b = a['result']['message']
+	c = json.loads(b, object_pairs_hook=OrderedDict)
+	get = [list(c.values())]
 
 	if get != 'None':
 
