@@ -20,7 +20,7 @@ app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 # index view function suppressed for brevity
 PETSITTERS = ''
 USER_SEARCH = ''
-count = 0
+count = 0 #
 total_charge = 0
 
 @app.route('/getChaincode')
@@ -235,6 +235,7 @@ def results(region):
 		print("=====================================================",request.query_string,"=====================================================")
 
 		bytotal = [region, str(guests), str(adults), str(children), str(infants), checkin_ymd, checkout_ymd]
+
 		a = blockchain_restapi.search_bytotal(bytotal)
 
 	try:
@@ -350,11 +351,13 @@ def detail(petsitter):
 	print("detail : ", detail_about_petsitter)
 	print("petsitter: ", PETSITTERS[petsitter])
 
+
 	cost_small = int(detail_about_petsitter[0][1]) * USER_SEARCH[1]
 	cost_medium = int(detail_about_petsitter[0][2]) * USER_SEARCH[2]
 	cost_large = int(detail_about_petsitter[0][3]) * USER_SEARCH[3]
 
 	print(cost_small, cost_medium, cost_large)
+
 	add_all = int(cost_small) + int(cost_medium) + int(cost_large)
 
 	total = cost_small, cost_medium, cost_large, add_all
@@ -421,7 +424,7 @@ def payments():
 		d0 = date(checkin_year, checkin_month, checkin_day)
 		d1 = date(checkout_year, checkout_month, checkout_day)
 		term = d1 - d0
-		temp_charge = total_charge
+		temp_charge = `total_charge`
 		total = temp_charge * term.days
 		total_charge = total
 
