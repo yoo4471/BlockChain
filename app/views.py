@@ -1012,6 +1012,10 @@ def complete_list():
 	else:
 		temp = 'None'
 
+	home_enroll = function.Check_citycode(session['email'])
+	pet_enroll = function.Check_npet(session['email'])
+	petsitter_enroll = function.Check_AP(session['email'])
+
 	return render_template("user_payments_complete.html",
 						title='MyPayments/list',
 						session='OK',
