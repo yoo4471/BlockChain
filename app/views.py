@@ -111,19 +111,26 @@ def results_none_region():
 	a = json.loads(a)
 	b = a['result']['message']
 
-	c = b.split('/')
-	c.pop(-1)
+	try:
+		a = blockchain_restapi.search_bytotal(bytotal)
+		a = json.loads(a)
+		b = a['result']['message']
+		c = b.split('/')
+		c.pop(-1)
 
-	petsitter_list = []
-	home_list = []
+		petsitter_list = []
+		home_list = []
 
-	for d in c:
-	    petsitter = d.split('?')[0]
-	    petsitter_split = petsitter.split(',')
-	    home = d.split('?')[1]
-	    home_split = home.split(',')
-	    petsitter_list.append(petsitter_split)
-	    home_list.append(home_split)
+		for d in c:
+	    	petsitter = d.split('?')[0]
+	    	petsitter_split = petsitter.split(',')
+	    	home = d.split('?')[1]
+	    	home_split = home.split(',')
+	    	petsitter_list.append(petsitter_split)
+	    	home_list.append(home_split)
+
+	except:
+		b = '0'
 
 	#count total petsitter list
 	if b != '0':
@@ -151,6 +158,7 @@ def results_none_region():
 
 	pass_search = "all location", checkin, checkout, guests, adults, children, infants
 
+	page = 0
 	if b != '0':
 		total = 0
 		page = 0
@@ -198,37 +206,53 @@ def results(region):
 	S = request.args['adults'] #small
 	M = request.args['children'] #medium
 	L = request.args['infants'] #large
-	guests = int(S) + int(M) + int(L)
-	adults = int(S)
-	children = int(M)
-	infants = int(L)
 
-	print(region)
-	print("number of small pet = ", guests)
-	print("number of medium pet = ", adults)
-	print("number of large pet = ", children)
-	print("checkin  = ", checkin)
-	print("checkout = ", checkout)
-	print("=====================================================",request.query_string,"=====================================================")
+	if S == 'None':
+		# only location
+		byregion = [region]
+		a = blockchain_restapi.search_byregion(byregion)
+		guests = '1'
+		adults = 'None'
+		children = 'None'
+		infants = 'None'
 
-	bytotal = [region, str(guests), str(adults), str(children), str(infants), checkin_ymd, checkout_ymd]
-	a = blockchain_restapi.search_bytotal(bytotal)
-	a = json.loads(a)
-	b = a['result']['message']
 
-	c = b.split('/')
-	c.pop(-1)
+	else:
+		guests = int(S) + int(M) + int(L)
+		adults = int(S)
+		children = int(M)
+		infants = int(L)
 
-	petsitter_list = []
-	home_list = []
+		print(region)
+		print("number of small pet = ", guests)
+		print("number of medium pet = ", adults)
+		print("number of large pet = ", children)
+		print("checkin  = ", checkin)
+		print("checkout = ", checkout)
+		print("=====================================================",request.query_string,"=====================================================")
 
-	for d in c:
-	    petsitter = d.split('?')[0]
-	    petsitter_split = petsitter.split(',')
-	    home = d.split('?')[1]
-	    home_split = home.split(',')
-	    petsitter_list.append(petsitter_split)
-	    home_list.append(home_split)
+		bytotal = [region, str(guests), str(adults), str(children), str(infants), checkin_ymd, checkout_ymd]
+	  a = blockchain_restapi.search_bytotal(bytotal)
+
+	try:
+		a = json.loads(a)
+		b = a['result']['message']
+
+		c = b.split('/')
+		c.pop(-1)
+
+		petsitter_list = []
+		home_list = []
+
+		for d in c:
+		    petsitter = d.split('?')[0]
+		    petsitter_split = petsitter.split(',')
+		    home = d.split('?')[1]
+		    home_split = home.split(',')
+		    petsitter_list.append(petsitter_split)
+		    home_list.append(home_split)
+	except:
+		b = '0'
 
 	#count total petsitter list
 	if b != '0':
@@ -258,6 +282,7 @@ def results(region):
 
 	print("===========with region=========")
 
+	page = 0
 	if b != '0':
 		total = 0
 		page = 0
