@@ -579,7 +579,9 @@ def start_petsitter():
 		Cost_Medium = request.form.get("Cost_Medium")
 		Cost_Small = request.form.get("Cost_Small")
 		Start_Date = request.form.get("Start_Date")
+		# Start_Date_ymd = checkin.split('/')[2] + checkin.split('/')[0] + checkin.split('/')[1]
 		End_Date = request.form.get("End_Date")
+		# End_Date_ymd = checkout.split('/')[2] + checkout.split('/')[0] + checkout.split('/')[1]
 		Except_Date = request.form.get("Except_Date")
 		Home_Name = request.form.get("Home_Name")
 		Home_Intro = request.form.get("Home_Intro")
