@@ -195,10 +195,6 @@ def results_none_region():
 def results(region):
 
 	print(type(region))
-	checkin = request.args['checkin']
-	checkin_ymd = checkin.split('/')[2] + checkin.split('/')[0] + checkin.split('/')[1]
-	checkout = request.args['checkout']
-	checkout_ymd = checkout.split('/')[2] + checkout.split('/')[0] + checkout.split('/')[1]
 
 	S = request.args['adults'] #small
 	M = request.args['children'] #medium
@@ -212,9 +208,16 @@ def results(region):
 		adults = 'None'
 		children = 'None'
 		infants = 'None'
+		checkin = 'None'
+		checkout = 'None'
 
 
 	else:
+		checkin = request.args['checkin']
+		checkin_ymd = checkin.split('/')[2] + checkin.split('/')[0] + checkin.split('/')[1]
+		checkout = request.args['checkout']
+		checkout_ymd = checkout.split('/')[2] + checkout.split('/')[0] + checkout.split('/')[1]
+
 		guests = int(S) + int(M) + int(L)
 		adults = int(S)
 		children = int(M)
