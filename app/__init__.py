@@ -8,7 +8,7 @@ from app import views
 try:
 
     function.Make_db_member()
-    function.Make_db_house()
+    function.Make_db_house_new()
     function.Make_db_pet()
     function.Make_db_petsitter()
     function.Make_db_image()
