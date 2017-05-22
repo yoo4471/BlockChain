@@ -120,12 +120,12 @@ def results_none_region():
 		home_list = []
 
 		for d in c:
-	    	petsitter = d.split('?')[0]
-	    	petsitter_split = petsitter.split(',')
-	    	home = d.split('?')[1]
-	    	home_split = home.split(',')
-	    	petsitter_list.append(petsitter_split)
-	    	home_list.append(home_split)
+			petsitter = d.split('?')[0]
+			petsitter_split = petsitter.split(',')
+			home = d.split('?')[1]
+			home_split = home.split(',')
+			petsitter_list.append(petsitter_split)
+			home_list.append(home_split)
 
 
 	except:
@@ -232,7 +232,7 @@ def results(region):
 		print("=====================================================",request.query_string,"=====================================================")
 
 		bytotal = [region, str(guests), str(adults), str(children), str(infants), checkin_ymd, checkout_ymd]
-	  a = blockchain_restapi.search_bytotal(bytotal)
+		a = blockchain_restapi.search_bytotal(bytotal)
 
 	try:
 		a = json.loads(a)
@@ -246,12 +246,12 @@ def results(region):
 
 
 		for d in c:
-		    petsitter = d.split('?')[0]
-		    petsitter_split = petsitter.split(',')
-		    home = d.split('?')[1]
-		    home_split = home.split(',')
-		    petsitter_list.append(petsitter_split)
-		    home_list.append(home_split)
+			petsitter = d.split('?')[0]
+			petsitter_split = petsitter.split(',')
+			home = d.split('?')[1]
+			home_split = home.split(',')
+			petsitter_list.append(petsitter_split)
+			home_list.append(home_split)
 	except:
 		b = '0'
 
