@@ -275,29 +275,29 @@ def modify_home_car_elevator(arg):
 
 
 #INVOKE - save_tran
-def save_tran():
-   url = blockchain_ibm + '/chaincode'
-   payload = {
-	 "jsonrpc": "2.0",
-	 "method": "invoke",
-	 "params": {
-		"type": 1,
-		"chaincodeID":{
-		   "name": function.Get_key()
-		},
-		"ctorMsg": {
-		  "function": "save_tran",
-		  "args": [
-			"userID", "sceretkey"
-		  ]
-		},
-		"secureContext": secureContext
-	 },
-	 "id": 0
-   }
-   headers = {'content-type': 'application/json'}
-   r = requests.post(url, data=json.dumps(payload), headers=headers)
-   return r.text
+def save_tran(arg):
+	url = blockchain_ibm + '/chaincode'
+	payload = {
+	  "jsonrpc": "2.0",
+	  "method": "invoke",
+	  "params": {
+		  "type": 1,
+		  "chaincodeID":{
+			  "name": function.Get_key()
+		  },
+		  "ctorMsg": {
+			 "function": "save_tran",
+			 "args": [
+				arg[0], arg[1], arg[2], arg[3], arg[4], arg[5], arg[6], arg[7]
+			 ]
+		  },
+		  "secureContext": secureContext
+	  },
+	  "id": 0
+	}
+	headers = {'content-type': 'application/json'}
+	r = requests.post(url, data=json.dumps(payload), headers=headers)
+	return r.text
 
 #INVOKE - delete_house
 def delete_house(arg):
@@ -425,7 +425,7 @@ def read_house(arg):
    return r.text
 
 #Query - search_tran
-def search_tran():
+def search_tran(arg):
    url = blockchain_ibm + '/chaincode'
    payload = {
 	 "jsonrpc": "2.0",
@@ -438,7 +438,7 @@ def search_tran():
 		"ctorMsg": {
 		  "function": "search_tran",
 		  "args": [
-			"producer", "consumer", "type", "starttime"
+			arg
 		  ]
 		},
 		"secureContext": secureContext

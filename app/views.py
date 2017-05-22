@@ -223,7 +223,7 @@ def results(region):
 		children = int(M)
 		infants = int(L)
 
-		print(region)
+
 		print("number of small pet = ", guests)
 		print("number of medium pet = ", adults)
 		print("number of large pet = ", children)
