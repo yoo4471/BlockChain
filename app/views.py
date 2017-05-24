@@ -1025,7 +1025,7 @@ def payments_list():
 	if get == 'loading':
 		temp = 'loading'
 
-	else if get != 'None':
+	elif get != 'None':
 
 		tm = time.localtime()
 		mon = format(tm.tm_mon,'02')
