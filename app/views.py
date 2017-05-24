@@ -18,10 +18,10 @@ app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 # app.secret_key = os.urandom(24)
 
 # index view function suppressed for brevity
-PETSITTERS = ''
-USER_SEARCH = ''
-count = 0 #
-total_charge = 0
+# PETSITTERS = ''
+# USER_SEARCH = ''
+# count = 0 #
+# total_charge = 0
 
 @app.route('/getChaincode')
 def getChaincode():
@@ -84,6 +84,10 @@ def index():
 @app.route('/s', methods=['GET', 'POST'])
 def results_none_region():
 
+	if not 'email' in session:
+
+		return redirect('/login')
+
 	checkin = request.args['checkin']
 	checkin_ymd = checkin.split('/')[2] + checkin.split('/')[0] + checkin.split('/')[1]
 	checkout = request.args['checkout']
@@ -135,6 +139,9 @@ def results_none_region():
 
 	#count total petsitter list
 	if b != '0':
+		check = new.Read_petsitter_info(session['email'])
+		if(check != []):
+			new.delete_petsitter_info(session['email'])
 		cnt = 0
 		for i in petsitter_list:
 			cnt=cnt+1
@@ -144,6 +151,7 @@ def results_none_region():
 			Info = petsitter_list[i]+home_list[i]
 			region = Info[15] + ' ' + Info[16]
 			temp = Info[0], Info[2],Info[3],Info[4], Info[12], region, Info[20], Info[21], Info[8]
+			new.Save_petsitter_info(session['email'], Info[0], Info[2],Info[3],Info[4], Info[12], region, Info[20], Info[21], Info[8])
 			result.append(temp)
 		print(result)
 
@@ -151,11 +159,17 @@ def results_none_region():
 	# result = Info[0], Info[2],Info[3],Info[4], Info[12], addr, Info[20], Info[21], Info[8]
 
 	# save petsitter
-	global PETSITTERS
-	PETSITTERS = result
+	# global PETSITTERS
+	# PETSITTERS = result
 	# save search
-	global USER_SEARCH
-	USER_SEARCH = guests, adults, children, infants, checkin, checkout
+	# global USER_SEARCH
+	# USER_SEARCH = guests, adults, children, infants, checkin, checkout
+
+	check = new.Read_user_search(session['email'])
+	if(check != []):
+		new.delete_user_search(session['email'])
+		print("check!", check)
+	new.Save_user_search(session['email'] , guests , adults , children , infants, checkin, checkout)
 
 	pass_search = "all location", checkin, checkout, guests, adults, children, infants
 
@@ -197,6 +211,10 @@ def results_none_region():
 @app.route('/s/', defaults={'region': ''}, methods=['GET', 'POST'])
 @app.route('/s/<region>', methods=['GET', 'POST'])
 def results(region):
+
+	if not 'email' in session:
+
+		return redirect('/login')
 
 	print(type(region))
 
@@ -266,6 +284,9 @@ def results(region):
 
 	#count total petsitter list
 	if b != '0':
+		check = new.Read_petsitter_info(session['email'])
+		if(check != []):
+			new.delete_petsitter_info(session['email'])
 		cnt = 0
 		for i in petsitter_list:
 			cnt=cnt+1
@@ -275,6 +296,7 @@ def results(region):
 			Info = petsitter_list[i]+home_list[i]
 			region = Info[15] + ' ' + Info[16]
 			temp = Info[0], Info[2],Info[3],Info[4], Info[12], region, Info[20], Info[21], Info[8]
+			new.Save_petsitter_info(session['email'], Info[0], Info[2],Info[3],Info[4], Info[12], region, Info[20], Info[21], Info[8])
 			result.append(temp)
 		print(result)
 
@@ -282,11 +304,19 @@ def results(region):
 	# result = Info[0], Info[2],Info[3],Info[4], Info[12], addr, Info[20], Info[21], Info[8]
 
 	# save petsitter
-	global PETSITTERS
-	PETSITTERS = result
+
+	# global PETSITTERS
+	# PETSITTERS = result
+
 	# save search
-	global USER_SEARCH
-	USER_SEARCH = guests, adults, children, infants, checkin, checkout
+	# global USER_SEARCH
+	# USER_SEARCH = guests, adults, children, infants, checkin, checkout
+
+	check = new.Read_user_search(session['email'])
+	if(check != []):
+		new.delete_user_search(session['email'])
+		print("check!", check)
+	new.Save_user_search(session['email'] , guests , adults , children , infants, checkin, checkout)
 
 	pass_search = region, checkin, checkout, guests, adults, children, infants
 
@@ -330,11 +360,15 @@ def results(region):
 @app.route('/booking/<int:num>', methods=['GET', 'POST'])
 def booking(num):
 
-	global PETSITTERS
-	global count
+	# global PETSITTERS
+	# global count
 	count = num - 1
 
 	if 'email' in session:
+		check = new.Read_petsitter_num(session['email'])
+		if (check != []):
+			new.delete_petsitter_num(session['email'])
+		new.Save_petsitter_num(count, session['email'])
 		return redirect(url_for('detail',petsitter = num-1))
 
 	return redirect(url_for('detail',petsitter = num-1))
@@ -342,25 +376,38 @@ def booking(num):
 @app.route('/detail/<int:petsitter>', methods=['GET', 'POST'])
 def detail(petsitter):
 
-	global PETSITTERS
-	global USER_SEARCH
-	global total_charge
+	if not 'email' in session:
+		return redirect('/login')
 
-	print( PETSITTERS, USER_SEARCH, total_charge)
-	a = blockchain_restapi.read_petsitter(PETSITTERS[petsitter][0])
-	print("detail -> read_pietsitter : ", a)
+	# global PETSITTERS
+	# global USER_SEARCH
+	# global total_charge
+
+
+	db_petsitter = new.Read_petsitter_info(session['email'])
+	detail_about_petsitter = function.Read_petsitter(db_petsitter[petsitter][1])
+
+	# print( PETSITTERS, USER_SEARCH, total_charge)
+	a = blockchain_restapi.read_petsitter(db_petsitter[petsitter][1])
+	# a = blockchain_restapi.read_petsitter(PETSITTERS[petsitter][0])
+  print("detail -> read_pietsitter : ", a)
+
 	a = json.loads(a)
 	b = a['result']['message']
 	c = json.loads(b, object_pairs_hook=OrderedDict)
 	detail_about_petsitter = [list(c.values())]
 
 	print("detail : ", detail_about_petsitter)
-	print("petsitter: ", PETSITTERS[petsitter])
+	# print("petsitter: ", PETSITTERS[petsitter])
 
+	db_user_search = new.Read_user_search(session['email'])
 
-	cost_small = int(detail_about_petsitter[0][1]) * USER_SEARCH[1]
-	cost_medium = int(detail_about_petsitter[0][2]) * USER_SEARCH[2]
-	cost_large = int(detail_about_petsitter[0][3]) * USER_SEARCH[3]
+	cost_small = int(detail_about_petsitter[0][2]) * db_user_search[0][2]
+	cost_medium = int(detail_about_petsitter[0][3]) * db_user_search[0][3]
+	cost_large = int(detail_about_petsitter[0][4]) * db_user_search[0][4]
+	# cost_small = int(detail_about_petsitter[0][1]) * USER_SEARCH[1]
+	# cost_medium = int(detail_about_petsitter[0][2]) * USER_SEARCH[2]
+	# cost_large = int(detail_about_petsitter[0][3]) * USER_SEARCH[3]
 
 	print(cost_small, cost_medium, cost_large)
 
@@ -368,7 +415,11 @@ def detail(petsitter):
 
 	total = cost_small, cost_medium, cost_large, add_all
 
-	total_charge = add_all
+	# total_charge = add_all
+	check = new.Read_charge(session['email'])
+	if check != []:
+		new.delete_charge(session['email'])
+	new.Save_charge(add_all, session['email'])
 
 	if 'email' in session:
 		home_enroll = function.Check_citycode(session['email'])
@@ -378,30 +429,23 @@ def detail(petsitter):
 							title='booking',
 							session=session['email'],
 							detail_petsitter = detail_about_petsitter,
-							results = PETSITTERS[petsitter],
-							user = USER_SEARCH,
+							results = db_petsitter[petsitter],
+							user = db_user_search[0],
 							total_cost = total,
 							home_enroll = home_enroll[0][0],
 							pet_enroll = pet_enroll[0][0],
 							petsitter_enroll = petsitter_enroll[0][0]
 							)
 
-	return render_template("booking.html",
-						title='booking',
-						session=None,
-						detail_petsitter = detail_about_petsitter,
-						results = PETSITTERS[petsitter],
-						user = USER_SEARCH,
-						total_cost = total
-						)
+	return redirect('login')
 
 @app.route('/payments/', methods=['GET', 'POST'])
 def payments():
 
-	global PETSITTERS
-	global USER_SEARCH
-	global count
-	global total_charge
+	# global PETSITTERS
+	# global USER_SEARCH
+	# global count
+	# global total_charge
 
 	print("count: ", count)
 
@@ -409,9 +453,21 @@ def payments():
 		home_enroll = function.Check_citycode(session['email'])
 		pet_enroll = function.Check_npet(session['email'])
 		petsitter_enroll = function.Check_AP(session['email'])
+
+		db_count = new.Read_petsitter_num(session['email'])
+		db_petsitter = new.Read_petsitter_info(session['email'])
+		db_user_search = new.Read_user_search(session['email'])
+		db_total_charge = new.Read_charge(session['email'])
+
+		save_int_count = db_count[0][0]
+		# detail_about_petsitter = function.Read_petsitter(temp_petsitter[save_int_count][1])
+
 		# get petsitters information
-		a = blockchain_restapi.read_petsitter(PETSITTERS[count][0])
-		print("payments -> read_petsitter : ", a)
+
+		a = blockchain_restapi.read_petsitter(db_petsitter[save_int_count][1])
+    print("payments -> read_petsitter : ", a)
+		# a = blockchain_restapi.read_petsitter(PETSITTERS[count][0])
+
 		a = json.loads(a)
 		b = a['result']['message']
 		c = json.loads(b, object_pairs_hook=OrderedDict)
@@ -431,16 +487,17 @@ def payments():
 		d0 = date(checkin_year, checkin_month, checkin_day)
 		d1 = date(checkout_year, checkout_month, checkout_day)
 		term = d1 - d0
-		temp_charge = total_charge
+		temp_charge = total_charge[0][0]
 		total = temp_charge * term.days
-		total_charge = total
+		# total_charge = total
+		new.modify_charge(total, session['email'])
 
 		return render_template("payments.html",
 							title='payments',
 							session=session['email'],
 							detail_petsitter = detail_about_petsitter,
-							results = PETSITTERS[count],
-							user = USER_SEARCH,
+							results = db_petsitter[save_int_count],
+							user = db_user_search[0],
 							charge = temp_charge,
 							term = term.days,
 							total = total,
@@ -500,10 +557,12 @@ def signup():
 
 @app.route('/logout', methods=['GET', 'POST'])
 def logout():
-	# remove the username from the session if it's there
+	new.delete_petsitter_num(session['email'])
+	new.delete_petsitter_info(session['email'])
+	new.delete_user_search(session['email'])
+	new.delete_charge(session['email'])
 	session.pop('email', None)
 	return redirect('/')
-
 
 @app.route('/enrollment_home/address', methods=['GET', 'POST'])
 def enrollment_home_address():
@@ -982,20 +1041,29 @@ def payments_list():
 	if request.method == 'POST':
 		# save payments result
 
-		global PETSITTERS
-		global USER_SEARCH
-		global count
-		global total_charge
+		# global PETSITTERS
+		# global USER_SEARCH
+		# global count
+		# global total_charge
 
 
 
 		User = session['email']
 
+		db_count = new.Read_petsitter_num(User)
+		db_petsitter = new.Read_petsitter_info(User)
+		db_user_search = new.Read_user_search(User)
+		db_total_charge = new.Read_charge(User)
+
+		save_int_count = db_count[0][0]
+
 		a = time.localtime()
 		date = str(a.tm_year) +"_" +str(a.tm_mon)+ "_" +str(a.tm_mday) + " "+str(a.tm_hour)+":"+str(a.tm_min)+":"+str(a.tm_sec)
 
-		a = blockchain_restapi.read_petsitter(PETSITTERS[count][0])
-		print("payments/ing -> read_petsitter", a)
+
+		a = blockchain_restapi.read_petsitter(db_petsitter[save_int_count][1])
+    print("payments/ing -> read_petsitter", a)
+
 		a = json.loads(a)
 		b = a['result']['message']
 		c = json.loads(b, object_pairs_hook=OrderedDict)
@@ -1006,9 +1074,11 @@ def payments_list():
 		# function.Save_tran(PETSITTERS[count][0], petsitter_nickname[0][1], User, USER_SEARCH[4], USER_SEARCH[5], date, str(total_charge), '\0')
 		#
 		# result = function.Search_tran(User)
-		save_tran_info = [PETSITTERS[count][0], petsitter_nickname[0][0], User, USER_SEARCH[4], USER_SEARCH[5], date, str(total_charge), '\0']
+
+		save_tran_info = [db_petsitter[save_int_count][1], petsitter_nickname[0][0], User, USER_SEARCH[4], USER_SEARCH[5], date, str(total_charge), '\0']
 		res = blockchain_restapi.save_tran(save_tran_info)
-		print("payments/ing", res)
+    print("payments/ing", res)
+
 
 		# Hyojung
 		try:
@@ -1027,6 +1097,7 @@ def payments_list():
 							result_list = result)
 
 
+
 	User = session['email']
 	print("User : ", User)
 	# get = function.Search_tran(User)
@@ -1040,6 +1111,7 @@ def payments_list():
 		get = 'None'
 
 	if get != 'None':
+
 
 		tm = time.localtime()
 		mon = format(tm.tm_mon,'02')
@@ -1063,9 +1135,9 @@ def payments_list():
 					break
 		if check == 0:
 			temp = 'None'
+
 	else:
 		temp = 'None'
-
 
 
 	home_enroll = function.Check_citycode(session['email'])
@@ -1119,8 +1191,10 @@ def complete_list():
 					break
 		if check == 0:
 			temp = 'None'
+
 	else:
 		temp = 'None'
+
 
 
 
