@@ -1,4 +1,6 @@
 #user email largecost mediumcost smallcost homename region housetype room totalpet
+import sqlite3
+
 def Make_db_petsitter_info():
     con = sqlite3.connect("global.db")
     cursor = con.cursor()
