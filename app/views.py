@@ -115,6 +115,7 @@ def results_none_region():
 
 	try:
 		a = blockchain_restapi.search_bytotal(bytotal)
+		print("search_bytotal : ", a)
 		a = json.loads(a)
 		b = a['result']['message']
 		c = b.split('/')
@@ -226,7 +227,7 @@ def results(region):
 		byregion = region
 		a = blockchain_restapi.search_byregion(byregion)
 		# Hwiwon
-		print(a)
+		print("search_byregion : ", a)
 		guests = '1'
 		adults = 'None'
 		children = 'None'
@@ -257,9 +258,11 @@ def results(region):
 		bytotal = [region, str(guests), str(adults), str(children), str(infants), checkin_ymd, checkout_ymd]
 
 		a = blockchain_restapi.search_bytotal(bytotal)
+		print("search_bytotal : ", a)
 
 	try:
 		a = json.loads(a)
+		print("search_bytotal : ", a)
 		b = a['result']['message']
 
 		c = b.split('/')
@@ -380,12 +383,15 @@ def detail(petsitter):
 	# global USER_SEARCH
 	# global total_charge
 
+
 	db_petsitter = new.Read_petsitter_info(session['email'])
 	detail_about_petsitter = function.Read_petsitter(db_petsitter[petsitter][1])
 
 	# print( PETSITTERS, USER_SEARCH, total_charge)
 	a = blockchain_restapi.read_petsitter(db_petsitter[petsitter][1])
 	# a = blockchain_restapi.read_petsitter(PETSITTERS[petsitter][0])
+  print("detail -> read_pietsitter : ", a)
+
 	a = json.loads(a)
 	b = a['result']['message']
 	c = json.loads(b, object_pairs_hook=OrderedDict)
@@ -457,8 +463,11 @@ def payments():
 		# detail_about_petsitter = function.Read_petsitter(temp_petsitter[save_int_count][1])
 
 		# get petsitters information
+
 		a = blockchain_restapi.read_petsitter(db_petsitter[save_int_count][1])
+    print("payments -> read_petsitter : ", a)
 		# a = blockchain_restapi.read_petsitter(PETSITTERS[count][0])
+
 		a = json.loads(a)
 		b = a['result']['message']
 		c = json.loads(b, object_pairs_hook=OrderedDict)
@@ -623,7 +632,8 @@ def enrollment_home_car_elevator():
 		datas = function.Read_house_new(User)
 		total = list(datas)
 		total = total + home_car_elevator
-		blockchain_restapi.save_home(total)
+		res = blockchain_restapi.save_home(total)
+		print("save_home : ", res)
 		# read error
 		return redirect('/rooms')
 		# return redirect('/')
@@ -662,7 +672,8 @@ def start_petsitter():
 
 		save_petsitter_info = [User, Nickname, Cost_Large, Cost_Medium, Cost_Small, Start_Date , End_Date , Except_Date, Count_Total , Count_Large , Count_Medium , Count_Small, Home_Name ,Home_Intro]
 
-		blockchain_restapi.save_petsitter(save_petsitter_info)
+		res = blockchain_restapi.save_petsitter(save_petsitter_info)
+		print("save_petsitter : ", res)
 
 		function.Update_AP(User)
 		return redirect('/petsitter')
@@ -872,7 +883,8 @@ def modify_home_car_elevator():
 		datas = function.Read_house_new(User)
 		total = list(datas)
 		total = total + home_car_elevator
-		blockchain_restapi.modify_home(total)
+		res = blockchain_restapi.modify_home(total)
+		print("modify_home : ", res)
 		return redirect('/rooms')
 
 	return render_template("modify_car_elevator.html",
@@ -904,7 +916,8 @@ def modify_start_petsitter():
 
 		User = session['email']
 		modify_petsitter_info = [User, Nickname, Cost_Large, Cost_Medium, Cost_Small, Start_Date, End_Date, Except_Date, Count_Total, Count_Large, Count_Medium, Count_Small, Home_Name, Home_Intro]
-		blockchain_restapi.modify_petsitter(modify_petsitter_info)
+		res = blockchain_restapi.modify_petsitter(modify_petsitter_info)
+		print("modify_petsitter : ", res)
 
 		return redirect('/petsitter')
 
@@ -926,6 +939,7 @@ def rooms():
 	if(check_room[0][0] != '0'):
 		try:
 			res_house = blockchain_restapi.read_house(User)
+			print("read_house", res_house)
 			res_house = json.loads(res_house)
 			print(res_house)
 			b = res_house['result']['message']
@@ -996,6 +1010,7 @@ def pesitter():
 	if Check_AP[0][0]=='1':
 		try:
 			a = blockchain_restapi.read_petsitter(User)
+			print("read_petsitter : ", a)
 			a = json.loads(a)
 			b = a['result']['message']
 			c = json.loads(b, object_pairs_hook=OrderedDict)
@@ -1021,7 +1036,8 @@ def pesitter():
 def payments_list():
 	if not 'email' in session:
 		return redirect('/')
-
+	get = None
+	check = 0
 	if request.method == 'POST':
 		# save payments result
 
@@ -1030,7 +1046,7 @@ def payments_list():
 		# global count
 		# global total_charge
 
-		print("user: ", )
+
 
 		User = session['email']
 
@@ -1044,22 +1060,30 @@ def payments_list():
 		a = time.localtime()
 		date = str(a.tm_year) +"_" +str(a.tm_mon)+ "_" +str(a.tm_mday) + " "+str(a.tm_hour)+":"+str(a.tm_min)+":"+str(a.tm_sec)
 
+
 		a = blockchain_restapi.read_petsitter(db_petsitter[save_int_count][1])
+    print("payments/ing -> read_petsitter", a)
+
 		a = json.loads(a)
 		b = a['result']['message']
 		c = json.loads(b, object_pairs_hook=OrderedDict)
 		petsitter_nickname = [list(c.values())]
-		print("petsitter_nickname :",petsitter_nickname[0][1])
+		print(petsitter_nickname)
+		print("petsitter_nickname :",petsitter_nickname[0][0])
 
 		# function.Save_tran(PETSITTERS[count][0], petsitter_nickname[0][1], User, USER_SEARCH[4], USER_SEARCH[5], date, str(total_charge), '\0')
 		#
 		# result = function.Search_tran(User)
+
 		save_tran_info = [db_petsitter[save_int_count][1], petsitter_nickname[0][0], User, USER_SEARCH[4], USER_SEARCH[5], date, str(total_charge), '\0']
-		blockchain_restapi.save_tran(save_tran_info)
+		res = blockchain_restapi.save_tran(save_tran_info)
+    print("payments/ing", res)
+
 
 		# Hyojung
 		try:
 			a = blockchain_restapi.search_tran(User)
+			print("payments/ing -> search_tran", a)
 			a = json.loads(a)
 			b = a['result']['message']
 			c = json.loads(b, object_pairs_hook=OrderedDict)
@@ -1072,21 +1096,22 @@ def payments_list():
 							session='OK',
 							result_list = result)
 
-	try:
-		User = session['email']
-		# get = function.Search_tran(User)
-		a = blockchain_restapi.search_tran(User)
+
+
+	User = session['email']
+	print("User : ", User)
+	# get = function.Search_tran(User)
+	a = blockchain_restapi.search_tran(User)
+	print("payments/ing -> search_tran", a)
+	print("search_tran", a)
+	if 'result' in a:
 		a = json.loads(a)
-		b = a['result']['message']
-		c = json.loads(b, object_pairs_hook=OrderedDict)
-		get = [list(c.values())]
-	except:
-		get = 'loading'
+		get = a['result']['message']
+	else:
+		get = 'None'
 
-	if get == 'loading':
-		temp = 'loading'
+	if get != 'None':
 
-	elif get != 'None':
 
 		tm = time.localtime()
 		mon = format(tm.tm_mon,'02')
@@ -1096,7 +1121,10 @@ def payments_list():
 		temp = []
 		check = 0
 		print("get: ", get)
-		for i in get:
+		c = get.split('&')
+		c.pop(-1)
+		for d in c:
+			i = d.split(',')
 			# print("i:" ,i)
 			checkin = i[4]
 			checkout = i[5]
@@ -1110,6 +1138,7 @@ def payments_list():
 
 	else:
 		temp = 'None'
+
 
 	home_enroll = function.Check_citycode(session['email'])
 	pet_enroll = function.Check_npet(session['email'])
@@ -1131,10 +1160,12 @@ def complete_list():
 	User = session['email']
 	# get = function.Search_tran(User)
 	a = blockchain_restapi.search_tran(User)
-	a = json.loads(a)
-	b = a['result']['message']
-	c = json.loads(b, object_pairs_hook=OrderedDict)
-	get = [list(c.values())]
+	print("payments/complete -> search_tran",a)
+	if 'result' in a:
+		a = json.loads(a)
+		get = a['result']['message']
+	else:
+		get = 'None'
 
 	if get != 'None':
 
@@ -1145,10 +1176,15 @@ def complete_list():
 
 		temp = []
 		check = 0
-		for i in get:
+		print("get: ", get)
+		c = get.split('&')
+		c.pop(-1)
+		for d in c:
+			i = d.split(',')
+			# print("i:" ,i)
 			checkin = i[4]
 			checkout = i[5]
-			if today>=checkout:
+			if today<=checkout:
 				temp.append(i)
 				check += 1
 				if check == 3:
@@ -1158,6 +1194,8 @@ def complete_list():
 
 	else:
 		temp = 'None'
+
+
 
 
 	home_enroll = function.Check_citycode(session['email'])
@@ -1180,8 +1218,8 @@ def remove_petsitter():
 		return redirect('/')
 	if request.method == 'POST':
 		User = session['email']
-		blockchain_restapi.delete_petsitter(User)
-
+		res = blockchain_restapi.delete_petsitter(User)
+		print("delete_petsitter : ", res)
 		function.Decrease_AP(User)
 
 	return render_template("remove.html",
@@ -1196,8 +1234,8 @@ def remove_house():
 
 	if request.method == 'POST':
 		User = session['email']
-		blockchain_restapi.delete_house(User)
-
+		res = blockchain_restapi.delete_house(User)
+		print("delete_house : ", res)
 		function.Decrease_Citycode(User)
 
 	return render_template("remove.html",
