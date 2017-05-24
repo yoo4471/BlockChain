@@ -1021,7 +1021,6 @@ def payments_list():
 	except:
 		get = 'loading'
 
-	check = 0
 	if get == 'loading':
 		temp = 'loading'
 
@@ -1044,11 +1043,10 @@ def payments_list():
 				check += 1
 				if check == 3:
 					break
+		if check == 0:
+			temp = 'None'
 
 	else:
-		temp = 'None'
-
-	if check == 0:
 		temp = 'None'
 
 	home_enroll = function.Check_citycode(session['email'])
@@ -1093,12 +1091,12 @@ def complete_list():
 				check += 1
 				if check == 3:
 					break
+		if check == 0:
+			temp = 'None'
 
 	else:
 		temp = 'None'
 
-	if check == 0:
-		temp = 'None'
 
 	home_enroll = function.Check_citycode(session['email'])
 	pet_enroll = function.Check_npet(session['email'])
