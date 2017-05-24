@@ -18,10 +18,10 @@ app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 # app.secret_key = os.urandom(24)
 
 # index view function suppressed for brevity
-PETSITTERS = ''
-USER_SEARCH = ''
-count = 0 #
-total_charge = 0
+# PETSITTERS = ''
+# USER_SEARCH = ''
+# count = 0 #
+# total_charge = 0
 
 @app.route('/getChaincode')
 def getChaincode():
