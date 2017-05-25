@@ -402,9 +402,9 @@ def detail(petsitter):
 
     db_user_search = new.Read_user_search(session['email'])
 
-    cost_small = int(detail_about_petsitter[0][1]) * db_user_search[0][2]
+    cost_small = int(detail_about_petsitter[0][3]) * db_user_search[0][2]
     cost_medium = int(detail_about_petsitter[0][2]) * db_user_search[0][3]
-    cost_large = int(detail_about_petsitter[0][3]) * db_user_search[0][4]
+    cost_large = int(detail_about_petsitter[0][1]) * db_user_search[0][4]
     # cost_small = int(detail_about_petsitter[0][1]) * USER_SEARCH[1]
     # cost_medium = int(detail_about_petsitter[0][2]) * USER_SEARCH[2]
     # cost_large = int(detail_about_petsitter[0][3]) * USER_SEARCH[3]
