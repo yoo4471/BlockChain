@@ -11,7 +11,7 @@ enrollId = 'user_type1_4'
 enrollSecret = '4a238b38ec'
 secureContext = enrollId
 
-#login
+#logina
 def login():
    try:
 	  url = blockchain_ibm + '/registrar'
